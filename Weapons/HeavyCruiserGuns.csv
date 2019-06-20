@@ -1,0 +1,23 @@
+WEAPON NAME,FIREPOWER,ANTIAIR,DAMAGE,COEFFICIENT,AMMO,DMGTOL,DMGTOM,DMGTOH
+"Triple 203mm (8""/55 caliber gun) - 1 Star",5,0,28,1.05,Normal,1,0.9,0.5
+"Triple 203mm (8""/55 caliber gun) - 2 Star",5,0,30,1.05,Normal,1,0.9,0.5
+"Triple 203mm (8""/55 caliber gun) - 3 Star",12,0,39,1.05,HE,1.35,0.95,0.7
+"Triple 203mm (8""/55 Mk 15) - 2 Star",5,0,30,1.05,Normal,1,0.9,0.5
+"Triple 203mm (8""/55 Mk 15) - 3 Star",12,0,40,1.05,HE,1.35,0.95,0.7
+"Triple 203mm (8""/55 Mk 15) - 4 Star",25,0,52,1.05,HE,1.35,0.95,0.7
+Triple 203mm Prototype (Mle 1934),42,0,52,1.3,HE,1.35,0.95,0.7
+Triple 203mm Prototype (SK C/34),45,0,50,1.1,AP,0.75,1.1,0.75
+Triple 283mm (SK C/28) - 2 Star,5,0,36,1.1,AP,0.75,1.1,0.75
+Triple 283mm (SK C/28) - 3 Star,12,0,44,1.1,AP,0.75,1.1,0.75
+Triple 283mm (SK C/28) - 4 Star,25,0,55,1.1,AP,0.75,1.1,0.75
+Triple 310mm (Type 0 Prototype),45,0,56,1.1,HE+,1.4,1.1,0.7
+Twin 203mm (3rd Year Type) - 2 Star,5,0,28,1.1,Normal,1,0.9,0.5
+Twin 203mm (3rd Year Type) - 3 Star,12,0,36,1.1,HE,1.35,0.95,0.7
+Twin 203mm (3rd Year Type) - 4 Star,25,0,46,1.1,HE,1.35,0.95,0.7
+"Twin 203mm (BL 8"" Mk VIII) - 2 Star",5,0,30,1.1,Normal,1,0.9,0.5
+"Twin 203mm (BL 8"" Mk VIII) - 3 Star",12,0,38,1.1,AP,0.75,1.1,0.75
+"Twin 203mm (BL 8"" Mk VIII) - 4 Star",25,0,48,1.1,AP,0.75,1.1,0.75
+Twin 203mm (SK C/34) - 3 Star,12,0,37,1.1,AP,0.75,1.1,0.75
+Twin 203mm (SK C/34) - 4 Star,25,0,47,1.1,AP,0.75,1.1,0.75
+Twin 203mm (SK C/34) - 5 Star,45,0,50,1.1,AP,0.75,1.1,0.75
+Twin 203mm Prototype (No. 3),45,0,48,1.1,HE,1.35,0.95,0.7

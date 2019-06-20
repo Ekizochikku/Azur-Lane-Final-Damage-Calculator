@@ -1,0 +1,44 @@
+WEAPON NAME,FIREPOWER,ANTIAIR,DAMAGE,COEFFICIENT,AMMO,DMGTOL,DMGTOM,DMGTOH
+Quadruple 330mm (Mle 1931) - 2 Star,5,0,49,1,AP,0.45,1.3,1.1
+Quadruple 330mm (Mle 1931) - 3 Star,12,0,69,1,AP,0.45,1.3,1.1
+Quadruple 330mm (Mle 1931) - 4 Star,25,0,102,1,AP,0.45,1.3,1.1
+"Quadruple 356mm (BL 14"" Mk VII) - 3 Star",12,0,70,1,Normal,0.7,1,0.9
+"Quadruple 356mm (BL 14"" Mk VII) - 4 Star",25,0,99,1,HE,1.4,1.1,0.9
+"Quadruple 356mm (BL 14"" Mk VII) - 5 Star",45,0,108,1,HE,1.4,1.1,0.9
+Quadruple 380mm (Mle 1935) - 3 Star,12,0,76,1,HE,1.4,1.1,0.9
+Quadruple 380mm (Mle 1935) - 4 Star,25,0,110,1,HE,1.4,1.1,0.9
+Quadruple 380mm (Mle 1935) - 5 Star,45,0,120,1,HE,1.4,1.1,0.9
+Triple 283mm (SK C/34) - 2 Star,5,0,46,1.05,Normal,0.7,1,0.9
+Triple 283mm (SK C/34) - 3 Star,12,0,64,1.05,Normal,0.7,1,0.9
+Triple 283mm (SK C/34) - 4 Star,25,0,88,1.05,Normal,0.7,1,0.9
+"Triple 356mm (14""/50 Caliber Gun) - 1 Star",5,0,56,1.05,Normal,0.7,1,0.9
+"Triple 356mm (14""/50 Caliber Gun) - 2 Star",5,0,61,1.05,HE,1.4,1.1,0.9
+"Triple 356mm (14""/50 Caliber Gun) - 3 Star",12,0,84,1.05,HE,1.4,1.1,0.9
+"Triple 381mm Prototype (BL 15"" Mk III)",45,NULL,142,1.05,HE,1.4,1.1,0.9
+"Triple 406mm (16""/45 ccaliber Mark 6) - 2 Star",5,0,74,1.05,Normal,0.7,1,0.9
+"Triple 406mm (16""/45 ccaliber Mark 6) - 3 Star",12,0,108,1.05,HE,1.4,1.1,0.9
+"Triple 406mm (16""/45 ccaliber Mark 6) - 4 Star",25,0,156,1.05,HE,1.4,1.1,0.9
+"Triple 406mm (BL 16"" MK I) - 3 Star",12,0,96,1.05,Normal,0.7,1,0.9
+"Triple 406mm (BL 16"" MK I) - 4 Star",25,0,141,1.05,Normal,0.7,1,0.9
+"Triple 406mm (BL 16"" MK I) - 5 Star",45,0,154,1.05,Normal,0.7,1,0.9
+Triple 410mm Prototype (10th Year Type),45,NULL,154,1.05,AP,0.45,1.3,1.1
+Twin 305mm (Type 41 12-inch),12,0,74,1.1,Normal,0.7,1,0.9
+Twin 356mm (41st Year Type) - 1 Star,0,0,56,1.1,Normal,0.7,1,0.9
+Twin 356mm (41st Year Type) - 2 Star,5,0,62,1.1,HE,1.4,1.1,0.9
+Twin 356mm (41st Year Type) - 3 Star,12,0,88,1.1,HE,1.4,1.1,0.9
+Twin 380mm (SK C/34) - 3 Star,12,0,86,1.1,Normal,0.7,1,0.9
+Twin 380mm (SK C/34) - 4 Star,25,0,122,1.1,AP,0.45,1.3,1.1
+Twin 380mm (SK C/34) - 5 Star,45,0,132,1.1,AP,0.45,1.3,1.1
+"Twin 381mm (BL 15"" Mk I) - 2 Star",5,0,64,1.1,Normal,0.7,1,0.9
+"Twin 381mm (BL 15"" Mk I) - 3 Star",12,0,90,1.1,AP,0.45,1.3,1.1
+"Twin 381mm (BL 15"" Mk I) - 4 Star",25,0,128,1.1,AP,0.45,1.3,1.1
+"Twin 381mm (BL 15"" Mk II)",45,0,133,1.1,HE,1.4,1.1,0.9
+"Twin 406mm (16""/45 caliber Mark 5) - 2 Star",5,0,72,1.1,Normal,0.7,1,0.9
+"Twin 406mm (16""/45 caliber Mark 5) - 3 Star",12,0,106,1.1,AP,0.45,1.3,1.1
+"Twin 406mm (16""/45 caliber Mark 5) - 4 Star",25,0,154,1.1,AP,0.45,1.3,1.1
+Twin 406mm (L/52 Drh LC/34 Prototype),45,NULL,154,1.1,HE,1.4,1.1,0.9
+Twin 410mm (3rd Year Type) - 2 Star,5,0,72,1.1,Normal,0.7,1,0.9
+Twin 410mm (3rd Year Type) - 3 Star,12,0,106,1.1,HE,1.4,1.1,0.9
+Twin 410mm (3rd Year Type) - 4 Star,25,0,154,1.1,HE,1.4,1.1,0.9
+Twin 410mm (Type 3 Shell),25,25,22,1.1,Sanshikidan,1,1,1
+Twin 457mm (Mark A Prototype),65,NULL,207,1.05,AP+,0.55,1.45,1.25
