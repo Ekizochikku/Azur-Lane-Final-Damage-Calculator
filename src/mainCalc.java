@@ -2,6 +2,10 @@
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -9,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
@@ -38,18 +43,41 @@ public class mainCalc extends JFrame {
 			}
 		});
 	}
-
 	/**
-	 * Create the frame.
+	 * A test method to get all the battle cruiser names onto the jcombo box
+	 * Need help specifying which names for which ships
+	 * @author Kevin Nguyen
+	 * @param listShips The first button for the ship names
+	 * @throws FileNotFoundException
+	 * @throws IOException
 	 */
-	public mainCalc() {
+	@SuppressWarnings("unchecked")
+	public static void insertNames(JComboBox listShips, String shipType) throws FileNotFoundException, IOException {
+		ArrayList<String> shipUse; 
+		GUIutil shipList;
+		shipList = new GUIutil();
+		shipUse = shipList.getShipList(shipType);
+		
+		listShips.setModel(new DefaultComboBoxModel(shipUse.toArray()));
+	}
+	
+	/*
+	 * @author: Kevin Nguyen (kvn96)
+	 * creating the gui design with the proper buttons
+	 */
+	public mainCalc() throws FileNotFoundException, IOException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 750, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
+		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
+		
+		
 		JComboBox shipName = new JComboBox();
+		insertNames(shipName, "DD");
+		
 		JComboBox weaponNames = new JComboBox();
 		
 		JComboBox shipList = new JComboBox();
@@ -83,12 +111,9 @@ public class mainCalc extends JFrame {
 		
 		JLabel lblAmmoType = new JLabel("Ammo Type");
 		
-	
-		
 		/*
-		 * @author: Kevin Nguyen (kvn96)
-		 * creating the gui design with the proper buttons
-		 */
+		*The gui components, this will be in it's own class later.
+		*/
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -101,18 +126,18 @@ public class mainCalc extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(shipName, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponType, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+								.addComponent(shipName, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+								.addComponent(weaponType, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(weaponNames, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(shipList, Alignment.TRAILING, 0, 60, Short.MAX_VALUE))
+								.addComponent(shipList, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 									.addPreferredGap(ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-									.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))
+									.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 									.addComponent(lblAmmoType)
 									.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))))
