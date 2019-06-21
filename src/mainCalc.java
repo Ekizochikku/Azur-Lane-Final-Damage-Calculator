@@ -76,7 +76,7 @@ public class mainCalc extends JFrame {
 		
 		
 		JComboBox shipName = new JComboBox();
-		insertNames(shipName, "DD");
+		insertNames(shipName, "BB");
 		
 		JComboBox weaponNames = new JComboBox();
 		
