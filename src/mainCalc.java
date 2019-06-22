@@ -44,22 +44,33 @@ public class mainCalc extends JFrame {
 		});
 	}
 	/**
-	 * A test method to get all the battle cruiser names onto the jcombo box
+	 * A test method to get all the ship names onto the jcombo box
 	 * Need help specifying which names for which ships
 	 * @author Kevin Nguyen
-	 * @param listShips The first button for the ship names
+	 * @param comboBox The first button for the ship/weapon names
+	 * @param isShip a boolean variable to determine if we're getting the ship or weapon names
+	 * @param theType string that's passed into the getWeaponList method and gets the list of names from csv
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
 	@SuppressWarnings("unchecked")
-	public static void insertNames(JComboBox listShips, String shipType) throws FileNotFoundException, IOException {
-		ArrayList<String> shipUse; 
-		GUIutil shipList;
-		shipList = new GUIutil();
-		shipUse = shipList.getShipList(shipType);
+	public static void insertNames(JComboBox comboBox,boolean isShip, String theType) throws FileNotFoundException, IOException {
+		ArrayList<String> initialUserChoice = null; 
+		GUIutil theList;
+		theList = new GUIutil();
+		//true = we're getting a ship name, false is a weapon
+		if(isShip) {
+			initialUserChoice = theList.getShipList(theType);
+		} else {
+			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
+			//Remember to uncomment this
+			//initialUserChoice = theList.getWeaponList(theType);
+		}
 		
-		listShips.setModel(new DefaultComboBoxModel(shipUse.toArray()));
+		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
 	}
+	
+	
 	
 	/*
 	 * @author: Kevin Nguyen (kvn96)
@@ -76,7 +87,8 @@ public class mainCalc extends JFrame {
 		
 		
 		JComboBox shipName = new JComboBox();
-		insertNames(shipName, "BB");
+		//testing the first button. 
+		insertNames(shipName, true,  "BB");
 		
 		JComboBox weaponNames = new JComboBox();
 		
