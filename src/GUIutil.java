@@ -1,6 +1,4 @@
-/*
- * Methods for the GUI to call. 
- */
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,15 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /*
- * @author: Brian Khang (Ekizochikku)
- * Determines which ship list needs to be opened and read.
+ * Methods for the GUI to call. 
  */
 public class GUIutil {
 	
-	private String shipFile;
-	private ArrayList<String> shipList;
-
+	/*
+	 * @author: Brian Khang (Ekizochikku)
+	 * Determines which ship file needs to be opened and read.
+	 */
 	public ArrayList<String> getShipList(String shiptype) throws FileNotFoundException, IOException {
+		String shipFile = "";
+		ArrayList<String> shipList = new ArrayList<String>();
 		switch (shiptype) {
 			case "DD":
 				shipFile = "./Ship Files/Destroyers.csv";
@@ -51,24 +51,51 @@ public class GUIutil {
 				break;
 		}
 		
-		shipList = getShipNames(shipFile);
+		shipList = getEntityNames(shipFile);
 		return shipList;
 	}
 	
 	/*
-	 * @author Brian Khang (Ekizochikku)
-	 * Returns an array list containing the ship names.
+	 * @author: Brian Khang (Ekizochikku)
+	 * Determines which weapon file needs to be opened and read.
 	 */
-	public ArrayList<String> getShipNames(String shipFile) throws FileNotFoundException, IOException {
-		ArrayList<String> theShipList = new ArrayList<String>();
-		BufferedReader br = new BufferedReader(new FileReader(shipFile));
+	public ArrayList<String> getWeaponList(String weptype) throws FileNotFoundException, IOException {
+		String wepFile = "";
+		ArrayList<String> wepList = new ArrayList<String>();
+		switch (weptype) {
+			case "DDGUNS":
+				wepFile = "./Weapons/DestroyerGuns.csv";
+				break;
+			case "CLGUNS":
+				wepFile = "./Weapons/Light Cruisers Guns.csv";
+				break;
+			case "CAGUNS":
+				wepFile = "./Weapons/HeavyCruiserGuns.csv";
+				break;
+			case "BBGUNS":
+				wepFile = "./Weapons/BattleshipGuns.csv";
+				break;
+			case "TORPEDOS":
+				wepFile = "./Weapons/Torpedos.csv";
+				break;
+		}
+		wepList = getEntityNames(wepFile);
+		return wepList;
+	}
+	/*
+	 * @author Brian Khang (Ekizochikku)
+	 * Returns an array list containing the names of ships/weapons
+	 */
+	public ArrayList<String> getEntityNames(String theFile) throws FileNotFoundException, IOException {
+		ArrayList<String> theList = new ArrayList<String>();
+		BufferedReader br = new BufferedReader(new FileReader(theFile));
 		String line = br.readLine(); //Skip the Header Line
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split(",");
-			theShipList.add(fields[0]);
+			theList.add(fields[0]);
 		}
 		br.close();
-		return theShipList;
+		return theList;
 	}
 	
 }
