@@ -16,8 +16,29 @@ public class GUIutil {
 	 * Determines which ship file needs to be opened and read.
 	 */
 	public ArrayList<String> getShipList(String shiptype) throws FileNotFoundException, IOException {
-		String shipFile = "";
+		String shipFile = checkShipFile(shiptype);
 		ArrayList<String> shipList = new ArrayList<String>();
+		shipList = getEntityNames(shipFile);
+		return shipList;
+	}
+	
+	/*
+	 * @author: Brian Khang (Ekizochikku)
+	 * Determines which weapon file needs to be opened and read.
+	 */
+	public ArrayList<String> getWeaponList(String weptype) throws FileNotFoundException, IOException {
+		String wepFile = checkWepFile(weptype);
+		ArrayList<String> wepList = new ArrayList<String>();
+		wepList = getEntityNames(wepFile);
+		return wepList;
+	}
+	
+	/*
+	 * @author Brian Khang (Ekizochikku)
+	 * Check which file needs to be opened for ships.
+	 */
+	public String checkShipFile(String shiptype) {
+		String shipFile = "";
 		switch (shiptype) {
 			case "DD":
 				shipFile = "./Ship Files/Destroyers.csv";
@@ -50,18 +71,15 @@ public class GUIutil {
 				shipFile = "./Ship Files/Carriers.csv";
 				break;
 		}
-		
-		shipList = getEntityNames(shipFile);
-		return shipList;
+		return shipFile;
 	}
 	
 	/*
-	 * @author: Brian Khang (Ekizochikku)
-	 * Determines which weapon file needs to be opened and read.
+	 * @author Brian Khang (Ekizochikku)
+	 * Checks which weapon file to open.
 	 */
-	public ArrayList<String> getWeaponList(String weptype) throws FileNotFoundException, IOException {
+	public String checkWepFile(String weptype) {
 		String wepFile = "";
-		ArrayList<String> wepList = new ArrayList<String>();
 		switch (weptype) {
 			case "DDGUNS":
 				wepFile = "./Weapons/DestroyerGuns.csv";
@@ -79,9 +97,9 @@ public class GUIutil {
 				wepFile = "./Weapons/Torpedos.csv";
 				break;
 		}
-		wepList = getEntityNames(wepFile);
-		return wepList;
+		return wepFile;
 	}
+	
 	/*
 	 * @author Brian Khang (Ekizochikku)
 	 * Returns an array list containing the names of ships/weapons
