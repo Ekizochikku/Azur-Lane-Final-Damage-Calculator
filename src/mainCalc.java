@@ -115,7 +115,9 @@ public class mainCalc extends JFrame {
 		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
 		
 		//why can't this be a local variable?
+		//because it can't be used in actionPerformed if just a local variable
 		shipName = new JComboBox();
+		insertNames(shipName,true, currentShipType);
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentShipName = (String) shipName.getSelectedItem();
@@ -143,19 +145,13 @@ public class mainCalc extends JFrame {
 			}
 		});
 		weaponNames = new JComboBox();
+		insertNames(weaponNames, false, currentWeaponType);
 		weaponNames.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponName = (String) weaponNames.getSelectedItem();
 //				System.out.println(currentShipName);
 			}
 		});
-		
-		
-		
-
-		
-		
-		
 		
 		JComboBox currentWorld = new JComboBox();
 		
