@@ -29,9 +29,10 @@ import javax.swing.JTextArea;
 public class mainCalc extends JFrame {
 
 	private JPanel contentPane;
-	private JComboBox shipName;
 	private JComboBox shipType;
+	private JComboBox shipName;
 	private String currentShipType;
+	private String currentShipName;
 
 	/**
 	 * Launch the application.
@@ -69,7 +70,7 @@ public class mainCalc extends JFrame {
 		} else {
 			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
 			//Remember to uncomment this
-			//initialUserChoice = theList.getWeaponList(theType);
+			initialUserChoice = theList.getWeaponList(theType);
 		}
 		
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
@@ -87,7 +88,6 @@ public class mainCalc extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		GUIutil guiFunctions = new GUIutil();
 		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "CVL", "CV"};
 		shipType = new JComboBox(shipTypeList);
 		shipType.setMaximumRowCount(10);
@@ -96,38 +96,34 @@ public class mainCalc extends JFrame {
 		shipType.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
-			try {
-				ArrayList<String> shipClass = guiFunctions.getShipList(currentShipType);
-				shipName.removeAllItems();
-				for (String s: shipClass) {
-					shipName.addItem(s);
+				try {
+					currentShipType = (String) shipType.getSelectedItem();
+					insertNames(shipName, true, currentShipType);
+					currentShipName = (String) shipName.getSelectedItem();
+//					System.out.println(currentShipName);
+				} catch (IOException e) {
+					e.printStackTrace();
 				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			}
 		});
-		Object[] shipNames = {};
-		try {
-			shipNames = guiFunctions.getShipList(currentShipType).toArray();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		shipName = new JComboBox(shipNames);
 		JComboBox comboBox_2 = new JComboBox();
 		
 		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
 		
 		
-		JComboBox shipName = new JComboBox();
+		shipName = new JComboBox();
+		shipName.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				currentShipName = (String) shipName.getSelectedItem();
+//				System.out.println(currentShipName);
+			}
+		});
 		//testing the first button. 
-		insertNames(shipName, true,  "BB");
+		insertNames(shipName, true,  currentShipType);
+		currentShipName = (String) shipName.getSelectedItem();
 		
 		JComboBox weaponNames = new JComboBox();
 		
-		JComboBox shipList = new JComboBox();
 		JComboBox weaponType = new JComboBox();
 		JComboBox currentWorld = new JComboBox();
 		
@@ -179,12 +175,12 @@ public class mainCalc extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(shipName, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+								.addComponent(shipType, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
 								.addComponent(weaponType, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(weaponNames, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(shipList, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
+								.addComponent(shipName, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_contentPane.createSequentialGroup()
@@ -197,18 +193,6 @@ public class mainCalc extends JFrame {
 						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(isCritical)
-								.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(bulletType1)
-								.addGap(18)
-								.addComponent(bulletType2)
-								.addGap(28))
-							.addGroup(gl_contentPane.createSequentialGroup()
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(shipName, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(shipType, Alignment.LEADING, 0, 60, Short.MAX_VALUE))
-								.addPreferredGap(ComponentPlacement.UNRELATED)
-								.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(279, Short.MAX_VALUE)))))
 								.addComponent(isFirstSalvo))
 							.addPreferredGap(ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
 							.addComponent(bulletType1)
@@ -220,16 +204,9 @@ public class mainCalc extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(shipType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(shipType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-					.addComponent(isFirstSalvo)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(shipList, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
