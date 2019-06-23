@@ -1,0 +1,95 @@
+Light Cruiers WEP1:
+0 = DD GUNS
+1 = CL GUNS
+2 = DD/CL GUNS
+Light Cruisers WEP2:
+0 = TORPEDOS
+1 = DD GUNS
+2 = CL GUNS
+3 = AA GUNS
+4 = DD/CL GUNS
+5 = CL/AA GUN
+Heavy Cruisers WEP1:
+0 = CA GUNS
+1 = CL GUNS
+2 = CA/CL GUNS
+Heavy Cruisers WEP2:
+0 = TORPEDOS
+1 = DD GUNS
+2 = CL GUNS
+3 = AA GUNS
+4 = DD/CL GUNS
+5 = CL/AA GUNS
+Large Cruisers WEP1:
+0 = CB GUNS
+1 = CA GUNS
+2 = CB/CA GUNS
+Largue Cruisers WEP2:
+0 = DD GUNS
+1 = CL GUNS
+2 = AA GUNS
+Battlecruisers WEP1:
+0 = BB GUNS
+Battlecruiers WEP2:
+0 = DD GUNS
+1 = CL GUNS
+2 = DD/CL GUNS
+Battleship WEP1:
+0 = BB GUNS
+Battleship WEP2:
+0 = DD GUNS
+1 = CL GUNS
+2 = DD/CL GUNS
+Aviation Battleship WEP1:
+0 = BB GUNS
+Aviation Battleship WEP2:
+0 = SEAPLANE
+Monitors WEP1:
+0 = BB GUNS
+Monitors WEP2:
+0 = DD GUNS
+Light Aircraft Carrier WEP1:
+0 = FIGHT PLANE
+1 = BOMBER PLANE
+2 = TORPEDO PLANE
+3 = SEAPLANE
+4 = AA GUNS
+5 = CL GUNS
+Light Aircraft Carrier WEP2:
+0 = FIGHT PLANE
+1 = BOMBER PLANE
+2 = TORPEDO PLANE
+3 = SEAPLANE
+4 = AA GUNS
+5 = CL GUNS
+Light Aircraft Carrier WEP3:
+0 = FIGHT PLANE
+1 = BOMBER PLANE
+2 = TORPEDO PLANE
+3 = SEAPLANE
+4 = AA GUNS
+5 = CL GUNS
+Aircraft Carrier WEP1:
+0 = FIGHT PLANE
+1 = BOMBER PLANE
+2 = TORPEDO PLANE
+3 = SEAPLANE
+4 = AA GUNS
+5 = CL GUNS
+Aircraft Carrier WEP2:
+0 = FIGHT PLANE
+1 = BOMBER PLANE
+2 = TORPEDO PLANE
+3 = SEAPLANE
+4 = AA GUNS
+5 = CL GUNS
+Aircraft Carrier WEP3:
+0 = FIGHT PLANE
+1 = BOMBER PLANE
+2 = TORPEDO PLANE
+3 = SEAPLANE
+4 = AA GUNS
+5 = CL GUNS
+6 = BOMER PLANE/CL GUNS
+
+

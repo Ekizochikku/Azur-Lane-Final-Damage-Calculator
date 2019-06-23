@@ -1,7 +1,7 @@
-
-
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +27,10 @@ import javax.swing.JTextArea;
 public class mainCalc extends JFrame {
 
 	private JPanel contentPane;
+	private JComboBox shipType;
+	private JComboBox shipName;
+	private String currentShipType;
+	private String currentShipName;
 
 	/**
 	 * Launch the application.
@@ -64,7 +68,7 @@ public class mainCalc extends JFrame {
 		} else {
 			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
 			//Remember to uncomment this
-			//initialUserChoice = theList.getWeaponList(theType);
+			initialUserChoice = theList.getWeaponList(theType);
 		}
 		
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
@@ -82,17 +86,42 @@ public class mainCalc extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "CVL", "CV"};
+		shipType = new JComboBox(shipTypeList);
+		shipType.setMaximumRowCount(10);
+		shipType.setSelectedIndex(0);
+		currentShipType = (String) shipType.getSelectedItem();
+		shipType.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+//				System.out.println("This is a test");
+				try {
+					currentShipType = (String) shipType.getSelectedItem();
+					insertNames(shipName, true, currentShipType);
+					currentShipName = (String) shipName.getSelectedItem();
+//					System.out.println(currentShipName);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		JComboBox comboBox_2 = new JComboBox();
 		
 		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
 		
 		
-		JComboBox shipName = new JComboBox();
+		shipName = new JComboBox();
+		shipName.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				currentShipName = (String) shipName.getSelectedItem();
+//				System.out.println(currentShipName);
+			}
+		});
 		//testing the first button. 
-		insertNames(shipName, true,  "BB");
+		insertNames(shipName, true,  currentShipType);
+		currentShipName = (String) shipName.getSelectedItem();
 		
 		JComboBox weaponNames = new JComboBox();
 		
-		JComboBox shipList = new JComboBox();
 		JComboBox weaponType = new JComboBox();
 		JComboBox currentWorld = new JComboBox();
 		
@@ -120,6 +149,12 @@ public class mainCalc extends JFrame {
 		* or have the calculated damage number appear on the right side
 		*/
 		JButton calculateButton = new JButton("Calculate");
+		calculateButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//Calculate Data
+			}
+		});
+			
 		
 		JLabel lblAmmoType = new JLabel("Ammo Type");
 		
@@ -138,12 +173,12 @@ public class mainCalc extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(shipName, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+								.addComponent(shipType, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
 								.addComponent(weaponType, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(weaponNames, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(shipList, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
+								.addComponent(shipName, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 								.addGroup(gl_contentPane.createSequentialGroup()
@@ -168,8 +203,8 @@ public class mainCalc extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(shipType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(shipList, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
