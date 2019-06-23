@@ -31,7 +31,11 @@ public class mainCalc extends JFrame {
 	private JComboBox shipName;
 	private String currentShipType;
 	private String currentShipName;
-
+	
+	private JComboBox weaponType;
+	private JComboBox weaponNames;
+	private String currentWeaponType;
+	private String currentWeaponName;
 	/**
 	 * Launch the application.
 	 */
@@ -48,12 +52,12 @@ public class mainCalc extends JFrame {
 		});
 	}
 	/**
-	 * A test method to get all the ship names onto the jcombo box
+	 * A method to get all the ship names onto the jcombo box
 	 * Need help specifying which names for which ships
 	 * @author Kevin Nguyen
 	 * @param comboBox The first button for the ship/weapon names
 	 * @param isShip a boolean variable to determine if we're getting the ship or weapon names
-	 * @param theType string that's passed into the getWeaponList method and gets the list of names from csv
+	 * @param theType string that's passed into the getWeaponList/getShipList method and gets the list of names from csv
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
@@ -77,7 +81,7 @@ public class mainCalc extends JFrame {
 	
 	
 	/*
-	 * @author: Kevin Nguyen (kvn96)
+	 * @author: Kevin Nguyen (kvn96) action listeners for ships by Walter
 	 * creating the gui design with the proper buttons
 	 */
 	public mainCalc() throws FileNotFoundException, IOException {
@@ -86,6 +90,8 @@ public class mainCalc extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
+		//We're going to need to change these labels later into the actual names. 
+		
 		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "CVL", "CV"};
 		shipType = new JComboBox(shipTypeList);
 		shipType.setMaximumRowCount(10);
@@ -108,7 +114,7 @@ public class mainCalc extends JFrame {
 		
 		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
 		
-		
+		//why can't this be a local variable?
 		shipName = new JComboBox();
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -116,13 +122,41 @@ public class mainCalc extends JFrame {
 //				System.out.println(currentShipName);
 			}
 		});
-		//testing the first button. 
-		insertNames(shipName, true,  currentShipType);
-		currentShipName = (String) shipName.getSelectedItem();
 		
-		JComboBox weaponNames = new JComboBox();
+		//finished the action listener for weapons, copied from walter.
+		String[] weaponTypeList = {"DDGUNS", "CLGUNS", "CAGUNS", "BBGUNS","TORPEDOS"};
+		weaponType = new JComboBox(weaponTypeList);
+		weaponType.setMaximumRowCount(5);
+		weaponType.setSelectedIndex(0);
+		currentWeaponType = (String) weaponType.getSelectedItem();
+		weaponType.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+//				System.out.println("This is a test");
+				try {
+					currentWeaponType = (String) weaponType.getSelectedItem();
+					insertNames(weaponNames, false, currentWeaponType);
+					currentWeaponName = (String) weaponNames.getSelectedItem();
+//					System.out.println(currentShipName);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		weaponNames = new JComboBox();
+		weaponNames.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				currentWeaponName = (String) weaponNames.getSelectedItem();
+//				System.out.println(currentShipName);
+			}
+		});
 		
-		JComboBox weaponType = new JComboBox();
+		
+		
+
+		
+		
+		
+		
 		JComboBox currentWorld = new JComboBox();
 		
 		JComboBox enemyName = new JComboBox();
