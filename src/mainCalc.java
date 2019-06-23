@@ -14,10 +14,17 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JList;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.awt.event.ActionEvent;
 
 public class mainCalc extends JFrame {
 
 	private JPanel contentPane;
+	private JComboBox shipName;
+	private JComboBox shipType;
+	private String currentShipType;
 
 	/**
 	 * Launch the application.
@@ -44,10 +51,35 @@ public class mainCalc extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
-		JComboBox shipName = new JComboBox();
-		
-		JComboBox comboBox_1 = new JComboBox();
+		GUIutil guiFunctions = new GUIutil();
+		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "CVL", "CV"};
+		shipType = new JComboBox(shipTypeList);
+		shipType.setMaximumRowCount(10);
+		shipType.setSelectedIndex(0);
+		currentShipType = (String) shipType.getSelectedItem();
+		shipType.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+//				System.out.println("This is a test");
+			try {
+				ArrayList<String> shipClass = guiFunctions.getShipList(currentShipType);
+				shipName.removeAllItems();
+				for (String s: shipClass) {
+					shipName.addItem(s);
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			}
+		});
+		Object[] shipNames = {};
+		try {
+			shipNames = guiFunctions.getShipList(currentShipType).toArray();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		shipName = new JComboBox(shipNames);
 		JComboBox comboBox_2 = new JComboBox();
 		
 		//The checkbox button for the user to determine if it's a critical hit, and first salvo
@@ -70,6 +102,11 @@ public class mainCalc extends JFrame {
 		* or have the calculated damage number appear on the right side
 		*/
 		JButton calculateButton = new JButton("Calculate");
+		calculateButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//Calculate Data
+			}
+		});
 			
 		
 		
@@ -96,8 +133,8 @@ public class mainCalc extends JFrame {
 								.addGap(28))
 							.addGroup(gl_contentPane.createSequentialGroup()
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-									.addComponent(comboBox_1, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(shipName, Alignment.LEADING, 0, 60, Short.MAX_VALUE))
+									.addComponent(shipName, Alignment.LEADING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+									.addComponent(shipType, Alignment.LEADING, 0, 60, Short.MAX_VALUE))
 								.addPreferredGap(ComponentPlacement.UNRELATED)
 								.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
 								.addContainerGap(279, Short.MAX_VALUE)))))
@@ -106,10 +143,10 @@ public class mainCalc extends JFrame {
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
-					.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addComponent(shipType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(comboBox_2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
 					.addComponent(isFirstSalvo)
