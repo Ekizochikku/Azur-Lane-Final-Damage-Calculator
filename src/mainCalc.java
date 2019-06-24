@@ -36,6 +36,9 @@ public class mainCalc extends JFrame {
 	private JComboBox weaponNames;
 	private String currentWeaponType;
 	private String currentWeaponName;
+	private int currentDMGType = -1; //0 = HE, 1 = AP
+	private boolean firstSalvo = false;
+	private boolean critical = false;
 	/**
 	 * Launch the application.
 	 */
@@ -161,17 +164,38 @@ public class mainCalc extends JFrame {
 		
 		//The checkbox button for the user to determine if it's a critical hit, and first salvo
 		JCheckBox isCritical = new JCheckBox("Critical Hit");
+		isCritical.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				critical = !critical;
+//				System.out.println(critical);
+			}
+		});
 		JCheckBox isFirstSalvo = new JCheckBox("First Salvo");
-
-		
-		
-		//Button group for the weapon damage types
-		JRadioButton bulletType1 = new JRadioButton("HE");
-		JRadioButton bulletType2 = new JRadioButton("AP");
+		isFirstSalvo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstSalvo = !firstSalvo;
+//				System.out.println(firstSalvo);
+			}
+		});
+		//Button group for the weapon damage type
+		JRadioButton buttonHE = new JRadioButton("HE");
+		buttonHE.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentDMGType = 0;
+//				System.out.println(currentDMGType);
+			}
+		});
+		JRadioButton bulletAP = new JRadioButton("AP");
+		bulletAP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentDMGType = 1;
+//				System.out.println(currentDMGType);
+			}
+		});
 		
 		ButtonGroup group = new ButtonGroup();
-		group.add(bulletType1);
-		group.add(bulletType2);
+		group.add(buttonHE);
+		group.add(bulletAP);
 		
 		/*Button to determine final calculation
 		* For now does nothing as Subject to change 
@@ -223,9 +247,9 @@ public class mainCalc extends JFrame {
 								.addComponent(isCritical)
 								.addComponent(isFirstSalvo))
 							.addPreferredGap(ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-							.addComponent(bulletType1)
+							.addComponent(buttonHE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(bulletType2)))
+							.addComponent(bulletAP)))
 					.addGap(72))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -249,8 +273,8 @@ public class mainCalc extends JFrame {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(isCritical)
-						.addComponent(bulletType1)
-						.addComponent(bulletType2))
+						.addComponent(buttonHE)
+						.addComponent(bulletAP))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(calculateButton)
 					.addGap(20))
