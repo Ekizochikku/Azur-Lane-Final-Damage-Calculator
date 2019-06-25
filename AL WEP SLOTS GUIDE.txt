@@ -1,4 +1,4 @@
-Light Cruiers WEP1:
+Light Cruisers WEP1:
 0 = DD GUNS
 1 = CL GUNS
 2 = DD/CL GUNS
@@ -24,13 +24,13 @@ Large Cruisers WEP1:
 0 = CB GUNS
 1 = CA GUNS
 2 = CB/CA GUNS
-Largue Cruisers WEP2:
+Large Cruisers WEP2:
 0 = DD GUNS
 1 = CL GUNS
 2 = AA GUNS
 Battlecruisers WEP1:
 0 = BB GUNS
-Battlecruiers WEP2:
+Battlecruisers WEP2:
 0 = DD GUNS
 1 = CL GUNS
 2 = DD/CL GUNS
