@@ -123,6 +123,43 @@ public class GUIutil {
 	}
 	
 	/*
+	 * Returns a weapon's parameters
+	 */
+	public ArrayList<String> getWepParams(String weptype, String wepname) throws FileNotFoundException, IOException {
+		ArrayList<String> theParams = new ArrayList<String>();
+		String theFile = checkWepFile(weptype);
+		BufferedReader br = new BufferedReader(new FileReader(theFile));
+		String line = br.readLine(); //Skip Header Line
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			if (fields[0].equals(wepname)) {
+				for (int i = 0; i < fields.length; i++) {
+					theParams.add(fields[i]);
+				}
+			}
+			
+		}
+		br.close();
+		return theParams;
+	}
+	
+//	/*
+//	 * Check a ships weapon slots and see which weapons can be used
+//	 */
+//	public String checkWeaponSlot(String shipType, int slot, int wepnum) {
+//		String theWep = "";
+//		if (slot == 1) {
+//			theWep = checkSlotOneWeps(shipType, wepnum);
+//		} else if (slot == 2) {
+//			theWep = checkSlotTwoWeps(shipType, wepnum);
+//		} else {
+//			return null;
+//		}
+//		return theWep;
+//	}
+	
+	
+	/*
 	 * Returns an array list containing the names of ships/weapons
 	 */
 	public ArrayList<String> getEntityNames(String theFile) throws FileNotFoundException, IOException {
