@@ -34,8 +34,12 @@ public class mainCalc extends JFrame {
 	
 	private JComboBox weaponType;
 	private JComboBox weaponNames;
+	private JComboBox weaponSlot2;
 	private String currentWeaponType;
 	private String currentWeaponName;
+	private int currentDMGType = -1; //0 = HE, 1 = AP
+	private boolean firstSalvo = false;
+	private boolean critical = false;
 	/**
 	 * Launch the application.
 	 */
@@ -72,6 +76,7 @@ public class mainCalc extends JFrame {
 		} else {
 			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
 			//Remember to uncomment this
+			//theList.checkWeaponSlot(theType, 1);
 			initialUserChoice = theList.getWeaponList(theType);
 		}
 		
@@ -115,7 +120,9 @@ public class mainCalc extends JFrame {
 		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
 		
 		//why can't this be a local variable?
+		//because it can't be used in actionPerformed if just a local variable
 		shipName = new JComboBox();
+		insertNames(shipName,true, currentShipType);
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentShipName = (String) shipName.getSelectedItem();
@@ -135,6 +142,7 @@ public class mainCalc extends JFrame {
 				try {
 					currentWeaponType = (String) weaponType.getSelectedItem();
 					insertNames(weaponNames, false, currentWeaponType);
+					insertNames(weaponSlot2, false, currentWeaponType);
 					currentWeaponName = (String) weaponNames.getSelectedItem();
 //					System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -143,6 +151,8 @@ public class mainCalc extends JFrame {
 			}
 		});
 		weaponNames = new JComboBox();
+		//A second insertNames method for the initial scree
+		insertNames(weaponNames, false, currentWeaponType);
 		weaponNames.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponName = (String) weaponNames.getSelectedItem();
@@ -151,31 +161,61 @@ public class mainCalc extends JFrame {
 		});
 		
 		
+		//Weapon Slot #2
+		//Confused about the check weapons, am I supposed to call that? And can you use the same weapon on both slots?
+		weaponSlot2 = new JComboBox();
+		insertNames(weaponSlot2, false, currentWeaponType);
+		weaponNames.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				currentWeaponName = (String) weaponNames.getSelectedItem();
+//				System.out.println(currentShipName);
+			}
+		});
 		
-
 		
 		
 		
 		
 		JComboBox currentWorld = new JComboBox();
-		
 		JComboBox enemyName = new JComboBox();
 		JComboBox dangerLevel = new JComboBox();
 			
 		
 		//The checkbox button for the user to determine if it's a critical hit, and first salvo
 		JCheckBox isCritical = new JCheckBox("Critical Hit");
+		isCritical.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				critical = !critical;
+//				System.out.println(critical);
+			}
+		});
 		JCheckBox isFirstSalvo = new JCheckBox("First Salvo");
-
-		
-		
-		//Button group for the weapon damage types
-		JRadioButton bulletType1 = new JRadioButton("HE");
-		JRadioButton bulletType2 = new JRadioButton("AP");
+		isFirstSalvo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				firstSalvo = !firstSalvo;
+//				System.out.println(firstSalvo);
+			}
+		});
+		//Button group for the weapon damage type
+		JRadioButton buttonHE = new JRadioButton("HE");
+		buttonHE.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentDMGType = 0;
+//				System.out.println(currentDMGType);
+			}
+		});
+		JRadioButton bulletAP = new JRadioButton("AP");
+		bulletAP.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentDMGType = 1;
+//				System.out.println(currentDMGType);
+			}
+		});
 		
 		ButtonGroup group = new ButtonGroup();
-		group.add(bulletType1);
-		group.add(bulletType2);
+		group.add(buttonHE);
+		group.add(bulletAP);
 		
 		/*Button to determine final calculation
 		* For now does nothing as Subject to change 
@@ -212,6 +252,7 @@ public class mainCalc extends JFrame {
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(weaponNames, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(weaponSlot2, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(shipName, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -227,9 +268,9 @@ public class mainCalc extends JFrame {
 								.addComponent(isCritical)
 								.addComponent(isFirstSalvo))
 							.addPreferredGap(ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-							.addComponent(bulletType1)
+							.addComponent(buttonHE)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(bulletType2)))
+							.addComponent(bulletAP)))
 					.addGap(72))
 		);
 		gl_contentPane.setVerticalGroup(
@@ -246,6 +287,9 @@ public class mainCalc extends JFrame {
 						.addComponent(weaponType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(weaponNames, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 						.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(20)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addComponent(weaponSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(isFirstSalvo)
@@ -253,8 +297,8 @@ public class mainCalc extends JFrame {
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(isCritical)
-						.addComponent(bulletType1)
-						.addComponent(bulletType2))
+						.addComponent(buttonHE)
+						.addComponent(bulletAP))
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(calculateButton)
 					.addGap(20))

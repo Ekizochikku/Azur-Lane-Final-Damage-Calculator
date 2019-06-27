@@ -1,17 +1,16 @@
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /*
  * @author Brian Khang (Ekizochikku)
  * Methods for the GUI to call. 
  */
 public class GUIutil {
-	
+		
+		WepTypes wepTypes = new WepTypes();
 	/*
 	 * Determines which ship file needs to be opened and read.
 	 * Returns a list that contains all ships of a certain ship type.
@@ -121,6 +120,120 @@ public class GUIutil {
 		br.close();
 		return theParams;
 	}
+	
+	/*
+	 * Returns a weapon's parameters
+	 */
+	public ArrayList<String> getWepParams(String weptype, String wepname) throws FileNotFoundException, IOException {
+		ArrayList<String> theParams = new ArrayList<String>();
+		String theFile = checkWepFile(weptype);
+		BufferedReader br = new BufferedReader(new FileReader(theFile));
+		String line = br.readLine(); //Skip Header Line
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			if (fields[0].equals(wepname)) {
+				for (int i = 0; i < fields.length; i++) {
+					theParams.add(fields[i]);
+				}
+			}
+			
+		}
+		br.close();
+		return theParams;
+	}
+	
+	/*
+	 * Check a ships weapon slots and see which weapons can be used
+	 */
+	public String checkWeaponSlot(String shipType, int slot, int wepnum) {
+		String theWep = "";
+		if (slot == 1) {
+			theWep = checkSlotOneWeps(shipType, wepnum);
+		} else if (slot == 2) {
+			theWep = checkSlotTwoWeps(shipType, wepnum);
+//		} else if (slot == 3) {
+//			theWep = checkSlotThreeWeps(shipType, wepnum);
+		} else {
+			return null;
+		}
+		return theWep;
+	}
+	
+	/*
+	 * Check the ship type before checking the wepnum for first slot weapons
+	 * ADD CARRIERS LATER
+	 */
+	public String checkSlotOneWeps(String shipType, int wepnum) {
+		String slottedWep = "";
+		switch (shipType) {
+		case "CL":
+			slottedWep = wepTypes.lightCruiserOne(wepnum);
+			break;
+		case "CA":
+			slottedWep = wepTypes.heavyCruiserOne(wepnum);
+			break;
+		case "LC":
+			slottedWep = wepTypes.largeCruiserOne(wepnum);
+			break;
+		case "BC":
+			slottedWep = wepTypes.battlecruiserOne(wepnum);
+			break;
+		case "BB":
+			slottedWep = wepTypes.battleshipOne(wepnum);
+			break;
+		case "AB":
+			slottedWep = wepTypes.aviationBBOne(wepnum);
+			break;
+		case "Monitor":
+			slottedWep = wepTypes.monitorOne(wepnum);
+			break;
+		default:
+			break;
+		}
+		return slottedWep;
+	}
+	
+	/*
+	 * Check the ship type before checking the wepnum for second slot weapons
+	 */
+	public String checkSlotTwoWeps(String shipType, int wepnum) {
+		String slottedWep = "";
+		switch (shipType) {
+		case "CL":
+			slottedWep = wepTypes.lightCruiserTwo(wepnum);
+			break;
+		case "CA":
+			slottedWep = wepTypes.heavyCruiserTwo(wepnum);
+			break;
+		case "LC":
+			slottedWep = wepTypes.largeCruiserTwo(wepnum);
+			break;
+		case "BC":
+			slottedWep = wepTypes.battlecruiserTwo(wepnum);
+			break;
+		case "BB":
+			slottedWep = wepTypes.battleshipTwo(wepnum);
+			break;
+		case "AB":
+			slottedWep = wepTypes.aviationBBTwo(wepnum);
+			break;
+		case "Monitor":
+			slottedWep = wepTypes.monitorTwo(wepnum);
+			break;
+		default:
+			break;
+		}
+		return slottedWep;
+	}
+
+//	/*
+//	 * Check the ship type before checking the wepnum for third slot weapons.
+//	 * USED FOR CARRIERS
+//	 */
+//	public String checkSlotThreeWeps(String shipType, int wepnum) {
+//		
+//	}
+	
 	
 	/*
 	 * Returns an array list containing the names of ships/weapons
