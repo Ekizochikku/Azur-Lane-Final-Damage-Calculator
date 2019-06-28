@@ -124,6 +124,7 @@ public class GUIutil {
 	 * Returns the parameter mainly to use the check weapon type methods
 	 * Basically Brains code except you return i == 4 or 5
 	 * Will cause errors on certain ship types easy to fix but right now i'm lazy
+	 * Can change to make it better by changing the third parameter to the name of the parameter you want but again i'm lazy right now
 	 * @param weaponSlot always either 4 or 5 to get the weaponNum
 	 */
 	public String getGetSpecificWeaponParam(String shiptype, String shipname, int weaponSlot) throws FileNotFoundException, IOException {

@@ -38,8 +38,12 @@ public class mainCalc extends JFrame {
 	
 	private JComboBox weaponNamesSlot1;
 	private JComboBox weaponSlot2;
+	
 	private String currentWeaponType;
 	private String currentWeaponName;
+	
+	private String currentWeaponTypeSlot2;
+	private String currentWeaponNameSlot2;
 	
 	private int currentDMGType = -1; //0 = HE, 1 = AP
 	private int currentWeaponNum = -1; 
@@ -84,14 +88,13 @@ public class mainCalc extends JFrame {
 		} else {
 			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
 			//Remember to uncomment this
-			//System.out.println(theList.checkSlotOneWeps(theType, 1));
 			initialUserChoice = theList.getWeaponList(theType);
 		}
 		
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
 	}
 	
-	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName) throws FileNotFoundException, IOException {
+	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName, boolean firstSlot) throws FileNotFoundException, IOException {
 		ArrayList<String> weaponTypes = null; 
 		String weaponNumString = null; 
 		int currentWeaponNum;
@@ -99,7 +102,11 @@ public class mainCalc extends JFrame {
 		theList = new GUIutil();
 		weaponNumString = theList.getGetSpecificWeaponParam(shipType, shipName, weaponParamNum);
 		currentWeaponNum = Integer.parseInt(weaponNumString);
-		weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));		
+		if(firstSlot)
+			weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));
+		else
+			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
+
 		comboBox.setModel(new DefaultComboBoxModel<Object>(weaponTypes.toArray()));
 	} 
 	
@@ -114,7 +121,13 @@ public class mainCalc extends JFrame {
 		ArrayList<String> weaponTypeArray = new ArrayList<String>();		
 		String weaponType = "";
 		String weaponType2 = "";
+		boolean Torpedo = false;
 		for (int i = 0; i <= 4; i++) {
+			if(i == 0 && compatibleWeapons.charAt(i) == 'T') {
+				System.out.println("Hello" + compatibleWeapons.charAt(i));
+				Torpedo = true;
+				break;
+			}
 			if(i<2) {
 				//System.out.println("Hello" + compatibleWeapons.charAt(i));
 				weaponType += compatibleWeapons.charAt(i);
@@ -127,9 +140,13 @@ public class mainCalc extends JFrame {
 				weaponType2 += compatibleWeapons.charAt(i);
 			}
 		}
-		weaponTypeArray.add(weaponType + "GUNS");
-		if(weaponType2 != "")
-			weaponTypeArray.add(weaponType2 + "GUNS");
+		if(Torpedo) {
+			weaponTypeArray.add("TORPEDOS");
+		} else {
+			weaponTypeArray.add(weaponType + "GUNS");
+			if(weaponType2 != "")
+				weaponTypeArray.add(weaponType2 + "GUNS");
+		}
 		return weaponTypeArray;
 	}
 	
@@ -177,9 +194,6 @@ public class mainCalc extends JFrame {
 		     System.out.println(ls.toString());
 		}*/ 	
 		
-
-		
-		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 500);
@@ -208,8 +222,11 @@ public class mainCalc extends JFrame {
 					insertNames(shipName, true, currentShipType);
 					currentShipName = (String) shipName.getSelectedItem();
 					
-					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName);
+					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
+					
+					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 
 					System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -221,19 +238,20 @@ public class mainCalc extends JFrame {
 		
 		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
 		
-		//why can't this be a local variable?
-		//because it can't be used in actionPerformed if just a local variable
 		shipName = new JComboBox();
-		//insertType(weaponTypeCBox1, 4, currentShipType, currentShipName);
 		insertNames(shipName,true, currentShipType);
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentShipName = (String) shipName.getSelectedItem();
 				try {
-					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName);
+					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 					insertNames(weaponNamesSlot1, false, currentWeaponType);
-
+					
+					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
+					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -255,7 +273,6 @@ public class mainCalc extends JFrame {
 				try {
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 					insertNames(weaponNamesSlot1, false, currentWeaponType);
-					insertNames(weaponSlot2, false, currentWeaponType);
 					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 //					System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -274,18 +291,35 @@ public class mainCalc extends JFrame {
 		});
 		
 		
-		//Weapon Slot #2
-		//Confused about the check weapons, am I supposed to call that? And can you use the same weapon on both slots?
-		weaponSlot2 = new JComboBox();
-		//insertNames(weaponSlot2, false, currentWeaponType);
-		weaponNamesSlot1.addActionListener(new ActionListener() {
+		
+		String[] weaponTypeList2 = {"TORPEDOS"};
+		weaponTypeCBox2 = new JComboBox(weaponTypeList2);
+
+		//weaponTypeCBox1.setSelectedIndex(0);
+		currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
+		//finished the action listener for weapons, copied from walter.
+		weaponTypeCBox2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
+//				System.out.println("This is a test");
+				try {
+					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
+					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+					currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
+//					System.out.println(currentShipName);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+		weaponSlot2 = new JComboBox();
+		//A second insertNames method for the initial screen
+		insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+		weaponSlot2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
 //				System.out.println(currentShipName);
 			}
 		});
-		
 		
 		
 		
@@ -361,7 +395,8 @@ public class mainCalc extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+								.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+								.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 								.addComponent(weaponNamesSlot1, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -402,6 +437,7 @@ public class mainCalc extends JFrame {
 						.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+							.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 							.addComponent(weaponSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
