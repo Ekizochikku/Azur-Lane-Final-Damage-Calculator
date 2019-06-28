@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -27,17 +28,24 @@ import javax.swing.JTextArea;
 public class mainCalc extends JFrame {
 
 	private JPanel contentPane;
-	private JComboBox shipType;
+	private JComboBox shipTypeCBox;
 	private JComboBox shipName;
 	private String currentShipType;
 	private String currentShipName;
 	
-	private JComboBox weaponType;
-	private JComboBox weaponNames;
+	private JComboBox weaponTypeCBox1;
+	private JComboBox weaponTypeCBox2;
+	
+	private JComboBox weaponNamesSlot1;
 	private JComboBox weaponSlot2;
 	private String currentWeaponType;
 	private String currentWeaponName;
+	
 	private int currentDMGType = -1; //0 = HE, 1 = AP
+	private int currentWeaponNum = -1; 
+	
+	ArrayList<String> weaponTypeListSlot1;		
+
 	private boolean firstSalvo = false;
 	private boolean critical = false;
 	/**
@@ -76,40 +84,134 @@ public class mainCalc extends JFrame {
 		} else {
 			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
 			//Remember to uncomment this
-			//theList.checkWeaponSlot(theType, 1);
+			//System.out.println(theList.checkSlotOneWeps(theType, 1));
 			initialUserChoice = theList.getWeaponList(theType);
 		}
 		
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
 	}
 	
+	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName) throws FileNotFoundException, IOException {
+		ArrayList<String> weaponTypes = null; 
+		String weaponNumString = null; 
+		int currentWeaponNum;
+		GUIutil theList;
+		theList = new GUIutil();
+		weaponNumString = theList.getGetSpecificWeaponParam(shipType, shipName, weaponParamNum);
+		currentWeaponNum = Integer.parseInt(weaponNumString);
+		weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));		
+		comboBox.setModel(new DefaultComboBoxModel<Object>(weaponTypes.toArray()));
+	} 
 	
+	/**
+	 * Using Brians methods we check what types of weapons can be used in what slot. Whatever string it returns we convert that into
+	 * an array to insert it into the combo box.
+	 * @author Kevin Nguyen
+	 * @param compatibleWeapons the string that is returned from checkWeapon methods.
+	 * @return the parsed string for our methods. 
+	 */
+	public static ArrayList<String> createWeaponTypeList(String compatibleWeapons) {
+		ArrayList<String> weaponTypeArray = new ArrayList<String>();		
+		String weaponType = "";
+		String weaponType2 = "";
+		for (int i = 0; i <= 4; i++) {
+			if(i<2) {
+				//System.out.println("Hello" + compatibleWeapons.charAt(i));
+				weaponType += compatibleWeapons.charAt(i);
+			}
+			else if(i == 2 && compatibleWeapons.charAt(2) == ' ') {
+				break;
+			}
+			else if(i>2){
+				//System.out.println(compatibleWeapons.charAt(i) + "why  ");
+				weaponType2 += compatibleWeapons.charAt(i);
+			}
+		}
+		weaponTypeArray.add(weaponType + "GUNS");
+		if(weaponType2 != "")
+			weaponTypeArray.add(weaponType2 + "GUNS");
+		return weaponTypeArray;
+	}
 	
-	/*
+	/**
+	 * A method to create the weapon slot combo box (to avoid clutter)
+	 * Will be finished and used later if it can work.
+	 * @author Kevin Nguyen
+	 *
+	@SuppressWarnings("unchecked")
+	public static void insertWeaponTypes(JComboBox weaponTypeCBox, JComboBox weaponNamesCBox, String currentWeaponName) {
+		//finished the action listener for weapons, copied from walter.
+		String[] weaponTypeList = {"DDGUNS", "CLGUNS", "CAGUNS", "BBGUNS","TORPEDOS"};
+		weaponTypeCBox = new JComboBox(weaponTypeList);
+		weaponTypeCBox.setMaximumRowCount(5);
+		weaponTypeCBox.setSelectedIndex(0);
+		currentWeaponType = (String) weaponTypeCBox.getSelectedItem();
+		weaponTypeCBox.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+	//			System.out.println("This is a test");
+				try {
+					currentWeaponType = (String) weaponTypeCBox.getSelectedItem();
+					insertNames(weaponNamesCBox, false, currentWeaponType);
+					//currentWeaponN = (String) weaponNamesSlot1.getSelectedItem();
+	//				System.out.println(currentShipName);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
+	/**
 	 * @author: Kevin Nguyen (kvn96) action listeners for ships by Walter
 	 * creating the gui design with the proper buttons
 	 */
+	@SuppressWarnings("unchecked")
 	public mainCalc() throws FileNotFoundException, IOException {
+		//GUIutil test environment
+		/*
+		GUIutil testCase = new GUIutil();
+		ArrayList<String> ls = new ArrayList<String>(); 
+		ls = createWeaponTypeList(testCase.checkWeaponSlot("CL",1, 2));
+		for (int i = 0; i < ls.size(); i++) {
+		     System.out.println(ls.toString());
+		}*/ 	
+		
+
+		
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		//We're going to need to change these labels later into the actual names. 
+		/* This was kinda annoying to understand. If my understanding from Gui util is correct
+		 * Ships can only use certain weapon types, certain slots can only use certain types?
+		 */
+		//Currently cruisers only for now to avoid errors
+		String[] shipTypeList = {"CL", "CA", "LC", "BC"};
+		shipTypeCBox = new JComboBox(shipTypeList);
+		shipTypeCBox.setMaximumRowCount(10);
+		shipTypeCBox.setSelectedIndex(0);
 		
-		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "CVL", "CV"};
-		shipType = new JComboBox(shipTypeList);
-		shipType.setMaximumRowCount(10);
-		shipType.setSelectedIndex(0);
-		currentShipType = (String) shipType.getSelectedItem();
-		shipType.addActionListener(new ActionListener() {
+		currentShipType = (String) shipTypeCBox.getSelectedItem();
+
+		
+		
+		shipTypeCBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
 				try {
-					currentShipType = (String) shipType.getSelectedItem();
+					currentShipType = (String) shipTypeCBox.getSelectedItem();
 					insertNames(shipName, true, currentShipType);
 					currentShipName = (String) shipName.getSelectedItem();
-//					System.out.println(currentShipName);
+					
+					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName);
+					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
+
+					System.out.println(currentShipName);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -122,40 +224,51 @@ public class mainCalc extends JFrame {
 		//why can't this be a local variable?
 		//because it can't be used in actionPerformed if just a local variable
 		shipName = new JComboBox();
+		//insertType(weaponTypeCBox1, 4, currentShipType, currentShipName);
 		insertNames(shipName,true, currentShipType);
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentShipName = (String) shipName.getSelectedItem();
-//				System.out.println(currentShipName);
+				try {
+					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName);
+					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
+					insertNames(weaponNamesSlot1, false, currentWeaponType);
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 		});
 		
+		//Hard Coded initial screen of weapon type will need to change later most likely.
+		String[] weaponTypeList1 = {"CLGUNS"};
+		weaponTypeCBox1 = new JComboBox(weaponTypeList1);
+		weaponTypeCBox1.setMaximumRowCount(5);
+
+		//weaponTypeCBox1.setSelectedIndex(0);
+		currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 		//finished the action listener for weapons, copied from walter.
-		String[] weaponTypeList = {"DDGUNS", "CLGUNS", "CAGUNS", "BBGUNS","TORPEDOS"};
-		weaponType = new JComboBox(weaponTypeList);
-		weaponType.setMaximumRowCount(5);
-		weaponType.setSelectedIndex(0);
-		currentWeaponType = (String) weaponType.getSelectedItem();
-		weaponType.addActionListener(new ActionListener() {
+		weaponTypeCBox1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
 				try {
-					currentWeaponType = (String) weaponType.getSelectedItem();
-					insertNames(weaponNames, false, currentWeaponType);
+					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
+					insertNames(weaponNamesSlot1, false, currentWeaponType);
 					insertNames(weaponSlot2, false, currentWeaponType);
-					currentWeaponName = (String) weaponNames.getSelectedItem();
+					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 //					System.out.println(currentShipName);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		weaponNames = new JComboBox();
-		//A second insertNames method for the initial scree
-		insertNames(weaponNames, false, currentWeaponType);
-		weaponNames.addActionListener(new ActionListener() {
+		weaponNamesSlot1 = new JComboBox();
+		//A second insertNames method for the initial screen
+		insertNames(weaponNamesSlot1, false, currentWeaponType);
+		weaponNamesSlot1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				currentWeaponName = (String) weaponNames.getSelectedItem();
+				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 //				System.out.println(currentShipName);
 			}
 		});
@@ -164,11 +277,11 @@ public class mainCalc extends JFrame {
 		//Weapon Slot #2
 		//Confused about the check weapons, am I supposed to call that? And can you use the same weapon on both slots?
 		weaponSlot2 = new JComboBox();
-		insertNames(weaponSlot2, false, currentWeaponType);
-		weaponNames.addActionListener(new ActionListener() {
+		//insertNames(weaponSlot2, false, currentWeaponType);
+		weaponNamesSlot1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				currentWeaponName = (String) weaponNames.getSelectedItem();
+				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 //				System.out.println(currentShipName);
 			}
 		});
@@ -247,11 +360,11 @@ public class mainCalc extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(shipType, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponType, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+								.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+								.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(weaponNames, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(weaponNamesSlot1, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(weaponSlot2, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(shipName, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
 							.addPreferredGap(ComponentPlacement.RELATED)
@@ -278,14 +391,14 @@ public class mainCalc extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(shipType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(weaponType, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(weaponNames, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+						.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(weaponNamesSlot1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 						.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)

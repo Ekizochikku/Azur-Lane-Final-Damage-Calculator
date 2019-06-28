@@ -120,7 +120,31 @@ public class GUIutil {
 		br.close();
 		return theParams;
 	}
-	
+	/* @author Kevin Nguyen
+	 * Returns the parameter mainly to use the check weapon type methods
+	 * Basically Brains code except you return i == 4 or 5
+	 * Will cause errors on certain ship types easy to fix but right now i'm lazy
+	 * @param weaponSlot always either 4 or 5 to get the weaponNum
+	 */
+	public String getGetSpecificWeaponParam(String shiptype, String shipname, int weaponSlot) throws FileNotFoundException, IOException {
+		String theParams = "";
+		String theFile = checkShipFile(shiptype);
+		BufferedReader br = new BufferedReader(new FileReader(theFile));
+		String line = br.readLine(); //Skip Header Line
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			if (fields[0].equals(shipname)) {
+				for (int i = 0; i < fields.length; i++) {
+					if(i == weaponSlot) {
+						theParams += fields[i];
+					}
+				}
+			}
+			
+		}
+		br.close();
+		return theParams;
+	}
 	/*
 	 * Returns a weapon's parameters
 	 */
