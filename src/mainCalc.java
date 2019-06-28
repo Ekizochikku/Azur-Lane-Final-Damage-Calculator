@@ -123,8 +123,10 @@ public class mainCalc extends JFrame {
 		String weaponType2 = "";
 		boolean Torpedo = false;
 		for (int i = 0; i <= 4; i++) {
+			System.out.println(compatibleWeapons.charAt(i));
+
 			if(i == 0 && compatibleWeapons.charAt(i) == 'T') {
-				System.out.println("Hello" + compatibleWeapons.charAt(i));
+				System.out.println( compatibleWeapons.charAt(i));
 				Torpedo = true;
 				break;
 			}
@@ -186,13 +188,13 @@ public class mainCalc extends JFrame {
 	@SuppressWarnings("unchecked")
 	public mainCalc() throws FileNotFoundException, IOException {
 		//GUIutil test environment
-		/*
+		
 		GUIutil testCase = new GUIutil();
 		ArrayList<String> ls = new ArrayList<String>(); 
 		ls = createWeaponTypeList(testCase.checkWeaponSlot("CL",1, 2));
 		for (int i = 0; i < ls.size(); i++) {
 		     System.out.println(ls.toString());
-		}*/ 	
+		} 	
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -205,7 +207,7 @@ public class mainCalc extends JFrame {
 		 * Ships can only use certain weapon types, certain slots can only use certain types?
 		 */
 		//Currently cruisers only for now to avoid errors
-		String[] shipTypeList = {"CL", "CA", "LC", "BC"};
+		String[] shipTypeList = {"CL", "CA", "LC", "BC", "BB", "AB", "MON"};
 		shipTypeCBox = new JComboBox(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
 		shipTypeCBox.setSelectedIndex(0);
@@ -225,8 +227,17 @@ public class mainCalc extends JFrame {
 					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 					
-					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+					//Currently a bug with large cruisers for some reason
+					insertNames(weaponNamesSlot1, false, currentWeaponType);
+					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
+					
 					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
+					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+					
+					
+					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+					currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
+
 
 					System.out.println(currentShipName);
 				} catch (IOException e) {
