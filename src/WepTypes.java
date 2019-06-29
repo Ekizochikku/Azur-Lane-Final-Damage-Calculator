@@ -1,250 +1,515 @@
 /*
+
  * @author Brian Khang (Ekizochikku)
+
  * Class to hold cases for what weapons a ship will use in a slot
+
  * WILL ADD CARRIERS LATER!
+
+ *
+
+ *
+
+ *REMEMBER TO INCLUDE ALL THE CASES BRIAN >:( - Kevin
+
  */
+
 public class WepTypes {
 
+
+
 	/*
+
 	 * Check what weapons can be used on a light cruisers first weapon slot
+
 	 */
+
 	public String lightCruiserOne(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 			case 0:
-				theWep = "DD Guns";
+
+				theWep = "DD";
+
 				break;
+
 			case 1:
-				theWep = "CL Guns";
+
+				theWep = "CL";
+
 				break;
+
 			case 2:
-				theWep = "DD/CL Guns";
+
+				theWep = "DD/CL";
+
 				break;
+
 			default:
+
 				break;
+
 		}
+
 		
+
 		return theWep;
+
 	}
+
 	
+
 	/*
+
 	 * Check what weapons can be used on a light cruisers second weapon slot
+
 	 */
+
 	public String lightCruiserTwo(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 			case 0:
-				theWep = "Torpedos";
+
+				theWep = "TORPEDOS";
+
 				break;
+
 			case 1:
-				theWep = "DD Guns";
+
+				theWep = "DD";
+
 				break;
+
 			case 2:
-				theWep = "CL Guns";
+
+				theWep = "CL";
+
 				break;
+
 			case 3:
-				theWep = "AA Guns";
+
+				theWep = "AA";
+
 				break;
+
 			case 4:
-				theWep = "DD/CL Guns";
+
+				theWep = "DD/CL";
+
 				break;
+
 			case 5:
-				theWep = "CL/AA Guns";
+
+				theWep = "CL/AA";
+
 				break;
+
 			default:
+
 				break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	/*
+
 	 * Check what weapons can be used on a heavy cruisers first weapon slot
+
 	 */
+
 	public String heavyCruiserOne(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 			case 0:
-				theWep = "CA Guns";
+
+				theWep = "CA";
+
 				break;
+
 			case 1:
-				theWep = "CL Guns";
+
+				theWep = "CL";
+
 				break;
+
 			case 2:
-				theWep = "CA/CL Guns";
+
+				theWep = "CA/CL";
+
 				break;
+
 			default:
+
 				break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	/*
+
 	 * Check what weapons can be used on a heavy cruisers second weapon slot
+
 	 */
+
 	public String heavyCruiserTwo(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "Torpedos";
+
+			theWep = "TORPEDOS";
+
 			break;
+
 		case 1:
-			theWep = "DD Guns";
+
+			theWep = "DD";
+
 			break;
+
 		case 2:
-			theWep = "CL Guns";
+
+			theWep = "CL";
+
 			break;
+
 		case 3:
-			theWep = "AA Guns";
+
+			theWep = "AA";
+
 			break;
+
 		case 4:
-			theWep = "DD/CL Guns";
+
+			theWep = "DD/CL";
+
 			break;
+
 		case 5:
-			theWep = "CL/AA Guns";
+
+			theWep = "CL/AA";
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String largeCruiserOne(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "CB Guns";
+
+			theWep = "CB";
+
 			break;
+
 		case 1:
-			theWep = "CA Guns";
+
+			theWep = "CA";
+
 			break;
+
 		case 2:
-			theWep = "CB/CA Guns";
+
+			theWep = "CB/CA";
+
 			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String largeCruiserTwo(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "DD Guns";
+
+			theWep = "DD";
+
 			break;
+
 		case 1:
-			theWep = "CL Guns";
+
+			theWep = "CL";
+
 			break;
+
 		case 2:
-			theWep = "AA Guns";
+
+			theWep = "AA";
+
 			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String battlecruiserOne(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "BB Guns";
+
+			theWep = "BB";
+
 			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String battlecruiserTwo(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "DD Guns";
+
+			theWep = "DD";
+
 			break;
+
 		case 1:
-			theWep = "CL Guns";
+
+			theWep = "CL";
+
 			break;
+
 		case 2:
-			theWep = "DD/CL Guns";
+
+			theWep = "DD/CL";
+
 			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String battleshipOne(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "BB Guns";
+
+			theWep = "BB";
+
 			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
-	
+
 	public String battleshipTwo(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "BB Guns";
+
+			theWep = "BB";
+
 			break;
+
+		case 1:
+
+			theWep = "AA";
+
+			break;
+
+		case 2:
+
+			theWep = "DD/CL";
+
+			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String aviationBBOne(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "BB Guns";
+
+			theWep = "BB";
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String aviationBBTwo(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "Seaplane";
+
+			theWep = "SEAPLANE";
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String monitorOne(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "BB Guns";
+
+			theWep = "BB";
+
 			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 	public String monitorTwo(int wepnum) {
+
 		String theWep = "";
+
 		switch (wepnum) {
+
 		case 0:
-			theWep = "DD Guns";
+
+			theWep = "DD";
+
 			break;
+
 		default:
+
 			break;
+
 		}
+
 		return theWep;
+
 	}
+
 	
+
 /*
+
  * CARRIERS METHODS GO HERE
+
  */
+
 	
+
 }

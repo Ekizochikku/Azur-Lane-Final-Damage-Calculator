@@ -77,6 +77,7 @@ public class GUIutil {
 	/*
 	 * Checks which weapon file to open.
 	 * Returns a string containing the name of the file.
+	 * AA file has nothing, for exceptions
 	 */
 	public String checkWepFile(String weptype) {
 		String wepFile = "";
@@ -92,6 +93,15 @@ public class GUIutil {
 				break;
 			case "BBGUNS":
 				wepFile = "./Weapons/BattleshipGuns.csv";
+				break;
+			case "AAGUNS":
+				wepFile = "./Weapons/GunTypeExceptions.csv";
+				break;
+			case "CBGUNS":
+				wepFile = "./Weapons/GunTypeExceptions.csv";
+				break;
+			case "SEAPLANE":
+				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
 			case "TORPEDOS":
 				wepFile = "./Weapons/Torpedos.csv";
@@ -120,7 +130,32 @@ public class GUIutil {
 		br.close();
 		return theParams;
 	}
-	
+	/* @author Kevin Nguyen
+	 * Returns the parameter mainly to use the check weapon type methods
+	 * Basically Brains code except you return i == 4 or 5
+	 * Will cause errors on certain ship types easy to fix but right now i'm lazy
+	 * Can change to make it better by changing the third parameter to the name of the parameter you want but again i'm lazy right now
+	 * @param weaponSlot always either 4 or 5 to get the weaponNum
+	 */
+	public String getGetSpecificWeaponParam(String shiptype, String shipname, int weaponSlot) throws FileNotFoundException, IOException {
+		String theParams = "";
+		String theFile = checkShipFile(shiptype);
+		BufferedReader br = new BufferedReader(new FileReader(theFile));
+		String line = br.readLine(); //Skip Header Line
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			if (fields[0].equals(shipname)) {
+				for (int i = 0; i < fields.length; i++) {
+					if(i == weaponSlot) {
+						theParams += fields[i];
+					}
+				}
+			}
+			
+		}
+		br.close();
+		return theParams;
+	}
 	/*
 	 * Returns a weapon's parameters
 	 */
@@ -184,7 +219,7 @@ public class GUIutil {
 		case "AB":
 			slottedWep = wepTypes.aviationBBOne(wepnum);
 			break;
-		case "Monitor":
+		case "MON":
 			slottedWep = wepTypes.monitorOne(wepnum);
 			break;
 		default:
@@ -217,12 +252,13 @@ public class GUIutil {
 		case "AB":
 			slottedWep = wepTypes.aviationBBTwo(wepnum);
 			break;
-		case "Monitor":
+		case "MON":
 			slottedWep = wepTypes.monitorTwo(wepnum);
 			break;
 		default:
 			break;
 		}
+		System.out.println("The string from the check method is: " + slottedWep);
 		return slottedWep;
 	}
 
@@ -245,6 +281,7 @@ public class GUIutil {
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split(",");
 			theList.add(fields[0]);
+			
 		}
 		br.close();
 		return theList;
