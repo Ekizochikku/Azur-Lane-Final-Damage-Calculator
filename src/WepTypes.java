@@ -12,13 +12,13 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 			case 0:
-				theWep = "DD Guns";
+				theWep = "DD";
 				break;
 			case 1:
-				theWep = "CL Guns";
+				theWep = "CL";
 				break;
 			case 2:
-				theWep = "DD/CL Guns";
+				theWep = "DD/CL";
 				break;
 			default:
 				break;
@@ -34,22 +34,22 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 			case 0:
-				theWep = "Torpedos";
+				theWep = "TORPEDOS";
 				break;
 			case 1:
-				theWep = "DD Guns";
+				theWep = "DD";
 				break;
 			case 2:
-				theWep = "CL Guns";
+				theWep = "CL";
 				break;
 			case 3:
-				theWep = "AA Guns";
+				theWep = "AA";
 				break;
 			case 4:
-				theWep = "DD/CL Guns";
+				theWep = "DD/CL";
 				break;
 			case 5:
-				theWep = "CL/AA Guns";
+				theWep = "CL/AA";
 				break;
 			default:
 				break;
@@ -64,13 +64,13 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 			case 0:
-				theWep = "CA Guns";
+				theWep = "CA";
 				break;
 			case 1:
-				theWep = "CL Guns";
+				theWep = "CL";
 				break;
 			case 2:
-				theWep = "CA/CL Guns";
+				theWep = "CA/CL";
 				break;
 			default:
 				break;
@@ -85,22 +85,22 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "Torpedos";
+			theWep = "TORPEDOS";
 			break;
 		case 1:
-			theWep = "DD Guns";
+			theWep = "DD";
 			break;
 		case 2:
-			theWep = "CL Guns";
+			theWep = "CL";
 			break;
 		case 3:
-			theWep = "AA Guns";
+			theWep = "AA";
 			break;
 		case 4:
-			theWep = "DD/CL Guns";
+			theWep = "DD/CL";
 			break;
 		case 5:
-			theWep = "CL/AA Guns";
+			theWep = "CL/AA";
 		default:
 			break;
 		}
@@ -111,13 +111,13 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "CB Guns";
+			theWep = "CB";
 			break;
 		case 1:
-			theWep = "CA Guns";
+			theWep = "CA";
 			break;
 		case 2:
-			theWep = "CB/CA Guns";
+			theWep = "CB/CA";
 			break;
 		default:
 			break;
@@ -129,13 +129,13 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "DD Guns";
+			theWep = "DD";
 			break;
 		case 1:
-			theWep = "CL Guns";
+			theWep = "CL";
 			break;
 		case 2:
-			theWep = "AA Guns";
+			theWep = "AA";
 			break;
 		default:
 			break;
@@ -147,7 +147,7 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "BB Guns";
+			theWep = "BB";
 			break;
 		default:
 			break;
@@ -159,13 +159,13 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "DD Guns";
+			theWep = "DD";
 			break;
 		case 1:
-			theWep = "CL Guns";
+			theWep = "CL";
 			break;
 		case 2:
-			theWep = "DD/CL Guns";
+			theWep = "DD/CL";
 			break;
 		default:
 			break;
@@ -177,7 +177,7 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "BB Guns";
+			theWep = "BB";
 			break;
 		default:
 			break;
@@ -189,7 +189,7 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "BB Guns";
+			theWep = "BB";
 			break;
 		default:
 			break;
@@ -201,7 +201,7 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "BB Guns";
+			theWep = "BB";
 		default:
 			break;
 		}
@@ -212,7 +212,7 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "Seaplane";
+			theWep = "SEAPLANE";
 		default:
 			break;
 		}
@@ -223,7 +223,7 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "BB Guns";
+			theWep = "BB";
 			break;
 		default:
 			break;
@@ -235,7 +235,7 @@ public class WepTypes {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
-			theWep = "DD Guns";
+			theWep = "DD";
 			break;
 		default:
 			break;

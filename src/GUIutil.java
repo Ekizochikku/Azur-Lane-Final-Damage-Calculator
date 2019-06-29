@@ -100,6 +100,9 @@ public class GUIutil {
 			case "CBGUNS":
 				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
+			case "SEAPLANE":
+				wepFile = "./Weapons/GunTypeExceptions.csv";
+				break;
 			case "TORPEDOS":
 				wepFile = "./Weapons/Torpedos.csv";
 				break;
@@ -277,6 +280,7 @@ public class GUIutil {
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split(",");
 			theList.add(fields[0]);
+			
 		}
 		br.close();
 		return theList;

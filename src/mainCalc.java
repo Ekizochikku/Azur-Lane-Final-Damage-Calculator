@@ -88,6 +88,7 @@ public class mainCalc extends JFrame {
 		} else {
 			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
 			//Remember to uncomment this
+			System.out.println("Inserting name for weapon type: " + theType);
 			initialUserChoice = theList.getWeaponList(theType);
 		}
 		
@@ -103,14 +104,16 @@ public class mainCalc extends JFrame {
 		theList = new GUIutil();
 		weaponNumString = theList.getGetSpecificWeaponParam(shipType, shipName, weaponParamNum);
 		currentWeaponNum = Integer.parseInt(weaponNumString);
-		if(firstSlot) 
+		if(firstSlot) {
+			System.out.println("Current weapon num is: " + currentWeaponNum);
+			System.out.println("The ship type is: " + shipType);
 			weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));
 			
-		else {
-			System.out.println(currentWeaponNum);
-			System.out.println(shipType);
+		} else {
+			System.out.println("Current weapon num is: " + currentWeaponNum);
+			System.out.println("The ship type is: " + shipType);
 
-			
+		
 			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
 			
 
@@ -126,38 +129,40 @@ public class mainCalc extends JFrame {
 	 * @return the parsed string for our methods. 
 	 */
 	public static ArrayList<String> createWeaponTypeList(String compatibleWeapons) {
+		System.out.println("string is: " +compatibleWeapons + " Length is " + compatibleWeapons.length());
 		ArrayList<String> weaponTypeArray = new ArrayList<String>();		
 		String weaponType = "";
 		String weaponType2 = "";
-		boolean Torpedo = false;
-		for (int i = 0; i <= 4; i++) {
-			//System.out.println(compatibleWeapons.charAt(i));
-
-			if(compatibleWeapons.charAt(i) == 'T') {
-				System.out.println(compatibleWeapons.charAt(i));
-				Torpedo = true;
-				break;
-			}
-			if(i<2) {
-				//System.out.println("Hello" + compatibleWeapons.charAt(i));
-				weaponType += compatibleWeapons.charAt(i);
-			}
-			else if(i == 2 && compatibleWeapons.charAt(2) == ' ') {
-				break;
-			}
-			else if(i>2){
-				System.out.println(compatibleWeapons.charAt(i) + "why  ");
-				weaponType2 += compatibleWeapons.charAt(i);
-			}
+		if(compatibleWeapons.equals("TORPEDOS")) {
+			System.out.println("Comparison check worked");
 		}
-		if(Torpedo) {
-			weaponTypeArray.add("TORPEDOS");
-		} else {
+		//System.out.println("Current word for type list " + compatibleWeapons);
+		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS"))))) {
+				
+			for (int i = 0; i <= compatibleWeapons.length() - 1; i++) {
+				if(i < 2) {
+					weaponType += compatibleWeapons.charAt(i);
+				}
+				else if (i > 2) {
+					weaponType2 += compatibleWeapons.charAt(i);
+				}
+			
+			} 
+				
 			System.out.println(weaponType + " HELLO " + weaponType2);
-			weaponTypeArray.add(weaponType + "GUNS");
-			if(weaponType2 != "")
-				weaponTypeArray.add(weaponType2 + "GUNS");
-		}
+			weaponTypeArray.add((weaponType += "GUNS"));
+			weaponTypeArray.add((weaponType2 += "GUNS"));
+			} else {
+				System.out.println("hit else statement" + compatibleWeapons);
+				if((compatibleWeapons.length() == 2)) {
+					compatibleWeapons += "GUNS";
+					weaponTypeArray.add(compatibleWeapons);
+				} else {
+					weaponTypeArray.add(compatibleWeapons);
+				}
+			}
+		System.out.println(weaponTypeArray);
+
 		return weaponTypeArray;
 	}
 	
