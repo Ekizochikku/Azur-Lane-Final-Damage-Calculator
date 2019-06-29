@@ -77,6 +77,7 @@ public class GUIutil {
 	/*
 	 * Checks which weapon file to open.
 	 * Returns a string containing the name of the file.
+	 * AA file has nothing, for exceptions
 	 */
 	public String checkWepFile(String weptype) {
 		String wepFile = "";
@@ -92,6 +93,12 @@ public class GUIutil {
 				break;
 			case "BBGUNS":
 				wepFile = "./Weapons/BattleshipGuns.csv";
+				break;
+			case "AAGUNS":
+				wepFile = "./Weapons/GunTypeExceptions.csv";
+				break;
+			case "CBGUNS":
+				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
 			case "TORPEDOS":
 				wepFile = "./Weapons/Torpedos.csv";

@@ -97,16 +97,24 @@ public class mainCalc extends JFrame {
 	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName, boolean firstSlot) throws FileNotFoundException, IOException {
 		ArrayList<String> weaponTypes = null; 
 		String weaponNumString = null; 
+		String exceptionCheck = "";
 		int currentWeaponNum;
 		GUIutil theList;
 		theList = new GUIutil();
 		weaponNumString = theList.getGetSpecificWeaponParam(shipType, shipName, weaponParamNum);
 		currentWeaponNum = Integer.parseInt(weaponNumString);
-		if(firstSlot)
+		if(firstSlot) 
 			weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));
-		else
-			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
+			
+		else {
+			System.out.println(currentWeaponNum);
+			System.out.println(shipType);
 
+			
+			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
+			
+
+		}
 		comboBox.setModel(new DefaultComboBoxModel<Object>(weaponTypes.toArray()));
 	} 
 	
@@ -123,10 +131,10 @@ public class mainCalc extends JFrame {
 		String weaponType2 = "";
 		boolean Torpedo = false;
 		for (int i = 0; i <= 4; i++) {
-			System.out.println(compatibleWeapons.charAt(i));
+			//System.out.println(compatibleWeapons.charAt(i));
 
-			if(i == 0 && compatibleWeapons.charAt(i) == 'T') {
-				System.out.println( compatibleWeapons.charAt(i));
+			if(compatibleWeapons.charAt(i) == 'T') {
+				System.out.println(compatibleWeapons.charAt(i));
 				Torpedo = true;
 				break;
 			}
@@ -138,13 +146,14 @@ public class mainCalc extends JFrame {
 				break;
 			}
 			else if(i>2){
-				//System.out.println(compatibleWeapons.charAt(i) + "why  ");
+				System.out.println(compatibleWeapons.charAt(i) + "why  ");
 				weaponType2 += compatibleWeapons.charAt(i);
 			}
 		}
 		if(Torpedo) {
 			weaponTypeArray.add("TORPEDOS");
 		} else {
+			System.out.println(weaponType + " HELLO " + weaponType2);
 			weaponTypeArray.add(weaponType + "GUNS");
 			if(weaponType2 != "")
 				weaponTypeArray.add(weaponType2 + "GUNS");
@@ -189,12 +198,12 @@ public class mainCalc extends JFrame {
 	public mainCalc() throws FileNotFoundException, IOException {
 		//GUIutil test environment
 		
-		GUIutil testCase = new GUIutil();
+		/*GUIutil testCase = new GUIutil();
 		ArrayList<String> ls = new ArrayList<String>(); 
 		ls = createWeaponTypeList(testCase.checkWeaponSlot("CL",1, 2));
 		for (int i = 0; i < ls.size(); i++) {
 		     System.out.println(ls.toString());
-		} 	
+		}*/ 	
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -231,8 +240,9 @@ public class mainCalc extends JFrame {
 					insertNames(weaponNamesSlot1, false, currentWeaponType);
 					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 					
-					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
+					
 					
 					
 					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
