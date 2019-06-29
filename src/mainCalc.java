@@ -95,25 +95,39 @@ public class mainCalc extends JFrame {
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
 	}
 	
+	/**
+	 * Method to insert the ship or weapon type into the appropriate combo box. 
+	 * @author Kevin Nguyen
+	 * @param comboBox the combo box
+	 * @param weaponParamNum the weapon parameter number to get the appropriate type 
+	 * @param shipType 
+	 * @param shipName
+	 * @param firstSlot slot check
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName, boolean firstSlot) throws FileNotFoundException, IOException {
 		ArrayList<String> weaponTypes = null; 
 		String weaponNumString = null; 
-		String exceptionCheck = "";
+		//String exceptionCheck = "";
 		int currentWeaponNum;
 		GUIutil theList;
 		theList = new GUIutil();
 		weaponNumString = theList.getGetSpecificWeaponParam(shipType, shipName, weaponParamNum);
 		currentWeaponNum = Integer.parseInt(weaponNumString);
+		
+		//exceptionCheck = theList.checkSlotTwoWeps("BB", 2);
+		//System.out.println("Grabbing for hardcoded Battleships " + exceptionCheck);
 		if(firstSlot) {
-			System.out.println("Current weapon num is: " + currentWeaponNum);
-			System.out.println("The ship type is: " + shipType);
+			System.out.println("Current weapon num for slot 1 is: " + currentWeaponNum);
+			System.out.println("The ship type for slot 1 is: " + shipType);
 			weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));
 			
 		} else {
-			System.out.println("Current weapon num is: " + currentWeaponNum);
-			System.out.println("The ship type is: " + shipType);
-
+			System.out.println("Current weapon num for slot 2 is: " + currentWeaponNum);
+			System.out.println("The ship type for slot 2 is: " + shipType);
 		
+			
 			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
 			
 
@@ -124,6 +138,7 @@ public class mainCalc extends JFrame {
 	/**
 	 * Using Brians methods we check what types of weapons can be used in what slot. Whatever string it returns we convert that into
 	 * an array to insert it into the combo box.
+	 * Since he didn't want arrays in wepTypes this is the ghetto way. 
 	 * @author Kevin Nguyen
 	 * @param compatibleWeapons the string that is returned from checkWeapon methods.
 	 * @return the parsed string for our methods. 
@@ -133,9 +148,6 @@ public class mainCalc extends JFrame {
 		ArrayList<String> weaponTypeArray = new ArrayList<String>();		
 		String weaponType = "";
 		String weaponType2 = "";
-		if(compatibleWeapons.equals("TORPEDOS")) {
-			System.out.println("Comparison check worked");
-		}
 		//System.out.println("Current word for type list " + compatibleWeapons);
 		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS"))))) {
 				
@@ -149,11 +161,11 @@ public class mainCalc extends JFrame {
 			
 			} 
 				
-			System.out.println(weaponType + " HELLO " + weaponType2);
+			//System.out.println("Two weapon checks types" + weaponType + " " + weaponType2);
 			weaponTypeArray.add((weaponType += "GUNS"));
 			weaponTypeArray.add((weaponType2 += "GUNS"));
 			} else {
-				System.out.println("hit else statement" + compatibleWeapons);
+				//System.out.println("hit else statement" + compatibleWeapons);
 				if((compatibleWeapons.length() == 2)) {
 					compatibleWeapons += "GUNS";
 					weaponTypeArray.add(compatibleWeapons);
@@ -161,7 +173,7 @@ public class mainCalc extends JFrame {
 					weaponTypeArray.add(compatibleWeapons);
 				}
 			}
-		System.out.println(weaponTypeArray);
+		//System.out.println(weaponTypeArray);
 
 		return weaponTypeArray;
 	}

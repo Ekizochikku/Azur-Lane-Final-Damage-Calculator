@@ -219,7 +219,7 @@ public class GUIutil {
 		case "AB":
 			slottedWep = wepTypes.aviationBBOne(wepnum);
 			break;
-		case "Monitor":
+		case "MON":
 			slottedWep = wepTypes.monitorOne(wepnum);
 			break;
 		default:
@@ -252,12 +252,13 @@ public class GUIutil {
 		case "AB":
 			slottedWep = wepTypes.aviationBBTwo(wepnum);
 			break;
-		case "Monitor":
+		case "MON":
 			slottedWep = wepTypes.monitorTwo(wepnum);
 			break;
 		default:
 			break;
 		}
+		System.out.println("The string from the check method is: " + slottedWep);
 		return slottedWep;
 	}
 

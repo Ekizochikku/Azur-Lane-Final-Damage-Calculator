@@ -2,6 +2,9 @@
  * @author Brian Khang (Ekizochikku)
  * Class to hold cases for what weapons a ship will use in a slot
  * WILL ADD CARRIERS LATER!
+ *
+ *
+ *REMEMBER TO INCLUDE ALL THE CASES BRIAN >:( - Kevin
  */
 public class WepTypes {
 
@@ -184,12 +187,17 @@ public class WepTypes {
 		}
 		return theWep;
 	}
-	
 	public String battleshipTwo(int wepnum) {
 		String theWep = "";
 		switch (wepnum) {
 		case 0:
 			theWep = "BB";
+			break;
+		case 1:
+			theWep = "AA";
+			break;
+		case 2:
+			theWep = "DD/CL";
 			break;
 		default:
 			break;
