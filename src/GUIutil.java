@@ -281,10 +281,76 @@ public class GUIutil {
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split(",");
 			theList.add(fields[0]);
-			
 		}
 		br.close();
 		return theList;
 	}
 	
+	/*
+	 * Returns the name of skills in an array.
+	 */
+	public ArrayList<String> getSkillNames() throws FileNotFoundException, IOException {
+		ArrayList<String> theSkills = new ArrayList<String>();
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			theSkills.add(fields[0]);
+		}
+		br.close();
+		return theSkills;
+	}
+	
+	/*
+	 * Returns the description of a skill.
+	 */
+	public String getSkillDescription(String skillName) throws FileNotFoundException, IOException {
+		String skillDesc = "";
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			if (fields[0].equals(skillName)) {
+				skillDesc = fields[1];
+			}
+		}
+		br.close();
+		return skillDesc;
+	}
+	
+	/*
+	 * Returns the ships that use said skill.
+	 */
+	public String getSkillUsers(String skillName) throws FileNotFoundException, IOException {
+		String skillDesc = "";
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			if (fields[0].equals(skillName)) {
+				skillDesc = fields[2];
+			}
+		}
+		br.close();
+		return skillDesc;
+	}
+	
+	/*
+	 * Returns the parameters of a skill.
+	 */
+	public ArrayList<String> getSkillParameters(String skillName) throws FileNotFoundException, IOException {
+		ArrayList<String> theList = new ArrayList<String>();
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split(",");
+			if (fields[0].equals(skillName)) {
+				for (int i = 0; i < fields.length; i++) {
+					theList.add(fields[i]);
+				}
+			}
+		}
+		br.close();
+		return theList;
+	}
 }
