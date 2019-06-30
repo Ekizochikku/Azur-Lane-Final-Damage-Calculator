@@ -336,7 +336,7 @@ public class GUIutil {
 	}
 	
 	/*
-	 * Returns the parameters of a skill.
+	 * Returns the parameters of a skill. 
 	 */
 	public ArrayList<String> getSkillParameters(String skillName) throws FileNotFoundException, IOException {
 		ArrayList<String> theList = new ArrayList<String>();
