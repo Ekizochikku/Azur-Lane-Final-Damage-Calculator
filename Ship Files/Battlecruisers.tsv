@@ -1,0 +1,13 @@
+SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
+Hood	HMS	Admiral	BC	0	0	1.4	1.5	1	8445	343	0	323	Glory of the Royal Navy	NULL	NULL	NULL	NULL
+Amagi	IJN	Amagi	BC	0	2	1.35	1.8	0.9	7654	421	213	187	Ageless Phoniex	Efficacious Planning	Crippling Strike	NULL	NULL
+Dunkerque	MNF	Dunkerque	BC	0	0	1.7	1.5	0.7	6788	357	0	227	Frontal Barrage	NULL	NULL	NULL	NULL
+Haruna	IJN	Kongou	BC	0	2	1.35	1.5	0.9	6604	360	0	273	Warship of the Dawn's Radiance	NULL	NULL	NULL	NULL
+Hiei	IJN	Kongou	BC	0	2	1.35	1.5	0.9	6604	367	0	273	Prestige	NULL	NULL	NULL	NULL
+Hiei-Chan	IJN	Kongou	BC	0	2	1.3	1.5	0.85	6454	363	168	247	Torpedoes, Launch!	Holy Mountain's Little Witch	NULL	NULL	NULL
+Kirishima	IJN	Kongou	BC	0	2	1.35	1.5	0.9	6604	367	0	673	Blaze of Glory	NULL	NULL	NULL	NULL
+Kongou	IJN	Kongou	BC	0	2	1.35	1.5	0.9	6604	367	0	273	Gloriously Roaring First Ship	NULL	NULL	NULL	NULL
+Renown	HMS	Renown	BC	0	0	1.35	1.5	0.7	6207	376	0	276	Final Glory	NULL	NULL	NULL	NULL
+Repulse	HMS	Renown	BC	0	0	1.35	1.5	0.7	6032	354	0	268	Z's Counterattack	NULL	NULL	NULL	NULL
+Gneisenau	KMS	Scharnhorst	BC	0	2	1.35	1.5	0.7	7455	366	154	248	Commerce Raiding	Torpedo Launch	NULL	NULL	NULL
+Scharnhorst	HMS	Scharnhorst	BC	0	2	1.35	1.5	0.7	7455	366	154	248	Sniper	Torpedo Launch	NULL	NULL	NULL

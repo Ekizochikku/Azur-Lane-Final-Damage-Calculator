@@ -1,0 +1,42 @@
+WEAPONNAME	FIREPOWER	ANTIAIR	DAMAGE	COEFFICIENT	AMMO	DMGTOL	DMGTOM	DMGTOH
+Single 140mm (3rd Year Type) - 1 Star	0	0	5	1.25	Normal	1	0.75	0.4
+Single 140mm (3rd Year Type) - 2 Star	5	0	6	1.25	Normal	1	0.75	0.4
+Single 140mm (3rd Year Type) - 3 Star	12	0	7	1.25	Normal	1	0.75	0.4
+Single 150mm (6"/47 caliber gun)	5	0	14	1.1	Normal	1	0.75	0.4
+Single 150mm (SK C/28) - 2 Star	5	0	7	1.1	AP	1	0.8	0.6
+Single 150mm (SK C/28) - 3 Star	12	0	8	1.1	AP	1	0.8	0.6
+Single 150mm (SK C/28) - 4 Star	25	0	9	1.1	AP	1	0.8	0.6
+Single 152mm (6"/53 caliber fun) - 1 Star	0	0	16	1.1	Normal	1	0.75	0.4
+Single 152mm (6"/53 caliber fun) - 3 Star	12	0	20	1.1	Normal	1	0.75	0.4
+Single 152mm (BL 6" MK XII) - 1 Star	0	0	8	1.1	AP	1	0.8	0.6
+Single 152mm (BL 6" MK XII) - 2 Star	5	0	9	1.1	AP	1	0.8	0.6
+Single 152mm (BL 6" MK XII) - 3 Star	12	0	10	1.1	AP	1	0.8	0.6
+Triple 150mm (SK C/25) - 2 Star	5	0	7	1.05	AP	1	0.8	0.6
+Triple 150mm (SK C/25) - 3 Star	12	0	8	1.05	AP	1	0.8	0.6
+Triple 150mm (SK C/25) - 4 Star	25	0	9	1.05	AP	1	0.8	0.6
+Triple 152mm (6"/47 Mk16) - 2 Star	5	0	7	1.05	Normal	1	0.75	0.4
+Triple 152mm (6"/47 Mk16) - 3 Star	12	0	8	1.05	Normal	1	0.75	0.4
+Triple 152mm (6"/47 Mk16) - 4 Star	25	0	9	1.05	HE	1.4	0.9	0.7
+Triple 152mm (BL 6" MK XXIII)	5	0	8	1.05	AP	1	0.8	0.6
+Triple 152mm (Mark 17 Dual-Purpose Prototype)	30	15	5	1.05	HE++	1.45	1.1	0.75
+Triple 152mm Cannon Mle 1930 - 1 Star	0	0	7	1.05	Normal	1	0.75	0.4
+Triple 152mm Cannon Mle 1930 - 3 Star	12	0	9	1.05	AP	1	0.8	0.6
+Triple 152mm Prototype (BL 6" Mk XXV)	45	NULL	11	1.05	AP+	1.1	0.9	0.7
+Triple 155mm (3rd Year Type) - 3 Star	12	NULL	6	1.05	Normal	1	0.75	0.4
+Triple 155mm (3rd Year Type) - 4 Star	25	NULL	7	1.05	HE+	1.45	1.05	0.7
+Triple 155mm (3rd Year Type) - 5 Star	45	NULL	8	1.05	HE+	1.45	1.05	0.7
+Twin 140mm (3rd Year Type) - 2 Star	5	0	5	1.1	Normal	1	0.75	0.4
+Twin 140mm (3rd Year Type) - 3 Star	12	0	6	1.1	Normal	1	0.75	0.4
+Twin 140mm (3rd Year Type) - 4 Star	25	0	7	1.1	HE	1.4	0.9	0.7
+Twin 150mm (Tbtsk C/36) - 2 Star	5	NULL	7	1.05	AP	1	0.8	0.6
+Twin 150mm (Tbtsk C/36) - 3 Star	12	NULL	8	1.05	AP	1	0.8	0.6
+Twin 150mm (Tbtsk C/36) - 4 Star	25	NULL	9	1.05	AP	1	0.8	0.6
+Twin 152mm (15cm/50 41st Year Type) - 2 Star	5	0	6	1.1	Normal	1	0.75	0.4
+Twin 152mm (15cm/50 41st Year Type) - 3 Star	12	0	7	1.1	HE	1.4	0.9	0.7
+Twin 152mm (15cm/50 41st Year Type) - 4 Star	25	0	8	1.1	HE	1.4	0.9	0.7
+Twin 152mm (6"53 Mk 18) - 1 Star	0	0	7	1.1	Normal	1	0.75	0.4
+Twin 152mm (6"53 Mk 18) - 2 Star	5	0	8	1.1	Normal	1	0.75	0.4
+Twin 152mm (6"53 Mk 18) - 3 Star	12	0	9	1.1	Normal	1	0.75	0.4
+Twin 152mm (BL 6" MK XXII) - 2 Star	5	0	8	1.1	AP	1	0.8	0.6
+Twin 152mm (BL 6" MK XXII) - 3 Star	12	0	9	1.1	AP	1	0.8	0.6
+Twin 152mm (BL 6" MK XXII) - 4 Star	25	0	10	1.1	AP	1	0.8	0.6

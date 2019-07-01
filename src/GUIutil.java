@@ -41,34 +41,34 @@ public class GUIutil {
 		String shipFile = "";
 		switch (shiptype) {
 			case "DD":
-				shipFile = "./Ship Files/Destroyers.csv";
+				shipFile = "./Ship Files/Destroyers.tsv";
 				break;
 			case "CL":
-				shipFile = "./Ship Files/Light Cruisers.csv";
+				shipFile = "./Ship Files/Light Cruisers.tsv";
 				break;
 			case "CA":
-				shipFile = "./Ship Files/Heavy Cruisers.csv";
+				shipFile = "./Ship Files/Heavy Cruisers.tsv";
 				break;
 			case "LC":
-				shipFile = "./Ship Files/Large Cruisers.csv";
+				shipFile = "./Ship Files/Large Cruisers.tsv";
 				break;
 			case "BC":
-				shipFile = "./Ship Files/Battlecruisers.csv";
+				shipFile = "./Ship Files/Battlecruisers.tsv";
 				break;
 			case "BB":
-				shipFile = "./Ship Files/Battleships.csv";
+				shipFile = "./Ship Files/Battleships.tsv";
 				break;
 			case "AB":
-				shipFile = "./Ship Files/Aviation Battleships.csv";
+				shipFile = "./Ship Files/Aviation Battleships.tsv";
 				break;
 			case "MON":
-				shipFile = "./Ship Files/Monitors.csv";
+				shipFile = "./Ship Files/Monitors.tsv";
 				break;
 			case "CVL":
-				shipFile = "./Ship Files/Light Aircraft Carriers.csv";
+				shipFile = "./Ship Files/Light Aircraft Carriers.tsv";
 				break;
 			case "CV":
-				shipFile = "./Ship Files/Carriers.csv";
+				shipFile = "./Ship Files/Carriers.tsv";
 				break;
 		}
 		return shipFile;
@@ -83,28 +83,28 @@ public class GUIutil {
 		String wepFile = "";
 		switch (weptype) {
 			case "DDGUNS":
-				wepFile = "./Weapons/DestroyerGuns.csv";
+				wepFile = "./Weapons/DestroyerGuns.tsv";
 				break;
 			case "CLGUNS":
-				wepFile = "./Weapons/Light Cruisers Guns.csv";
+				wepFile = "./Weapons/Light Cruisers Guns.tsv";
 				break;
 			case "CAGUNS":
-				wepFile = "./Weapons/HeavyCruiserGuns.csv";
+				wepFile = "./Weapons/HeavyCruiserGuns.tsv";
 				break;
 			case "BBGUNS":
-				wepFile = "./Weapons/BattleshipGuns.csv";
+				wepFile = "./Weapons/BattleshipGuns.tsv";
 				break;
 			case "AAGUNS":
-				wepFile = "./Weapons/GunTypeExceptions.csv";
+				wepFile = "./Weapons/GunTypeExceptions.tsv";
 				break;
 			case "CBGUNS":
-				wepFile = "./Weapons/GunTypeExceptions.csv";
+				wepFile = "./Weapons/GunTypeExceptions.tsv";
 				break;
 			case "SEAPLANE":
-				wepFile = "./Weapons/GunTypeExceptions.csv";
+				wepFile = "./Weapons/GunTypeExceptions.tsv";
 				break;
 			case "TORPEDOS":
-				wepFile = "./Weapons/Torpedos.csv";
+				wepFile = "./Weapons/Torpedos.tsv";
 				break;
 		}
 		return wepFile;
@@ -119,7 +119,7 @@ public class GUIutil {
 		BufferedReader br = new BufferedReader(new FileReader(theFile));
 		String line = br.readLine(); //Skip Header Line
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			if (fields[0].equals(shipname)) {
 				for (int i = 0; i < fields.length; i++) {
 					theParams.add(fields[i]);
@@ -143,7 +143,7 @@ public class GUIutil {
 		BufferedReader br = new BufferedReader(new FileReader(theFile));
 		String line = br.readLine(); //Skip Header Line
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			if (fields[0].equals(shipname)) {
 				for (int i = 0; i < fields.length; i++) {
 					if(i == weaponSlot) {
@@ -165,7 +165,7 @@ public class GUIutil {
 		BufferedReader br = new BufferedReader(new FileReader(theFile));
 		String line = br.readLine(); //Skip Header Line
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			if (fields[0].equals(wepname)) {
 				for (int i = 0; i < fields.length; i++) {
 					theParams.add(fields[i]);
@@ -279,7 +279,7 @@ public class GUIutil {
 		BufferedReader br = new BufferedReader(new FileReader(theFile));
 		String line = br.readLine(); //Skip the Header Line
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			theList.add(fields[0]);
 		}
 		br.close();
@@ -291,10 +291,10 @@ public class GUIutil {
 	 */
 	public ArrayList<String> getSkillNames() throws FileNotFoundException, IOException {
 		ArrayList<String> theSkills = new ArrayList<String>();
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			theSkills.add(fields[0]);
 		}
 		br.close();
@@ -306,10 +306,10 @@ public class GUIutil {
 	 */
 	public String getSkillDescription(String skillName) throws FileNotFoundException, IOException {
 		String skillDesc = "";
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			if (fields[0].equals(skillName)) {
 				skillDesc = fields[1];
 			}
@@ -323,10 +323,10 @@ public class GUIutil {
 	 */
 	public String getSkillUsers(String skillName) throws FileNotFoundException, IOException {
 		String skillDesc = "";
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			if (fields[0].equals(skillName)) {
 				skillDesc = fields[2];
 			}
@@ -340,10 +340,10 @@ public class GUIutil {
 	 */
 	public ArrayList<String> getSkillParameters(String skillName) throws FileNotFoundException, IOException {
 		ArrayList<String> theList = new ArrayList<String>();
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.csv"));
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
-			String[] fields = line.split(",");
+			String[] fields = line.split("	");
 			if (fields[0].equals(skillName)) {
 				for (int i = 0; i < fields.length; i++) {
 					theList.add(fields[i]);

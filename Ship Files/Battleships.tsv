@@ -1,0 +1,38 @@
+SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE(0=dd,1=cl,2=dd/cl)	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
+Bismarck	KMS	Bismarck	BB	0	2	1.3	1.8	0.9	8792	423	0	208	Wahrheit	Unyielding Power	Ironblood's Will	NULL	NULL
+Tirpitz	KMS	Bismarck	BB	0	2	1.3	2	0.9	8401	423	217	208	Lone Queen of the North	Magnetic Torpedo	NULL	NULL	NULL
+Colorado	USS	Colorado	BB	0	0	1.3	2	1	7456	409	0	216	BIG SEVEN	NULL	NULL	NULL	NULL
+Maryland	USS	Colorado	BB	0	0	1.25	2	1	7414	405	0	219	BIG SEVEN	Fighting Mary	NULL	NULL	NULL
+West Virginia	USS	Colorado	BB	0	0	1.3	2	1	7456	409	0	216	BIG SEVEN	NULL	NULL	NULL	NULL
+Friedrich der Grosse	KMS	Friedrich der Grosse	BB	0	2	1.6	2.2	1	9886	449	0	241	Symphont of Destruction	Sonata of Chaos	Rhapsody of Darkness	Siren's Nemesis	NULL
+Fusou	IJN	Fusou	BB	0	2	1.3	2	1	6916	390	0	222	Covering Fire	NULL	NULL	NULL	NULL
+Yamashiro	IJN	Fusou	BB	0	2	1.3	2	0.85	7309	390	0	222	Covering Fire	NULL	NULL	NULL	NULL
+Gascogne	MNF	Gascogne	BB	0	2	1.8	2	0.8	7863	430	0	241	Perceptive Suppression Module	Accurate operation Protocols	Siren's Nemesis	NULL	NULL
+Georgia	USS	Georgia	BB	0	2	1.65	2	1.1	8297	436	0	409	Ironsight Caliber	Heavy Barrel Buster	Siren's Nemesis	NULL	NULL
+Hyuuga	IJN	Ise	BB	0	2	1.35	1.8	0.8	7124	398	0	229	Artillery Command - Main Fleet	Covering Fire	NULL	NULL	NULL
+Ise	IJN	Ise	BB	0	2	1.4	2	0.8	7214	398	0	229	Covering Fire	NULL	NULL	NULL	NULL
+Izumo	IJN	Izumo	BB	0	2	1.4	2.1	0.8	8607	428	0	437	A Legend's Inheritance	Specializae Armor	Siren's Nemesis	NULL	NULL
+Duke of York	HMS	King George V	BB	0	2	1.35	2	1	7967	420	0	225	Concerto of Blood	Trepidation of Destruction	NULL	NULL	NULL
+King George V	HMS	King George V	BB	0	2	1.35	2	1	7970	423	0	264	Effective Armament	Glory of the Sun Which Never Sets	NULL	NULL	NULL
+Prince of Wales	HMS	King George V	BB	0	2	1.35	2	1	7967	422	0	230	Royal Alliance	NULL	NULL	NULL	NULL
+Super Gamer Kizuna Ai	KizunaAi	KizunaAI	BB	0	2	1.3	2	1	7648	409	212	199	Super Aiming Adjustments	Coercion Assistance Mode	NULL	NULL	NULL
+Mikasa	IJN	Mikasa	BB	0	2	1.3	1.5	1.5	5372	334	0	172	Reborn Combined Fleet Flagship	T-Cross Formation	NULL	NULL	NULL
+Monarch	HMS	Monarch	BB	0	2	1.45	2.1	1.1	7967	423	0	230	Monarch's Coercion	Agaisnt the Current	Siren's Nemesis	NULL	NULL
+Mutsu	IJN	Nagato	BB	0	2	1.3	2.1	1	7896	409	0	185	BIG SEVEN - SAKURA	NULL	NULL	NULL	NULL
+Nagato	IJN	Nagato	BB	0	2	1.35	2.1	1	8117	719	0	182	The 4th Combined Fleet Flagship	BIG SEVEN - SAKURA	NULL	NULL	NULL
+Nelson	HMS	Nelson	BB	0	2	1.3	2	1	7654	407	0	219	BIG SEVEN	NULL	NULL	NULL	NULL
+Rodney	HMS	Nelson	BB	0	2	1.3	2	1	7630	407	0	219	BIG SEVEN	NULL	NULL	NULL	NULL
+Nevada(Retrofit)	USS	Nevada	BB	0	0	1.35	2.15	1	7214	388	0	242	Focused Defense	Focused Strike	NULL	NULL	NULL
+Oklahoma(Retrofit)	USS	Nevada	BB	0	0	1.35	2.15	1	7196	388	0	247	Focused Defense	Focused Strike	NULL	NULL	NULL
+North Carolina	USS	North Carolina	BB	0	0	1.3	2	1	7852	421	0	100	Air Cover	AA Firepower	NULL	NULL	NULL
+Washington	USS	North Carolina	BB	0	0	1.3	2	1	8080	421	0	400	Courageous Shelling	Night of the Iron Bottom Sound	NULL	NULL	NULL
+Arizona	USS	Pennsylvania	BB	0	0	1.3	2	1	7137	399	0	219	Eagle's Tears	NULL	NULL	NULL	NULL
+Pennsylvania	USS	Pennsylvania	BB	0	0	1.3	2	1	7194	390	0	212	Big Sis Penn!	NULL	NULL	NULL	NULL
+Queen Elizabeth	HMS	Queen Elizabeth	BB	0	2	1.3	2	1	7512	403	0	212	Queen's Orders	NULL	NULL	NULL	NULL
+Warspite(Retrofit)	HMS	Queen Elizabeth	BB	0	2	1.4	2	1.15	8023	446	0	290	Divine Marksman	Divine Marksman Plus	The Royal Legend	NULL	NULL
+Jean Bart	MNF	Richelieu	BB	0	2	1.6	2	0.7	8036	419	0	241	Pirate's Soul	Last Fire	NULL	NULL	NULL
+Massachusetts	USS	South Dakota	BB	0	0	1.3	2	1	7783	414	0	400	Big Mamie	2,700 Pounds of Justive	NULL	NULL	NULL
+South Dakota	USS	South Dakota	BB	0	0	1.3	2	1	8031	414	0	400	The Strongest Shield	Focused Strike	NULL	NULL	NULL
+California	USS	Tennessee	BB	0	0	1.3	2	1	7385	391	0	211	Focused Strike	NULL	NULL	NULL	NULL
+Tennessee	USS	Tennessee	BB	0	0	1.3	2	1	7385	391	0	211	Coercion	NULL	NULL	NULL	NULL
+Kaga(Battleship)	IJN	Tosa	BB	0	2	1.35	2	0.9	8303	423	217	187	Fight to Win!	Conquer to Loot!	NULL	NULL	NULL
