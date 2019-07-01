@@ -1,31 +1,31 @@
-WEAPONNAME,TORPEDO,DAMAGE,COEFFICIENT,ATTRIBUTE,DMGTOL,DMGTOM,DMGTOH
-533mm Quadruple Homing Torpedo Mount - 3 Star,12,99,1,Acoustic Homing,0.8,1,1.3
-533mm Quadruple Homing Torpedo Mount - 4 Star,25,133,1,Acoustic Homing,0.8,1,1.3
-533mm Quadruple Homing Torpedo Mount - 5 Star,45,145,1,Acoustic Homing,0.8,1,1.3
-533mm Quadruple Torpedo Mount - 2 Star,5,70,1,Normal,0.8,1,1.3
-533mm Quadruple Torpedo Mount - 3 Star,12,104,1,Normal,0.8,1,1.3
-533mm Quadruple Torpedo Mount - 4 Star,25,156,1,Normal,0.8,1,1.3
-533mm Quintuple Homing Torpedo Mount - 4 Star,12,123,1,Acoustic Homing,0.8,1,1.3
-533mm Quintuple Homing Torpedo Mount - 5 Star,45,133,1,Acoustic Homing,0.8,1,1.3
-533mm Quintuple Homing Torpedo Mount - 6 Star,70,145,1,Acoustic Homing,0.8,1,1.3
-533mm Quintuple Homing Mount - 3 Star,12,94,1,Normal,0.8,1,1.3
-533mm Quintuple Homing Mount - 4 Star,25,140,1,Normal,0.8,1,1.3
-533mm Quintuple Homing Mount - 5 Star,45,156,1,Normal,0.8,1,1.3
-533mm Triple Homing Torpedo Mount - 2 Star,5,81,1,Acoustic Homing,0.8,1,1.3
-533mm Triple Homing Torpedo Mount - 3 Star,12,106,1,Acoustic Homing,0.8,1,1.3
-533mm Triple Homing Torpedo Mount - 4 Star,25,145,1,Acoustic Homing,0.8,1,1.3
-533mm Triple Torpedo Mount - 1 Star,0,70,1,Normal,0.8,1,1.3
-533mm Triple Torpedo Mount - 2 Star,5,77,1,Normal,0.8,1,1.3
-533mm Triple Torpedo Mount - 3 Star,12,116,1,Normal,0.8,1,1.3
-550mm Triple Torpedo Launcher - 2 Star,5,72,1,Normal,0.8,1,1.3
-550mm Triple Torpedo Launcher - 4 Star,25,162,1,Normal,0.8,1,1.3
-550mm Twin Torpedo Launcher,12,108,1,Normal,0.8,1,1.3
-610mm Quadruple Torpedo Mount - 3 Star,12,112,1,Normal,0.8,1,1.3
-610mm Quadruple Torpedo Mount - 4 Star,25,178,1,Normal,0.8,1,1.3
-610mm Quadruple Torpedo Mount - 5 Star,45,206,1,Normal,0.8,1,1.3
-610mm Triple Torpedo Mount - 2 Star,5,82,1,Normal,0.8,1,1.3
-610mm Triple Torpedo Mount - 3 Star,12,130,1,Normal,0.8,1,1.3
-610mm Triple Torpedo Mount - 4 Star,25,206,1,Normal,0.8,1,1.3
-610mm Twin Torpedo Mount - 1 Star,0,82,1,Normal,0.8,1,1.3
-610mm Twin Torpedo Mount - 2 Star,5,94,0,Normal,0.8,1,1.3
-610mm Twin Torpedo Mount - 3 Star,12,150,1,Normal,0.8,1,1.3
+WEAPONNAME,TORPEDO,ANTIAIR,DAMAGE,COEFFICIENT,ATTRIBUTE,DMGTOL,DMGTOM,DMGTOH
+533mm Quadruple Homing Torpedo Mount - 3 Star,12,0,99,1,Acoustic Homing,0.8,1,1.3
+533mm Quadruple Homing Torpedo Mount - 4 Star,25,0,133,1,Acoustic Homing,0.8,1,1.3
+533mm Quadruple Homing Torpedo Mount - 5 Star,45,0,145,1,Acoustic Homing,0.8,1,1.3
+533mm Quadruple Torpedo Mount - 2 Star,5,0,70,1,Normal,0.8,1,1.3
+533mm Quadruple Torpedo Mount - 3 Star,12,0,104,1,Normal,0.8,1,1.3
+533mm Quadruple Torpedo Mount - 4 Star,25,0,156,1,Normal,0.8,1,1.3
+533mm Quintuple Homing Torpedo Mount - 4 Star,12,0,123,1,Acoustic Homing,0.8,1,1.3
+533mm Quintuple Homing Torpedo Mount - 5 Star,45,0,133,1,Acoustic Homing,0.8,1,1.3
+533mm Quintuple Homing Torpedo Mount - 6 Star,70,0,145,1,Acoustic Homing,0.8,1,1.3
+533mm Quintuple Homing Mount - 3 Star,12,0,94,1,Normal,0.8,1,1.3
+533mm Quintuple Homing Mount - 4 Star,25,0,140,1,Normal,0.8,1,1.3
+533mm Quintuple Homing Mount - 5 Star,45,0,156,1,Normal,0.8,1,1.3
+533mm Triple Homing Torpedo Mount - 2 Star,5,0,81,1,Acoustic Homing,0.8,1,1.3
+533mm Triple Homing Torpedo Mount - 3 Star,12,0,106,1,Acoustic Homing,0.8,1,1.3
+533mm Triple Homing Torpedo Mount - 4 Star,25,0,145,1,Acoustic Homing,0.8,1,1.3
+533mm Triple Torpedo Mount - 1 Star,0,0,70,1,Normal,0.8,1,1.3
+533mm Triple Torpedo Mount - 2 Star,5,0,77,1,Normal,0.8,1,1.3
+533mm Triple Torpedo Mount - 3 Star,12,0,116,1,Normal,0.8,1,1.3
+550mm Triple Torpedo Launcher - 2 Star,5,0,72,1,Normal,0.8,1,1.3
+550mm Triple Torpedo Launcher - 4 Star,25,0,162,1,Normal,0.8,1,1.3
+550mm Twin Torpedo Launcher,12,0,108,1,Normal,0.8,1,1.3
+610mm Quadruple Torpedo Mount - 3 Star,12,0,112,1,Normal,0.8,1,1.3
+610mm Quadruple Torpedo Mount - 4 Star,25,0,178,1,Normal,0.8,1,1.3
+610mm Quadruple Torpedo Mount - 5 Star,45,0,206,1,Normal,0.8,1,1.3
+610mm Triple Torpedo Mount - 2 Star,5,0,82,1,Normal,0.8,1,1.3
+610mm Triple Torpedo Mount - 3 Star,12,0,130,1,Normal,0.8,1,1.3
+610mm Triple Torpedo Mount - 4 Star,25,0,206,1,Normal,0.8,1,1.3
+610mm Twin Torpedo Mount - 1 Star,0,0,82,1,Normal,0.8,1,1.3
+610mm Twin Torpedo Mount - 2 Star,5,0,94,0,Normal,0.8,1,1.3
+610mm Twin Torpedo Mount - 3 Star,12,0,150,1,Normal,0.8,1,1.3
