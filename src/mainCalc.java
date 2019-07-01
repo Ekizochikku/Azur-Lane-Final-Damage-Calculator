@@ -44,6 +44,7 @@ public class mainCalc extends JFrame {
 	private JTextArea activeSkillList;
 	private JComboBox skillList;
 	private ArrayList<String> currentSkills;
+	private JTextPane equipableShips;
 	
 	private String currentWeaponType;
 	private String currentWeaponName;
@@ -439,11 +440,14 @@ public class mainCalc extends JFrame {
 		for(String skillName: guiUtil.getSkillNames()) {
 			skillList.addItem(skillName);
 		}
+		skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
+		
 		skillList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				skillDescriptionBox.removeAll();
 				try {
 					skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
+					equipableShips.setText(guiUtil.getSkillUsers((String) skillList.getSelectedItem()));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -469,9 +473,10 @@ public class mainCalc extends JFrame {
 		activeSkillList.setEditable(false);
 		activeSkillList.setText("No Skills Selected");
 		
-		JTextPane equipableShips = new JTextPane();
+		equipableShips = new JTextPane();
 		equipableShips.setEditable(false);
 		equipableShips.setText("No Ships Available");
+		equipableShips.setText(guiUtil.getSkillUsers((String) skillList.getSelectedItem()));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
