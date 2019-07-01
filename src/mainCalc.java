@@ -24,6 +24,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 public class mainCalc extends JFrame {
 
@@ -39,6 +40,11 @@ public class mainCalc extends JFrame {
 	private JComboBox weaponNamesSlot1;
 	private JComboBox weaponSlot2;
 	
+	private JTextPane skillDescriptionBox;
+	private JTextArea activeSkillList;
+	private JComboBox skillList;
+	private ArrayList<String> currentSkills;
+	
 	private String currentWeaponType;
 	private String currentWeaponName;
 	
@@ -47,6 +53,8 @@ public class mainCalc extends JFrame {
 	
 	private int currentDMGType = -1; //0 = HE, 1 = AP
 	private int currentWeaponNum = -1; 
+	
+	private GUIutil guiUtil;
 	
 	ArrayList<String> weaponTypeListSlot1;		
 
@@ -224,7 +232,7 @@ public class mainCalc extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 750, 500);
+		setBounds(100, 100, 951, 500);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -233,6 +241,7 @@ public class mainCalc extends JFrame {
 		 * Ships can only use certain weapon types, certain slots can only use certain types?
 		 */
 		//Currently cruisers only for now to avoid errors
+		guiUtil = new GUIutil();
 		String[] shipTypeList = {"CL", "CA", "LC", "BC", "BB", "AB", "MON"};
 		shipTypeCBox = new JComboBox(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
@@ -420,44 +429,102 @@ public class mainCalc extends JFrame {
 		/*
 		*The gui components, this will be in it's own class later.
 		*/
+		currentSkills = new ArrayList<String>();
+		skillDescriptionBox = new JTextPane();
+		skillDescriptionBox.setEditable(false);
+		skillDescriptionBox.setText("No Skill Selected");
+		
+		skillList = new JComboBox();
+		skillList.setMaximumRowCount(10);
+		for(String skillName: guiUtil.getSkillNames()) {
+			skillList.addItem(skillName);
+		}
+		skillList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				skillDescriptionBox.removeAll();
+				try {
+					skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		JButton addSkill = new JButton("ADD SKILL");
+		addSkill.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				currentSkills.add("This is a test");
+				currentSkills.add((String) skillList.getSelectedItem());
+				activeSkillList.removeAll();
+				String skillString = "";
+				for(String skill: currentSkills) {
+					skillString += skill + "\n";
+				}
+				activeSkillList.setText(skillString);
+			}
+		});
+		
+		activeSkillList = new JTextArea();
+		activeSkillList.setEditable(false);
+		activeSkillList.setText("No Skills Selected");
+		
+		JTextPane equipableShips = new JTextPane();
+		equipableShips.setEditable(false);
+		equipableShips.setText("No Ships Available");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(165)
-					.addComponent(calculateButton)
-					.addContainerGap(180, Short.MAX_VALUE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+							.addGroup(Alignment.TRAILING, gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+									.addGap(165)
+									.addComponent(calculateButton))
+								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+									.addContainerGap()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+												.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+												.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+												.addComponent(weaponNamesSlot1, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(weaponSlot2, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+												.addComponent(shipName, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+													.addPreferredGap(ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+													.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+													.addComponent(lblAmmoType)
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+														.addComponent(skillList, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+														.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(isCritical)
+												.addComponent(isFirstSalvo))
+											.addPreferredGap(ComponentPlacement.RELATED, 454, Short.MAX_VALUE)
+											.addComponent(buttonHE)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(bulletAP)))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(addSkill)))
+							.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(skillDescriptionBox, GroupLayout.PREFERRED_SIZE, 329, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-								.addComponent(weaponNamesSlot1, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(weaponSlot2, Alignment.TRAILING, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(shipName, Alignment.TRAILING, 0, 150, Short.MAX_VALUE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-									.addPreferredGap(ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
-									.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-									.addComponent(lblAmmoType)
-									.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE))))
-						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(isCritical)
-								.addComponent(isFirstSalvo))
-							.addPreferredGap(ComponentPlacement.RELATED, 200, Short.MAX_VALUE)
-							.addComponent(buttonHE)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addComponent(bulletAP)))
-					.addGap(72))
+								.addComponent(activeSkillList, GroupLayout.PREFERRED_SIZE, 323, GroupLayout.PREFERRED_SIZE)
+								.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 326, GroupLayout.PREFERRED_SIZE))))
+					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -475,9 +542,17 @@ public class mainCalc extends JFrame {
 						.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-							.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-							.addComponent(weaponSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+						.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(weaponSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+						.addComponent(skillList, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+						.addComponent(addSkill))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(skillDescriptionBox, GroupLayout.PREFERRED_SIZE, 65, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
+					.addComponent(activeSkillList, GroupLayout.PREFERRED_SIZE, 92, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(isFirstSalvo)
 						.addComponent(lblAmmoType))
