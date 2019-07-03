@@ -83,4 +83,22 @@ public class Calculations {
 		finalDamage = weaponDamage * coefficient * slotEfficiency * (1 + finalStat/100);
 		return finalDamage;
 	}
+	
+	
+	/*
+	 * Injure by x and Damage by x will always use enemies as the target
+	 * WeaponTypeMod
+	 */
+	public double scalingWeaponBuff(String wepType, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+		double buffDamage = 1;
+		for (int i = 0; i < skillList.size(); i++) {
+			ArrayList<String> holding = new ArrayList<String>();
+			holding = gt.getSkillParameters(skillList.get(i));
+			if (wepType.equals("TORPEDOS")) {
+				buffDamage += Double.parseDouble(holding.get(34) + Double.parseDouble(holding.get(37)));
+			} else { //ADD PLANES AND AIR DAMAGE ABOVE HERE WHEN IMPLEMENTING.
+				
+			}
+		}
+	}
 }
