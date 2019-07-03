@@ -2,7 +2,9 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JRadioButton;
 import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
@@ -42,6 +45,9 @@ public class mainCalc extends JFrame {
 	private JComboBox weaponNamesSlot1;
 	private JComboBox weaponSlot2;
 	
+	private JComboBox currentWorldCBox;
+	
+	
 	private JTextPane skillDescriptionBox;
 	private JList activeSkillList;
 	private JComboBox skillList;
@@ -53,6 +59,13 @@ public class mainCalc extends JFrame {
 	
 	private String currentWeaponTypeSlot2;
 	private String currentWeaponNameSlot2;
+	
+	private String theCurrentWorld;
+	private String theCurrentEnemy;
+	
+	private JComboBox enemyNameCBox;
+
+	
 	
 	private int currentDMGType = -1; //0 = HE, 1 = AP
 	private int currentWeaponNum = -1; 
@@ -67,6 +80,7 @@ public class mainCalc extends JFrame {
 	private JScrollPane equipScrollPane;
 	private JScrollPane activeSkillScrollPane;
 	private JButton removeButton;
+	private JButton removeAllSkills;
 	/**
 	 * Launch the application.
 	 */
@@ -222,6 +236,17 @@ public class mainCalc extends JFrame {
 		});
 	}
 	
+		/*
+	 * Method for the action listener to update the combo box whenever a different world is selected
+	 */
+	/*public static void insertEnemyNames(JComboBox<Object> comboBox, String theCurrentWorld) throws FileNotFoundException, IOException {
+		ArrayList<String> initialUserChoice = null; 
+		//System.out.println("Inserting name for weapon type: " + theType);
+		GUIutil theList;
+		theList = new GUIutil();
+		initialUserChoice = theList.getAllEnemiesForSpecificWorld(theCurrentWorld, "Enemies.tsv", 1, 2);
+		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
+	} */
 	/**
 	 * @author: Kevin Nguyen (kvn96) action listeners for ships by Walter
 	 * creating the gui design with the proper buttons
@@ -269,7 +294,7 @@ public class mainCalc extends JFrame {
 					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 					
-					//Currently a bug with large cruisers for some reason
+
 					insertNames(weaponNamesSlot1, false, currentWeaponType);
 					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 					
@@ -378,10 +403,45 @@ public class mainCalc extends JFrame {
 		
 		
 		
-		JComboBox currentWorld = new JComboBox();
-		JComboBox enemyName = new JComboBox();
+
 		JComboBox dangerLevel = new JComboBox();
-			
+		
+		
+		currentWorldCBox = new JComboBox<String>();
+		theCurrentWorld = "1-1";
+		//Populate it with all worlds found in the enemies.tsv file
+		guiUtil.addWorldNum(currentWorldCBox);
+		
+		//theWorlds = guiUtil.getSpecificFileAndElement("Enemies.tsv", 0);
+		//currentWorldCBox.setModel(new DefaultComboBoxModel<Object>(theWorlds.toArray()));
+		
+		currentWorldCBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				theCurrentWorld = (String) currentWorldCBox.getSelectedItem();
+				//System.out.println(theCurrentWorld);
+				try {
+					//System.out.println("The current world: " + theCurrentWorld);
+					guiUtil.insertEnemyNames(enemyNameCBox, theCurrentWorld);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
+		
+		enemyNameCBox = new JComboBox<Object>();
+		List<String> theEnemies = new ArrayList<String>();
+		theEnemies = GUIutil.getAllEnemiesForSpecificWorld(theCurrentWorld, "Enemies.tsv", 1, 2);
+		enemyNameCBox.setModel(new DefaultComboBoxModel<Object>(theEnemies.toArray()));
+		enemyNameCBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				theCurrentEnemy = (String) enemyNameCBox.getSelectedItem();
+				//System.out.println(theCurrentEnemy);
+			}
+		});
+		
+		
+		
 		
 		//The checkbox button for the user to determine if it's a critical hit, and first salvo
 		JCheckBox isCritical = new JCheckBox("Critical Hit");
@@ -472,7 +532,7 @@ public class mainCalc extends JFrame {
 		equipScrollPane = new JScrollPane();
 		
 		activeSkillScrollPane = new JScrollPane();
-		
+		//We should also have a button to delete all
 		removeButton = new JButton("REMOVE SKILL");
 		removeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -484,6 +544,8 @@ public class mainCalc extends JFrame {
 				activeSkillList.setListData(currentSkills.toArray());
 			}
 		});
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -508,9 +570,9 @@ public class mainCalc extends JFrame {
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+											.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED, 290, Short.MAX_VALUE)
-											.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+											.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 											.addComponent(lblAmmoType)
 											.addComponent(skillList, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE))
@@ -540,8 +602,8 @@ public class mainCalc extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(currentWorld, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(enemyName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+						.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGap(20)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
