@@ -4,6 +4,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+
 /*
  * @author Brian Khang (Ekizochikku)
  * Methods for the GUI to call. 
@@ -95,13 +98,13 @@ public class GUIutil {
 				wepFile = "./Weapons/BattleshipGuns.tsv";
 				break;
 			case "AAGUNS":
-				wepFile = "./Weapons/GunTypeExceptions.tsv";
+				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
 			case "CBGUNS":
-				wepFile = "./Weapons/GunTypeExceptions.tsv";
+				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
 			case "SEAPLANE":
-				wepFile = "./Weapons/GunTypeExceptions.tsv";
+				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
 			case "TORPEDOS":
 				wepFile = "./Weapons/Torpedos.tsv";
@@ -300,6 +303,75 @@ public class GUIutil {
 		br.close();
 		return theSkills;
 	}
+	/* Returns whatever field you want from whatever file
+	 * this can also replace the top and definetly the two bottom methods (with a boolean) as they're almost the same 
+	 * to avoid code redundancy but fuck it, this ain't school.
+	 */
+	public ArrayList<String> getSpecificFileAndElement(String theFileName, Integer theElement) throws FileNotFoundException, IOException {
+		ArrayList<String> theSkills = new ArrayList<String>();
+		BufferedReader br = new BufferedReader(new FileReader(theFileName));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split("	");
+			theSkills.add(fields[theElement]);
+		}
+		br.close();
+		return theSkills;
+	}
+	/* Returns all the elements of whatever column from whatever file you want. Used for the enmies.tsv file mainly
+	 * If it doesn't look god the level can be in it's own jlist 
+	 * 
+	 * Do we show all the enemies of that world, or only unique names (with unique levels)?
+	 * The method currently does the latter
+	 */
+	public static ArrayList<String> getAllEnemiesForSpecificWorld(String theElement, String theFile, Integer theField, Integer theLevel) throws FileNotFoundException, IOException {
+			ArrayList<String> theList = new ArrayList<String>();
+			//Handles the duped enemy with different levels unintuitive way.
+			String enemyPlusLevel = "";
+			//For enemies with same level, remove from the enemy list since their health isn't factored
+			String duplicateEnemy = "";
+			BufferedReader br = new BufferedReader(new FileReader(theFile));
+			String line = br.readLine();
+			while ((line = br.readLine()) != null && !line.isEmpty()) {
+				String[] fields = line.split("	");
+				if (fields[0].equals(theElement)) {
+					enemyPlusLevel = fields[theField] + ", Lvl " + fields[theLevel]; 
+					if(!duplicateEnemy.equals(enemyPlusLevel)) {
+						//System.out.println("Comparing:" + duplicateEnemy + " new Element: " + enemyPlusLevel);
+						theList.add(enemyPlusLevel);
+					}
+				}
+				duplicateEnemy = enemyPlusLevel;
+				///System.out.println(duplicateEnemy);
+			}
+			br.close();
+			return theList;
+	}
+	
+	/*
+	 */
+	public void insertEnemyNames(JComboBox<Object> comboBox, String theCurrentWorld) throws FileNotFoundException, IOException {
+		ArrayList<String> initialUserChoice = null; 
+		//System.out.println("Inserting name for weapon type: " + theType);
+		initialUserChoice = getAllEnemiesForSpecificWorld(theCurrentWorld, "Enemies.tsv", 1, 2);
+		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
+	} 
+	/*
+	 * Simple method to add all the worlds to comboBox
+	 */
+	public void addWorldNum(JComboBox<String> theWorldBox) {
+		String theWorld = null;
+		for (int i = 1; i <= 2; i++) {
+			for(int d = 1; d <= 4; d++) {
+				theWorld = (i+"-"+d);
+				theWorldBox.addItem(theWorld);
+			}
+		}
+	}
+	
+	
+	//Aren't these two methods almost exactly the same? lol
+	//I'm pretty sure we can also group the other ones aswell but whatever. - Kevin
 	
 	/*
 	 * Returns the description of a skill.
