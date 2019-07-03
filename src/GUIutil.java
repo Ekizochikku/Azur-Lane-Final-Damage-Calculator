@@ -353,4 +353,42 @@ public class GUIutil {
 		br.close();
 		return theList;
 	}
+	
+	/*
+	 * Returns the enemies of a world along with the related level.
+	 */
+	public ArrayList<String> getWorldEnemies(String world) throws FileNotFoundException, IOException {
+		ArrayList<String> theEnemies = new ArrayList<String>();
+		BufferedReader br = new BufferedReader(new FileReader("Enemies.tsv"));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split("	");
+			if (fields[0].contentEquals(world)) {
+				String temp = fields[1] + "," + fields[2];
+				theEnemies.add(temp);
+			}
+		}
+		br.close();
+		return theEnemies;
+	}
+	
+	/*
+	 * Returns the parameters of a enemy
+	 */
+	public ArrayList<String> getEnemyParameters(String enemy, String world) throws FileNotFoundException, IOException{
+		ArrayList<String> theParams = new ArrayList<String>();
+		String[] enemyNameAndLevel = enemy.split(","); //Name and Level
+		BufferedReader br = new BufferedReader(new FileReader("Enemies.tsv"));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split("	");
+			if (fields[0].equals(world) && fields[1].equals(enemyNameAndLevel[0]) && fields[2].equals(enemyNameAndLevel[1])) {
+				for (int i = 0; i < fields.length; i++) {
+					theParams.add(fields[i]);
+				}
+			}
+		}
+		br.close();
+		return theParams;
+	}
 }
