@@ -1,155 +1,156 @@
-WORLD	ENEMY	LEVEL	HEALTH	ARMOR	TYPE
-1-1	Mahan Ship	2	53	L	DD
-1-1	Mahan Ship	2	52	L	DD
-1-1	Gridley	2	123	L	DD
-1-1	Hornet	2	354	M	CV
-1-1	Craven	1	82	L	DD
-1-1	Gold Ship	1	200	L	GS
-1-2	Kagerou Ship	4	60	L	DD
-1-2	Fubuki Ship	4	61	L	DD
-1-2	Kagerou	4	183	L	DD
-1-2	Torpedo Boat	4	60	L	TB
-1-2	Nagara Ship	4	76	L	CL
-1-2	Tone	4	664	M	CA
-1-2	Kagerou Ship	3	59	L	DD
-1-2	Torpedo Boat	3	57	L	TB
-1-2	Fubuki Ship 	3	59	L	DD
-1-2	Kagerou	3	175	L	DD
-1-2	Suicide Ship	3	20	L	SS
-1-2	Gold Ship	3	212	L	GS
-1-3	Kagerou Ship	6	64	L	DD
-1-3	Fubuki Ship	6	65	L	DD
-1-3	Kagerou	6	199	L	DD
-1-3	Tone	6	380	M	CA
-1-3	Kirishima	6	782	M	BC
-1-3	Kagerou Ship	5	62	L	DD
-1-3	Fubuki Ship	5	63	L	DD
-1-3	Shiranui	5	191	L	DD
-1-3	Kagerou	5	191	L	DD
-1-3	Nagara Ship	5	79	L	CL
-1-4	Fubuki Ship	10	72	L	DD
-1-4	Kagerou	10	230	L	DD
-1-4	Shiranui	10	230	L	DD
-1-4	Tone	10	428	M	CA
-1-4	Akagi	10	944	M	CV
-1-4	Kaga	10	944	M	CV
-1-4	Kagerou Ship	8	67	L	DD
-1-4	Shiranui	8	214	L	DD
-1-4	Abukuma	8	261	L	CL
-1-4	Kagerou	10	230	L	DD
-1-4	Suicide Ship	8	27	L	SS
-1-4	Nagara Ship	8	87	L	CL
-1-4	Tone	8	404	M	CA
-1-4	Fubuki Ship	8	68	L	DD
-1-4	Chikuma	8	404	M	CA
-1-4	Hiei	8	519	M	BC
-1-4	Hiryuu	8	428	M	CV
-1-4	Souryuu	8	428	M	CV
-1-4	Shoukaku	8	428	M	CV
-1-4	Zuikaku	8	428	M	CV
-1-4	Gold Ship	8	244	M	GS
-2-1	Nagara Ship	12	142	L	CL
-2-1	Fubuki Ship	12	98	L	DD
-2-1	Shiratsuyu	12	372	L	DD
-2-1	Shigure	12	372	L	DD
-2-1	Suicide Ship	12	52	L	SS
-2-1	Kinugasa	12	728	M	CA
-2-1	Kagerou Ship	12	109	L	DD
-2-1	Shouhou	12	776	L	CVL
-2-1	Aoba	12	1220	M	CA
-2-1	Kagerou Ship	11	100	L	DD
-2-1	Shiratsuyu Ship	11	100	L	DD
-2-1	Shiratsuyu	11	360	L	DD
-2-1	Shigure	11	360	L	DD
-2-1	Kagerou	11	360	L	DD
-2-1	Nagara Ship	11	138	L	CL
-2-1	Fubuki Ship	11	96	L	DD
-2-1	Kako	11	700	M	CA
-2-1	Kagerou	11	106	L	DD
-2-1	Suicide Ship	11	50	L	SS
-2-1	Furutaka	11	700	M	CA
-2-1	Shiratsuyu Ship	11	100	L	DD
-2-1	Kinugasa	11	700	M	CA
-2-1	Aoba	11	700	M	CA
-2-1	Suicide Ship	11	50	L	SS
-2-1	Hiei	11	1140	M	BC
-2-1	Fubuki Ship	11	96	L	DD
-2-1	Shouhou	11	749	L	CVL
-2-1	Shoukaku	11	1079	L	CV
-2-1	Gold Ship	11	322	L	GS
-2-2	Aoba	14	784	M	CA
-2-2	Kagerouu	14	396	L	DD
-2-2	Kako	15	812	M	CA
-2-2	Kako	14	784	M	CA
-2-2	Kinugasa	15	812	M	CA
-2-2	Kinugasa	14	784	M	CA
-2-2	Shigure	14	396	L	DD
-2-2	Shoukaku	14	1193	M	CV
-2-2	Shouhou	14	830	L	CVL
-2-2	Shiratsuyu	15	408	L	DD
-2-2	Shiratsuyu	14	396	L	DD
-2-2	Zuikaku	15	1676	M	CV
-2-2	Hiei	14	1260	M	BC
-2-2	Furutaka	14	784	M	CA
-2-2	Gold Ship	14	343	L	GS
-2-2	Kagerou Ship	15	118	L	DD
-2-2	Kagerou Ship	14	107	L	DD
-2-2	Kagerou Ship	14	115	L	DD
-2-2	Shiratsuyu Ship	14	107	L	DD
-2-2	Nagara Ship	14	152	L	CL
-2-2	Fubuki Ship	15	106	L	DD
-2-2	Fubuki Ship	14	103	L	DD
-2-2	Suicide Ship	15	57	L	SS
-2-2	Suicide Ship	14	56	L	SS
-2-3	Suicide Ship	18	63	L	SS
-2-3	Nagara Ship	18	171	L	CL
-2-3	Shiratsuyu	18	444	L	DD
-2-3	Shigure	18	444	L	DD
-2-3	Aoba Ship	18	343	M	CA
-2-3	Kagerou	18	444	L	DD
-2-3	Shouhou	18	2170	L	CVL
-2-3	Kako	18	896	M	CA
-2-3	Kagerou Ship	17	115	L	DD
-2-3	Shiratsuyu Ship	17	114	L	DD
-2-3	Shiratsuyu	17	432	L	DD
-2-3	Shigure	17	432	L	DD
-2-3	Kagerou	17	432	L	DD
-2-3	Nagara Ship	17	166	L	DD
-2-3	Fubuki Ship	17	111	L	DD
-2-3	Kako	17	868	M	CA
-2-3	Kagerou Ship	17	125	L	DD
-2-3	Suicide Ship	17	61	L	SS
-2-3	Furutaka	17	868	M	CA
-2-3	Kinugasa	17	868	M	CA
-2-3	Aoba	17	868	M	CA
-2-3	Suicide Ship	17	61	L	SS
-2-3	Hiei	17	1380	M	BC
-2-3	Shouhou	17	911	L	CVL
-2-3	Shoukaku	17	1307	M	CV
-2-3	Gold Ship	17	365	L	GS
-2-4	Kagerou Ship	21	138	L	DD
-2-4	Shiratsuyu	21	480	L	DD
-2-4	Shigure	21	480	L	DD
-2-4	Fubuki Ship	21	122	L	DD
-2-4	Aoba	21	980	M	CA
-2-4	Kinugasa	21	980	M	CA
-2-4	Shouhou	21	1018	L	CVL
-2-4	Hiei	21	1540	M	BC
-2-4	Shoukaku	21	3100	M	CV
-2-4	Kagerou Ship	20	123	L	DD
-2-4	Shiratsuyu Ship	20	121	L	DD
-2-4	Shiratsuyu	20	468	L	DD
-2-4	Shigure	20	468	L	DD
-2-4	Kagerou	20	468	L	DD
-2-4	Nagara Ship	20	181	L	CL
-2-4	Fubuki Ship	20	119	L	DD
-2-4	Kako	20	952	M	CA
-2-4	Kagerou Ship	20	134	L	DD
-2-4	Suicide Ship	20	66	L	SS
-2-4	Furutaka	20	952	M	CA
-2-4	Kinugasa	20	952	M	CA
-2-4	Aoba	20	952	M	CA
-2-4	Hiei	20	1500	M	BC
-2-4	Shouhou	20	991	L	CVL
-2-4	Shoukaku	20	1421	M	CV
-2-4	Gold Ship	20	368	L	GS
+WORLD	ENEMY	LEVEL	HEALTH	ARMOR	TYPE	NATION
+1-1	Mahan Ship	2	53	L	DD	USS
+1-1	Mahan Ship	2	52	L	DD	USS
+1-1	Gridley	2	123	L	DD	USS
+1-1	Hornet	2	354	M	CV	USS
+1-1	Craven	1	82	L	DD	USS
+1-1	Gold Ship	1	200	L	GS	NULL
+1-2	Kagerou Ship	4	60	L	DD	IJN
+1-2	Fubuki Ship	4	61	L	DD	IJN
+1-2	Kagerou	4	183	L	DD	IJN
+1-2	Torpedo Boat	4	60	L	TB	NULL
+1-2	Nagara Ship	4	76	L	CL	IJN
+1-2	Tone	4	664	M	CA	IJN
+1-2	Kagerou Ship	3	59	L	DD	NULL
+1-2	Torpedo Boat	3	57	L	TB	IJN
+1-2	Fubuki Ship 	3	59	L	DD	IJN
+1-2	Kagerou	3	175	L	DD	IJN
+1-2	Suicide Ship	3	20	L	SS	NULL
+1-2	Gold Ship	3	212	L	GS	NULL
+1-3	Kagerou Ship	6	64	L	DD	IJN
+1-3	Fubuki Ship	6	65	L	DD	IJN
+1-3	Kagerou	6	199	L	DD	IJNI
+1-3	Tone	6	380	M	CA	IJN
+1-3	Kirishima	6	782	M	BC	IJN
+1-3	Kagerou Ship	5	62	L	DD	IJN
+1-3	Fubuki Ship	5	63	L	DD	IJN
+1-3	Shiranui	5	191	L	DD	IJN
+1-3	Kagerou	5	191	L	DD	IJN
+1-3	Nagara Ship	5	79	L	CL	IJN
+1-3	Gold Ship	5	225	L	GS	NULL
+1-4	Fubuki Ship	10	72	L	DD	IJN
+1-4	Kagerou	10	230	L	DD	IJN
+1-4	Shiranui	10	230	L	DD	IJN
+1-4	Tone	10	428	M	CA	IJN
+1-4	Akagi	10	944	M	CV	IJN
+1-4	Kaga	10	944	M	CV	IJN
+1-4	Kagerou Ship	8	67	L	DD	IJN
+1-4	Shiranui	8	214	L	DD	IJN
+1-4	Abukuma	8	261	L	CL	IJN
+1-4	Kagerou	10	230	L	DD	IJN
+1-4	Suicide Ship	8	27	L	SS	NULL
+1-4	Nagara Ship	8	87	L	CL	IJN
+1-4	Tone	8	404	M	CA	IJN
+1-4	Fubuki Ship	8	68	L	DD	IJN
+1-4	Chikuma	8	404	M	CA	IJN
+1-4	Hiei	8	519	M	BC	IJN
+1-4	Hiryuu	8	428	M	CV	IJN
+1-4	Souryuu	8	428	M	CV	IJN
+1-4	Shoukaku	8	428	M	CV	IJN
+1-4	Zuikaku	8	428	M	CV	IJN
+1-4	Gold Ship	8	244	M	GS	NULL
+2-1	Nagara Ship	12	142	L	CL	
+2-1	Fubuki Ship	12	98	L	DD	IJN
+2-1	Shiratsuyu	12	372	L	DD	IJN
+2-1	Shigure	12	372	L	DD	IJN
+2-1	Suicide Ship	12	52	L	SS	NULL
+2-1	Kinugasa	12	728	M	CA	IJN
+2-1	Kagerou Ship	12	109	L	DD	IJN
+2-1	Shouhou	12	776	L	CVL	IJN
+2-1	Aoba	12	1220	M	CA	IJN
+2-1	Kagerou Ship	11	100	L	DD	IJN
+2-1	Shiratsuyu Ship	11	100	L	DD	IJN
+2-1	Shiratsuyu	11	360	L	DD	IJN
+2-1	Shigure	11	360	L	DD	IJN
+2-1	Kagerou	11	360	L	DD	IJN
+2-1	Nagara Ship	11	138	L	CL	IJN
+2-1	Fubuki Ship	11	96	L	DD	IJN
+2-1	Kako	11	700	M	CA	IJN
+2-1	Kagerou	11	106	L	DD	IJN
+2-1	Suicide Ship	11	50	L	SS	NULL
+2-1	Furutaka	11	700	M	CA	IJN
+2-1	Shiratsuyu Ship	11	100	L	DD	IJN
+2-1	Kinugasa	11	700	M	CA	IJN
+2-1	Aoba	11	700	M	CA	IJN
+2-1	Suicide Ship	11	50	L	SS	NULL
+2-1	Hiei	11	1140	M	BC	IJN
+2-1	Fubuki Ship	11	96	L	DD	IJN
+2-1	Shouhou	11	749	L	CVL	IJN
+2-1	Shoukaku	11	1079	L	CV	IJN
+2-1	Gold Ship	11	322	L	GS	NULL
+2-2	Aoba	14	784	M	CA	IJN
+2-2	Kagerouu	14	396	L	DD	IJN
+2-2	Kako	15	812	M	CA	IJN
+2-2	Kako	14	784	M	CA	IJN
+2-2	Kinugasa	15	812	M	CA	IJN
+2-2	Kinugasa	14	784	M	CA	IJN
+2-2	Shigure	14	396	L	DD	IJN
+2-2	Shoukaku	14	1193	M	CV	IJN
+2-2	Shouhou	14	830	L	CVL	IJN
+2-2	Shiratsuyu	15	408	L	DD	IJN
+2-2	Shiratsuyu	14	396	L	DD	IJN
+2-2	Zuikaku	15	1676	M	CV	IJN
+2-2	Hiei	14	1260	M	BC	IJN
+2-2	Furutaka	14	784	M	CA	IJN
+2-2	Gold Ship	14	343	L	GS	NULL
+2-2	Kagerou Ship	15	118	L	DD	IJN
+2-2	Kagerou Ship	14	107	L	DD	IJN
+2-2	Kagerou Ship	14	115	L	DD	IJN
+2-2	Shiratsuyu Ship	14	107	L	DD	IJN
+2-2	Nagara Ship	14	152	L	CL	IJN
+2-2	Fubuki Ship	15	106	L	DD	IJN
+2-2	Fubuki Ship	14	103	L	DD	IJN
+2-2	Suicide Ship	15	57	L	SS	NULL
+2-2	Suicide Ship	14	56	L	SS	NULL
+2-3	Suicide Ship	18	63	L	SS	NULL
+2-3	Nagara Ship	18	171	L	CL	IJN
+2-3	Shiratsuyu	18	444	L	DD	IJN
+2-3	Shigure	18	444	L	DD	IJN
+2-3	Aoba Ship	18	343	M	CA	IJN
+2-3	Kagerou	18	444	L	DD	IJN
+2-3	Shouhou	18	2170	L	CVL	IJN
+2-3	Kako	18	896	M	CA	IJN
+2-3	Kagerou Ship	17	115	L	DD	IJN
+2-3	Shiratsuyu Ship	17	114	L	DD	IJN
+2-3	Shiratsuyu	17	432	L	DD	IJN
+2-3	Shigure	17	432	L	DD	IJN
+2-3	Kagerou	17	432	L	DD	IJN
+2-3	Nagara Ship	17	166	L	DD	IJN
+2-3	Fubuki Ship	17	111	L	DD	IJN
+2-3	Kako	17	868	M	CA	IJN
+2-3	Kagerou Ship	17	125	L	DD	IJN
+2-3	Suicide Ship	17	61	L	SS	NULL
+2-3	Furutaka	17	868	M	CA	IJN
+2-3	Kinugasa	17	868	M	CA	IJN
+2-3	Aoba	17	868	M	CA	IJN
+2-3	Suicide Ship	17	61	L	SS	NULL
+2-3	Hiei	17	1380	M	BC	IJN
+2-3	Shouhou	17	911	L	CVL	IJN
+2-3	Shoukaku	17	1307	M	CV	IJN
+2-3	Gold Ship	17	365	L	GS	NULL
+2-4	Kagerou Ship	21	138	L	DD	IJN
+2-4	Shiratsuyu	21	480	L	DD	IJN
+2-4	Shigure	21	480	L	DD	IJN
+2-4	Fubuki Ship	21	122	L	DD	IJN
+2-4	Aoba	21	980	M	CA	IJN
+2-4	Kinugasa	21	980	M	CA	IJN
+2-4	Shouhou	21	1018	L	CVL	IJN
+2-4	Hiei	21	1540	M	BC	IJN
+2-4	Shoukaku	21	3100	M	CV	IJN
+2-4	Kagerou Ship	20	123	L	DD	IJN
+2-4	Shiratsuyu Ship	20	121	L	DD	IJN
+2-4	Shiratsuyu	20	468	L	DD	IJN
+2-4	Shigure	20	468	L	DD	IJN
+2-4	Kagerou	20	468	L	DD	IJN
+2-4	Nagara Ship	20	181	L	CL	IJN
+2-4	Fubuki Ship	20	119	L	DD	IJN
+2-4	Kako	20	952	M	CA	IJN
+2-4	Kagerou Ship	20	134	L	DD	IJN
+2-4	Suicide Ship	20	66	L	SS	NULL
+2-4	Furutaka	20	952	M	CA	IJN
+2-4	Kinugasa	20	952	M	CA	IJN
+2-4	Aoba	20	952	M	CA	IJN
+2-4	Hiei	20	1500	M	BC	IJN
+2-4	Shouhou	20	991	L	CVL	IJN
+2-4	Shoukaku	20	1421	M	CV	IJN
+2-4	Gold Ship	20	368	L	GS	NULL
