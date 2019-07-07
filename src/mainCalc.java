@@ -499,7 +499,10 @@ public class mainCalc extends JFrame {
 		currentSkills = new ArrayList<String>();
 		
 		skillList = new JComboBox();
+		AutoCompletion ac = new AutoCompletion(skillList);
+		ac.enable(skillList);
 		skillList.setMaximumRowCount(10);
+		skillList.addItem("");
 		for(String skillName: guiUtil.getSkillNames()) {
 			skillList.addItem(skillName);
 		}
