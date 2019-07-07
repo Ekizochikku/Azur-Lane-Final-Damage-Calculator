@@ -35,51 +35,88 @@ import javax.swing.ListSelectionModel;
 public class mainCalc extends JFrame {
 
 	private JPanel contentPane;
+	
+	//Allows user to select which ship types to display
 	private JComboBox shipTypeCBox;
+	
+	//Allows user to select specific ship from the selected ship type
 	private JComboBox shipName;
+	
+	//The current selected ship type
 	private String currentShipType;
+	
+	//The current ship selected
 	private String currentShipName;
 	
+	//Allows user to select the weapon type for slot 1 for current ship
 	private JComboBox weaponTypeCBox1;
+	
+	//Allows user to select the weapon type for slot 2 for current ship
 	private JComboBox weaponTypeCBox2;
 	
+	//Allows user to select the weapon for slot 1 on current ship
 	private JComboBox weaponNamesSlot1;
+	
+	//Allows user to select the weapon for slot 2 on current ship
 	private JComboBox weaponSlot2;
 	
+	//Allows user to select the current world they are on
 	private JComboBox currentWorldCBox;
 	
-	
+	//Displays the description of the selected skill
 	private JTextPane skillDescriptionBox;
+	
+	//Displays which skills the user have currently selected to apply stats to current ship
 	private JList activeSkillList;
+	
+	//Allows user to select which skills to apply to current ship for damage calculations
 	private JComboBox skillList;
+	
+	//An array to hold the current skills the user have selected
 	private ArrayList<String> currentSkills;
+	
+	//Displays the ships the selected skill can be applied too
 	private JTextPane equipableShips;
 	
+	//The current selected weapon type
 	private String currentWeaponType;
+	
+	//The current selected weapon name
 	private String currentWeaponName;
 	
+	//The current selected weapon type for slot 2
 	private String currentWeaponTypeSlot2;
+	
+	//The current selected weapon for slot 2
 	private String currentWeaponNameSlot2;
 	
+	//The current world
 	private String theCurrentWorld;
+	
+	//The current enemy the user's ship is attacking
 	private String theCurrentEnemy;
 	
+	//Allows user to select which enemy from a specific world they are fighting
 	private JComboBox enemyNameCBox;
-
 	
-	
+	//The current damage type being applied
 	private int currentDMGType = -1; //0 = HE, 1 = AP
+	
+	//???
 	private int currentWeaponNum = -1; 
 	
+	//Helper method calls
 	private GUIutil guiUtil;
 	
-	ArrayList<String> weaponTypeListSlot1;		
-
+	//???
+	private ArrayList<String> weaponTypeListSlot1;
+	
+	//Should first salvo be applied in damage calculation
 	private boolean firstSalvo = false;
+	
+	//Should critical strkie be applied in damgage calculation
 	private boolean critical = false;
-	private JScrollPane descScrollPane;
-	private JScrollPane equipScrollPane;
-	private JScrollPane activeSkillScrollPane;
+	
 	private JButton removeButton;
 	private JButton removeAllSkills;
 	/**
@@ -532,11 +569,9 @@ public class mainCalc extends JFrame {
 			}
 		});
 		
-		descScrollPane = new JScrollPane();
-		
-		equipScrollPane = new JScrollPane();
-		
-		activeSkillScrollPane = new JScrollPane();
+		JScrollPane descScrollPane = new JScrollPane();
+		JScrollPane equipScrollPane = new JScrollPane();
+		JScrollPane activeSkillScrollPane = new JScrollPane();
 		//We should also have a button to delete all
 		removeButton = new JButton("REMOVE SKILL");
 		removeButton.addActionListener(new ActionListener() {
