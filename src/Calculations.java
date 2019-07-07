@@ -49,7 +49,7 @@ public class Calculations {
 		// Critical Damage
 		double crd = 1;
 		if (crit) {
-			crd = criticalDamage(wepType, skillList);
+			crd = criticalDamage(shipName, wepType, wepName, skillList);
 		}
 		
 		// Armor Modifier
@@ -87,7 +87,7 @@ public class Calculations {
 		double dmgNat = damageToNation(ep, skillList);
 		
 		// Damage to Type
-		double dmgType = damageToType(ep, skillList);
+		double dmgType = damageToType(shipName, ep, skillList);
 		
 		// Ammo Type Buff
 		double ammoBuff = 0;
@@ -110,7 +110,16 @@ public class Calculations {
 		double coefficient = Double.parseDouble(wp.get(4)); // Weapon coefficient
 		double slotEfficiency = 0; // Efficiency of the ship slot
 		if (shipSlot == 1) {
-			slotEfficiency = Double.parseDouble(sp.get(4));
+			// Azuma Exception
+			if (sp.get(0).equals("Azuma") && wp.get(0).equals("Triple 310mm (Type 0 Prototype")) {
+				for (int i = 0; i < skillList.size(); i++) {
+					if (skillList.get(i).equals("Barrage Gunnery Manual")) {
+						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.12;
+					}
+				}
+			} else {
+				slotEfficiency = Double.parseDouble(sp.get(4));
+			}
 		} else if (shipSlot == 2) {
 			slotEfficiency = Double.parseDouble(sp.get(5));
 		} else { // For planes later on
@@ -132,11 +141,19 @@ public class Calculations {
 			if (wepType.equals("TORPEDOS")) {
 				skillStat += Double.parseDouble(holding.get(9));
 			} else {
-				skillStat += Double.parseDouble(holding.get(8));
+				// Exception for North Carolina
+				if (shipName.equals("North Carolina") && holding.get(0).equals("AA Firepower")) {
+					skillStat += Double.parseDouble(sp.get(10)) * 0.30;
+				//Exception for Z46
+				} else if (shipName.equals("Z46") && holding.get(0).equals("Iron Wing Annihilation")) {
+					skillStat += Double.parseDouble(sp.get(10)) * 0.15;
+				} else {
+					skillStat += Double.parseDouble(holding.get(8));	
+				}
 			}
 		}
 		
-		// Scaling damage. Exception two Monarch and Izumo
+		// Scaling damage. Exceptions to Monarch and Izumo.
 		double scaling = 1;
 		if (shipName.equals("Monarch") || shipName.equals("Izumo")) {
 			scaling = 1.2;
@@ -170,14 +187,20 @@ public class Calculations {
 	 * Returns the a double with the skill multiplier for critical hits
 	 * Crit resist will be added later when enemies have a crit resist stat.
 	 */
-	public double criticalDamage(String wepType, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double criticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList) throws FileNotFoundException, IOException {
 		double critBuff = 1.5;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
+			holding = gt.getSkillParameters(skillList.get(i));
 			if (wepType.equals("TORPEDOS")) {
 				critBuff += Double.parseDouble(holding.get(41));
 			} else { // ADD AIR DAMAGE AND PLANES ABOVER HERE
-				critBuff += Double.parseDouble(holding.get(40));
+				//Exception for Jean Bart.
+				if (shipName.equals("Jean Bart") && wepName.equals("Quadruple 380mm (Mle 1935)")) {
+					critBuff += 0.5;
+				} else {
+					critBuff += Double.parseDouble(holding.get(40));
+				}
 			}
 		}
 		return critBuff;
@@ -197,46 +220,50 @@ public class Calculations {
 		} else { // Heavy Armor
 			armorMod = Double.parseDouble(wp.get(8));
 		}
-		// Exceptions
-		for (int i = 0; i < skillList.size(); i++) {
-			if (shipName.equals("Kawakaze") && skillList.get(i).equals("Piecring Torpedo Strike")) {
-				if (wepType.equals("TORPEDOS")) {
-					armorMod = 1.15;
+		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze")) {
+			return armorMod;
+		} else {
+			// Exceptions
+			for (int i = 0; i < skillList.size(); i++) {
+				if (shipName.equals("Kawakaze") && skillList.get(i).equals("Piecring Torpedo Strike")) {
+					if (wepType.equals("TORPEDOS")) {
+						armorMod = 1.15;
+					}
 				}
-			}
-			if (shipName.equals("Roon") && skillList.get(i).equals("Professional Reloader")) {
-				if (wepType != "TORPEDOS") { // ADD NOT PLANES CHECK HERE LATER
-					if (ammoType.equals("HE")) {
-						if (enemyArmor.equals("L")) {
-							armorMod = 1.35;
-						} else if (enemyArmor.equals("M")) {
-							armorMod = .95;
-						} else { // Heavy Armor
-							armorMod = .70;
-						}
-					} else { // Ammo is AP
-						if (enemyArmor.equals("L")) {
-							armorMod = .75;
-						} else if (enemyArmor.equals("M")) {
-							armorMod = 1.10;
-						} else { // Heavy Armor
-							armorMod = .75;
+				if (shipName.equals("Roon") && skillList.get(i).equals("Professional Reloader")) {
+					if (wepType != "TORPEDOS") { // ADD NOT PLANES CHECK HERE LATER
+						if (ammoType.equals("HE")) {
+							if (enemyArmor.equals("L")) {
+								armorMod = 1.35;
+							} else if (enemyArmor.equals("M")) {
+								armorMod = .95;
+							} else { // Heavy Armor
+								armorMod = .70;
+							}
+						} else { // Ammo is AP
+							if (enemyArmor.equals("L")) {
+								armorMod = .75;
+							} else if (enemyArmor.equals("M")) {
+								armorMod = 1.10;
+							} else { // Heavy Armor
+								armorMod = .75;
+							}
 						}
 					}
 				}
-			}
-			if (shipName.equals("Massachusetts") && skillList.get(i).equals("2,700 Pounds of Justice")) {
-				if (enemyArmor.equals("L")) {
-					armorMod = .65;
-				} else if (enemyArmor.equals("M")) {
-					armorMod = 1.35;
-				} else {
-					armorMod = 1.15;
-				}
-			}
-			if (shipName.equals("Kitikaze") && skillList.get(i).equals("Kitakaze Style - Unanimous Slash")) {
-				if (wepType != "TORPEDOS") { // ADD PLANES IF HERE LATER
+				if (shipName.equals("Massachusetts") && skillList.get(i).equals("2,700 Pounds of Justice")) {
+					if (enemyArmor.equals("L")) {
+						armorMod = .65;
+					} else if (enemyArmor.equals("M")) {
+						armorMod = 1.35;
+					} else {
 						armorMod = 1.15;
+					}
+				}
+				if (shipName.equals("Kitikaze") && skillList.get(i).equals("Kitakaze Style - Unanimous Slash")) {
+					if (wepType != "TORPEDOS") { // ADD PLANES IF HERE LATER
+							armorMod = 1.15;
+					}
 				}
 			}
 		}
@@ -354,46 +381,54 @@ public class Calculations {
 	/*
 	 * Returns a double of bonus damage to a ship type.
 	 */
-	public double damageToType(ArrayList<String> ep, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double damageToType(String shipName, ArrayList<String> ep, ArrayList<String> skillList) throws FileNotFoundException, IOException {
 		double dmgToType = 0;
 		String shipType = ep.get(5);
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
 			holding = gt.getSkillParameters(skillList.get(i));
-			switch (shipType) {
-			case "DD":
-				dmgToType += Double.parseDouble(holding.get(19));
-				break;
-			case "CL":
-				dmgToType += Double.parseDouble(holding.get(20));
-				break;
-			case "CA":
-				dmgToType += Double.parseDouble(holding.get(21));
-				break;
-			case "LC":
-				dmgToType += Double.parseDouble(holding.get(22));
-				break;
-			case "BC":
-				dmgToType += Double.parseDouble(holding.get(23));
-				break;
-			case "BB":
-				dmgToType += Double.parseDouble(holding.get(24));
-				break;
-			case "AB":
-				dmgToType += Double.parseDouble(holding.get(25));
-				break;
-			case "CVL":
-				dmgToType += Double.parseDouble(holding.get(26));
-				break;
-			case "CV":
-				dmgToType += Double.parseDouble(holding.get(27));
-				break;
-			case "SUB":
-				dmgToType += Double.parseDouble(holding.get(28));
-				break;
-			default:
-				break;
-			} // Monitors ignored for now
+			// Exception for Karlsruhe.
+			if (shipName.equals("Karlsruhe(Retrofit)") && holding.get(0).equals("Disturbance Strategy")) {
+				if (ep.get(5).equals("TB") || ep.get(5).equals("SS") || ep.get(5).equals("GS")) {
+					dmgToType += .25;
+				}
+			} else {
+				switch (shipType) {
+				case "DD":
+					dmgToType += Double.parseDouble(holding.get(19));
+					break;
+				case "CL":
+					dmgToType += Double.parseDouble(holding.get(20));
+					break;
+				case "CA":
+					dmgToType += Double.parseDouble(holding.get(21));
+					break;
+				case "LC":
+					dmgToType += Double.parseDouble(holding.get(22));
+					break;
+				case "BC":
+					dmgToType += Double.parseDouble(holding.get(23));
+					break;
+				case "BB":
+					dmgToType += Double.parseDouble(holding.get(24));
+					break;
+				case "AB":
+					dmgToType += Double.parseDouble(holding.get(25));
+					break;
+				case "CVL":
+					dmgToType += Double.parseDouble(holding.get(26));
+					break;
+				case "CV":
+					dmgToType += Double.parseDouble(holding.get(27));
+					break;
+				case "SUB":
+					dmgToType += Double.parseDouble(holding.get(28));
+					break;
+				default:
+					break;
+				} // Monitors ignored for now
+			}
+			
 		}
 		return dmgToType;
 	}
