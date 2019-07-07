@@ -8,6 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import javax.swing.JFrame;
@@ -503,10 +504,11 @@ public class mainCalc extends JFrame {
 		ac.enable(skillList);
 		skillList.setMaximumRowCount(10);
 		skillList.addItem("");
-		for(String skillName: guiUtil.getSkillNames()) {
+		ArrayList<String> skillNames = guiUtil.getSkillNames();
+		Collections.sort(skillNames);
+		for(String skillName: skillNames) {
 			skillList.addItem(skillName);
 		}
-		
 		skillList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				skillDescriptionBox.removeAll();
