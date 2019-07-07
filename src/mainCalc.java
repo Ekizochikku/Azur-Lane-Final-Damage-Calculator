@@ -333,7 +333,7 @@ public class mainCalc extends JFrame {
 		currentShipType = (String) shipTypeCBox.getSelectedItem();
 
 		
-		
+		//push test
 		shipTypeCBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
