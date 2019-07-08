@@ -176,7 +176,7 @@ public class mainCalc extends JFrame {
 			System.out.println("Inserting name for weapon type: " + theType);
 			initialUserChoice = theList.getWeaponList(theType);
 		}
-		
+		Collections.sort(initialUserChoice);
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
 	}
 	
@@ -602,12 +602,13 @@ public class mainCalc extends JFrame {
 			}
 		});
 		
-		JButton addSkill = new JButton("ADD SKILL");
+		JButton addSkill = new JButton("Add Skill");
 		addSkill.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				currentSkills.add("This is a test");
 				currentSkills.add((String) skillList.getSelectedItem());
 				activeSkillList.removeAll();
+				Collections.sort(currentSkills);
 				activeSkillList.setListData(currentSkills.toArray());
 			}
 		});
@@ -616,7 +617,7 @@ public class mainCalc extends JFrame {
 		JScrollPane equipScrollPane = new JScrollPane();
 		JScrollPane activeSkillScrollPane = new JScrollPane();
 		//We should also have a button to delete all
-		removeButton = new JButton("REMOVE SKILL");
+		removeButton = new JButton("Remove Skill");
 		removeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				List<String> skills = activeSkillList.getSelectedValuesList();
@@ -624,6 +625,7 @@ public class mainCalc extends JFrame {
 					currentSkills.remove(skill);
 				}
 				activeSkillList.removeAll();
+				Collections.sort(currentSkills);
 				activeSkillList.setListData(currentSkills.toArray());
 			}
 		});
