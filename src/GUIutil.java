@@ -261,7 +261,7 @@ public class GUIutil {
 			slottedWep = wepTypes.monitorTwo(wepnum);
 			break;
 		case "DD":
-			slottedWep = wepTypes.destroyerOfWorlds(wepnum);	
+			slottedWep = wepTypes.heavyCruiserTwo(wepnum);	
 		default:
 			break;
 		}
