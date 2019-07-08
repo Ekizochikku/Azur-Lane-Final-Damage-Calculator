@@ -184,6 +184,7 @@ public class mainCalc extends JFrame {
 			System.out.println("Inserting name for weapon type: " + theType);
 			initialUserChoice = theList.getWeaponList(theType);
 		}
+		initialUserChoice.add("");
 		Collections.sort(initialUserChoice);
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
 	}
@@ -354,23 +355,22 @@ public class mainCalc extends JFrame {
 					currentShipType = (String) shipTypeCBox.getSelectedItem();
 					insertNames(shipName, true, currentShipType);
 					currentShipName = (String) shipName.getSelectedItem();
-					
-					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
-					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
-					
+					if(currentShipName != "") {
+						insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
+						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
+						
 
-					insertNames(weaponNamesSlot1, false, currentWeaponType);
-					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
-					
-					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
-					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
-					
-					
-					
-					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
-					currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
-
-
+						insertNames(weaponNamesSlot1, false, currentWeaponType);
+						currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
+						
+						insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
+						
+						
+						
+						insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+						currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
+					}
 					System.out.println(currentShipName);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -408,17 +408,19 @@ public class mainCalc extends JFrame {
 					evenRadioButton.setEnabled(false);
 					oddRadioButton.setEnabled(false);
 				} 
-				try {
-					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
-					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
-					insertNames(weaponNamesSlot1, false, currentWeaponType);
-					
-					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
-					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
-					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				if(currentShipName != "") {
+					try {
+						insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
+						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
+						insertNames(weaponNamesSlot1, false, currentWeaponType);
+						
+						insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
+						insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			
 			}
@@ -600,13 +602,7 @@ public class mainCalc extends JFrame {
 		skillList.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				skillDescriptionBox.removeAll();
-				try {
-					skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
-					equipableShips.setText(guiUtil.getSkillUsers((String) skillList.getSelectedItem()));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				updateSkillDescription(0);
 			}
 		});
 		
@@ -615,9 +611,7 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 //				currentSkills.add("This is a test");
 				currentSkills.add((String) skillList.getSelectedItem());
-				activeSkillList.removeAll();
-				Collections.sort(currentSkills);
-				activeSkillList.setListData(currentSkills.toArray());
+				updateActiveSkills();
 			}
 		});
 		
@@ -632,9 +626,8 @@ public class mainCalc extends JFrame {
 				for(String skill: skills) {
 					currentSkills.remove(skill);
 				}
-				activeSkillList.removeAll();
-				Collections.sort(currentSkills);
-				activeSkillList.setListData(currentSkills.toArray());
+				updateActiveSkills();
+				updateSkillDescription(0);
 			}
 		});
 		
@@ -642,8 +635,8 @@ public class mainCalc extends JFrame {
 		btnRemoveAll.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentSkills.clear();
-				activeSkillList.removeAll();
-				activeSkillList.setListData(currentSkills.toArray());
+				updateActiveSkills();
+				updateSkillDescription(0);
 			}
 		});
 		
@@ -675,6 +668,8 @@ public class mainCalc extends JFrame {
 		lblDangerLevel = new JLabel("Danger Level:");
 		
 		ac.enable(shipName);
+		ac.enable(weaponNamesSlot1);
+		ac.enable(weaponSlot2);
 		
 		evenRadioButton = new JRadioButton("Even");
 		buttonGroup.add(evenRadioButton);
@@ -693,8 +688,10 @@ public class mainCalc extends JFrame {
 		lblActiveSkills = new JLabel("Active Skills:");
 		
 		textPane = new JTextPane();
+		textPane.setEditable(false);
 		
 		textPane_1 = new JTextPane();
+		textPane_1.setEditable(false);
 		
 		lblGunTypeSlot_2 = new JLabel("Gun Type Slot 1 Damage:");
 		
@@ -910,28 +907,47 @@ public class mainCalc extends JFrame {
 		activeSkillList.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent e) {
-				try {
-					skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
-					equipableShips.setText(guiUtil.getSkillUsers((String) skillList.getSelectedItem()));
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+				updateSkillDescription(0);
 			}
 		});
 		activeSkillList.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent arg0) {
-				try {
-					skillDescriptionBox.setText(guiUtil.getSkillDescription((String) activeSkillList.getSelectedValue()));
-					equipableShips.setText(guiUtil.getSkillUsers((String) activeSkillList.getSelectedValue()));
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				updateSkillDescription(1);
 			}
 		});
 		activeSkillScrollPane.setViewportView(activeSkillList);
 		activeSkillList.setVisibleRowCount(10);
 		contentPane.setLayout(gl_contentPane);
+	}
+	
+	/**
+	 * Method to update the skill description text.
+	 * @author Walter Hanson
+	 * @param theOption is which skill location to display description for.
+	 */
+	protected void updateSkillDescription(int theOption) {
+		try {
+			if (theOption == 0) {
+				skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
+				equipableShips.setText(guiUtil.getSkillUsers((String) skillList.getSelectedItem()));
+			}
+			else {
+				skillDescriptionBox.setText(guiUtil.getSkillDescription((String) activeSkillList.getSelectedValue()));
+				equipableShips.setText(guiUtil.getSkillUsers((String) activeSkillList.getSelectedValue()));
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	/**
+	 * Method to update the active skill JList.
+	 * @author Walter Hanson
+	 */
+	protected void updateActiveSkills() {
+		activeSkillList.removeAll();
+		Collections.sort(currentSkills);
+		activeSkillList.setListData(currentSkills.toArray());
 	}
 }
