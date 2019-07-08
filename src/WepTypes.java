@@ -59,7 +59,19 @@ public class WepTypes {
 		}
 		return theWep;
 	}
-	
+
+	/*
+	 * Check what weapons can be used on a light cruisers second weapon slot
+	 */
+	public String destroyerOfWorlds(int wepnum) {
+		String theWep = "";
+		switch (wepnum) {
+			case 0:
+				theWep = "DD";
+				break;
+		}
+		return theWep;
+	}
 	/*
 	 * Check what weapons can be used on a heavy cruisers first weapon slot
 	 */

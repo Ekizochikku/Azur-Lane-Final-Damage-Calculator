@@ -225,6 +225,8 @@ public class GUIutil {
 		case "MON":
 			slottedWep = wepTypes.monitorOne(wepnum);
 			break;
+		case "DD":
+			slottedWep = wepTypes.destroyerOfWorlds(wepnum);
 		default:
 			break;
 		}
@@ -258,6 +260,8 @@ public class GUIutil {
 		case "MON":
 			slottedWep = wepTypes.monitorTwo(wepnum);
 			break;
+		case "DD":
+			slottedWep = wepTypes.destroyerOfWorlds(wepnum);	
 		default:
 			break;
 		}
