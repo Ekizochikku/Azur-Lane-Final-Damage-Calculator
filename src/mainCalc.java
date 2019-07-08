@@ -31,6 +31,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class mainCalc extends JFrame {
 
@@ -580,6 +584,19 @@ public class mainCalc extends JFrame {
 		currentSkills = new ArrayList<String>();
 		
 		skillList = new JComboBox();
+		skillList.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				try {
+					skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
+					equipableShips.setText(guiUtil.getSkillUsers((String) skillList.getSelectedItem()));
+					System.out.println("HELOOOOOO");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		AutoCompletion ac = new AutoCompletion(skillList);
 		ac.enable(skillList);
 		skillList.setMaximumRowCount(10);
@@ -666,6 +683,7 @@ public class mainCalc extends JFrame {
 		lblEnemyName = new JLabel("Enemy Name:");
 		lblDangerLevel = new JLabel("Danger Level:");
 		
+		ac.enable(shipName);
 		
 		evenRadioButton = new JRadioButton("Even");
 		buttonGroup.add(evenRadioButton);
@@ -871,6 +889,17 @@ public class mainCalc extends JFrame {
 		skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
 		
 		activeSkillList = new JList();
+		activeSkillList.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent arg0) {
+				try {
+					skillDescriptionBox.setText(guiUtil.getSkillDescription((String) activeSkillList.getSelectedValue()));
+					equipableShips.setText(guiUtil.getSkillUsers((String) activeSkillList.getSelectedValue()));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		activeSkillScrollPane.setViewportView(activeSkillList);
 		activeSkillList.setVisibleRowCount(10);
 		contentPane.setLayout(gl_contentPane);
