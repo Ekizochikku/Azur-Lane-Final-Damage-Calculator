@@ -26,11 +26,28 @@ public class Calculations {
 	
 	GUIutil gt = new GUIutil();
 	
-	/*
-	 * Returns a double that is the final damage.
+	/**
+	 * Gets the final damage for the ship types
+	 * Changed Brians comment to be more detailed so i don't have the remember each paameter
+	 * @param shipType theShipType
+	 * @param shipName name of the ship
+	 * @param wepType
+	 * @param wepName
+	 * @param shipSlot
+	 * @param skillList
+	 * @param crit
+	 * @param world
+	 * @param enemy
+	 * @param ammoType
+	 * @param manual
+	 * @param firstSalvo
+	 * @param dangerLvl
+	 * @return
+	 * @throws FileNotFoundException
+	 * @throws IOException
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, String ammoType, boolean manual, boolean firstSalvo, int dangerLvl) throws FileNotFoundException, IOException {
+			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl) throws FileNotFoundException, IOException {
 		ArrayList<String> sp = gt.getShipParams(shipType, shipName);
 		ArrayList<String> wp = gt.getWepParams(wepType, wepName);
 		ArrayList<String> ep = gt.getEnemyParameters(enemy, world);
@@ -53,7 +70,7 @@ public class Calculations {
 		}
 		
 		// Armor Modifier
-		double am = armorModifier(shipName, wepType, wp, ep, wepType, skillList);
+		double am = armorModifier(shipName, wepType, wp, ep, ammoType, skillList);
 		
 		// Air Damage Reduction
 		double adr = 1; // WILL CHANGE WHEN PLANES ARE A FACTOR
@@ -91,7 +108,7 @@ public class Calculations {
 		
 		// Ammo Type Buff
 		double ammoBuff = 0;
-		if (!ammoType.equals("HE") || !ammoType.equals("AP")) {
+		if (!(ammoType == 0) || !(ammoType == 1)) {
 			ammoBuff = buffToAmmo(skillList, ammoType);
 		}
 		// Calculate the final damage
@@ -209,7 +226,7 @@ public class Calculations {
 	/*
 	 * Returns a double with how much a weapon should do to a certain enemie's armor.
 	 */
-	public double armorModifier(String shipName, String wepType, ArrayList<String> wp, ArrayList<String> ep, String ammoType, ArrayList<String> skillList) {
+	public double armorModifier(String shipName, String wepType, ArrayList<String> wp, ArrayList<String> ep, int ammoType, ArrayList<String> skillList) {
 		double armorMod = 0;
 		ArrayList<String> enemyParam = ep;
 		String enemyArmor = enemyParam.get(4);
@@ -232,7 +249,7 @@ public class Calculations {
 				}
 				if (shipName.equals("Roon") && skillList.get(i).equals("Professional Reloader")) {
 					if (wepType != "TORPEDOS") { // ADD NOT PLANES CHECK HERE LATER
-						if (ammoType.equals("HE")) {
+						if (ammoType == 1) {
 							if (enemyArmor.equals("L")) {
 								armorMod = 1.35;
 							} else if (enemyArmor.equals("M")) {
@@ -436,12 +453,12 @@ public class Calculations {
 	/*
 	 * Returns a double of how much an ammo type is buffed.
 	 */
-	public double buffToAmmo(ArrayList<String> skillList, String ammoType) throws FileNotFoundException, IOException {
+	public double buffToAmmo(ArrayList<String> skillList, int ammoType) throws FileNotFoundException, IOException {
 		double bta = 0;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
 			holding = gt.getSkillParameters(skillList.get(i));
-			if (ammoType.equals("HE")) {
+			if (ammoType == 0) {
 				bta += Double.parseDouble(holding.get(29));
 			} else {
 				bta += Double.parseDouble(holding.get(30));

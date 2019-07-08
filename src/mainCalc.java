@@ -35,6 +35,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class mainCalc extends JFrame {
 
@@ -104,10 +106,13 @@ public class mainCalc extends JFrame {
 	private JComboBox enemyNameCBox;
 	
 	//The current damage type being applied
-	private int currentDMGType = -1; //0 = HE, 1 = AP
+	private int currentDMGType = 0; //0 = HE, 1 = AP
 	
 	//???
 	private int currentWeaponNum = -1; 
+	
+	private JTextField dangerLevelTBox;
+	private int currentDangerLevel = 3;
 	
 	//Helper method calls
 	private GUIutil guiUtil;
@@ -141,10 +146,14 @@ public class mainCalc extends JFrame {
 	private JRadioButton buttonAP;
 	private JRadioButton evenRadioButton;
 	private JRadioButton oddRadioButton;
-	private JTextPane textPane;
-	private JTextPane textPane_1;
+	private JTextPane slot1Pane;
+	private JTextPane slot2Pane;
 	private JLabel lblGunTypeSlot_2;
 	private JLabel lblGunTypeSlot_3;
+	
+
+	private double finalDamageSlot1 = 0.0;
+	private double finalDamageSlot2 = 0.0;
 	/**
 	 * Launch the application.
 	 */
@@ -490,7 +499,12 @@ public class mainCalc extends JFrame {
 		
 		
 
-		JComboBox dangerLevel = new JComboBox();
+		dangerLevelTBox = new JTextField();
+		dangerLevelTBox.setEditable(false);
+		dangerLevelTBox.setBackground(SystemColor.controlHighlight);
+		//hard code initial screen
+		dangerLevelTBox.setText("3");
+
 		
 		
 		currentWorldCBox = new JComboBox<String>();
@@ -508,7 +522,10 @@ public class mainCalc extends JFrame {
 				try {
 					//System.out.println("The current world: " + theCurrentWorld);
 					guiUtil.insertEnemyNames(enemyNameCBox, theCurrentWorld);
-				} catch (IOException e) {
+					currentDangerLevel = guiUtil.getDangerLevel(theCurrentWorld);
+					String theMaxDangerLevel = Integer.toString(currentDangerLevel);
+					dangerLevelTBox.setText(theMaxDangerLevel);
+					} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
@@ -576,6 +593,26 @@ public class mainCalc extends JFrame {
 		calculateButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Calculate Data
+				Calculations finalDamage = new Calculations();
+				//Checking if all the parameters are correct
+				System.out.println("Checking parameters:  " + "\n Current Ship type: " + currentShipType +  "\n Ship Name: " + currentShipName +  
+						"\n Weapon Type Slot 1: " + currentWeaponType +  "\n Weapon Name Slot 1: " + currentWeaponName +  "\n Current Skills: " +
+						currentSkills +  "\n is Critical: " + critical +  "\n World number: " + theCurrentWorld + "\n Enemy Name: " + theCurrentEnemy+   "\n damage type int (0 HE, 1 AP) : " + 
+						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel);
+				//getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, 
+				//boolean crit, String world, String enemy, String ammoType, boolean manual, boolean firstSalvo, int dangerLvl)
+				try {
+					finalDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 4
+							,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel);
+					System.out.println("The final damage =" + finalDamageSlot1 );
+					String displayDamageSlot1 = Double.toString(finalDamageSlot1);
+					slot1Pane.setText(displayDamageSlot1);
+					
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 			}
 		});
 			
@@ -692,13 +729,17 @@ public class mainCalc extends JFrame {
 		
 		lblActiveSkills = new JLabel("Active Skills:");
 		
-		textPane = new JTextPane();
 		
-		textPane_1 = new JTextPane();
+		slot1Pane = new JTextPane();
+		slot1Pane.setEditable(false);
 		
-		lblGunTypeSlot_2 = new JLabel("Gun Type Slot 1 Damage:");
 		
-		lblGunTypeSlot_3 = new JLabel("Gun Type Slot 2 Damage:");
+		slot2Pane = new JTextPane();
+		slot2Pane.setEditable(false);
+		
+		lblGunTypeSlot_2 = new JLabel("Slot 1 Damage:");
+		
+		lblGunTypeSlot_3 = new JLabel("Slot 2 Damage:");
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -745,9 +786,9 @@ public class mainCalc extends JFrame {
 																	.addGap(18)
 																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 																		.addComponent(lblDangerLevel)
-																		.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 																		.addComponent(lblEnemyName)
-																		.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)))))
+																		.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+																		.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)))))
 														.addGroup(gl_contentPane.createSequentialGroup()
 															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 																.addGroup(gl_contentPane.createSequentialGroup()
@@ -763,8 +804,8 @@ public class mainCalc extends JFrame {
 																	.addComponent(lblAmmoType)))
 															.addGap(112)
 															.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-																.addComponent(textPane, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-																.addComponent(textPane_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+																.addComponent(slot1Pane, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+																.addComponent(slot2Pane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
 																.addComponent(lblGunTypeSlot_2, Alignment.LEADING)
 																.addComponent(lblGunTypeSlot_3, Alignment.LEADING))))
 													.addGap(95)
@@ -805,7 +846,7 @@ public class mainCalc extends JFrame {
 					.addContainerGap())
 		);
 		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(30)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -835,7 +876,7 @@ public class mainCalc extends JFrame {
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(weaponNamesSlot1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(dangerLevel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblGunTypeSlot_1)
@@ -878,7 +919,7 @@ public class mainCalc extends JFrame {
 												.addComponent(oddRadioButton))
 											.addGap(23)
 											.addComponent(isFirstSalvo))
-										.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
+										.addComponent(slot1Pane, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
@@ -892,12 +933,12 @@ public class mainCalc extends JFrame {
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(14)
 							.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
 					.addComponent(calculateButton)
 					.addGap(52))
-				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+				.addGroup(gl_contentPane.createSequentialGroup()
 					.addContainerGap(415, Short.MAX_VALUE)
-					.addComponent(textPane_1, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+					.addComponent(slot2Pane, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
 					.addGap(86))
 		);
 		skillDescriptionBox = new JTextPane();
