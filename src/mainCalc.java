@@ -116,10 +116,10 @@ public class mainCalc extends JFrame {
 	
 	//Should critical strkie be applied in damgage calculation
 	private boolean critical = false;
+	private boolean manual = false;
 	
 	private JButton removeButton;
-	private JButton removeAllSkills;
-	private JCheckBox manualCBox;
+	private JButton btnRemoveAll;
 	private JLabel lblGunTypeSlot;
 	private JLabel lblGunTypeSlot_1;
 	private JLabel lblGunNameSlot;
@@ -132,6 +132,11 @@ public class mainCalc extends JFrame {
 	private JLabel lblSkillDescription;
 	private JLabel lblSkillUsers;
 	private JLabel lblActiveSkills;
+	
+	private JRadioButton buttonHE;
+	private JRadioButton buttonAP;
+	private JRadioButton evenRadioButton;
+	private JRadioButton oddRadioButton;
 	/**
 	 * Launch the application.
 	 */
@@ -373,6 +378,28 @@ public class mainCalc extends JFrame {
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentShipName = (String) shipName.getSelectedItem();
+				System.out.println("the current ship name: " + currentShipName);
+				if(currentShipName.equals("Roon")) {
+					//System.out.println("Not entering this check!!!");
+					//The set enabled can be a method to reduce code reduncy if you want but it's only this
+					buttonHE.setEnabled(true);
+					buttonAP.setEnabled(true);
+				} else if(currentShipName.equals("Friedrich der Grosse")) {
+					buttonHE.setEnabled(false);
+					buttonAP.setEnabled(false);
+					
+					//Any default for radio buttons?
+					evenRadioButton.setSelected(true);
+					evenRadioButton.setEnabled(true);
+					oddRadioButton.setEnabled(true);
+					
+				} else {
+					buttonHE.setSelected(true);
+					buttonHE.setEnabled(false);
+					buttonAP.setEnabled(false);
+					evenRadioButton.setEnabled(false);
+					oddRadioButton.setEnabled(false);
+				} 
 				try {
 					insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
@@ -381,17 +408,17 @@ public class mainCalc extends JFrame {
 					insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
 					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
-					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+			
 			}
 		});
 		
 		//Hard Coded initial screen of weapon type will need to change later most likely.
 		String[] weaponTypeList1 = {"CLGUNS"};
-		weaponTypeCBox1 = new JComboBox(weaponTypeList1);
+		weaponTypeCBox1 = new JComboBox<Object>(weaponTypeList1);
 		weaponTypeCBox1.setMaximumRowCount(5);
 
 		//weaponTypeCBox1.setSelectedIndex(0);
@@ -510,15 +537,18 @@ public class mainCalc extends JFrame {
 			}
 		});
 		//Button group for the weapon damage type
-		JRadioButton buttonHE = new JRadioButton("HE");
+		buttonHE = new JRadioButton("HE");
+		buttonHE.setSelected(true);
+		buttonHE.setEnabled(false);
 		buttonHE.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentDMGType = 0;
 //				System.out.println(currentDMGType);
 			}
 		});
-		JRadioButton bulletAP = new JRadioButton("AP");
-		bulletAP.addActionListener(new ActionListener() {
+		buttonAP = new JRadioButton("AP");
+		buttonAP.setEnabled(false);
+		buttonAP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				currentDMGType = 1;
 //				System.out.println(currentDMGType);
@@ -527,7 +557,7 @@ public class mainCalc extends JFrame {
 		
 		ButtonGroup group = new ButtonGroup();
 		group.add(buttonHE);
-		group.add(bulletAP);
+		group.add(buttonAP);
 		
 		/*Button to determine final calculation
 		* For now does nothing as Subject to change 
@@ -598,16 +628,32 @@ public class mainCalc extends JFrame {
 			}
 		});
 		
+		JButton btnRemoveAll = new JButton("Remove All");
+		btnRemoveAll.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				currentSkills.clear();
+				activeSkillList.removeAll();
+				activeSkillList.setListData(currentSkills.toArray());
+			}
+		});
+		
+		
 		equipableShips = new JTextPane();
 		equipableShips.setEditable(false);
 		equipableShips.setText("No Ships Available");
 		equipableShips.setText(guiUtil.getSkillUsers((String) skillList.getSelectedItem()));
 		
-		manualCBox = new JCheckBox("Manual");
+
+		JCheckBox isManual = new JCheckBox("Manual");
+		isManual.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				manual = !manual;
+//				System.out.println(manual);
+			}
+		});
 		
 		
 		//All the labels
-		JLabel lblNewLbl = new JLabel("New label");
 		JLabel shipTypeLbl = new JLabel("Ship Type:");
 		JLabel shipNameLbl = new JLabel("Ship Name:");
 		lblGunTypeSlot = new JLabel("Gun Type Slot 1:");
@@ -618,13 +664,14 @@ public class mainCalc extends JFrame {
 		lblEnemyName = new JLabel("Enemy Name:");
 		lblDangerLevel = new JLabel("Danger Level:");
 		
-		JButton btnRemoveAll = new JButton("Remove All");
 		
-		JRadioButton evenRadioButton = new JRadioButton("Even");
+		evenRadioButton = new JRadioButton("Even");
 		buttonGroup.add(evenRadioButton);
+		oddRadioButton = new JRadioButton("Odd");
+		buttonGroup.add(oddRadioButton);
 		
-		JRadioButton oddRadioButtn = new JRadioButton("Odd");
-		buttonGroup.add(oddRadioButtn);
+		evenRadioButton.setEnabled(false);
+		oddRadioButton.setEnabled(false);
 		
 		lblSkillList = new JLabel("Skill List:");
 		
@@ -650,41 +697,39 @@ public class mainCalc extends JFrame {
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 												.addGroup(gl_contentPane.createSequentialGroup()
 													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+														.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+															.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+															.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+														.addComponent(lblGunTypeSlot)
+														.addComponent(lblGunTypeSlot_1))
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(lblGunNameSlot_1)
 														.addGroup(gl_contentPane.createSequentialGroup()
 															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-																.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-																	.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-																	.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
-																.addComponent(lblGunTypeSlot)
-																.addComponent(lblGunTypeSlot_1))
+																.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+																	.addComponent(shipName, 0, 148, Short.MAX_VALUE)
+																	.addComponent(weaponNamesSlot1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+																	.addComponent(weaponSlot2, 0, 148, Short.MAX_VALUE))
+																.addComponent(shipNameLbl))
 															.addPreferredGap(ComponentPlacement.RELATED)
 															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblGunNameSlot_1)
-																.addGroup(gl_contentPane.createSequentialGroup()
-																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																		.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-																			.addComponent(shipName, 0, 148, Short.MAX_VALUE)
-																			.addComponent(weaponNamesSlot1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																			.addComponent(weaponSlot2, 0, 148, Short.MAX_VALUE))
-																		.addComponent(shipNameLbl))
-																	.addPreferredGap(ComponentPlacement.RELATED)
-																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																		.addComponent(lblChapter)
-																		.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))
-																.addComponent(lblGunNameSlot)))
-														.addGroup(gl_contentPane.createSequentialGroup()
-															.addComponent(buttonHE)
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(bulletAP)
-															.addGap(18)
-															.addComponent(evenRadioButton)
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(oddRadioButtn)))
-													.addGap(42))
+																.addComponent(lblChapter)
+																.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))
+														.addComponent(lblGunNameSlot)))
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(buttonHE)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(buttonAP)
+													.addGap(18)
+													.addComponent(evenRadioButton)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(oddRadioButton))
 												.addGroup(gl_contentPane.createSequentialGroup()
 													.addPreferredGap(ComponentPlacement.RELATED)
 													.addComponent(lblAmmoType)))
+											.addGap(42)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 												.addComponent(lblEnemyName)
 												.addGroup(gl_contentPane.createSequentialGroup()
@@ -716,7 +761,7 @@ public class mainCalc extends JFrame {
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(isCritical)
-										.addComponent(manualCBox))
+										.addComponent(isManual))
 									.addPreferredGap(ComponentPlacement.RELATED, 542, Short.MAX_VALUE)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_contentPane.createSequentialGroup()
@@ -791,9 +836,9 @@ public class mainCalc extends JFrame {
 											.addGap(7)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 												.addComponent(buttonHE)
-												.addComponent(bulletAP)
+												.addComponent(buttonAP)
 												.addComponent(evenRadioButton)
-												.addComponent(oddRadioButtn))
+												.addComponent(oddRadioButton))
 											.addGap(23)
 											.addComponent(isFirstSalvo)))
 									.addPreferredGap(ComponentPlacement.RELATED)
@@ -811,11 +856,11 @@ public class mainCalc extends JFrame {
 									.addComponent(calculateButton))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(manualCBox))))
+									.addComponent(isManual))))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(14)
 							.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(24, Short.MAX_VALUE))
+					.addContainerGap(50, Short.MAX_VALUE))
 		);
 		skillDescriptionBox = new JTextPane();
 		descScrollPane.setViewportView(skillDescriptionBox);
