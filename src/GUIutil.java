@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -495,5 +496,116 @@ public class GUIutil {
 		}
 		br.close();
 		return theParams;
+	}
+	/**
+	 * A method to get all the ship names onto the jcombo box
+	 * Need help specifying which names for which ships
+	 * @author Kevin Nguyen
+	 * @param comboBox The first button for the ship/weapon names
+	 * @param isShip a boolean variable to determine if we're getting the ship or weapon names
+	 * @param theType string that's passed into the getWeaponList/getShipList method and gets the list of names from csv
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	@SuppressWarnings("unchecked")
+	public static void insertNames(JComboBox comboBox,boolean isShip, String theType) throws FileNotFoundException, IOException {
+		ArrayList<String> initialUserChoice = null; 
+		GUIutil theList;
+		theList = new GUIutil();
+		//true = we're getting a ship name, false is a weapon
+		if(isShip) {
+			initialUserChoice = theList.getShipList(theType);
+		} else {
+			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
+			//Remember to uncomment this
+			System.out.println("Inserting name for weapon type: " + theType);
+			initialUserChoice = theList.getWeaponList(theType);
+		}
+		initialUserChoice.add("");
+		Collections.sort(initialUserChoice);
+		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
+	}
+	
+	/**
+	 * Method to insert the ship or weapon type into the appropriate combo box. 
+	 * @author Kevin Nguyen
+	 * @param comboBox the combo box
+	 * @param weaponParamNum the weapon parameter number to get the appropriate type 
+	 * @param shipType 
+	 * @param shipName
+	 * @param firstSlot slot check
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
+	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName, boolean firstSlot) throws FileNotFoundException, IOException {
+		ArrayList<String> weaponTypes = null; 
+		String weaponNumString = null; 
+		//String exceptionCheck = "";
+		int currentWeaponNum;
+		GUIutil theList;
+		theList = new GUIutil();
+		weaponNumString = theList.getGetSpecificWeaponParam(shipType, shipName, weaponParamNum);
+		currentWeaponNum = Integer.parseInt(weaponNumString);
+		
+		//exceptionCheck = theList.checkSlotTwoWeps("BB", 2);
+		//System.out.println("Grabbing for hardcoded Battleships " + exceptionCheck);
+		if(firstSlot) {
+			System.out.println("Current weapon num for slot 1 is: " + currentWeaponNum);
+			System.out.println("The ship type for slot 1 is: " + shipType);
+			weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));
+			
+		} else {
+			System.out.println("Current weapon num for slot 2 is: " + currentWeaponNum);
+			System.out.println("The ship type for slot 2 is: " + shipType);
+		
+			
+			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
+			
+
+		}
+		comboBox.setModel(new DefaultComboBoxModel<Object>(weaponTypes.toArray()));
+	} 
+	
+	/**
+	 * Using Brians methods we check what types of weapons can be used in what slot. Whatever string it returns we convert that into
+	 * an array to insert it into the combo box.
+	 * Since he didn't want arrays in wepTypes this is the ghetto way. 
+	 * @author Kevin Nguyen
+	 * @param compatibleWeapons the string that is returned from checkWeapon methods.
+	 * @return the parsed string for our methods. 
+	 */
+	public static ArrayList<String> createWeaponTypeList(String compatibleWeapons) {
+		System.out.println("string is: " +compatibleWeapons + " Length is " + compatibleWeapons.length());
+		ArrayList<String> weaponTypeArray = new ArrayList<String>();		
+		String weaponType = "";
+		String weaponType2 = "";
+		//System.out.println("Current word for type list " + compatibleWeapons);
+		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS"))))) {
+				
+			for (int i = 0; i <= compatibleWeapons.length() - 1; i++) {
+				if(i < 2) {
+					weaponType += compatibleWeapons.charAt(i);
+				}
+				else if (i > 2) {
+					weaponType2 += compatibleWeapons.charAt(i);
+				}
+			
+			} 
+				
+			//System.out.println("Two weapon checks types" + weaponType + " " + weaponType2);
+			weaponTypeArray.add((weaponType += "GUNS"));
+			weaponTypeArray.add((weaponType2 += "GUNS"));
+			} else {
+				//System.out.println("hit else statement" + compatibleWeapons);
+				if((compatibleWeapons.length() == 2)) {
+					compatibleWeapons += "GUNS";
+					weaponTypeArray.add(compatibleWeapons);
+				} else {
+					weaponTypeArray.add(compatibleWeapons);
+				}
+			}
+		//System.out.println(weaponTypeArray);
+
+		return weaponTypeArray;
 	}
 }

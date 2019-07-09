@@ -48,75 +48,83 @@ public class Calculations {
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
 			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl) throws FileNotFoundException, IOException {
-		ArrayList<String> sp = gt.getShipParams(shipType, shipName);
-		ArrayList<String> wp = gt.getWepParams(wepType, wepName);
-		ArrayList<String> ep = gt.getEnemyParameters(enemy, world);
-		
-		// Corrected Damage Formula
-		double cd = correctedDamage(sp, wp, wepType, shipType, shipSlot, skillList, shipName);
-		
-		// Scaling Weapon Buffs (WeaponTypeMod)
-		double wtm = 0;
-		if (!(wepType.equals("DD GUNS")) || !(wepType.equals("CL GUNS")) || !(wepType.equals("CA GUNS")) || !(wepType.equals("BB GUNS")) || !(wepType.equals("TORPEDOS"))) {
-			wtm = 1;
+		//If statement to avoid index out of bounds if one of the weapon slots is empty
+		double finalDmg;
+		if (!wepName.isEmpty() && wepName != null) { 
+			ArrayList<String> sp = gt.getShipParams(shipType, shipName);
+			ArrayList<String> wp = gt.getWepParams(wepType, wepName);
+			ArrayList<String> ep = gt.getEnemyParameters(enemy, world);
+			
+			// Corrected Damage Formula
+			double cd = correctedDamage(sp, wp, wepType, shipType, shipSlot, skillList, shipName);
+			
+			// Scaling Weapon Buffs (WeaponTypeMod)
+			double wtm = 0;
+			if (!(wepType.equals("DD GUNS")) || !(wepType.equals("CL GUNS")) || !(wepType.equals("CA GUNS")) || !(wepType.equals("BB GUNS")) || !(wepType.equals("TORPEDOS"))) {
+				wtm = 1;
+			} else {
+				wtm = scalingWeaponBuff(wepType, skillList);
+			}
+			
+			// Critical Damage
+			double crd = 1;
+			if (crit) {
+				crd = criticalDamage(shipName, wepType, wepName, skillList);
+			}
+			
+			// Armor Modifier
+			double am = armorModifier(shipName, wepType, wp, ep, ammoType, skillList);
+			
+			// Air Damage Reduction
+			double adr = 1; // WILL CHANGE WHEN PLANES ARE A FACTOR
+			
+			// Enhancing Damage
+			double enhD = 1;
+			if (firstSalvo) {
+				enhancingDamage(skillList, manual);
+			}
+			
+			// Combo Damage
+			double combo = 1;
+			if (shipName.equals("U-47")) { // Will create a method once other ships get combo damage skills
+				combo += 0.4;
+			}
+			
+			// Level Difference
+			double lvlDiff = levelDifference(ep, dangerLvl);
+			
+			// Danger Level Reduction (Danger Level Mod)
+			// No method needed because only care about damage to enemy ship. not reducing damage own ship takes
+			double dmgRed = 1;
+			
+			// Injure Ratio
+			double injRat = injureRatio(skillList);
+			
+			// Damage Ratio
+			double dmgRat = damageRatio(wepType, skillList);
+			
+			// Damage to Nation
+			double dmgNat = damageToNation(ep, skillList);
+			
+			// Damage to Type
+			double dmgType = damageToType(shipName, ep, skillList);
+			
+			// Ammo Type Buff
+			double ammoBuff = 0;
+			if (!(ammoType == 0) || !(ammoType == 1)) {
+				ammoBuff = buffToAmmo(skillList, ammoType);
+			}
+			// Calculate the final damage
+			Random r = new Random();
+			double intermediateDmg = (cd + r.nextInt(2)) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
+			double temp1 = Math.floor(Math.max(1, Math.floor(intermediateDmg)));
+			double temp2 = Math.floor(temp1 * enhD);
+			finalDmg = Math.floor(temp2 * dmgRed);
+		//for some reason it's not entering here
 		} else {
-			wtm = scalingWeaponBuff(wepType, skillList);
+			System.out.println("no weapon selected!");
+			finalDmg = 0.0;
 		}
-		
-		// Critical Damage
-		double crd = 1;
-		if (crit) {
-			crd = criticalDamage(shipName, wepType, wepName, skillList);
-		}
-		
-		// Armor Modifier
-		double am = armorModifier(shipName, wepType, wp, ep, ammoType, skillList);
-		
-		// Air Damage Reduction
-		double adr = 1; // WILL CHANGE WHEN PLANES ARE A FACTOR
-		
-		// Enhancing Damage
-		double enhD = 1;
-		if (firstSalvo) {
-			enhancingDamage(skillList, manual);
-		}
-		
-		// Combo Damage
-		double combo = 1;
-		if (shipName.equals("U-47")) { // Will create a method once other ships get combo damage skills
-			combo += 0.4;
-		}
-		
-		// Level Difference
-		double lvlDiff = levelDifference(ep, dangerLvl);
-		
-		// Danger Level Reduction (Danger Level Mod)
-		// No method needed because only care about damage to enemy ship. not reducing damage own ship takes
-		double dmgRed = 1;
-		
-		// Injure Ratio
-		double injRat = injureRatio(skillList);
-		
-		// Damage Ratio
-		double dmgRat = damageRatio(wepType, skillList);
-		
-		// Damage to Nation
-		double dmgNat = damageToNation(ep, skillList);
-		
-		// Damage to Type
-		double dmgType = damageToType(shipName, ep, skillList);
-		
-		// Ammo Type Buff
-		double ammoBuff = 0;
-		if (!(ammoType == 0) || !(ammoType == 1)) {
-			ammoBuff = buffToAmmo(skillList, ammoType);
-		}
-		// Calculate the final damage
-		Random r = new Random();
-		double intermediateDmg = (cd + r.nextInt(2)) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
-		double temp1 = Math.floor(Math.max(1, Math.floor(intermediateDmg)));
-		double temp2 = Math.floor(temp1 * enhD);
-		double finalDmg = Math.floor(temp2 * dmgRed);
 		return finalDmg;
 	}
 	

@@ -43,10 +43,10 @@ public class mainCalc extends JFrame {
 	private JPanel contentPane;
 	
 	//Allows user to select which ship types to display
-	private JComboBox shipTypeCBox;
+	private JComboBox<?> shipTypeCBox;
 	
 	//Allows user to select specific ship from the selected ship type
-	private JComboBox shipName;
+	private JComboBox<String> shipName;
 	
 	//The current selected ship type
 	private String currentShipType;
@@ -55,19 +55,19 @@ public class mainCalc extends JFrame {
 	private String currentShipName;
 	
 	//Allows user to select the weapon type for slot 1 for current ship
-	private JComboBox weaponTypeCBox1;
+	private JComboBox<Object> weaponTypeCBox1;
 	
 	//Allows user to select the weapon type for slot 2 for current ship
-	private JComboBox weaponTypeCBox2;
+	private JComboBox<Object> weaponTypeCBox2;
 	
 	//Allows user to select the weapon for slot 1 on current ship
-	private JComboBox weaponNamesSlot1;
+	private JComboBox<String> weaponNamesSlot1;
 	
 	//Allows user to select the weapon for slot 2 on current ship
-	private JComboBox weaponSlot2;
+	private JComboBox<String> weaponSlot2;
 	
 	//Allows user to select the current world they are on
-	private JComboBox currentWorldCBox;
+	private JComboBox<String> currentWorldCBox;
 	
 	//Displays the description of the selected skill
 	private JTextPane skillDescriptionBox;
@@ -79,37 +79,35 @@ public class mainCalc extends JFrame {
 	private JComboBox skillList;
 	
 	//An array to hold the current skills the user have selected
-	private ArrayList<String> currentSkills;
+	private ArrayList currentSkills;
 	
 	//Displays the ships the selected skill can be applied too
 	private JTextPane equipableShips;
 	
-	//The current selected weapon type
-	private String currentWeaponType;
-	
 	//The current selected weapon name
-	private String currentWeaponName;
+	private String currentWeaponName = null;
 	
-	//The current selected weapon type for slot 2
-	private String currentWeaponTypeSlot2;
 	
 	//The current selected weapon for slot 2
-	private String currentWeaponNameSlot2;
+	private String currentWeaponNameSlot2 = null;
+	
+	//Hard coded these in for the initial screen
 	
 	//The current world
 	private String theCurrentWorld;
-	
 	//The current enemy the user's ship is attacking
-	private String theCurrentEnemy;
+	private String theCurrentEnemy = "Mahan Ship, Lvl 2";
+	//The current selected weapon type for slot 2
+	private String currentWeaponTypeSlot2 = "TORPEDOS";
+	//The current selected weapon type
+	private String currentWeaponType = "CLGUNS";
+	
 	
 	//Allows user to select which enemy from a specific world they are fighting
-	private JComboBox enemyNameCBox;
+	private JComboBox<Object> enemyNameCBox;
 	
 	//The current damage type being applied
 	private int currentDMGType = 0; //0 = HE, 1 = AP
-	
-	//???
-	private int currentWeaponNum = -1; 
 	
 	private JTextField dangerLevelTBox;
 	private int currentDangerLevel = 3;
@@ -117,18 +115,14 @@ public class mainCalc extends JFrame {
 	//Helper method calls
 	private GUIutil guiUtil;
 	
-	//???
-	private ArrayList<String> weaponTypeListSlot1;
-	
 	//Should first salvo be applied in damage calculation
 	private boolean firstSalvo = false;
 	
-	//Should critical strkie be applied in damgage calculation
+	//Should critical strike be applied in damage calculation
 	private boolean critical = false;
 	private boolean manual = false;
 	
 	private JButton removeButton;
-	private JButton btnRemoveAll;
 	private JLabel lblGunTypeSlot;
 	private JLabel lblGunTypeSlot_1;
 	private JLabel lblGunNameSlot;
@@ -169,117 +163,7 @@ public class mainCalc extends JFrame {
 			}
 		});
 	}
-	/**
-	 * A method to get all the ship names onto the jcombo box
-	 * Need help specifying which names for which ships
-	 * @author Kevin Nguyen
-	 * @param comboBox The first button for the ship/weapon names
-	 * @param isShip a boolean variable to determine if we're getting the ship or weapon names
-	 * @param theType string that's passed into the getWeaponList/getShipList method and gets the list of names from csv
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	@SuppressWarnings("unchecked")
-	public static void insertNames(JComboBox comboBox,boolean isShip, String theType) throws FileNotFoundException, IOException {
-		ArrayList<String> initialUserChoice = null; 
-		GUIutil theList;
-		theList = new GUIutil();
-		//true = we're getting a ship name, false is a weapon
-		if(isShip) {
-			initialUserChoice = theList.getShipList(theType);
-		} else {
-			//Weapon lists method doesn't exist yet but i'm assuming it will be this.
-			//Remember to uncomment this
-			System.out.println("Inserting name for weapon type: " + theType);
-			initialUserChoice = theList.getWeaponList(theType);
-		}
-		initialUserChoice.add("");
-		Collections.sort(initialUserChoice);
-		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
-	}
-	
-	/**
-	 * Method to insert the ship or weapon type into the appropriate combo box. 
-	 * @author Kevin Nguyen
-	 * @param comboBox the combo box
-	 * @param weaponParamNum the weapon parameter number to get the appropriate type 
-	 * @param shipType 
-	 * @param shipName
-	 * @param firstSlot slot check
-	 * @throws FileNotFoundException
-	 * @throws IOException
-	 */
-	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName, boolean firstSlot) throws FileNotFoundException, IOException {
-		ArrayList<String> weaponTypes = null; 
-		String weaponNumString = null; 
-		//String exceptionCheck = "";
-		int currentWeaponNum;
-		GUIutil theList;
-		theList = new GUIutil();
-		weaponNumString = theList.getGetSpecificWeaponParam(shipType, shipName, weaponParamNum);
-		currentWeaponNum = Integer.parseInt(weaponNumString);
-		
-		//exceptionCheck = theList.checkSlotTwoWeps("BB", 2);
-		//System.out.println("Grabbing for hardcoded Battleships " + exceptionCheck);
-		if(firstSlot) {
-			System.out.println("Current weapon num for slot 1 is: " + currentWeaponNum);
-			System.out.println("The ship type for slot 1 is: " + shipType);
-			weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));
-			
-		} else {
-			System.out.println("Current weapon num for slot 2 is: " + currentWeaponNum);
-			System.out.println("The ship type for slot 2 is: " + shipType);
-		
-			
-			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
-			
 
-		}
-		comboBox.setModel(new DefaultComboBoxModel<Object>(weaponTypes.toArray()));
-	} 
-	
-	/**
-	 * Using Brians methods we check what types of weapons can be used in what slot. Whatever string it returns we convert that into
-	 * an array to insert it into the combo box.
-	 * Since he didn't want arrays in wepTypes this is the ghetto way. 
-	 * @author Kevin Nguyen
-	 * @param compatibleWeapons the string that is returned from checkWeapon methods.
-	 * @return the parsed string for our methods. 
-	 */
-	public static ArrayList<String> createWeaponTypeList(String compatibleWeapons) {
-		System.out.println("string is: " +compatibleWeapons + " Length is " + compatibleWeapons.length());
-		ArrayList<String> weaponTypeArray = new ArrayList<String>();		
-		String weaponType = "";
-		String weaponType2 = "";
-		//System.out.println("Current word for type list " + compatibleWeapons);
-		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS"))))) {
-				
-			for (int i = 0; i <= compatibleWeapons.length() - 1; i++) {
-				if(i < 2) {
-					weaponType += compatibleWeapons.charAt(i);
-				}
-				else if (i > 2) {
-					weaponType2 += compatibleWeapons.charAt(i);
-				}
-			
-			} 
-				
-			//System.out.println("Two weapon checks types" + weaponType + " " + weaponType2);
-			weaponTypeArray.add((weaponType += "GUNS"));
-			weaponTypeArray.add((weaponType2 += "GUNS"));
-			} else {
-				//System.out.println("hit else statement" + compatibleWeapons);
-				if((compatibleWeapons.length() == 2)) {
-					compatibleWeapons += "GUNS";
-					weaponTypeArray.add(compatibleWeapons);
-				} else {
-					weaponTypeArray.add(compatibleWeapons);
-				}
-			}
-		//System.out.println(weaponTypeArray);
-
-		return weaponTypeArray;
-	}
 	
 	/**
 	 * A method to create the weapon slot combo box (to avoid clutter)
@@ -300,7 +184,7 @@ public class mainCalc extends JFrame {
 	//			System.out.println("This is a test");
 				try {
 					currentWeaponType = (String) weaponTypeCBox.getSelectedItem();
-					insertNames(weaponNamesCBox, false, currentWeaponType);
+					guiUtil.insertNames(weaponNamesCBox, false, currentWeaponType);
 					//currentWeaponN = (String) weaponNamesSlot1.getSelectedItem();
 	//				System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -327,14 +211,6 @@ public class mainCalc extends JFrame {
 	 */
 	@SuppressWarnings("unchecked")
 	public mainCalc() throws FileNotFoundException, IOException {
-		//GUIutil test environment
-		
-		/*GUIutil testCase = new GUIutil();
-		ArrayList<String> ls = new ArrayList<String>(); 
-		ls = createWeaponTypeList(testCase.checkWeaponSlot("CL",1, 2));
-		for (int i = 0; i < ls.size(); i++) {
-		     System.out.println(ls.toString());
-		}*/ 	
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -344,13 +220,10 @@ public class mainCalc extends JFrame {
 		contentPane.setName("Azur Lane By David Blaine");
 		setContentPane(contentPane);
 		//We're going to need to change these labels later into the actual names. 
-		/* This was kinda annoying to understand. If my understanding from Gui util is correct
-		 * Ships can only use certain weapon types, certain slots can only use certain types?
-		 */
 		//Currently cruisers only for now to avoid errors
 		guiUtil = new GUIutil();
 		String[] shipTypeList = {"CL", "CA", "LC", "BC", "BB", "AB", "MON", "DD"};
-		shipTypeCBox = new JComboBox(shipTypeList);
+		shipTypeCBox = new JComboBox<Object>(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
 		shipTypeCBox.setSelectedIndex(0);
 		
@@ -363,22 +236,22 @@ public class mainCalc extends JFrame {
 //				System.out.println("This is a test");
 				try {
 					currentShipType = (String) shipTypeCBox.getSelectedItem();
-					insertNames(shipName, true, currentShipType);
+					GUIutil.insertNames(shipName, true, currentShipType);
 					currentShipName = (String) shipName.getSelectedItem();
 					if(currentShipName != "") {
-						insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
+						GUIutil.insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 						
 
-						insertNames(weaponNamesSlot1, false, currentWeaponType);
+						GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
 						currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 						
-						insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 						
 						
 						
-						insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+						GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
 						currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
 					}
 					System.out.println(currentShipName);
@@ -387,12 +260,9 @@ public class mainCalc extends JFrame {
 				}
 			}
 		});
-		JComboBox comboBox_2 = new JComboBox();
-		
-		//REMINDER STILL NEED LABELS ON TOP OF BUTTONS!!
-		
-		shipName = new JComboBox();
-		insertNames(shipName,true, currentShipType);
+				
+		shipName = new JComboBox<String>();
+		GUIutil.insertNames(shipName,true, currentShipType);
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentShipName = (String) shipName.getSelectedItem();
@@ -420,13 +290,13 @@ public class mainCalc extends JFrame {
 				} 
 				if(currentShipName != "") {
 					try {
-						insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
+						GUIutil.insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
-						insertNames(weaponNamesSlot1, false, currentWeaponType);
+						GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
 						
-						insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
-						insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+						GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -449,7 +319,7 @@ public class mainCalc extends JFrame {
 //				System.out.println("This is a test");
 				try {
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
-					insertNames(weaponNamesSlot1, false, currentWeaponType);
+					GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
 					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 //					System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -457,9 +327,9 @@ public class mainCalc extends JFrame {
 				}
 			}
 		});
-		weaponNamesSlot1 = new JComboBox();
+		weaponNamesSlot1 = new JComboBox<String>();
 		//A second insertNames method for the initial screen
-		insertNames(weaponNamesSlot1, false, currentWeaponType);
+		GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
 		weaponNamesSlot1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
@@ -470,7 +340,7 @@ public class mainCalc extends JFrame {
 		
 		
 		String[] weaponTypeList2 = {"TORPEDOS"};
-		weaponTypeCBox2 = new JComboBox(weaponTypeList2);
+		weaponTypeCBox2 = new JComboBox<Object>(weaponTypeList2);
 
 		//weaponTypeCBox1.setSelectedIndex(0);
 		currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
@@ -480,7 +350,7 @@ public class mainCalc extends JFrame {
 //				System.out.println("This is a test");
 				try {
 					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
-					insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+					GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
 					currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
 //					System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -488,9 +358,9 @@ public class mainCalc extends JFrame {
 				}
 			}
 		});
-		weaponSlot2 = new JComboBox();
+		weaponSlot2 = new JComboBox<String>();
 		//A second insertNames method for the initial screen
-		insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+		GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
 		weaponSlot2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
@@ -602,14 +472,35 @@ public class mainCalc extends JFrame {
 						"\n Weapon Type Slot 1: " + currentWeaponType +  "\n Weapon Name Slot 1: " + currentWeaponName +  "\n Current Skills: " +
 						currentSkills +  "\n is Critical: " + critical +  "\n World number: " + theCurrentWorld + "\n Enemy Name: " + theCurrentEnemy+   "\n damage type int (0 HE, 1 AP) : " + 
 						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel);
-				//getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, 
-				//boolean crit, String world, String enemy, String ammoType, boolean manual, boolean firstSalvo, int dangerLvl)
+				
+				System.out.println("Checking parameters SLot 2:  " +
+						"\n Weapon Type Slot 2: " + currentWeaponTypeSlot2 +  "\n Weapon Name Slot 2: " + currentWeaponNameSlot2);
 				try {
-					finalDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 4
-							,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel);
-					System.out.println("The final damage =" + finalDamageSlot1 );
-					String displayDamageSlot1 = Double.toString(finalDamageSlot1);
-					slot1Pane.setText(displayDamageSlot1);
+					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
+					//Ship slot hard coded in, no idea what that is yet.
+					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
+						finalDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 4
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel);
+						System.out.println("The final damage = " + finalDamageSlot1 );
+						String displayDamageSlot1 = Double.toString(finalDamageSlot1);
+						slot1Pane.setText(displayDamageSlot1);
+					} else {
+						System.out.println("Null check working!");
+						slot1Pane.setText("No Gun Selected for this Slot!");
+					}
+					System.out.println("The weapon name for slot 2: " + currentWeaponNameSlot2);
+					if (!currentWeaponNameSlot2.isEmpty() && currentWeaponNameSlot2 != null) {
+						System.out.println("Null check not working!");
+
+						finalDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 4
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel);
+						System.out.println("The final damage Slot 2 = " + finalDamageSlot2 );
+						String displayDamageSlot2 = Double.toString(finalDamageSlot2);
+						slot2Pane.setText(displayDamageSlot2);
+					}else {
+						System.out.println("Null check working!");
+						slot2Pane.setText("No Gun Selected for this Slot!");
+					}
 					
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
@@ -627,9 +518,8 @@ public class mainCalc extends JFrame {
 		*/
 		currentSkills = new ArrayList<String>();
 		
-		skillList = new JComboBox();
-		AutoCompletion ac = new AutoCompletion(skillList);
-		ac.enable(skillList);
+		skillList = new JComboBox<String>();
+		AutoCompletion.enable(skillList);
 		skillList.setMaximumRowCount(10);
 		skillList.addItem("");
 		ArrayList<String> skillNames = guiUtil.getSkillNames();
@@ -705,9 +595,9 @@ public class mainCalc extends JFrame {
 		lblEnemyName = new JLabel("Enemy Name:");
 		lblDangerLevel = new JLabel("Danger Level:");
 		
-		ac.enable(shipName);
-		ac.enable(weaponNamesSlot1);
-		ac.enable(weaponSlot2);
+		AutoCompletion.enable(shipName);
+		AutoCompletion.enable(weaponNamesSlot1);
+		AutoCompletion.enable(weaponSlot2);
 		
 		evenRadioButton = new JRadioButton("Even");
 		buttonGroup.add(evenRadioButton);
@@ -943,7 +833,7 @@ public class mainCalc extends JFrame {
 		skillDescriptionBox.setText("No Skill Selected");
 		skillDescriptionBox.setText(guiUtil.getSkillDescription((String) skillList.getSelectedItem()));
 		
-		activeSkillList = new JList();
+		activeSkillList = new JList<String>();
 		activeSkillList.addFocusListener(new FocusAdapter() {
 			@Override
 			public void focusLost(FocusEvent e) {
@@ -985,9 +875,10 @@ public class mainCalc extends JFrame {
 	 * Method to update the active skill JList.
 	 * @author Walter Hanson
 	 */
+	@SuppressWarnings("unchecked")
 	protected void updateActiveSkills() {
 		activeSkillList.removeAll();
 		Collections.sort(currentSkills);
-		activeSkillList.setListData(currentSkills.toArray());
+		activeSkillList.setListData( currentSkills.toArray());
 	}
 }
