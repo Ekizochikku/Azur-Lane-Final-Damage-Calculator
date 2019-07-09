@@ -114,7 +114,9 @@ public class Calculations {
 		// Calculate the final damage
 		Random r = new Random();
 		double intermediateDmg = (cd + r.nextInt(2)) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
-		double finalDmg = (Math.max(1, intermediateDmg) * enhD) * dmgRed;
+		double temp1 = Math.floor(Math.max(1, Math.floor(intermediateDmg)));
+		double temp2 = Math.floor(temp1 * enhD);
+		double finalDmg = Math.floor(temp2 * dmgRed);
 		return finalDmg;
 	}
 	
