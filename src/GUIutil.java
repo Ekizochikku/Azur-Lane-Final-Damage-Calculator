@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -472,12 +473,20 @@ public class GUIutil {
 	 * Returns the parameters of a enemy
 	 */
 	public ArrayList<String> getEnemyParameters(String enemy, String world) throws FileNotFoundException, IOException{
+		//Adding in print statements to debug
+		//System.out.println("In the enemy parameters method:  "+ enemy + " " + world);
 		ArrayList<String> theParams = new ArrayList<String>();
 		String[] enemyNameAndLevel = enemy.split(","); //Name and Level
+		
+		String parseOutLvl = enemyNameAndLevel[1].replaceAll("[^\\d.]", "");
+		enemyNameAndLevel[1] = parseOutLvl;
+		//System.out.println("the enemy name and level fields: " + Arrays.toString(enemyNameAndLevel));
+
 		BufferedReader br = new BufferedReader(new FileReader("Enemies.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split("	");
+			//System.out.println("the fields: " + Arrays.toString(fields));
 			if (fields[0].equals(world) && fields[1].equals(enemyNameAndLevel[0]) && fields[2].equals(enemyNameAndLevel[1])) {
 				for (int i = 0; i < fields.length; i++) {
 					theParams.add(fields[i]);

@@ -228,6 +228,7 @@ public class Calculations {
 	 */
 	public double armorModifier(String shipName, String wepType, ArrayList<String> wp, ArrayList<String> ep, int ammoType, ArrayList<String> skillList) {
 		double armorMod = 0;
+		System.out.println(ep);
 		ArrayList<String> enemyParam = ep;
 		String enemyArmor = enemyParam.get(4);
 		if (enemyArmor.equals("L")) {

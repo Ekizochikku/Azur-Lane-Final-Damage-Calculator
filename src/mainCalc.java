@@ -341,6 +341,7 @@ public class mainCalc extends JFrame {
 		setBounds(100, 100, 1250, 600);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPane.setName("Azur Lane By David Blaine");
 		setContentPane(contentPane);
 		//We're going to need to change these labels later into the actual names. 
 		/* This was kinda annoying to understand. If my understanding from Gui util is correct
@@ -541,7 +542,7 @@ public class mainCalc extends JFrame {
 		enemyNameCBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				theCurrentEnemy = (String) enemyNameCBox.getSelectedItem();
-				//System.out.println(theCurrentEnemy);
+				System.out.println("the current enemy is" + theCurrentEnemy);
 			}
 		});
 		
