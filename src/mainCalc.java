@@ -330,6 +330,7 @@ public class mainCalc extends JFrame {
 		weaponNamesSlot1 = new JComboBox<String>();
 		//A second insertNames method for the initial screen
 		GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
+		currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 		weaponNamesSlot1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
@@ -361,6 +362,7 @@ public class mainCalc extends JFrame {
 		weaponSlot2 = new JComboBox<String>();
 		//A second insertNames method for the initial screen
 		GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+		currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
 		weaponSlot2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
@@ -879,6 +881,6 @@ public class mainCalc extends JFrame {
 	protected void updateActiveSkills() {
 		activeSkillList.removeAll();
 		Collections.sort(currentSkills);
-		activeSkillList.setListData( currentSkills.toArray());
+		activeSkillList.setListData(currentSkills.toArray());
 	}
 }
