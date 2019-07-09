@@ -47,7 +47,7 @@ public class Calculations {
 	 * @throws IOException
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl) throws FileNotFoundException, IOException {
+			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, boolean evenOdd) throws FileNotFoundException, IOException {
 		//If statement to avoid index out of bounds if one of the weapon slots is empty
 		double finalDmg;
 		if (!wepName.isEmpty() && wepName != null) { 
@@ -69,7 +69,7 @@ public class Calculations {
 			// Critical Damage
 			double crd = 1;
 			if (crit) {
-				crd = criticalDamage(shipName, wepType, wepName, skillList);
+				crd = criticalDamage(shipName, wepType, wepName, skillList, evenOdd);
 			}
 			
 			// Armor Modifier
@@ -101,7 +101,7 @@ public class Calculations {
 			double injRat = injureRatio(skillList);
 			
 			// Damage Ratio
-			double dmgRat = damageRatio(wepType, skillList);
+			double dmgRat = damageRatio(shipName, wepType, skillList, evenOdd );
 			
 			// Damage to Nation
 			double dmgNat = damageToNation(ep, skillList);
@@ -138,10 +138,24 @@ public class Calculations {
 		double slotEfficiency = 0; // Efficiency of the ship slot
 		if (shipSlot == 1) {
 			// Azuma Exception
-			if (sp.get(0).equals("Azuma") && wp.get(0).equals("Triple 310mm (Type 0 Prototype")) {
+			if (shipName.equals("Azuma") && wp.get(0).equals("Triple 310mm (Type 0 Prototype")) {
 				for (int i = 0; i < skillList.size(); i++) {
 					if (skillList.get(i).equals("Barrage Gunnery Manual")) {
 						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.12;
+					}
+				}
+			// Seattle Exception
+			} else if (shipName.equals("Seattle")){
+				for (int i = 0; i < skillList.size(); i++) {
+					if (skillList.get(i).equals("A Bow's String Has 2 Lines!")) {
+						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.15;
+					}
+				}
+			// Le Triomphant Exception
+			} else if (shipName.equals("Le Triomphant")) {
+				for (int i = 0; i < skillList.size(); i++) {
+					if (skillList.get(i).equals("Offensive Configuration")) {
+						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.20;
 					}
 				}
 			} else {
@@ -157,6 +171,12 @@ public class Calculations {
 		double stat = 0;
 		if (wepType.equals("TORPEDOS")) {
 			stat = Double.parseDouble(sp.get(9)) + Double.parseDouble(wp.get(1));
+		} else if (shipName.equals("L'Opiniatre")) {
+			for (int i = 0; i < skillList.size(); i++) {
+				if (skillList.get(i).equals("A Witch Who Never Admits Defeat")) {
+					stat = Double.parseDouble(sp.get(8)) + Double.parseDouble(wp.get(1)) + 40;
+				}
+			}
 		} else { // for guns
 			stat = Double.parseDouble(sp.get(8)) + Double.parseDouble(wp.get(1));
 		} // Add in if-else for planes later
@@ -214,7 +234,7 @@ public class Calculations {
 	 * Returns the a double with the skill multiplier for critical hits
 	 * Crit resist will be added later when enemies have a crit resist stat.
 	 */
-	public double criticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double criticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList, boolean evenOdd) throws FileNotFoundException, IOException {
 		double critBuff = 1.5;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
@@ -293,6 +313,9 @@ public class Calculations {
 							armorMod = 1.15;
 					}
 				}
+				if (shipName.equals("Black Heart") && skillList.get(i).equals("Tricolor Oder")) {
+					armorMod = 1.00;
+				}
 			}
 		}
 		return armorMod;
@@ -345,16 +368,17 @@ public class Calculations {
 	/*
 	 * Returns a double of the bonus damage from injure ratio from skills.
 	 */
-	public double damageRatio(String wepType, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double damageRatio(String shipName, String wepType, ArrayList<String> skillList, boolean evenOdd) throws FileNotFoundException, IOException {
 		double ratio = 0;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
 			holding = gt.getSkillParameters(skillList.get(i));
 			if (wepType.equals("TORPEDOS") && holding.get(6).equals("1")) {
 				ratio += Double.parseDouble(holding.get(4));
-			}
-			if (!wepType.equals("TORPEDOS") && holding.get(5).equals("1")) {
+			} else if (!wepType.equals("TORPEDOS") && holding.get(5).equals("1")) {
 				ratio += Double.parseDouble(holding.get(4));
+			} else {
+				ratio += 0; //holder
 			}
 			// ADD AIR AND PLANES HERE LATER
 		}
@@ -418,6 +442,11 @@ public class Calculations {
 			// Exception for Karlsruhe.
 			if (shipName.equals("Karlsruhe(Retrofit)") && holding.get(0).equals("Disturbance Strategy")) {
 				if (ep.get(5).equals("TB") || ep.get(5).equals("SS") || ep.get(5).equals("GS")) {
+					dmgToType += .25;
+				}
+			// Exception for Aurora	
+			} else if (shipName.equals("Aurora") && holding.get(0).equals("Silver Phantom")) {
+				if (ep.get(5).equals("TB") || ep.get(5).equals("SS") || ep.get(5).equals("GS") || ep.get(5).equals("DD")) {
 					dmgToType += .25;
 				}
 			} else {
