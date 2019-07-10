@@ -129,33 +129,14 @@ public class mainCalc extends JFrame {
 	private int evenOdd = -1; //0 for even, 1 for odd, -1 for non selected
 	
 	private JButton removeButton;
-	private JLabel lblGunTypeSlot;
-	private JLabel lblGunTypeSlot_1;
-	private JLabel lblGunNameSlot;
-	private JLabel lblGunNameSlot_1;
-	private JLabel lblChapter;
-	private JLabel lblEnemyName;
-	private JLabel lblDangerLevel;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	private JLabel lblSkillList;
-	private JLabel lblSkillDescription;
-	private JLabel lblSkillUsers;
-	private JLabel lblActiveSkills;
-	
 	private JRadioButton buttonHE;
 	private JRadioButton buttonAP;
 	private JRadioButton evenRadioButton;
 	private JRadioButton oddRadioButton;
 	private JTextPane slot1Pane;
 	private JTextPane slot2Pane;
-	private JLabel lblGunTypeSlot_2;
-	private JLabel lblGunTypeSlot_3;
-	
-	//Double for the damage range
-	private double finalMaxDamageSlot1 = 0.0;
-	private double finalMaxDamageSlot2 = 0.0;
-	private double finalMinDamageSlot1 = 0.0;
-	private double finalMinDamageSlot2 = 0.0;
+
 	/**
 	 * Launch the application.
 	 */
@@ -425,6 +406,8 @@ public class mainCalc extends JFrame {
 					//System.out.println("The current world: " + theCurrentWorld);
 					guiUtil.insertEnemyNames(enemyNameCBox, theCurrentWorld);
 					currentDangerLevel = guiUtil.getDangerLevel(theCurrentWorld);
+					theCurrentEnemy = (String) enemyNameCBox.getSelectedItem();
+
 					String theMaxDangerLevel = Integer.toString(currentDangerLevel);
 					dangerLevelTBox.setText(theMaxDangerLevel);
 					} catch (IOException e) {
@@ -502,7 +485,7 @@ public class mainCalc extends JFrame {
 				System.out.println("Checking parameters:  " + "\n Current Ship type: " + currentShipType +  "\n Ship Name: " + currentShipName +  
 						"\n Weapon Type Slot 1: " + currentWeaponType +  "\n Weapon Name Slot 1: " + currentWeaponName +  "\n Current Skills: " +
 						currentSkills +  "\n is Critical: " + critical +  "\n World number: " + theCurrentWorld + "\n Enemy Name: " + theCurrentEnemy+   "\n damage type int (0 HE, 1 AP) : " + 
-						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel);
+						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel + "\n current even odd: " + evenOdd);
 				
 				System.out.println("Checking parameters SLot 2:  " +
 						"\n Weapon Type Slot 2: " + currentWeaponTypeSlot2 +  "\n Weapon Name Slot 2: " + currentWeaponNameSlot2);
@@ -510,9 +493,9 @@ public class mainCalc extends JFrame {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
 					//Ship slot hard coded in, no idea what that is yet.
 					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
-						finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+						Double finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
-						finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+						Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
 						System.out.println("The final damage = " + finalMaxDamageSlot1 );
 						String displayDamageSlot1 = Double.toString(finalMaxDamageSlot1);
@@ -526,10 +509,10 @@ public class mainCalc extends JFrame {
 					if (!currentWeaponNameSlot2.isEmpty() && currentWeaponNameSlot2 != null) {
 						//System.out.println("Null check not working!");
 						
-						finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
+						Double finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
 						
-						finalMinDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
+						Double finalMinDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
 						
 						System.out.println("The final damage Slot 2 = " + finalMaxDamageSlot2 );
@@ -623,18 +606,6 @@ public class mainCalc extends JFrame {
 			}
 		});
 		
-		
-		//All the labels
-		JLabel shipTypeLbl = new JLabel("Ship Type:");
-		JLabel shipNameLbl = new JLabel("Ship Name:");
-		lblGunTypeSlot = new JLabel("Gun Type Slot 1:");
-		lblGunTypeSlot_1 = new JLabel("Gun Type Slot 2:");
-		lblGunNameSlot = new JLabel("Gun Name Slot 1:");
-		lblGunNameSlot_1 = new JLabel("Gun Name Slot 2:");
-		lblChapter = new JLabel("Chapter:");
-		lblEnemyName = new JLabel("Enemy Name:");
-		lblDangerLevel = new JLabel("Danger Level:");
-		
 		AutoCompletion.enable(shipName);
 		AutoCompletion.enable(weaponNamesSlot1);
 		AutoCompletion.enable(weaponSlot2);
@@ -661,15 +632,6 @@ public class mainCalc extends JFrame {
 			}
 		});
 		
-		lblSkillList = new JLabel("Skill List:");
-		
-		lblSkillDescription = new JLabel("Skill Description:");
-		
-		lblSkillUsers = new JLabel("Skill Users:");
-		
-		lblActiveSkills = new JLabel("Active Skills:");
-		
-		
 		slot1Pane = new JTextPane();
 		slot1Pane.setEditable(false);
 		
@@ -677,9 +639,22 @@ public class mainCalc extends JFrame {
 		slot2Pane = new JTextPane();
 		slot2Pane.setEditable(false);
 		
-		lblGunTypeSlot_2 = new JLabel("Slot 1 Damage Range:");
-		
-		lblGunTypeSlot_3 = new JLabel("Slot 2 Damage Range:");
+		//All the labels
+		JLabel shipTypeLbl = new JLabel("Ship Type:");
+		JLabel shipNameLbl = new JLabel("Ship Name:");
+		JLabel lblGunTypeSlot = new JLabel("Gun Type Slot 1:");
+		JLabel lblGunTypeSlot_1 = new JLabel("Gun Type Slot 2:");
+		JLabel lblGunNameSlot = new JLabel("Gun Name Slot 1:");
+		JLabel lblGunNameSlot_1 = new JLabel("Gun Name Slot 2:");
+		JLabel lblChapter = new JLabel("Chapter:");
+		JLabel lblEnemyName = new JLabel("Enemy Name:");
+		JLabel lblDangerLevel = new JLabel("Danger Level:");
+		JLabel lblGunTypeSlot_2 = new JLabel("Slot 1 Damage Range:");
+		JLabel lblGunTypeSlot_3 = new JLabel("Slot 2 Damage Range:");
+		JLabel lblSkillList = new JLabel("Skill List:");
+		JLabel lblSkillDescription = new JLabel("Skill Description:");
+		JLabel lblSkillUsers = new JLabel("Skill Users:");
+		JLabel lblActiveSkills = new JLabel("Active Skills:");
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
