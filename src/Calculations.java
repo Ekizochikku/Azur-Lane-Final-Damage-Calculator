@@ -173,6 +173,7 @@ public class Calculations {
 
 			}
 		} else if (shipSlot == 2) {
+			//potentially these values
 			slotEfficiency = Double.parseDouble(sp.get(5));
 		} else { // For planes later on
 			slotEfficiency = Double.parseDouble(sp.get(6));
