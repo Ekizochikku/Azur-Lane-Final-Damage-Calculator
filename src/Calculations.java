@@ -47,7 +47,7 @@ public class Calculations {
 	 * @throws IOException
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, boolean evenOdd, int removeRandom) throws FileNotFoundException, IOException {
+			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom) throws FileNotFoundException, IOException {
 		//If statement to avoid index out of bounds if one of the weapon slots is empty
 		double finalDmg;
 		if (!wepName.isEmpty() && wepName != null) { 
@@ -234,7 +234,7 @@ public class Calculations {
 	 * Returns the a double with the skill multiplier for critical hits
 	 * Crit resist will be added later when enemies have a crit resist stat.
 	 */
-	public double criticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList, boolean evenOdd) throws FileNotFoundException, IOException {
+	public double criticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList, int evenOdd) throws FileNotFoundException, IOException {
 		double critBuff = 1.5;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
@@ -244,6 +244,8 @@ public class Calculations {
 			} else { // ADD AIR DAMAGE AND PLANES ABOVER HERE
 				//Exception for Jean Bart.
 				if (shipName.equals("Jean Bart") && wepName.equals("Quadruple 380mm (Mle 1935)")) {
+					critBuff += 0.5;
+				} else if (shipName.equals("Friedrich der Grosse") && skillList.get(i).equals("Sonata of Chaos") && evenOdd == 0) {
 					critBuff += 0.5;
 				} else {
 					critBuff += Double.parseDouble(holding.get(40));
@@ -368,7 +370,7 @@ public class Calculations {
 	/*
 	 * Returns a double of the bonus damage from injure ratio from skills.
 	 */
-	public double damageRatio(String shipName, String wepType, ArrayList<String> skillList, boolean evenOdd) throws FileNotFoundException, IOException {
+	public double damageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd) throws FileNotFoundException, IOException {
 		double ratio = 0;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
@@ -376,7 +378,11 @@ public class Calculations {
 			if (wepType.equals("TORPEDOS") && holding.get(6).equals("1")) {
 				ratio += Double.parseDouble(holding.get(4));
 			} else if (!wepType.equals("TORPEDOS") && holding.get(5).equals("1")) {
-				ratio += Double.parseDouble(holding.get(4));
+				if (shipName.equals("Friedrich der Grosse") && skillList.get(i).equals("Sonata of Chaos") && evenOdd == 1) {
+					ratio += 0.2;
+				} else {
+					ratio += Double.parseDouble(holding.get(4));
+				}
 			} else {
 				ratio += 0; //holder
 			}
