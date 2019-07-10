@@ -87,6 +87,9 @@ public class mainCalc extends JFrame {
 	//The current selected weapon name
 	private String currentWeaponName = null;
 	
+	//the calculate button
+	JButton calculateButton; 
+	
 	
 	//The current selected weapon for slot 2
 	private String currentWeaponNameSlot2 = null;
@@ -237,6 +240,7 @@ public class mainCalc extends JFrame {
 		shipTypeCBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
+				calculateButton.setEnabled(false);
 				try {
 					currentShipType = (String) shipTypeCBox.getSelectedItem();
 					GUIutil.insertNames(shipName, true, currentShipType);
@@ -268,6 +272,7 @@ public class mainCalc extends JFrame {
 		GUIutil.insertNames(shipName,true, currentShipType);
 		shipName.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				calculateButton.setEnabled(false);
 				currentShipName = (String) shipName.getSelectedItem();
 				System.out.println("the current ship name: " + currentShipName);
 				if(currentShipName.equals("Roon")) {
@@ -311,7 +316,6 @@ public class mainCalc extends JFrame {
 						e.printStackTrace();
 					}
 				}
-			
 			}
 		});
 		
@@ -326,6 +330,9 @@ public class mainCalc extends JFrame {
 		weaponTypeCBox1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
+				if(currentWeaponNameSlot2.isEmpty()) {
+					calculateButton.setEnabled(false);
+				}
 				try {
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 					GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
@@ -344,6 +351,9 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 //				System.out.println(currentShipName);
+				if(!currentShipName.isBlank()) {
+					calculateButton.setEnabled(true);
+				}
 			}
 		});
 		
@@ -358,6 +368,9 @@ public class mainCalc extends JFrame {
 		weaponTypeCBox2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
+				if(currentWeaponName.isBlank()) {
+					calculateButton.setEnabled(false);
+				}
 				try {
 					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 					GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
@@ -376,6 +389,9 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
 //				System.out.println(currentShipName);
+				if(!currentShipName.isBlank()) {
+					calculateButton.setEnabled(true);
+				}
 			}
 		});
 		
@@ -473,7 +489,9 @@ public class mainCalc extends JFrame {
 		* we could have it change to entire screen
 		* or have the calculated damage number appear on the right side
 		*/
-		JButton calculateButton = new JButton("Calculate");
+		calculateButton = new JButton("Calculate");
+		calculateButton.setEnabled(false);
+
 		calculateButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//Calculate Data
