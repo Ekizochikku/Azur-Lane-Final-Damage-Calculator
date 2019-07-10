@@ -47,7 +47,7 @@ public class Calculations {
 	 * @throws IOException
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, boolean evenOdd) throws FileNotFoundException, IOException {
+			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, boolean evenOdd, int removeRandom) throws FileNotFoundException, IOException {
 		//If statement to avoid index out of bounds if one of the weapon slots is empty
 		double finalDmg;
 		if (!wepName.isEmpty() && wepName != null) { 
@@ -116,7 +116,7 @@ public class Calculations {
 			}
 			// Calculate the final damage
 			Random r = new Random();
-			double intermediateDmg = (cd + r.nextInt(2)) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
+			double intermediateDmg = (cd + removeRandom) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
 			double temp1 = Math.floor(Math.max(1, Math.floor(intermediateDmg)));
 			double temp2 = Math.floor(temp1 * enhD);
 			finalDmg = Math.floor(temp2 * dmgRed);
