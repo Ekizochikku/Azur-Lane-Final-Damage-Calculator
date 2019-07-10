@@ -151,9 +151,11 @@ public class mainCalc extends JFrame {
 	private JLabel lblGunTypeSlot_2;
 	private JLabel lblGunTypeSlot_3;
 	
-
-	private double finalDamageSlot1 = 0.0;
-	private double finalDamageSlot2 = 0.0;
+	//Double for the damage range
+	private double finalMaxDamageSlot1 = 0.0;
+	private double finalMaxDamageSlot2 = 0.0;
+	private double finalMinDamageSlot1 = 0.0;
+	private double finalMinDamageSlot2 = 0.0;
 	/**
 	 * Launch the application.
 	 */
@@ -508,27 +510,30 @@ public class mainCalc extends JFrame {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
 					//Ship slot hard coded in, no idea what that is yet.
 					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
-						finalDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+						finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, true);
-						System.out.println("The final damage = " + finalDamageSlot1 );
-						String displayDamageSlot1 = Double.toString(finalDamageSlot1);
-						slot1Pane.setText(displayDamageSlot1);
+						System.out.println("The final damage = " + finalMaxDamageSlot1 );
+						String displayDamageSlot1 = Double.toString(finalMaxDamageSlot1);
+						slot1Pane.setText(displayDamageSlot1 + " - ");
 					} else {
 						//System.out.println("Null check working!");
-						slot1Pane.setText("No Gun Selected for this Slot!");
+						slot1Pane.setText("No Gun Selected for this Slot.");
 					}
 					System.out.println("The weapon name for slot 2: " + currentWeaponNameSlot2);
 					if (!currentWeaponNameSlot2.isEmpty() && currentWeaponNameSlot2 != null) {
 						//System.out.println("Null check not working!");
-
-						finalDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
+						
+						finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, true);
-						System.out.println("The final damage Slot 2 = " + finalDamageSlot2 );
-						String displayDamageSlot2 = Double.toString(finalDamageSlot2);
-						slot2Pane.setText(displayDamageSlot2);
+						
+						
+						
+						System.out.println("The final damage Slot 2 = " + finalMaxDamageSlot2 );
+						String displayDamageSlot2 = Double.toString(finalMaxDamageSlot2);
+						slot2Pane.setText(displayDamageSlot2 + " - " );
 					}else {
 						System.out.println("Null check working!");
-						slot2Pane.setText("No Gun Selected for this Slot!");
+						slot2Pane.setText("No Gun Selected for this Slot.");
 					}
 					
 				} catch (IOException e) {
@@ -666,9 +671,9 @@ public class mainCalc extends JFrame {
 		slot2Pane = new JTextPane();
 		slot2Pane.setEditable(false);
 		
-		lblGunTypeSlot_2 = new JLabel("Slot 1 Damage:");
+		lblGunTypeSlot_2 = new JLabel("Slot 1 Damage Range:");
 		
-		lblGunTypeSlot_3 = new JLabel("Slot 2 Damage:");
+		lblGunTypeSlot_3 = new JLabel("Slot 2 Damage Range:");
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
