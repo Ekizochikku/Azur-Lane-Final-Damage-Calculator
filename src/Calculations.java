@@ -57,6 +57,7 @@ public class Calculations {
 			
 			// Corrected Damage Formula
 			double cd = correctedDamage(sp, wp, wepType, shipType, shipSlot, skillList, shipName);
+			System.out.println("The damage after correctedDamage:" + cd);
 			
 			// Scaling Weapon Buffs (WeaponTypeMod)
 			double wtm = 0;
@@ -70,6 +71,7 @@ public class Calculations {
 			double crd = 1;
 			if (crit) {
 				crd = criticalDamage(shipName, wepType, wepName, skillList, evenOdd);
+				System.out.println("The damage after correctedDamage:" + cd);
 			}
 			
 			// Armor Modifier
@@ -116,10 +118,14 @@ public class Calculations {
 			}
 			// Calculate the final damage
 			Random r = new Random();
+			System.out.println("All the values within intermediate Dmg: \n Corrected Dmg: "+ cd + "\n weapon Scaling: " + wtm + "\n critical damage: " + crd + 
+				"\n armor modifier"	+ am + "\n injure ratio " + (1+injRat) + "\n" + (1+dmgRat) + "\n Level Difference: " + lvlDiff + "\n Damage to nation: " + (1 + dmgType) +
+				 "\n ammo buff: "+ (1 + ammoBuff - 0) +"\n air damage reduction: "+ adr +"\n combo damage: "+ (1 + combo));
 			double intermediateDmg = (cd + removeRandom) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
-			double temp1 = Math.floor(Math.max(1, Math.floor(intermediateDmg)));
-			double temp2 = Math.floor(temp1 * enhD);
-			finalDmg = Math.floor(temp2 * dmgRed);
+			System.out.println("The intermediate damage" + intermediateDmg);
+			double temp1 = (Math.max(1, (intermediateDmg)));
+			double temp2 = (temp1 * enhD);
+			finalDmg = (temp2 * dmgRed);
 		//for some reason it's not entering here
 		} else {
 			System.out.println("no weapon selected!");
@@ -141,14 +147,14 @@ public class Calculations {
 			if (shipName.equals("Azuma") && wp.get(0).equals("Triple 310mm (Type 0 Prototype")) {
 				for (int i = 0; i < skillList.size(); i++) {
 					if (skillList.get(i).equals("Barrage Gunnery Manual")) {
-						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.12;
+						slotEfficiency = Double.parseDouble(sp.get(6)) + 0.12;
 					}
 				}
 			// Seattle Exception
 			} else if (shipName.equals("Seattle")){
 				for (int i = 0; i < skillList.size(); i++) {
 					if (skillList.get(i).equals("A Bow's String Has 2 Lines!")) {
-						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.15;
+						slotEfficiency = Double.parseDouble(sp.get(6)) + 0.15;
 					}
 				}
 			// Le Triomphant Exception
@@ -159,7 +165,10 @@ public class Calculations {
 					}
 				}
 			} else {
-				slotEfficiency = Double.parseDouble(sp.get(4));
+				slotEfficiency = Double.parseDouble(sp.get(6));
+				System.out.println("The ship parameters: " + sp);
+				System.out.println("The slot efficiency: " + slotEfficiency);
+
 			}
 		} else if (shipSlot == 2) {
 			slotEfficiency = Double.parseDouble(sp.get(5));
@@ -208,6 +217,7 @@ public class Calculations {
 		double finalStat = stat * skillStat * scaling;
 		
 		//ADD PLANE SCALING HERE
+		System.out.println("Weapon damage: " + weaponDamage + "\n Coefficient :" + coefficient + "\n slotEfficiency " + slotEfficiency + "\n final stat: " + finalStat);
 		finalDamage = weaponDamage * coefficient * slotEfficiency * (1 + finalStat/100);
 		return finalDamage;
 	}

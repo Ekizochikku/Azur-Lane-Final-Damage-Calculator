@@ -244,7 +244,7 @@ public class mainCalc extends JFrame {
 						GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
 						currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
 					}
-					System.out.println(currentShipName);
+					//System.out.println(currentShipName);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
@@ -257,7 +257,7 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				calculateButton.setEnabled(false);
 				currentShipName = (String) shipName.getSelectedItem();
-				System.out.println("the current ship name: " + currentShipName);
+				//System.out.println("the current ship name: " + currentShipName);
 				if(currentShipName.equals("Roon")) {
 					//System.out.println("Not entering this check!!!");
 					//The set enabled can be a method to reduce code reduncy if you want but it's only this
@@ -283,7 +283,7 @@ public class mainCalc extends JFrame {
 					evenRadioButton.setEnabled(false);
 					oddRadioButton.setEnabled(false);
 					evenOdd = -1;
-					System.out.println("The current even odd:" + evenOdd);
+					//System.out.println("The current even odd:" + evenOdd);
 				} 
 				if(currentShipName != "") {
 					try {
@@ -424,7 +424,7 @@ public class mainCalc extends JFrame {
 		enemyNameCBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				theCurrentEnemy = (String) enemyNameCBox.getSelectedItem();
-				System.out.println("the current enemy is" + theCurrentEnemy);
+				//System.out.println("the current enemy is" + theCurrentEnemy);
 			}
 		});
 		
@@ -482,21 +482,22 @@ public class mainCalc extends JFrame {
 				//Calculate Data
 				Calculations finalDamage = new Calculations();
 				//Checking if all the parameters are correct
-				System.out.println("Checking all the parameters:  " + "\n Current Ship type: " + currentShipType +  "\n Ship Name: " + currentShipName +  
+				/*System.out.println("Checking all the parameters:  " + "\n Current Ship type: " + currentShipType +  "\n Ship Name: " + currentShipName +  
 						"\n Weapon Type Slot 1: " + currentWeaponType +  "\n Weapon Name Slot 1: " + currentWeaponName +  "\n Current Skills: " +
 						currentSkills +  "\n is Critical: " + critical +  "\n World number: " + theCurrentWorld + "\n Enemy Name: " + theCurrentEnemy+   "\n damage type int (0 HE, 1 AP) : " + 
-						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel + "\n current even odd: " + evenOdd);
+						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel + "\n current even odd: " + evenOdd);*/
 				
-				System.out.println("Checking parameters SLot 2:  " +
-						"\n Weapon Type Slot 2: " + currentWeaponTypeSlot2 +  "\n Weapon Name Slot 2: " + currentWeaponNameSlot2);
+				/*System.out.println("Checking parameters SLot 2:  " +
+						"\n Weapon Type Slot 2: " + currentWeaponTypeSlot2 +  "\n Weapon Name Slot 2: " + currentWeaponNameSlot2);*/
 				try {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
 					//Ship slot hard coded in, no idea what that is yet.
 					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
-						Double finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
-						Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
+						Double finalMaxDamageSlot1 = (double) Math.round(finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2));
+						Double finalMinDamageSlot1 = (double) Math.round(finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0));
+						
 						System.out.println("The final max damage = " + finalMaxDamageSlot1 );
 						System.out.println("The final min damage = " + finalMinDamageSlot1 );
 
@@ -623,14 +624,14 @@ public class mainCalc extends JFrame {
 		evenRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				evenOdd = 0;
-				System.out.println("even is selected should display 0: " + evenOdd);
+//				System.out.println("even is selected should display 0: " + evenOdd);
 			}
 		});
 		
 		oddRadioButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				evenOdd = 1;
-				System.out.println("Odd is selected should display 1 :" + evenOdd );
+//				System.out.println("Odd is selected should display 1 :" + evenOdd );
 			}
 		});
 		
