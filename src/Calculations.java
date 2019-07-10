@@ -323,8 +323,8 @@ public class Calculations {
 						armorMod = 1.15;
 					}
 				}
-				if (shipName.equals("Kitikaze") && skillList.get(i).equals("Kitakaze Style - Unanimous Slash")) {
-					if (wepType != "TORPEDOS") { // ADD PLANES IF HERE LATER
+				if (shipName.equals("Kitakaze") && skillList.get(i).equals("Kitakaze Style - Unanimous Slash")) {
+					if (!wepType.equals("TORPEDOS")) { // ADD PLANES IF HERE LATER
 							armorMod = 1.15;
 					}
 				}
