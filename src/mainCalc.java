@@ -482,7 +482,7 @@ public class mainCalc extends JFrame {
 				//Calculate Data
 				Calculations finalDamage = new Calculations();
 				//Checking if all the parameters are correct
-				System.out.println("Checking parameters:  " + "\n Current Ship type: " + currentShipType +  "\n Ship Name: " + currentShipName +  
+				System.out.println("Checking all the parameters:  " + "\n Current Ship type: " + currentShipType +  "\n Ship Name: " + currentShipName +  
 						"\n Weapon Type Slot 1: " + currentWeaponType +  "\n Weapon Name Slot 1: " + currentWeaponName +  "\n Current Skills: " +
 						currentSkills +  "\n is Critical: " + critical +  "\n World number: " + theCurrentWorld + "\n Enemy Name: " + theCurrentEnemy+   "\n damage type int (0 HE, 1 AP) : " + 
 						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel + "\n current even odd: " + evenOdd);
@@ -497,7 +497,9 @@ public class mainCalc extends JFrame {
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
 						Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
-						System.out.println("The final damage = " + finalMaxDamageSlot1 );
+						System.out.println("The final max damage = " + finalMaxDamageSlot1 );
+						System.out.println("The final min damage = " + finalMinDamageSlot1 );
+
 						String displayDamageSlot1 = Double.toString(finalMaxDamageSlot1);
 						String displayMinDamageSlot1 = Double.toString(finalMinDamageSlot1);
 						slot1Pane.setText(displayMinDamageSlot1 + " - " + displayDamageSlot1);
@@ -642,10 +644,10 @@ public class mainCalc extends JFrame {
 		//All the labels
 		JLabel shipTypeLbl = new JLabel("Ship Type:");
 		JLabel shipNameLbl = new JLabel("Ship Name:");
-		JLabel lblGunTypeSlot = new JLabel("Gun Type Slot 1:");
-		JLabel lblGunTypeSlot_1 = new JLabel("Gun Type Slot 2:");
-		JLabel lblGunNameSlot = new JLabel("Gun Name Slot 1:");
-		JLabel lblGunNameSlot_1 = new JLabel("Gun Name Slot 2:");
+		JLabel lblGunTypeSlot = new JLabel("Weapon Type Slot 1:");
+		JLabel lblGunTypeSlot_1 = new JLabel("Weapon Type Slot 2:");
+		JLabel lblGunNameSlot = new JLabel("Weapon Name Slot 1:");
+		JLabel lblGunNameSlot_1 = new JLabel("Weapon Name Slot 2:");
 		JLabel lblChapter = new JLabel("Chapter:");
 		JLabel lblEnemyName = new JLabel("Enemy Name:");
 		JLabel lblDangerLevel = new JLabel("Danger Level:");
