@@ -511,10 +511,13 @@ public class mainCalc extends JFrame {
 					//Ship slot hard coded in, no idea what that is yet.
 					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
 						finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, true);
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
+						finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
 						System.out.println("The final damage = " + finalMaxDamageSlot1 );
 						String displayDamageSlot1 = Double.toString(finalMaxDamageSlot1);
-						slot1Pane.setText(displayDamageSlot1 + " - ");
+						String displayMinDamageSlot1 = Double.toString(finalMinDamageSlot1);
+						slot1Pane.setText(displayMinDamageSlot1 + " - " + displayDamageSlot1);
 					} else {
 						//System.out.println("Null check working!");
 						slot1Pane.setText("No Gun Selected for this Slot.");
@@ -524,13 +527,16 @@ public class mainCalc extends JFrame {
 						//System.out.println("Null check not working!");
 						
 						finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, true);
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
 						
-						
+						finalMinDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
 						
 						System.out.println("The final damage Slot 2 = " + finalMaxDamageSlot2 );
 						String displayDamageSlot2 = Double.toString(finalMaxDamageSlot2);
-						slot2Pane.setText(displayDamageSlot2 + " - " );
+						String displayMinDamageSlot2 = Double.toString(finalMinDamageSlot2);
+
+						slot2Pane.setText(displayMinDamageSlot2 + " - " + displayDamageSlot2);
 					}else {
 						System.out.println("Null check working!");
 						slot2Pane.setText("No Gun Selected for this Slot.");
