@@ -100,7 +100,7 @@ public class mainCalc extends JFrame {
 	//The current selected weapon type for slot 2
 	private String currentWeaponTypeSlot2 = "TORPEDOS";
 	//The current selected weapon type
-	private String currentWeaponType = "CLGUNS";
+	private String currentWeaponType = "DDGUNS";
 	
 	
 	//Allows user to select which enemy from a specific world they are fighting
@@ -121,6 +121,9 @@ public class mainCalc extends JFrame {
 	//Should critical strike be applied in damage calculation
 	private boolean critical = false;
 	private boolean manual = false;
+	
+	//Even and odd check
+	private int evenOdd = -1; //0 for even, 1 for odd, -1 for non selected
 	
 	private JButton removeButton;
 	private JLabel lblGunTypeSlot;
@@ -222,7 +225,7 @@ public class mainCalc extends JFrame {
 		//We're going to need to change these labels later into the actual names. 
 		//Currently cruisers only for now to avoid errors
 		guiUtil = new GUIutil();
-		String[] shipTypeList = {"CL", "CA", "LC", "BC", "BB", "AB", "MON", "DD"};
+		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON"};
 		shipTypeCBox = new JComboBox<Object>(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
 		shipTypeCBox.setSelectedIndex(0);
@@ -272,12 +275,14 @@ public class mainCalc extends JFrame {
 					//The set enabled can be a method to reduce code reduncy if you want but it's only this
 					buttonHE.setEnabled(true);
 					buttonAP.setEnabled(true);
+					//Test reminder: Friedrich is on BB ship type
 				} else if(currentShipName.equals("Friedrich der Grosse")) {
 					buttonHE.setEnabled(false);
 					buttonAP.setEnabled(false);
 					
 					//Any default for radio buttons?
 					evenRadioButton.setSelected(true);
+					evenOdd = 1;
 					evenRadioButton.setEnabled(true);
 					oddRadioButton.setEnabled(true);
 					
@@ -285,8 +290,12 @@ public class mainCalc extends JFrame {
 					buttonHE.setSelected(true);
 					buttonHE.setEnabled(false);
 					buttonAP.setEnabled(false);
+					buttonGroup.clearSelection();
+
 					evenRadioButton.setEnabled(false);
 					oddRadioButton.setEnabled(false);
+					evenOdd = -1;
+					System.out.println("The current even odd:" + evenOdd);
 				} 
 				if(currentShipName != "") {
 					try {
@@ -307,7 +316,7 @@ public class mainCalc extends JFrame {
 		});
 		
 		//Hard Coded initial screen of weapon type will need to change later most likely.
-		String[] weaponTypeList1 = {"CLGUNS"};
+		String[] weaponTypeList1 = {"DDGUNS"};
 		weaponTypeCBox1 = new JComboBox<Object>(weaponTypeList1);
 		weaponTypeCBox1.setMaximumRowCount(5);
 
@@ -481,21 +490,21 @@ public class mainCalc extends JFrame {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
 					//Ship slot hard coded in, no idea what that is yet.
 					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
-						finalDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 4
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel);
+						finalDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, true);
 						System.out.println("The final damage = " + finalDamageSlot1 );
 						String displayDamageSlot1 = Double.toString(finalDamageSlot1);
 						slot1Pane.setText(displayDamageSlot1);
 					} else {
-						System.out.println("Null check working!");
+						//System.out.println("Null check working!");
 						slot1Pane.setText("No Gun Selected for this Slot!");
 					}
 					System.out.println("The weapon name for slot 2: " + currentWeaponNameSlot2);
 					if (!currentWeaponNameSlot2.isEmpty() && currentWeaponNameSlot2 != null) {
-						System.out.println("Null check not working!");
+						//System.out.println("Null check not working!");
 
-						finalDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 4
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel);
+						finalDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, true);
 						System.out.println("The final damage Slot 2 = " + finalDamageSlot2 );
 						String displayDamageSlot2 = Double.toString(finalDamageSlot2);
 						slot2Pane.setText(displayDamageSlot2);
@@ -608,6 +617,20 @@ public class mainCalc extends JFrame {
 		
 		evenRadioButton.setEnabled(false);
 		oddRadioButton.setEnabled(false);
+		
+		evenRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				evenOdd = 0;
+				System.out.println("even is selected should display 0: " + evenOdd);
+			}
+		});
+		
+		oddRadioButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				evenOdd = 1;
+				System.out.println("Odd is selected should display 1 :" + evenOdd );
+			}
+		});
 		
 		lblSkillList = new JLabel("Skill List:");
 		
