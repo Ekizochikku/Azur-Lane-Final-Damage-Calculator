@@ -142,6 +142,8 @@ public class Calculations {
 		double weaponDamage = Double.parseDouble(wp.get(3));
 		double coefficient = Double.parseDouble(wp.get(4)); // Weapon coefficient
 		double slotEfficiency = 0; // Efficiency of the ship slot
+		
+		//the sp is wrong
 		if (shipSlot == 1) {
 			// Azuma Exception
 			if (shipName.equals("Azuma") && wp.get(0).equals("Triple 310mm (Type 0 Prototype")) {
