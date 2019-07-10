@@ -487,7 +487,7 @@ public class mainCalc extends JFrame {
 						currentSkills +  "\n is Critical: " + critical +  "\n World number: " + theCurrentWorld + "\n Enemy Name: " + theCurrentEnemy+   "\n damage type int (0 HE, 1 AP) : " + 
 						currentDMGType +  "\n is manual" + manual +  "\n is first salvo: " + firstSalvo +  "\n current max danger Level: " + currentDangerLevel + "\n current even odd: " + evenOdd);*/
 				
-				/*System.out.println("Checking parameters SLot 2:  " +
+				/*hi System.out.println("Checking parameters SLot 2:  " +
 						"\n Weapon Type Slot 2: " + currentWeaponTypeSlot2 +  "\n Weapon Name Slot 2: " + currentWeaponNameSlot2);*/
 				try {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
