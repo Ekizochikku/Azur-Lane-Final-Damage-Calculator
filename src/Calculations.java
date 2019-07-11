@@ -9,7 +9,7 @@ import java.util.Random;
  * 
  * PARAMETERS
  * SHIPS
- * [0-Shipname, 1-Faction, 2-Class, 3-Shiptype, 4-Slot1eff, 5-Slot2eff, 6-Slot3eff, 7-Health, 8-Firepower, 9-Torpedo, 10-Antiair, 11-Skill1, 12-Skill2, 13-Skill3, 14-Skill4, 15-Skill5]
+ * [0-Shipname, 1-Faction, 2-Class, 3-Shiptype, 4-Wep1, 5-Wep2, 6-Slot1eff, 7-Slot2eff, 8-Slot3eff, 9-Health, 10-Firepower, 11-Torpedo, 12-Antiair, 13-Skill1, 14-Skill2, 15-Skill3, 16-Skill4, 17-Skill5]
  * WEAPONS //NOT PLANES
  * [0-Weaponname, 1-Firepower/Torpedo stat, 2-Antiair stat, 3-Damage, 4-Coefficient, 5-Ammotype/Attribute, 6-Damage to Light, 7-Damage to Medium, 8-Damage to Heavy. 
  * ENEMIES
@@ -117,13 +117,12 @@ public class Calculations {
 				ammoBuff = buffToAmmo(skillList, ammoType);
 			}
 			// Calculate the final damage
-			Random r = new Random();
 			System.out.println("All the values within intermediate Dmg: \n Corrected Dmg: "+ cd + "\n weapon Scaling: " + wtm + "\n critical damage: " + crd + 
 				"\n armor modifier"	+ am + "\n injure ratio " + (1+injRat) + "\n" + (1+dmgRat) + "\n Level Difference: " + lvlDiff + "\n Damage to nation: " + (1 + dmgType) +
 				 "\n ammo buff: "+ (1 + ammoBuff - 0) +"\n air damage reduction: "+ adr +"\n combo damage: "+ (1 + combo));
 			double intermediateDmg = (cd + removeRandom) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
 			System.out.println("The intermediate damage" + intermediateDmg);
-			double temp1 =  Math.floor(Math.max(1, Math.floor(intermediateDmg)));
+			double temp1 = Math.max(1, Math.floor(intermediateDmg));
 			double temp2 = Math.floor(temp1 * enhD);
 			finalDmg = Math.floor(temp2 * dmgRed);
 		//for some reason it's not entering here
@@ -163,7 +162,7 @@ public class Calculations {
 			} else if (shipName.equals("Le Triomphant")) {
 				for (int i = 0; i < skillList.size(); i++) {
 					if (skillList.get(i).equals("Offensive Configuration")) {
-						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.20;
+						slotEfficiency = Double.parseDouble(sp.get(6)) + 0.20;
 					}
 				}
 			} else {
@@ -174,24 +173,29 @@ public class Calculations {
 			}
 		} else if (shipSlot == 2) {
 			//potentially these values
-			slotEfficiency = Double.parseDouble(sp.get(5));
+			slotEfficiency = Double.parseDouble(sp.get(7));
 		} else { // For planes later on
-			slotEfficiency = Double.parseDouble(sp.get(6));
+			slotEfficiency = Double.parseDouble(sp.get(8));
 		}
 		
 		//Stat to add in. Firepower for Guns, Torpedo for Torpedos
 		double stat = 0;
 		if (wepType.equals("TORPEDOS")) {
-			stat = Double.parseDouble(sp.get(9)) + Double.parseDouble(wp.get(1));
-		} else if (shipName.equals("L'Opiniatre")) {
-			for (int i = 0; i < skillList.size(); i++) {
-				if (skillList.get(i).equals("A Witch Who Never Admits Defeat")) {
-					stat = Double.parseDouble(sp.get(8)) + Double.parseDouble(wp.get(1)) + 40;
-				}
-			}
+			stat = Double.parseDouble(sp.get(11)) + Double.parseDouble(wp.get(1));
 		} else { // for guns
-			stat = Double.parseDouble(sp.get(8)) + Double.parseDouble(wp.get(1));
+			stat = Double.parseDouble(sp.get(10)) + Double.parseDouble(wp.get(1));
 		} // Add in if-else for planes later
+		
+		// L'Opiniatre Exception
+		if (shipName.equals("L'Opiniatre")) {
+			for (int i = 0; i < skillList.size(); i++) {
+				if (skillList.get(i).equals("A Witch Who Never Admits Defeat") && wepType.equals("TORPEDOS")) {
+					stat = Double.parseDouble(sp.get(11)) + 40; 
+				} else {
+					stat = Double.parseDouble(sp.get(10)) + 40; 
+				} 
+			}
+		}
 		
 		double skillStat = 1; // Stat increase from skills.
 		for (int i = 0; i < skillList.size(); i++) {
