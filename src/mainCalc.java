@@ -334,7 +334,7 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
 //				System.out.println(currentShipName);
-				if(!currentShipName.isBlank()) {
+				if(!currentShipName.isEmpty()) {
 					calculateButton.setEnabled(true);
 				}
 			}
@@ -351,7 +351,7 @@ public class mainCalc extends JFrame {
 		weaponTypeCBox2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
-				if(currentWeaponName.isBlank()) {
+				if(currentWeaponName.isEmpty()) {
 					calculateButton.setEnabled(false);
 				}
 				try {
@@ -372,7 +372,7 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
 //				System.out.println(currentShipName);
-				if(!currentShipName.isBlank()) {
+				if(!currentShipName.isEmpty()) {
 					calculateButton.setEnabled(true);
 				}
 			}

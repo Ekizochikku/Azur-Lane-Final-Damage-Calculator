@@ -163,7 +163,7 @@ public class Calculations {
 			} else if (shipName.equals("Le Triomphant")) {
 				for (int i = 0; i < skillList.size(); i++) {
 					if (skillList.get(i).equals("Offensive Configuration")) {
-						slotEfficiency = Double.parseDouble(sp.get(4)) + 0.20;
+						slotEfficiency = Double.parseDouble(sp.get(6)) + 0.20;
 					}
 				}
 			} else {
@@ -174,9 +174,9 @@ public class Calculations {
 			}
 		} else if (shipSlot == 2) {
 			//potentially these values
-			slotEfficiency = Double.parseDouble(sp.get(5));
+			slotEfficiency = Double.parseDouble(sp.get(7));
 		} else { // For planes later on
-			slotEfficiency = Double.parseDouble(sp.get(6));
+			slotEfficiency = Double.parseDouble(sp.get(8));
 		}
 		
 		//Stat to add in. Firepower for Guns, Torpedo for Torpedos
