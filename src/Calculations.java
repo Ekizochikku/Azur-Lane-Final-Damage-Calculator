@@ -123,9 +123,9 @@ public class Calculations {
 				 "\n ammo buff: "+ (1 + ammoBuff - 0) +"\n air damage reduction: "+ adr +"\n combo damage: "+ (1 + combo));
 			double intermediateDmg = (cd + removeRandom) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
 			System.out.println("The intermediate damage" + intermediateDmg);
-			double temp1 = (Math.max(1, (intermediateDmg)));
-			double temp2 = (temp1 * enhD);
-			finalDmg = (temp2 * dmgRed);
+			double temp1 =  Math.floor(Math.max(1, Math.floor(intermediateDmg)));
+			double temp2 = Math.floor(temp1 * enhD);
+			finalDmg = Math.floor(temp2 * dmgRed);
 		//for some reason it's not entering here
 		} else {
 			System.out.println("no weapon selected!");
