@@ -27,8 +27,8 @@ public class Calculations {
 	GUIutil gt = new GUIutil();
 	
 	/**
-	 * Gets the final damage for the ship types
-	 * Changed Brians comment to be more detailed so i don't have the remember each paameter
+	 * Method that calculates the final damage a single shot/torpedo/bomb will do on a target.
+	 * Equation is broken up into different methods.
 	 * @param shipType theShipType
 	 * @param shipName name of the ship
 	 * @param wepType
@@ -42,7 +42,7 @@ public class Calculations {
 	 * @param manual
 	 * @param firstSalvo
 	 * @param dangerLvl
-	 * @return
+	 * @return finalDmg
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
