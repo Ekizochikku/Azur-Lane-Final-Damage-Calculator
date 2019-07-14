@@ -83,7 +83,7 @@ public class Calculations {
 			// Enhancing Damage
 			double enhD = 1;
 			if (firstSalvo) {
-				enhancingDamage(skillList, manual);
+				enhD = enhancingDamage(skillList, manual);
 			}
 			
 			// Combo Damage
@@ -292,7 +292,7 @@ public class Calculations {
 		} else {
 			// Exceptions
 			for (int i = 0; i < skillList.size(); i++) {
-				if (shipName.equals("Kawakaze") && skillList.get(i).equals("Piecring Torpedo Strike")) {
+				if (shipName.equals("Kawakaze") && skillList.get(i).equals("Piercing Torpedo Strike")) {
 					if (wepType.equals("TORPEDOS")) {
 						armorMod = 1.15;
 					}
