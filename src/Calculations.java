@@ -1,11 +1,10 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Random;
 
 /*
  * @author Brian Khang (Ekizochikku)
- * Class that holds parts of formuals for the final damage calculation formula.
+ * Class that holds parts of formulas for the final damage calculation formula.
  * 
  * PARAMETERS
  * SHIPS
@@ -25,6 +24,7 @@ import java.util.Random;
 public class Calculations {
 	
 	GUIutil gt = new GUIutil();
+	ArrayList<ArrayList<String>> multiSkills = new ArrayList<ArrayList<String>>();
 	
 	/**
 	 * Method that calculates the final damage a single shot/torpedo/bomb will do on a target.
@@ -49,237 +49,209 @@ public class Calculations {
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
 			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom) throws FileNotFoundException, IOException {
 		//If statement to avoid index out of bounds if one of the weapon slots is empty
-		double finalDmg;
-		if (!wepName.isEmpty() && wepName != null) { 
+		double finalDmg = 0;
+		if (!wepName.isEmpty() && wepName != null) {
+			double correctedDamageStat = 0;
+			double weaponTypeModStat = 0;
+			double criticalDamageStat = 1; // Default at 1
+			double armorModStat = 0;
+			double airDmgRedStat = 1; // 1 for now. Number will change when carriers and plane damage is added in.
+			double enhancingDmgStat = 1; // Default at 1
+			double comboStat = 1; // Only ship with combo damage atm is U-47 so if she and her skill is selected, add 0.4.
+			double lvlDiffStat = 0;
+			double dmgRedStat = 1; // Care about dealing dmg to enemy, not dmg self is taking.
+			double injRatStat = 0;
+			double dmgRatStat = 0;
+			double dmgNatStat = 0;
+			double dmgTypeStat = 0;
+			double ammoBuffStat = 0;
 			ArrayList<String> sp = gt.getShipParams(shipType, shipName);
 			ArrayList<String> wp = gt.getWepParams(wepType, wepName);
 			ArrayList<String> ep = gt.getEnemyParameters(enemy, world);
-			
-			// Corrected Damage Formula
-			double cd = correctedDamage(sp, wp, wepType, shipType, shipSlot, skillList, shipName);
-			System.out.println("The damage after correctedDamage:" + cd);
+			for (int i = 0; i < skillList.size(); i++) {
+				ArrayList<String> skillP = gt.getSkillParameters(skillList.get(i));
+				multiSkills.add(skillP);
+			}
+			// Corrected Damage Section
+			correctedDamageStat = getCorrectedDamage(sp, wp, skillList, shipName, shipType, shipSlot, wepType);
 			
 			// Scaling Weapon Buffs (WeaponTypeMod)
-			double wtm = 0;
 			if (!(wepType.equals("DD GUNS")) || !(wepType.equals("CL GUNS")) || !(wepType.equals("CA GUNS")) || !(wepType.equals("BB GUNS")) || !(wepType.equals("TORPEDOS"))) {
-				wtm = 1;
+				weaponTypeModStat = 1;
 			} else {
-				wtm = scalingWeaponBuff(wepType, skillList);
+				weaponTypeModStat = getWeaponTypeMod(wepType);
 			}
 			
 			// Critical Damage
-			double crd = 1;
 			if (crit) {
-				crd = criticalDamage(shipName, wepType, wepName, skillList, evenOdd);
-				System.out.println("The damage after correctedDamage:" + cd);
+				criticalDamageStat = getCriticalDamage(shipName, wepType, wepName, skillList, evenOdd);
 			}
 			
 			// Armor Modifier
-			double am = armorModifier(shipName, wepType, wp, ep, ammoType, skillList);
-			
-			// Air Damage Reduction
-			double adr = 1; // WILL CHANGE WHEN PLANES ARE A FACTOR
+			armorModStat = getArmorModifier(wp, ep, skillList, shipName, wepType, ammoType);
 			
 			// Enhancing Damage
-			double enhD = 1;
 			if (firstSalvo) {
-				enhD = enhancingDamage(skillList, manual);
+				enhancingDmgStat = getEnhancingDmg(manual);
 			}
 			
 			// Combo Damage
-			double combo = 1;
-			if (shipName.equals("U-47")) { // Will create a method once other ships get combo damage skills
-				combo += 0.4;
+			if (shipName.equals("U-47") && skillList.contains("The Bull of Scapa Flow")) {
+				comboStat += 0.40;
 			}
 			
 			// Level Difference
-			double lvlDiff = levelDifference(ep, dangerLvl);
-			
-			// Danger Level Reduction (Danger Level Mod)
-			// No method needed because only care about damage to enemy ship. not reducing damage own ship takes
-			double dmgRed = 1;
+			lvlDiffStat = getLevelDifference(ep, dangerLvl);
 			
 			// Injure Ratio
-			double injRat = injureRatio(skillList);
+			injRatStat = getInjureRatio();
 			
 			// Damage Ratio
-			double dmgRat = damageRatio(shipName, wepType, skillList, evenOdd );
+			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd);
 			
 			// Damage to Nation
-			double dmgNat = damageToNation(ep, skillList);
+			dmgNatStat = getDamageToNation(ep);
 			
 			// Damage to Type
-			double dmgType = damageToType(shipName, ep, skillList);
+			dmgTypeStat = getDamageToType(shipName, ep, skillList);
 			
 			// Ammo Type Buff
-			double ammoBuff = 0;
-			if (!(ammoType == 0) || !(ammoType == 1)) {
-				ammoBuff = buffToAmmo(skillList, ammoType);
+			if ((ammoType == 0) || (ammoType == 1)) {
+				ammoBuffStat = getBuffToAmmo(ammoType);
 			}
-			// Calculate the final damage
-			System.out.println("All the values within intermediate Dmg: \n Corrected Dmg: "+ cd + "\n weapon Scaling: " + wtm + "\n critical damage: " + crd + 
-				"\n armor modifier"	+ am + "\n injure ratio " + (1+injRat) + "\n" + (1+dmgRat) + "\n Level Difference: " + lvlDiff + "\n Damage to nation: " + (1 + dmgType) +
-				 "\n ammo buff: "+ (1 + ammoBuff - 0) +"\n air damage reduction: "+ adr +"\n combo damage: "+ (1 + combo));
-			double intermediateDmg = (cd + removeRandom) * wtm * crd * am * (1 + injRat) * (1 + dmgRat) * lvlDiff * (1 + dmgNat) * (1 + dmgType) * (1 + ammoBuff - 0) * adr * (1 + combo);
-			System.out.println("The intermediate damage" + intermediateDmg);
+			double intermediateDmg = (correctedDamageStat + removeRandom) * weaponTypeModStat * criticalDamageStat * armorModStat * (1 + injRatStat) * (1 + dmgRatStat) * lvlDiffStat * 
+					(1 + dmgNatStat) * (1 + dmgTypeStat) * (1 + ammoBuffStat - 0) * airDmgRedStat * (1 + comboStat);
 			double temp1 = Math.max(1, Math.floor(intermediateDmg));
-			double temp2 = Math.floor(temp1 * enhD);
-			finalDmg = Math.floor(temp2 * dmgRed);
-		//for some reason it's not entering here
-		} else {
-			System.out.println("no weapon selected!");
-			finalDmg = 0.0;
+			double temp2 = Math.floor(temp1 * enhancingDmgStat);
+			finalDmg = Math.floor(temp2 * dmgRedStat);
 		}
 		return finalDmg;
+		
+	}
+	/*
+	 * Method to get the value of a certain stat from the skill parameters.
+	 */
+	public double getStackedStats(int theIndex, double startingValue) {
+		double value = startingValue;
+		for (int i = 0; i < multiSkills.size(); i++) {
+			ArrayList<String> sp = multiSkills.get(i);
+			value += Double.parseDouble(sp.get(theIndex));
+		}
+		return value;
 	}
 	
-	/*
-	 * Returns a double that calculates the corrected damage of a ship based on the equipped weapon.
-	 */
-	public double correctedDamage(ArrayList<String> sp, ArrayList<String> wp, String wepType, String shipType, int shipSlot, ArrayList<String> skillList, String shipName) throws FileNotFoundException, IOException {
-		double finalDamage = 0;
-		double weaponDamage = Double.parseDouble(wp.get(3));
-		double coefficient = Double.parseDouble(wp.get(4)); // Weapon coefficient
-		double slotEfficiency = 0; // Efficiency of the ship slot
+	public double getCorrectedDamage(ArrayList<String> sp, ArrayList<String> wp, ArrayList<String> skillList, String shipName, String shipType, int shipSlot, String wepType) {
+		double finalDmg = 0;
+		double wepDmg = Double.parseDouble(wp.get(3)); // Weapon damage
+		double wepCoff = Double.parseDouble(wp.get(4)); // Weapon coefficient
+		double slotEff = 0; // Ship slot efficiency
 		
-		//the sp is wrong
+		// Get the ship slot efficiency
 		if (shipSlot == 1) {
-			// Azuma Exception
-			if (shipName.equals("Azuma") && wp.get(0).equals("Triple 310mm (Type 0 Prototype")) {
-				for (int i = 0; i < skillList.size(); i++) {
-					if (skillList.get(i).equals("Barrage Gunnery Manual")) {
-						slotEfficiency = Double.parseDouble(sp.get(6)) + 0.12;
-					}
-				}
-			// Seattle Exception
-			} else if (shipName.equals("Seattle")){
-				for (int i = 0; i < skillList.size(); i++) {
-					if (skillList.get(i).equals("A Bow's String Has 2 Lines!")) {
-						slotEfficiency = Double.parseDouble(sp.get(6)) + 0.15;
-					}
-				}
-			// Le Triomphant Exception
-			} else if (shipName.equals("Le Triomphant")) {
-				for (int i = 0; i < skillList.size(); i++) {
-					if (skillList.get(i).equals("Offensive Configuration")) {
-						slotEfficiency = Double.parseDouble(sp.get(6)) + 0.20;
-					}
-				}
+			// First slot gun exception
+			if (shipName.equals("Azuma") && wp.get(0).equals("Triple 310mm (Type 0 Prototype") && skillList.contains("Barrage Gunnery Manual")) {
+				slotEff = Double.parseDouble(sp.get(6)) + 0.12;
+			} else if (shipName.equals("Seattle") && skillList.contains("A Bow's String Has 2 Lines!")) {
+				slotEff = Double.parseDouble(sp.get(6)) + 0.15;
+			} else if (shipName.equals("Le Triomphant") && skillList.contains("Offensive Configuration")) {
+				slotEff = Double.parseDouble(sp.get(6)) + 0.20;
 			} else {
-				slotEfficiency = Double.parseDouble(sp.get(6));
-				System.out.println("The ship parameters: " + sp);
-				System.out.println("The slot efficiency: " + slotEfficiency);
-
+				slotEff = Double.parseDouble(sp.get(6)); // Normal 
 			}
 		} else if (shipSlot == 2) {
-			//potentially these values
-			slotEfficiency = Double.parseDouble(sp.get(7));
-		} else { // For planes later on
-			slotEfficiency = Double.parseDouble(sp.get(8));
+			slotEff = Double.parseDouble(sp.get(7));
+		} else {
+			slotEff = Double.parseDouble(sp.get(8)); // FOR CARRIERS AND PLANES LATER.
 		}
 		
-		//Stat to add in. Firepower for Guns, Torpedo for Torpedos
+		// Get the related stats from the ship and weapon parameters.
 		double stat = 0;
 		if (wepType.equals("TORPEDOS")) {
 			stat = Double.parseDouble(sp.get(11)) + Double.parseDouble(wp.get(1));
-		} else { // for guns
+		} else if (wepType.equals("PLANES")) {
+			stat = 0; // PLACEHOLDER FOR AIRCRAFT
+		} else {
 			stat = Double.parseDouble(sp.get(10)) + Double.parseDouble(wp.get(1));
-		} // Add in if-else for planes later
+		}
 		
 		// L'Opiniatre Exception
 		if (shipName.equals("L'Opiniatre")) {
-			for (int i = 0; i < skillList.size(); i++) {
-				if (skillList.get(i).equals("A Witch Who Never Admits Defeat") && wepType.equals("TORPEDOS")) {
-					stat = Double.parseDouble(sp.get(11)) + 40; 
-				} else {
-					stat = Double.parseDouble(sp.get(10)) + 40; 
-				} 
-			}
-		}
-		
-		double skillStat = 1; // Stat increase from skills.
-		for (int i = 0; i < skillList.size(); i++) {
-			ArrayList<String> holding = new ArrayList<String>();
-			holding = gt.getSkillParameters(skillList.get(i));
-			if (wepType.equals("TORPEDOS")) {
-				skillStat += Double.parseDouble(holding.get(9));
+			if (skillList.contains("A Witch Who Never Admits Defeat") && wepType.equals("TORPEDOS")) {
+				stat = Double.parseDouble(sp.get(11)) + 40; 
+			} else if (skillList.contains("A Witch Who Never Admits Defeat") && !wepType.equals("TORPEDOS")) {
+				stat = Double.parseDouble(sp.get(10)) + 40;
 			} else {
-				// Exception for North Carolina
-				if (shipName.equals("North Carolina") && holding.get(0).equals("AA Firepower")) {
-					skillStat += Double.parseDouble(sp.get(10)) * 0.30;
-				//Exception for Z46
-				} else if (shipName.equals("Z46") && holding.get(0).equals("Iron Wing Annihilation")) {
-					skillStat += Double.parseDouble(sp.get(10)) * 0.15;
-				} else {
-					skillStat += Double.parseDouble(holding.get(8));	
-				}
+				System.out.println("No Stat Increase.");
 			}
 		}
 		
-		// Scaling damage. Exceptions to Monarch and Izumo.
+		// Stat increase from skills.
+		double skillStat = 1;
+		if (wepType.equals("TORPEDOS")) {
+			skillStat = getStackedStats(9, 1);
+		} else if (wepType.equals("PLANES")) {
+			System.out.println(""); // PLACEHOLDER FOR AIRCRAFT
+		} else {
+			skillStat = getStackedStats(8, 1);
+		}
+		if (shipName.equals("North Carolina") && skillList.contains("AA Firepower")) {
+			skillStat += Double.parseDouble(sp.get(10)) * 0.30;
+		} else if (shipName.equals("Z46") && skillList.contains("Iron Wing Annihilation")) {
+			skillStat += Double.parseDouble(sp.get(10)) * 0.15;
+		} else {
+			System.out.println("No Exceptions for skill stats");
+		}
+		
+		// Scaling Damage. Exceptions for Monarch and Izumo.
 		double scaling = 1;
 		if (shipName.equals("Monarch") || shipName.equals("Izumo")) {
 			scaling = 1.2;
 		}
 		double finalStat = stat * skillStat * scaling;
-		
-		//ADD PLANE SCALING HERE
-		System.out.println("Weapon damage: " + weaponDamage + "\n Coefficient :" + coefficient + "\n slotEfficiency " + slotEfficiency + "\n final stat: " + finalStat);
-		finalDamage = weaponDamage * coefficient * slotEfficiency * (1 + finalStat/100);
-		return finalDamage;
+		finalDmg = wepDmg * wepCoff * slotEff * (1 + finalStat/100);
+		return finalDmg;
 	}
 	
 	/*
-	 * Injure by x and Damage by x will always use enemies as the target
-	 * WeaponTypeMod
+	 * WeaponTypeMod using the Injure by x and Damage by x.
 	 */
-	public double scalingWeaponBuff(String wepType, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double getWeaponTypeMod(String wepType) {
 		double buffDamage = 1;
-		for (int i = 0; i < skillList.size(); i++) {
-			ArrayList<String> holding = new ArrayList<String>();
-			holding = gt.getSkillParameters(skillList.get(i));
-			if (wepType.equals("TORPEDOS")) {
-				buffDamage += Double.parseDouble(holding.get(34) + Double.parseDouble(holding.get(37)));
-			} else { //ADD PLANES AND AIR DAMAGE ABOVE HERE WHEN IMPLEMENTING.
-				buffDamage += Double.parseDouble(holding.get(33) + Double.parseDouble(holding.get(36)));
-			}
+		if (wepType.equals("TORPEDOS")) {
+			buffDamage += getStackedStats(34, 0) + getStackedStats(37, 0);
+		} else if (wepType.equals("PLANES")) {
+			System.out.println();
+		} else {
+			buffDamage += getStackedStats(33, 0) + getStackedStats(36, 0);
 		}
 		return buffDamage;
 	}
 	
 	/*
-	 * Returns the a double with the skill multiplier for critical hits
-	 * Crit resist will be added later when enemies have a crit resist stat.
+	 * Critical Damage Boost
 	 */
-	public double criticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList, int evenOdd) throws FileNotFoundException, IOException {
-		double critBuff = 1.5;
-		for (int i = 0; i < skillList.size(); i++) {
-			ArrayList<String> holding = new ArrayList<String>();
-			holding = gt.getSkillParameters(skillList.get(i));
-			if (wepType.equals("TORPEDOS")) {
-				critBuff += Double.parseDouble(holding.get(41));
-			} else { // ADD AIR DAMAGE AND PLANES ABOVER HERE
-				//Exception for Jean Bart.
-				if (shipName.equals("Jean Bart") && wepName.equals("Quadruple 380mm (Mle 1935)")) {
-					critBuff += 0.5;
-				} else if (shipName.equals("Friedrich der Grosse") && skillList.get(i).equals("Sonata of Chaos") && evenOdd == 0) {
-					critBuff += 0.5;
-				} else {
-					critBuff += Double.parseDouble(holding.get(40));
-				}
+	public double getCriticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList, int evenOdd) {
+		double critBuff = 0;
+		if (wepType.equals("TORPEDOS")) {
+			critBuff = getStackedStats(41, 1.5);
+		} else {
+			critBuff = getStackedStats(40, 1.5);
+			if (shipName.equals("Jean Bart") && wepName.equals("Quadruple 380mm (Mle 1935)") && skillList.contains("Last Fire")) {
+				critBuff += 0.50;
+			}
+			if (shipName.equals("Friedrich der Grosse") && skillList.contains("Sonata of Chaos") && evenOdd == 0) {
+				critBuff += 0.50;
 			}
 		}
 		return critBuff;
 	}
 	
 	/*
-	 * Returns a double with how much a weapon should do to a certain enemie's armor.
+	 * Armor mod. Determine how much to do against a certain armor type.
 	 */
-	public double armorModifier(String shipName, String wepType, ArrayList<String> wp, ArrayList<String> ep, int ammoType, ArrayList<String> skillList) {
+	public double getArmorModifier(ArrayList<String> wp, ArrayList<String> ep, ArrayList<String> skillList, String shipName, String wepType, int ammoType) {
 		double armorMod = 0;
-		System.out.println(ep);
-		ArrayList<String> enemyParam = ep;
-		String enemyArmor = enemyParam.get(4);
+		String enemyArmor = ep.get(4);
 		if (enemyArmor.equals("L")) {
 			armorMod = Double.parseDouble(wp.get(6));
 		} else if (enemyArmor.equals("M")) {
@@ -290,74 +262,67 @@ public class Calculations {
 		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze")) {
 			return armorMod;
 		} else {
-			// Exceptions
-			for (int i = 0; i < skillList.size(); i++) {
-				if (shipName.equals("Kawakaze") && skillList.get(i).equals("Piercing Torpedo Strike")) {
-					if (wepType.equals("TORPEDOS")) {
-						armorMod = 1.15;
-					}
+			if (shipName.equals("Kawakaze") && skillList.contains("Piercing Torpedo Strike")) {
+				if (wepType.equals("TORPEDOS")) {
+					armorMod = 1.15;
 				}
-				if (shipName.equals("Roon") && skillList.get(i).equals("Professional Reloader")) {
-					if (wepType != "TORPEDOS") { // ADD NOT PLANES CHECK HERE LATER
-						if (ammoType == 1) {
-							if (enemyArmor.equals("L")) {
-								armorMod = 1.35;
-							} else if (enemyArmor.equals("M")) {
-								armorMod = .95;
-							} else { // Heavy Armor
-								armorMod = .70;
-							}
-						} else { // Ammo is AP
-							if (enemyArmor.equals("L")) {
-								armorMod = .75;
-							} else if (enemyArmor.equals("M")) {
-								armorMod = 1.10;
-							} else { // Heavy Armor
-								armorMod = .75;
-							}
+			}
+			if (shipName.equals("Roon") && skillList.contains("Professional Reloader")) {
+				if (wepType != "TORPEDOS") { // ADD NOT PLANES CHECK HERE LATER
+					if (ammoType == 1) {
+						if (enemyArmor.equals("L")) {
+							armorMod = 1.35;
+						} else if (enemyArmor.equals("M")) {
+							armorMod = .95;
+						} else { // Heavy Armor
+							armorMod = .70;
+						}
+					} else { // Ammo is AP
+						if (enemyArmor.equals("L")) {
+							armorMod = .75;
+						} else if (enemyArmor.equals("M")) {
+							armorMod = 1.10;
+						} else { // Heavy Armor
+							armorMod = .75;
 						}
 					}
 				}
-				if (shipName.equals("Massachusetts") && skillList.get(i).equals("2,700 Pounds of Justice")) {
-					if (enemyArmor.equals("L")) {
-						armorMod = .65;
-					} else if (enemyArmor.equals("M")) {
-						armorMod = 1.35;
-					} else {
-						armorMod = 1.15;
-					}
-				}
-				if (shipName.equals("Kitakaze") && skillList.get(i).equals("Kitakaze Style - Unanimous Slash")) {
-					if (!wepType.equals("TORPEDOS")) { // ADD PLANES IF HERE LATER
-							armorMod = 1.15;
-					}
-				}
-				if (shipName.equals("Black Heart") && skillList.get(i).equals("Tricolor Oder")) {
-					armorMod = 1.00;
+			}
+			if (shipName.equals("Massachusetts") && skillList.contains("2,700 Pounds of Justice")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = .65;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.35;
+				} else {
+					armorMod = 1.15;
 				}
 			}
+			if (shipName.equals("Kitakaze") && skillList.contains("Kitakaze Style - Unanimous Slash")) {
+				if (!wepType.equals("TORPEDOS")) { 
+						armorMod = 1.15;
+				}
+			}
+			if (shipName.equals("Black Heart") && skillList.contains("Tricolor Oder")) {
+				armorMod = 1.00;
+			}
+			return armorMod;
 		}
-		return armorMod;
 	}
 	
 	/*
-	 * Returns a double of the enhancing damage multiplier.
+	 * Return enhancing
 	 */
-	public double enhancingDamage(ArrayList<String> skillList, boolean manual) throws FileNotFoundException, IOException {
+	public double getEnhancingDmg(boolean manual) {
 		double enhance = 0;
 		if (manual) {
 			enhance = 1.2;
 		} else {
 			enhance = 1;
 		}
-		for (int i = 0; i < skillList.size(); i++) {
-			ArrayList<String> holding = new ArrayList<String>();
-			holding = gt.getSkillParameters(skillList.get(i));
-			if (manual) {
-				enhance += Double.parseDouble(holding.get(32)) + Double.parseDouble(holding.get(31));
-			} else {
-				enhance += Double.parseDouble(holding.get(31));
-			}
+		if (manual) {
+			enhance += getStackedStats(32, 0) + getStackedStats(31, 0);
+		} else {
+			enhance += getStackedStats(31, 0);
 		}
 		return enhance;
 	}
@@ -365,7 +330,7 @@ public class Calculations {
 	/*
 	 * Returns a double of the bonus damage that will be gained based off the level difference and danger level.
 	 */
-	public double levelDifference(ArrayList<String> ep, int dangerLvl) {
+	public double getLevelDifference(ArrayList<String> ep, int dangerLvl) {
 		double lvlDiff = 1 + Math.min(25, Math.max(-25, 120 - Integer.parseInt(ep.get(2) + dangerLvl))) * 0.02;
 		return lvlDiff;
 	}
@@ -374,20 +339,16 @@ public class Calculations {
 	 * Returns a double  of the bonus damage from injure ratio from skills.
 	 */
 	
-	public double injureRatio(ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double getInjureRatio() throws FileNotFoundException, IOException {
 		double ratio = 0;
-		for (int i = 0; i < skillList.size(); i++) {
-			ArrayList<String> holding = new ArrayList<String>();
-			holding = gt.getSkillParameters(skillList.get(i));
-			ratio += Double.parseDouble(holding.get(3));
-		}
+		ratio = getStackedStats(3, 0);
 		return ratio;
 	}
 	
 	/*
 	 * Returns a double of the bonus damage from injure ratio from skills.
 	 */
-	public double damageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd) throws FileNotFoundException, IOException {
+	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd) throws FileNotFoundException, IOException {
 		double ratio = 0;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
@@ -409,45 +370,41 @@ public class Calculations {
 	}
 	
 	/*
-	 * Returns a double of bonus damage to a nation.
+	 * Returns damage done to a nation
 	 */
-	public double damageToNation(ArrayList<String> ep, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double getDamageToNation(ArrayList<String> ep) {
 		double dmgToNat = 0;
 		String nation = ep.get(6);
 		if (nation.equals("NULL")) {
 			return dmgToNat;
 		} else {
-			for (int i = 0; i < skillList.size(); i++) {
-				ArrayList<String> holding = new ArrayList<String>();
-				holding = gt.getSkillParameters(skillList.get(i));
-				switch (nation) {
-				case "HMS":
-					dmgToNat += Double.parseDouble(holding.get(11));
-					break;
-				case "USS":
-					dmgToNat += Double.parseDouble(holding.get(12));
-					break;
-				case "IJN":
-					dmgToNat += Double.parseDouble(holding.get(13));
-					break;
-				case "KMS":
-					dmgToNat += Double.parseDouble(holding.get(14));
-					break;
-				case "ROC":
-					dmgToNat += Double.parseDouble(holding.get(15));
-					break;
-				case "FFNF":
-					dmgToNat += Double.parseDouble(holding.get(16));
-					break;
-				case "MNF":
-					dmgToNat += Double.parseDouble(holding.get(17));
-					break;
-				case "SIREN":
-					dmgToNat += Double.parseDouble(holding.get(18));
-					break;
-				default:
-					break;
-				}
+			switch (nation) {
+			case "HMS":
+				dmgToNat = getStackedStats(11, 0);
+				break;
+			case "USS":
+				dmgToNat = getStackedStats(12, 0);
+				break;
+			case "IJN":
+				dmgToNat = getStackedStats(13, 0);
+				break;
+			case "KMS":
+				dmgToNat = getStackedStats(14, 0);
+				break;
+			case "ROC":
+				dmgToNat = getStackedStats(15, 0);
+				break;
+			case "FFNF":
+				dmgToNat = getStackedStats(16, 0);
+				break;
+			case "MNF":
+				dmgToNat = getStackedStats(17, 0);
+				break;
+			case "SIREN":
+				dmgToNat = getStackedStats(18, 0);
+				break;
+			default:
+				break;
 			}
 		}
 		return dmgToNat;
@@ -456,77 +413,68 @@ public class Calculations {
 	/*
 	 * Returns a double of bonus damage to a ship type.
 	 */
-	public double damageToType(String shipName, ArrayList<String> ep, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+	public double getDamageToType(String shipName, ArrayList<String> ep, ArrayList<String> skillList) throws FileNotFoundException, IOException {
 		double dmgToType = 0;
 		String shipType = ep.get(5);
-		for (int i = 0; i < skillList.size(); i++) {
-			ArrayList<String> holding = new ArrayList<String>();
-			holding = gt.getSkillParameters(skillList.get(i));
+			switch (shipType) {
+			case "DD":
+				dmgToType = getStackedStats(19, 0);
+				break;
+			case "CL":
+				dmgToType = getStackedStats(20, 0);
+				break;
+			case "CA":
+				dmgToType = getStackedStats(21, 0);
+				break;
+			case "LC":
+				dmgToType = getStackedStats(22, 0);
+				break;
+			case "BC":
+				dmgToType = getStackedStats(23, 0);
+				break;
+			case "BB":
+				dmgToType = getStackedStats(24, 0);
+				break;
+			case "AB":
+				dmgToType = getStackedStats(25, 0);
+				break;
+			case "CVL":
+				dmgToType = getStackedStats(26, 0);
+				break;
+			case "CV":
+				dmgToType = getStackedStats(27, 0);
+				break;
+			case "SUB":
+				dmgToType = getStackedStats(28, 0);
+				break;
+			default:
+				break;
+			}
 			// Exception for Karlsruhe.
-			if (shipName.equals("Karlsruhe(Retrofit)") && holding.get(0).equals("Disturbance Strategy")) {
+			if (shipName.equals("Karlsruhe(Retrofit)") && skillList.contains("Disturbance Strategy")) {
 				if (ep.get(5).equals("TB") || ep.get(5).equals("SS") || ep.get(5).equals("GS")) {
 					dmgToType += .25;
 				}
 			// Exception for Aurora	
-			} else if (shipName.equals("Aurora") && holding.get(0).equals("Silver Phantom")) {
+			} 
+			if (shipName.equals("Aurora") && skillList.contains("Silver Phantom")) {
 				if (ep.get(5).equals("TB") || ep.get(5).equals("SS") || ep.get(5).equals("GS") || ep.get(5).equals("DD")) {
 					dmgToType += .25;
 				}
-			} else {
-				switch (shipType) {
-				case "DD":
-					dmgToType += Double.parseDouble(holding.get(19));
-					break;
-				case "CL":
-					dmgToType += Double.parseDouble(holding.get(20));
-					break;
-				case "CA":
-					dmgToType += Double.parseDouble(holding.get(21));
-					break;
-				case "LC":
-					dmgToType += Double.parseDouble(holding.get(22));
-					break;
-				case "BC":
-					dmgToType += Double.parseDouble(holding.get(23));
-					break;
-				case "BB":
-					dmgToType += Double.parseDouble(holding.get(24));
-					break;
-				case "AB":
-					dmgToType += Double.parseDouble(holding.get(25));
-					break;
-				case "CVL":
-					dmgToType += Double.parseDouble(holding.get(26));
-					break;
-				case "CV":
-					dmgToType += Double.parseDouble(holding.get(27));
-					break;
-				case "SUB":
-					dmgToType += Double.parseDouble(holding.get(28));
-					break;
-				default:
-					break;
-				} // Monitors ignored for now
-			}
-			
-		}
+			}// Monitors ignored for now
 		return dmgToType;
 	}
 	
 	/*
 	 * Returns a double of how much an ammo type is buffed.
 	 */
-	public double buffToAmmo(ArrayList<String> skillList, int ammoType) throws FileNotFoundException, IOException {
+	public double getBuffToAmmo(int ammoType) throws FileNotFoundException, IOException {
 		double bta = 0;
-		for (int i = 0; i < skillList.size(); i++) {
-			ArrayList<String> holding = new ArrayList<String>();
-			holding = gt.getSkillParameters(skillList.get(i));
 			if (ammoType == 0) {
-				bta += Double.parseDouble(holding.get(29));
+				bta = getStackedStats(29, 0);
 			} else {
-				bta += Double.parseDouble(holding.get(30));
+				bta = getStackedStats(30, 0);
 			}
-		}
 		return bta;
 	}
 }		
