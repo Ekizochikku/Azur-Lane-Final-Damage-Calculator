@@ -23,6 +23,7 @@ import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JCheckBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -146,6 +147,11 @@ public class mainCalc extends JFrame {
 				try {
 					mainCalc frame = new mainCalc();
 					frame.setVisible(true);
+					boolean popUp = GUIutil.readPersistentVariables(0);
+					if(popUp) {
+						JOptionPane.showMessageDialog(frame, "7/16/19 \n Release Build", "Version History",  
+								JOptionPane.INFORMATION_MESSAGE);
+					}
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -493,10 +499,10 @@ public class mainCalc extends JFrame {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
 					//Ship slot hard coded in, no idea what that is yet.
 					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
-						Double finalMaxDamageSlot1 = (double) Math.round(finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2));
-						Double finalMinDamageSlot1 = (double) Math.round(finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0));
+						Double finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
+						Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
 						
 						System.out.println("The final max damage = " + finalMaxDamageSlot1 );
 						System.out.println("The final min damage = " + finalMinDamageSlot1 );
@@ -524,7 +530,7 @@ public class mainCalc extends JFrame {
 
 						slot2Pane.setText(displayMinDamageSlot2 + " - " + displayDamageSlot2);
 					}else {
-						System.out.println("Null check working!");
+						//System.out.println("Null check working!");
 						slot2Pane.setText("No Gun Selected for this Slot.");
 					}
 					

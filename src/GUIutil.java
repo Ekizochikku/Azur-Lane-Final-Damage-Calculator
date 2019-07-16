@@ -1,13 +1,16 @@
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
 /*
  * @author Brian Khang (Ekizochikku)
@@ -352,6 +355,44 @@ public class GUIutil {
 			}
 			br.close();
 			return theList;
+	}
+	/*
+	 * Very Simple method to read the file to help with change log,
+	 * will change if we need more persistent variables outside popup
+	 * If you want to options the file variable + change log can be a tsv folder
+	 * 
+	 * REMINDER TO CHANGE PersitentVariables.txt to true EVERY NEW UPDATE!!!  
+	 * @author Kevin Nguyen
+	 */
+	public static boolean readPersistentVariables(int variableNum) throws IOException{
+		boolean willPopUp = false;
+		BufferedReader br = new BufferedReader(new FileReader("PersistentVariables.txt"));
+		String line;
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] variables = line.split(";");
+			System.out.println(variables);
+			if (variables[variableNum].equals("popUpMSG=true")) {
+				willPopUp = true;
+			} 
+		}
+		//Overwrite the file so that the pop up no longer pops up on subsequent openings
+		//these 3 lines will need 2b changed if we ever have/need more persistent stuff
+		//done via:           .write(variables[i])
+		Writer overWriteVariables = new FileWriter("PersistentVariables.txt", false);
+		overWriteVariables.write("popUpMSG=false;");
+		overWriteVariables.close();
+		
+		
+		return willPopUp;
+	}
+	/*
+	 * Method to write the version history to the joptionpane, will finish later
+	 * need to make a joptionpane with jframe, jlist(?), and jscrollpane.  
+	 * 
+	 * If we're lazy we can manually write into the joptionpane or manually have line breaks in txt file.
+	 */
+	public void overWritePopUpWithVersionHistory(JOptionPane theOptionPane) throws IOException{
+		
 	}
 	
 	/*
