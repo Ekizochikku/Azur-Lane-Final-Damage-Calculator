@@ -8,6 +8,8 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
@@ -338,24 +340,20 @@ public class GUIutil {
 	 */
 	public static ArrayList<String> getAllEnemiesForSpecificWorld(String theElement, String theFile, Integer theField, Integer theLevel) throws FileNotFoundException, IOException {
 			ArrayList<String> theList = new ArrayList<String>();
-			//Handles the duped enemy with different levels unintuitive way.
 			String enemyPlusLevel = "";
 			//For enemies with same level, remove from the enemy list since their health isn't factored
-			String duplicateEnemy = "";
 			BufferedReader br = new BufferedReader(new FileReader(theFile));
 			String line = br.readLine();
 			while ((line = br.readLine()) != null && !line.isEmpty()) {
 				String[] fields = line.split("	");
 				if (fields[0].equals(theElement)) {
 					enemyPlusLevel = fields[theField] + ", Lvl " + fields[theLevel]; 
-					if(!duplicateEnemy.equals(enemyPlusLevel)) {
-						//System.out.println("Comparing:" + duplicateEnemy + " new Element: " + enemyPlusLevel);
-						theList.add(enemyPlusLevel);
-					}
+					theList.add(enemyPlusLevel);
 				}
-				duplicateEnemy = enemyPlusLevel;
-				///System.out.println(duplicateEnemy);
 			}
+			Set<String> nonDupedEnemySet = new LinkedHashSet<>(theList);
+			theList.clear();
+			theList.addAll(nonDupedEnemySet);
 			br.close();
 			return theList;
 	}
