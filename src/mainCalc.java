@@ -149,7 +149,8 @@ public class mainCalc extends JFrame {
 					frame.setVisible(true);
 					boolean popUp = GUIutil.readPersistentVariables(0);
 					if(popUp) {
-						JOptionPane.showMessageDialog(frame, "7/16/19 \n Release Build", "Version History",  
+						JScrollPane versionUpdate = GUIutil.overWritePopUpWithVersionHistory();
+						JOptionPane.showMessageDialog(frame, versionUpdate, "Version History",  
 								JOptionPane.INFORMATION_MESSAGE);
 					}
 				} catch (Exception e) {
@@ -426,6 +427,7 @@ public class mainCalc extends JFrame {
 		enemyNameCBox = new JComboBox<Object>();
 		List<String> theEnemies = new ArrayList<String>();
 		theEnemies = GUIutil.getAllEnemiesForSpecificWorld(theCurrentWorld, "Enemies.tsv", 1, 2);
+		Collections.sort(theEnemies);
 		enemyNameCBox.setModel(new DefaultComboBoxModel<Object>(theEnemies.toArray()));
 		enemyNameCBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

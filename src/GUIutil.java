@@ -1,3 +1,4 @@
+import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,6 +12,8 @@ import java.util.Collections;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 /*
  * @author Brian Khang (Ekizochikku)
@@ -391,8 +394,19 @@ public class GUIutil {
 	 * 
 	 * If we're lazy we can manually write into the joptionpane or manually have line breaks in txt file.
 	 */
-	public void overWritePopUpWithVersionHistory(JOptionPane theOptionPane) throws IOException{
-		
+	public static JScrollPane overWritePopUpWithVersionHistory() throws IOException{
+		String theTxt = "";
+		BufferedReader br = new BufferedReader(new FileReader("VersionHistory.txt"));
+		String line;
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			theTxt += line + "\n";
+		}
+		JTextArea text = new JTextArea(12, 40);
+		text.setText(theTxt);
+		text.setEditable(false);
+		text.setCaretPosition(0);
+		JScrollPane versionText = new JScrollPane(text);
+		return versionText;
 	}
 	
 	/*
@@ -401,8 +415,9 @@ public class GUIutil {
 		ArrayList<String> initialUserChoice = null; 
 		//System.out.println("Inserting name for weapon type: " + theType);
 		initialUserChoice = getAllEnemiesForSpecificWorld(theCurrentWorld, "Enemies.tsv", 1, 2);
+		Collections.sort(initialUserChoice);
 		comboBox.setModel(new DefaultComboBoxModel<Object>(initialUserChoice.toArray()));
-	} 
+	}
 	/*
 	 * Simple method to add all the worlds to comboBox
 	 */

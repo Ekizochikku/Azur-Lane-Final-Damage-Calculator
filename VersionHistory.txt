@@ -1,1 +1,6 @@
-7/16/19 Release Build.
+7/22/19 
+- Enemy list now sorted alphabetically.
+- Version history information updated.
+- Added App Icon.
+7/13/19
+- Initial Release.
