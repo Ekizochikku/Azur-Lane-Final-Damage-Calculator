@@ -35,6 +35,7 @@ Eldridge	USS	Cannon	DD	0	0	1.15	1.3	1.25	1720	81	381	183	Operation Rainbow	Full 
 Echo	HMS	E	DD	0	0	1.2	1.4	1.05	1400	73	360	152	Battleship Escort	Full Barrage	NULL	NULL	NULL
 Fortune(Retrofit)	HMS	F	DD	0	0	1.25	1.35	1.1	1567	107	357	169	Emergency Evasion	Flank Coverage	Full Barrage	NULL	NULL
 Foxhound(Retrofit)	HMS	F	DD	0	0	1.25	1.35	1.1	1538	106	350	165	Reload Command - Destroyer	Flank Coverage	Full Barrage	NULL	NULL
+Aylwin	USS	Farragut	DD	0	0	1.2	1.3	1.3	1679	81	279	182	Carrier Protection	Full Barrage	NULL	NULL	NULL
 Dewey	USS	Farragut	DD	0	0	1.2	1.3	1.3	1647	74	279	185	Comrades From the Far East	Full Barrage	NULL	NULL	NULL
 Aulick	USS	Fletcher	DD	0	0	1.2	1.3	1.3	1998	82	279	171	Quick Reload	Full Barrage	NULL	NULL	NULL
 Bush	USS	Fletcher	DD	0	0	1.2	1.3	1.35	2054	85	282	189	Anti-Air Alert	Full Barrage	NULL	NULL	NULL
