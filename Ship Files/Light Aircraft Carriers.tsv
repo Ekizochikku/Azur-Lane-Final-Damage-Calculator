@@ -6,7 +6,8 @@ Hermes(Retrofit)	HMS	Hermes	CVL	2	2	5	1.4	1.4	0.85	4367	0	0	297	300	Raid Carrier
 Hiyou	IJN	Hiyou	CVL	0	1	2	1	1.1	1.2	5207	0	0	247	279	Eagle's Defiance	NULL	NULL	NULL	NULL
 Junyou	IJN	Hiyou	CVL	0	1	2	1	1.1	1.2	5204	0	0	247	279	Eagle's Defiance	NULL	NULL	NULL	NULL
 Houshou	IJN	Houshou	CVL	6	0	2	1	1.3	1.3	3621	0	0	257	289	Aviation Pioneer	Air Support	NULL	NULL	NULL
-Independence	USS	Independence	CVL	0	2	5	1.3	1.45	0.8	4796	0	0	268	310	Eagle Sky	Knight of the Sky	NULL	NULL	NULL
+Bataan	USS	Independence	CVL	0	2	4		1.25	1.55	0.8	0	0	276	347	Roaring Challenger	Aviation Assistance	NULL	NULL	NULL
+Independence	USS	Independence	CVL	0	2	4	1.3	1.45	0.8	4796	0	0	268	310	Eagle Sky	Knight of the Sky	NULL	NULL	NULL
 Langley(Retrofit)	USS	Langley	CVL	0	0	1	1.45	1.45	0.85	4700	0	0	280	264	Aviation Pioneer	Reload Command - Light Carrier	NULL	NULL	NULL
 Long Island(Retrofit)	USS	Long Island	CVL	0	1	5	1.45	1.3	0.85	4901	0	0	292	340	Fast Take-off	Air Support	NULL	NULL	NULL
 Ranger(Retrofit)	USS	Ranger	CVL`	2	1	1	1.05	1.45	1.45	5019	0	0	283	300	Fast Take-off	Raid Carrier	NULL	NULL	NULL

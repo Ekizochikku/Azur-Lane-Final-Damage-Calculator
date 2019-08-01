@@ -3,6 +3,7 @@ Admiral Hipper	KMS	Admiral Hipper	CA	0	0	1.3	1.6	1	4970	251	190	189	Defensive Sh
 Prinz Eugen	KMS	Admiral Hipper	CA	0	0	1.25	1.6	1.2	6252	226	153	205	Unbreakable Shield	Full Barrage	NULL	NULL	NULL
 Aoba	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	Full Barrage	NULL	NULL	NULL
 Kinugasa	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	Full Barrage	NULL	NULL	NULL
+Baltimore	USS	Baltimore	CA	0	1	1.3	0.75	1.35	4412	270	0	251	Full AP Drive	All-Rounder	Full Barrage	NULL	NULL
 Admiral Graf Spee	KMS	Deutschland	CA	0	0	1.4	1.3	1	4631	298	216	154	Pocket Battleship	Full Barrage	NULL	NULL	NULL
 Deutchland	KMS	Deutschland	CA	0	0	1.4	1.3	1	4018	301	220	154	Pocket Battleship	Full Barrage	NULL	NULL	NULL
 Furutaka(Retrofitt)	IJN	Furutaka	CA	0	0	1.3	1.8	1.05	3719	245	235	176	Full Firepower	Chain Torpedo	Full Barrage	NULL	NULL
