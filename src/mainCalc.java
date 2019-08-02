@@ -318,6 +318,7 @@ public class mainCalc extends JFrame {
 					nodesKilledTextField.setText("");
 					nodeKilledLabel.setEnabled(false);
 					isArmorBroken.setEnabled(false);
+					isArmorBroken.setSelected(false);
 				} 
 				if(currentShipName != "") {
 					try {
@@ -540,7 +541,8 @@ public class mainCalc extends JFrame {
 						String displayMinDamageSlot1 = Double.toString(finalMinDamageSlot1);
 						
 						//Nodes killed test case 
-						//System.out.println(nodesKilledTextField.getValue());
+						System.out.println("Current value in the nodes text field: " + 
+						nodesKilledTextField.getValue());
 						
 						slot1Pane.setText(displayMinDamageSlot1 + " - " + displayDamageSlot1);
 					} else {
@@ -643,6 +645,7 @@ public class mainCalc extends JFrame {
 						nodesKilledTextField.setText("");
 						nodeKilledLabel.setEnabled(false);
 						isArmorBroken.setEnabled(false);
+						isArmorBroken.setSelected(false);
 					}
 					
 				}
@@ -661,6 +664,7 @@ public class mainCalc extends JFrame {
 				nodesKilledTextField.setText("");
 				nodeKilledLabel.setEnabled(false);
 				isArmorBroken.setEnabled(false);
+				isArmorBroken.setSelected(false);
 			}
 		});
 		
