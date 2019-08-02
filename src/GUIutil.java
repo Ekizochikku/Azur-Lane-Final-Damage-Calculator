@@ -110,6 +110,7 @@ public class GUIutil {
 				break;
 			case "CBGUNS":
 				wepFile = "./Weapons/Large Cruiser Guns.tsv";
+				break;
 			case "BBGUNS":
 				wepFile = "./Weapons/BattleshipGuns.tsv";
 				break;
