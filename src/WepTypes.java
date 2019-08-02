@@ -263,6 +263,14 @@ public class WepTypes {
 		return theWep;
 	}
 	
+	public String subOneAndTwo(int wepnum) {
+		return "SUBTORPEDOS";
+	}
+	
+	public String subThree(int wepnum) {
+		return "DD";
+	}
+	
 /*
  * CARRIERS METHODS GO HERE
  */

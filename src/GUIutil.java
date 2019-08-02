@@ -83,6 +83,10 @@ public class GUIutil {
 			case "CV":
 				shipFile = "./Ship Files/Carriers.tsv";
 				break;
+			case "SUB":
+				shipFile = "./Ship Files/Submarines.tsv";
+			default:
+				break;
 		}
 		return shipFile;
 	}
@@ -104,13 +108,12 @@ public class GUIutil {
 			case "CAGUNS":
 				wepFile = "./Weapons/HeavyCruiserGuns.tsv";
 				break;
+			case "CBGUNS":
+				wepFile = "./Weapons/Large Cruiser Guns.tsv";
 			case "BBGUNS":
 				wepFile = "./Weapons/BattleshipGuns.tsv";
 				break;
 			case "AAGUNS":
-				wepFile = "./Weapons/GunTypeExceptions.csv";
-				break;
-			case "CBGUNS":
 				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
 			case "SEAPLANE":
@@ -118,6 +121,10 @@ public class GUIutil {
 				break;
 			case "TORPEDOS":
 				wepFile = "./Weapons/Torpedos.tsv";
+				break;
+			case "SUBTORPEDOS":
+				wepFile = "./Weapons/Submarine Torpedos.tsv";
+			default:
 				break;
 		}
 		return wepFile;
@@ -237,6 +244,8 @@ public class GUIutil {
 			break;
 		case "DD":
 			slottedWep = wepTypes.destroyerOfWorlds(wepnum);
+		case "SUB":
+			slottedWep = wepTypes.subOneAndTwo(wepnum);
 		default:
 			break;
 		}
@@ -272,6 +281,8 @@ public class GUIutil {
 			break;
 		case "DD":
 			slottedWep = wepTypes.heavyCruiserTwo(wepnum);	
+		case "SUB":
+			slottedWep = wepTypes.subOneAndTwo(wepnum);
 		default:
 			break;
 		}
@@ -281,7 +292,7 @@ public class GUIutil {
 
 //	/*
 //	 * Check the ship type before checking the wepnum for third slot weapons.
-//	 * USED FOR CARRIERS
+//	 * USED FOR CARRIERS AND SUBS
 //	 */
 //	public String checkSlotThreeWeps(String shipType, int wepnum) {
 //		
