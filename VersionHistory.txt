@@ -1,3 +1,5 @@
+8/2/19
+- Added Nodes Killed and Armor Break 
 7/22/19 
 - Enemy list now sorted alphabetically.
 - Version history information updated.

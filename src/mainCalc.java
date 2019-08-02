@@ -6,6 +6,8 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.NumberFormat;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -33,15 +35,27 @@ import javax.swing.JTextPane;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.text.NumberFormatter;
+
+
 import javax.swing.event.ListSelectionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.SystemColor;
+import javax.swing.JFormattedTextField;
 
 public class mainCalc extends JFrame {
 
 	private JPanel contentPane;
+	
+	//the nodes killed textbox
+	private JFormattedTextField nodesKilledTextField;
+	//label for the above text field 
+	JLabel nodeKilledLabel;
+	//checkbox for the armor break
+	JCheckBox isArmorBroken;
 	
 	//Allows user to select which ship types to display
 	private JComboBox<?> shipTypeCBox;
@@ -267,6 +281,8 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				calculateButton.setEnabled(false);
 				currentShipName = (String) shipName.getSelectedItem();
+				boolean skillExist = currentSkills.contains("Just Gettin' Fired Up");
+				System.out.println("Skill check " + skillExist + " current ship name " + currentShipName);
 				//System.out.println("the current ship name: " + currentShipName);
 				if(currentShipName.equals("Roon")) {
 					//System.out.println("Not entering this check!!!");
@@ -283,6 +299,10 @@ public class mainCalc extends JFrame {
 					evenOdd = 1;
 					evenRadioButton.setEnabled(true);
 					oddRadioButton.setEnabled(true);
+				} else if(currentShipName.equals("Alabama") && skillExist) {
+					nodesKilledTextField.setEnabled(true);
+					nodeKilledLabel.setEnabled(true);
+					isArmorBroken.setEnabled(true);
 					
 				} else {
 					buttonHE.setSelected(true);
@@ -294,6 +314,10 @@ public class mainCalc extends JFrame {
 					oddRadioButton.setEnabled(false);
 					evenOdd = -1;
 					//System.out.println("The current even odd:" + evenOdd);
+					nodesKilledTextField.setEnabled(false);
+					nodesKilledTextField.setText("");
+					nodeKilledLabel.setEnabled(false);
+					isArmorBroken.setEnabled(false);
 				} 
 				if(currentShipName != "") {
 					try {
@@ -514,6 +538,10 @@ public class mainCalc extends JFrame {
 
 						String displayDamageSlot1 = Double.toString(finalMaxDamageSlot1);
 						String displayMinDamageSlot1 = Double.toString(finalMinDamageSlot1);
+						
+						//Nodes killed test case 
+						//System.out.println(nodesKilledTextField.getValue());
+						
 						slot1Pane.setText(displayMinDamageSlot1 + " - " + displayDamageSlot1);
 					} else {
 						//System.out.println("Null check working!");
@@ -522,6 +550,8 @@ public class mainCalc extends JFrame {
 					System.out.println("The weapon name for slot 2: " + currentWeaponNameSlot2);
 					if (!currentWeaponNameSlot2.isEmpty() && currentWeaponNameSlot2 != null) {
 						//System.out.println("Null check not working!");
+						//Nodes killed test case 
+						//System.out.println(nodesKilledTextField.getValue());
 						
 						Double finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
@@ -534,6 +564,8 @@ public class mainCalc extends JFrame {
 						String displayMinDamageSlot2 = Double.toString(finalMinDamageSlot2);
 
 						slot2Pane.setText(displayMinDamageSlot2 + " - " + displayDamageSlot2);
+						
+						
 					}else {
 						//System.out.println("Null check working!");
 						slot2Pane.setText("No Gun Selected for this Slot.");
@@ -576,6 +608,18 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 //				currentSkills.add("This is a test");
 				currentSkills.add((String) skillList.getSelectedItem());
+				//if statement for the nodes killed and armor break stuff
+				//don't know if working yet as alabama not on the list
+					if(( ((String)skillList.getSelectedItem()).equals("Just Gettin' Fired Up")) 
+							&& currentShipName != null &&
+							(currentShipName.equals("Alabama"))) {
+						System.out.println("entered correctly!");
+						nodesKilledTextField.setEnabled(true);
+						nodeKilledLabel.setEnabled(true);
+						isArmorBroken.setEnabled(true);
+					}
+					
+				System.out.println("Adding skill " + skillList.getSelectedItem() + "current ship name:" + currentShipName);
 				updateActiveSkills();
 			}
 		});
@@ -590,6 +634,17 @@ public class mainCalc extends JFrame {
 				List<String> skills = activeSkillList.getSelectedValuesList();
 				for(String skill: skills) {
 					currentSkills.remove(skill);
+					
+					//checks if Just Gettin' Fired Up exists in the skill list
+					//which will keep the nodes stuff enabled or disable if DNE
+					boolean skillExist = currentSkills.contains("Just Gettin' Fired Up");
+					if(!skillExist) {
+						nodesKilledTextField.setEnabled(false);
+						nodesKilledTextField.setText("");
+						nodeKilledLabel.setEnabled(false);
+						isArmorBroken.setEnabled(false);
+					}
+					
 				}
 				updateActiveSkills();
 				updateSkillDescription(0);
@@ -602,6 +657,10 @@ public class mainCalc extends JFrame {
 				currentSkills.clear();
 				updateActiveSkills();
 				updateSkillDescription(0);
+				nodesKilledTextField.setEnabled(false);
+				nodesKilledTextField.setText("");
+				nodeKilledLabel.setEnabled(false);
+				isArmorBroken.setEnabled(false);
 			}
 		});
 		
@@ -670,16 +729,51 @@ public class mainCalc extends JFrame {
 		JLabel lblSkillUsers = new JLabel("Skill Users:");
 		JLabel lblActiveSkills = new JLabel("Active Skills:");
 		
-		//Toggle button for the armor break skill
-		//From what I read on wikipedia this skill is only applied for AP + Massachussettes/Georgia
-		//Not too sure yet will have conditions once clarified
-		JCheckBox isArmorBroken = new JCheckBox("Armor Broken");
+
+		isArmorBroken = new JCheckBox("Armor Broken");
+		isArmorBroken.setEnabled(false);
 		isArmorBroken.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				armorBreak = !armorBreak;
 			}
 		});
+	    
+		//Nodes killed field
 		
+		/**
+		 * @author Kevin Nguyen
+		 * Creates the nodes killed text field and overrrides the source code to allow blanks
+		 */
+		NumberFormat format = NumberFormat.getInstance();
+	    NumberFormatter formatter = new NumberFormatter(format) {
+	    	/**
+			 * no idea what this is for but it told me to
+			 */
+			private static final long serialVersionUID = 1L;
+
+			//Overrides the number formatter so that it allows blanks
+	    	//Before it didn't allow you to delete the last digit which was stupid
+	    	@Override
+	    	public Object stringToValue(String string)
+                    throws ParseException {
+                    if (string == null || string.length() == 0) {
+                        return null;
+                    }
+						return super.stringToValue(string);
+	    	}
+        };
+	    
+	    formatter.setValueClass(Integer.class);
+	    formatter.setMinimum(0);
+	    formatter.setMaximum(99);
+	    formatter.setAllowsInvalid(false);
+	    formatter.setCommitsOnValidEdit(true);
+
+		nodesKilledTextField = new JFormattedTextField(formatter);
+		nodesKilledTextField.setEnabled(false);
+	
+		nodeKilledLabel = new JLabel("Nodes Killed:");
+		nodeKilledLabel.setEnabled(false);
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -729,9 +823,6 @@ public class mainCalc extends JFrame {
 												.addGroup(gl_contentPane.createSequentialGroup()
 													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 														.addGroup(gl_contentPane.createSequentialGroup()
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(lblAmmoType))
-														.addGroup(gl_contentPane.createSequentialGroup()
 															.addComponent(buttonHE)
 															.addPreferredGap(ComponentPlacement.RELATED)
 															.addComponent(buttonAP)
@@ -742,13 +833,19 @@ public class mainCalc extends JFrame {
 																	.addComponent(evenRadioButton)
 																	.addPreferredGap(ComponentPlacement.RELATED)
 																	.addComponent(oddRadioButton))
-																.addComponent(isArmorBroken))))
+																.addComponent(isArmorBroken)))
+														.addComponent(lblAmmoType)
+														.addGroup(gl_contentPane.createSequentialGroup()
+															.addPreferredGap(ComponentPlacement.RELATED)
+															.addComponent(nodeKilledLabel)
+															.addPreferredGap(ComponentPlacement.RELATED)
+															.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)))
 													.addGap(112)
-													.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-														.addComponent(slot1Pane, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-														.addComponent(slot2Pane, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-														.addComponent(lblGunTypeSlot_2, Alignment.LEADING)
-														.addComponent(lblGunTypeSlot_3, Alignment.LEADING))))
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addComponent(slot2Pane, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+														.addComponent(slot1Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+														.addComponent(lblGunTypeSlot_2)
+														.addComponent(lblGunTypeSlot_3))))
 											.addGap(95)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 												.addComponent(descScrollPane, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
@@ -770,19 +867,19 @@ public class mainCalc extends JFrame {
 															.addPreferredGap(ComponentPlacement.RELATED)
 															.addComponent(addSkill))))))))
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(isManual)
-									.addPreferredGap(ComponentPlacement.RELATED, 625, Short.MAX_VALUE)
 									.addComponent(btnRemoveAll)
 									.addGap(18)
 									.addComponent(removeButton)
 									.addGap(69)))
 							.addGap(314)
 							.addComponent(equipScrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addComponent(isFirstSalvo)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(389)
-							.addComponent(calculateButton)))
-					.addContainerGap())
+							.addGap(395)
+							.addComponent(calculateButton))
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+							.addComponent(isManual, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+							.addComponent(isFirstSalvo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+					.addGap(0))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -829,7 +926,7 @@ public class mainCalc extends JFrame {
 							.addComponent(descScrollPane, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)))
 					.addGap(18)
 					.addComponent(lblSkillUsers)
-					.addPreferredGap(ComponentPlacement.RELATED)
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(40)
@@ -839,18 +936,20 @@ public class mainCalc extends JFrame {
 									.addGap(130))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addGap(22)
+												.addComponent(lblActiveSkills)
+												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(lblGunTypeSlot_2)
+												.addPreferredGap(ComponentPlacement.UNRELATED)))
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGap(22)
-											.addComponent(lblActiveSkills)
-											.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(lblGunTypeSlot_2)
-											.addPreferredGap(ComponentPlacement.UNRELATED)))
+											.addComponent(lblAmmoType)
+											.addPreferredGap(ComponentPlacement.RELATED)))
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 										.addComponent(activeSkillScrollPane, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(lblAmmoType)
-											.addGap(7)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 												.addComponent(buttonHE)
 												.addComponent(buttonAP)
@@ -861,27 +960,33 @@ public class mainCalc extends JFrame {
 												.addComponent(isFirstSalvo)
 												.addComponent(isCritical)))
 										.addComponent(slot1Pane, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-											.addComponent(removeButton)
-											.addComponent(btnRemoveAll))
-										.addComponent(lblGunTypeSlot_3))
-									.addGap(17)))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(isManual)
-								.addComponent(isArmorBroken)))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+													.addComponent(removeButton)
+													.addComponent(btnRemoveAll))
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(lblGunTypeSlot_3)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(slot2Pane, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)))
+											.addPreferredGap(ComponentPlacement.RELATED))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+												.addComponent(isManual)
+												.addComponent(isArmorBroken))
+											.addGap(18)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+												.addComponent(nodeKilledLabel)
+												.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(14)
 							.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
-					.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+					.addGap(18)
 					.addComponent(calculateButton)
-					.addGap(52))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap(415, Short.MAX_VALUE)
-					.addComponent(slot2Pane, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-					.addGap(86))
+					.addGap(120))
 		);
 		skillDescriptionBox = new JTextPane();
 		descScrollPane.setViewportView(skillDescriptionBox);
