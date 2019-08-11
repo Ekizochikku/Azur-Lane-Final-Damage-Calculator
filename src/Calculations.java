@@ -107,7 +107,7 @@ public class Calculations {
 			injRatStat = getInjureRatio();
 			
 			// Damage Ratio
-			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd);
+			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd, ep);
 			
 			// Damage to Nation
 			dmgNatStat = getDamageToNation(ep);
@@ -155,7 +155,9 @@ public class Calculations {
 				slotEff = Double.parseDouble(sp.get(6)) + 0.15;
 			} else if (shipName.equals("Le Triomphant") && skillList.contains("Offensive Configuration")) {
 				slotEff = Double.parseDouble(sp.get(6)) + 0.20;
-			} else {
+			} else if (shipName.equals("Kitakaze") && skillList.contains("Kitakaze Style - Unanimous Slash")) {
+				slotEff = Double.parseDouble(sp.get(6) + 0.15);
+			}else {
 				slotEff = Double.parseDouble(sp.get(6)); // Normal 
 			}
 		} else if (shipSlot == 2) {
@@ -259,7 +261,7 @@ public class Calculations {
 		} else { // Heavy Armor
 			armorMod = Double.parseDouble(wp.get(8));
 		}
-		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze")) {
+		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze") || !shipName.equals("Baltimore")) {
 			return armorMod;
 		} else {
 			if (shipName.equals("Kawakaze") && skillList.contains("Piercing Torpedo Strike")) {
@@ -305,6 +307,15 @@ public class Calculations {
 			if (shipName.equals("Black Heart") && skillList.contains("Tricolor Oder")) {
 				armorMod = 1.00;
 			}
+			if (shipName.equals("Baltimore") && skillList.contains("Final AP Drive")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = .85;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.20;
+				} else {
+					armorMod = .85;
+				}
+			}
 			return armorMod;
 		}
 	}
@@ -348,8 +359,9 @@ public class Calculations {
 	/*
 	 * Returns a double of the bonus damage from injure ratio from skills.
 	 */
-	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd) throws FileNotFoundException, IOException {
+	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd, ArrayList<String> ep) throws FileNotFoundException, IOException {
 		double ratio = 0;
+		boolean ab = true;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
 			holding = gt.getSkillParameters(skillList.get(i));
@@ -358,6 +370,10 @@ public class Calculations {
 			} else if (!wepType.equals("TORPEDOS") && holding.get(5).equals("1")) {
 				if (shipName.equals("Friedrich der Grosse") && skillList.get(i).equals("Sonata of Chaos") && evenOdd == 1) {
 					ratio += 0.2;
+				} else if (shipName.equals("Baltimore") && skillList.contains("Final AP Drive")) {
+					if (ab && ep.get(4).equals("M")) {
+						ratio += .08;
+					}
 				} else {
 					ratio += Double.parseDouble(holding.get(4));
 				}
