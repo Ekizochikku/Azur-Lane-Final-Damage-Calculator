@@ -125,6 +125,7 @@ public class GUIutil {
 				break;
 			case "SUBTORPEDOS":
 				wepFile = "./Weapons/Submarine Torpedos.tsv";
+				break;
 			default:
 				break;
 		}
