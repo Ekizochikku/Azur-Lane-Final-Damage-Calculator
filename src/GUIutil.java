@@ -85,6 +85,7 @@ public class GUIutil {
 				break;
 			case "SUB":
 				shipFile = "./Ship Files/Submarines.tsv";
+				break;
 			default:
 				break;
 		}
