@@ -235,7 +235,7 @@ public class mainCalc extends JFrame {
 		//We're going to need to change these labels later into the actual names. 
 		//Currently cruisers only for now to avoid errors
 		guiUtil = new GUIutil();
-		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON"};
+		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "SUB"};
 		shipTypeCBox = new JComboBox<Object>(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
 		shipTypeCBox.setSelectedIndex(0);

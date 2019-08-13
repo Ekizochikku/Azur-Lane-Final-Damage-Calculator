@@ -124,7 +124,7 @@ public class GUIutil {
 			case "TORPEDOS":
 				wepFile = "./Weapons/Torpedos.tsv";
 				break;
-			case "SUGUNS":
+			case "SUBTORPEDOS":
 				wepFile = "./Weapons/Submarine Torpedos.tsv";
 				break;
 			default:
@@ -648,7 +648,8 @@ public class GUIutil {
 		String weaponType = "";
 		String weaponType2 = "";
 		//System.out.println("Current word for type list " + compatibleWeapons);
-		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS"))))) {
+		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS")) 
+				&& (!(compatibleWeapons.equals("SUBTORPEDOS")))))) {
 				
 			for (int i = 0; i <= compatibleWeapons.length() - 1; i++) {
 				if(i < 2) {
