@@ -521,20 +521,27 @@ public class GUIutil {
 	 * Calculates the maximum danger level based on the selected chapter
 	 */
 	public int getDangerLevel(String world) {
+		System.out.println("The current world is:" + world);
+
 		int maxDangerLevel = 0;
 		int currentChapter = 0;
 		char worldNum = world.charAt(0);
-		//gets the int via ascii conversion.
-		currentChapter = worldNum - '0';
-		if (currentChapter <= 4) {
-			maxDangerLevel = 3;
-		} else if (currentChapter <= 7) {
-			maxDangerLevel = 5;
-		} else if (currentChapter <= 9) {
-			maxDangerLevel = 8;
-		} else {
+		if(world.charAt(1) != '-') {
 			maxDangerLevel = 10;
-		}
+		} else {
+				//gets the int via ascii conversion.
+				currentChapter = worldNum - '0';
+				//System.out.println("The current chapter is:" + currentChapter);
+				if (currentChapter <= 4) {
+					maxDangerLevel = 3;
+				} else if (currentChapter <= 7) {
+					maxDangerLevel = 5;
+				} else if (currentChapter <= 9) {
+					maxDangerLevel = 8;
+				} else {
+					maxDangerLevel = 10;
+				}
+			}
 		return maxDangerLevel;
 	}
 	
