@@ -1,156 +1,2097 @@
-WORLD	ENEMY	LEVEL	HEALTH	ARMOR	TYPE	NATION
-1-1	Mahan Ship	2	53	L	DD	USS
-1-1	Mahan Ship	2	52	L	DD	USS
-1-1	Gridley	2	123	L	DD	USS
-1-1	Hornet	2	354	M	CV	USS
-1-1	Craven	1	82	L	DD	USS
-1-1	Gold Ship	1	200	L	GS	NULL
-1-2	Kagerou Ship	4	60	L	DD	IJN
-1-2	Fubuki Ship	4	61	L	DD	IJN
-1-2	Kagerou	4	183	L	DD	IJN
-1-2	Torpedo Boat	4	60	L	TB	NULL
-1-2	Nagara Ship	4	76	L	CL	IJN
-1-2	Tone	4	664	M	CA	IJN
-1-2	Kagerou Ship	3	59	L	DD	NULL
-1-2	Torpedo Boat	3	57	L	TB	IJN
-1-2	Fubuki Ship 	3	59	L	DD	IJN
-1-2	Kagerou	3	175	L	DD	IJN
-1-2	Suicide Ship	3	20	L	SS	NULL
-1-2	Gold Ship	3	212	L	GS	NULL
-1-3	Kagerou Ship	6	64	L	DD	IJN
-1-3	Fubuki Ship	6	65	L	DD	IJN
-1-3	Kagerou	6	199	L	DD	IJNI
-1-3	Tone	6	380	M	CA	IJN
-1-3	Kirishima	6	782	M	BC	IJN
-1-3	Kagerou Ship	5	62	L	DD	IJN
-1-3	Fubuki Ship	5	63	L	DD	IJN
-1-3	Shiranui	5	191	L	DD	IJN
-1-3	Kagerou	5	191	L	DD	IJN
-1-3	Nagara Ship	5	79	L	CL	IJN
-1-3	Gold Ship	5	225	L	GS	NULL
-1-4	Fubuki Ship	10	72	L	DD	IJN
-1-4	Kagerou	10	230	L	DD	IJN
-1-4	Shiranui	10	230	L	DD	IJN
-1-4	Tone	10	428	M	CA	IJN
-1-4	Akagi	10	944	M	CV	IJN
-1-4	Kaga	10	944	M	CV	IJN
-1-4	Kagerou Ship	8	67	L	DD	IJN
-1-4	Shiranui	8	214	L	DD	IJN
-1-4	Abukuma	8	261	L	CL	IJN
-1-4	Kagerou	10	230	L	DD	IJN
-1-4	Suicide Ship	8	27	L	SS	NULL
-1-4	Nagara Ship	8	87	L	CL	IJN
-1-4	Tone	8	404	M	CA	IJN
-1-4	Fubuki Ship	8	68	L	DD	IJN
-1-4	Chikuma	8	404	M	CA	IJN
-1-4	Hiei	8	519	M	BC	IJN
-1-4	Hiryuu	8	428	M	CV	IJN
-1-4	Souryuu	8	428	M	CV	IJN
-1-4	Shoukaku	8	428	M	CV	IJN
-1-4	Zuikaku	8	428	M	CV	IJN
-1-4	Gold Ship	8	244	M	GS	NULL
-2-1	Nagara Ship	12	142	L	CL	
-2-1	Fubuki Ship	12	98	L	DD	IJN
-2-1	Shiratsuyu	12	372	L	DD	IJN
-2-1	Shigure	12	372	L	DD	IJN
-2-1	Suicide Ship	12	52	L	SS	NULL
-2-1	Kinugasa	12	728	M	CA	IJN
-2-1	Kagerou Ship	12	109	L	DD	IJN
-2-1	Shouhou	12	776	L	CVL	IJN
-2-1	Aoba	12	1220	M	CA	IJN
-2-1	Kagerou Ship	11	100	L	DD	IJN
-2-1	Shiratsuyu Ship	11	100	L	DD	IJN
-2-1	Shiratsuyu	11	360	L	DD	IJN
-2-1	Shigure	11	360	L	DD	IJN
-2-1	Kagerou	11	360	L	DD	IJN
-2-1	Nagara Ship	11	138	L	CL	IJN
-2-1	Fubuki Ship	11	96	L	DD	IJN
-2-1	Kako	11	700	M	CA	IJN
-2-1	Kagerou	11	106	L	DD	IJN
-2-1	Suicide Ship	11	50	L	SS	NULL
-2-1	Furutaka	11	700	M	CA	IJN
-2-1	Shiratsuyu Ship	11	100	L	DD	IJN
-2-1	Kinugasa	11	700	M	CA	IJN
-2-1	Aoba	11	700	M	CA	IJN
-2-1	Suicide Ship	11	50	L	SS	NULL
-2-1	Hiei	11	1140	M	BC	IJN
-2-1	Fubuki Ship	11	96	L	DD	IJN
-2-1	Shouhou	11	749	L	CVL	IJN
-2-1	Shoukaku	11	1079	L	CV	IJN
-2-1	Gold Ship	11	322	L	GS	NULL
-2-2	Aoba	14	784	M	CA	IJN
-2-2	Kagerouu	14	396	L	DD	IJN
-2-2	Kako	15	812	M	CA	IJN
-2-2	Kako	14	784	M	CA	IJN
-2-2	Kinugasa	15	812	M	CA	IJN
-2-2	Kinugasa	14	784	M	CA	IJN
-2-2	Shigure	14	396	L	DD	IJN
-2-2	Shoukaku	14	1193	M	CV	IJN
-2-2	Shouhou	14	830	L	CVL	IJN
-2-2	Shiratsuyu	15	408	L	DD	IJN
-2-2	Shiratsuyu	14	396	L	DD	IJN
-2-2	Zuikaku	15	1676	M	CV	IJN
-2-2	Hiei	14	1260	M	BC	IJN
-2-2	Furutaka	14	784	M	CA	IJN
-2-2	Gold Ship	14	343	L	GS	NULL
-2-2	Kagerou Ship	15	118	L	DD	IJN
-2-2	Kagerou Ship	14	107	L	DD	IJN
-2-2	Kagerou Ship	14	115	L	DD	IJN
-2-2	Shiratsuyu Ship	14	107	L	DD	IJN
-2-2	Nagara Ship	14	152	L	CL	IJN
-2-2	Fubuki Ship	15	106	L	DD	IJN
-2-2	Fubuki Ship	14	103	L	DD	IJN
-2-2	Suicide Ship	15	57	L	SS	NULL
-2-2	Suicide Ship	14	56	L	SS	NULL
-2-3	Suicide Ship	18	63	L	SS	NULL
-2-3	Nagara Ship	18	171	L	CL	IJN
-2-3	Shiratsuyu	18	444	L	DD	IJN
-2-3	Shigure	18	444	L	DD	IJN
-2-3	Aoba Ship	18	343	M	CA	IJN
-2-3	Kagerou	18	444	L	DD	IJN
-2-3	Shouhou	18	2170	L	CVL	IJN
-2-3	Kako	18	896	M	CA	IJN
-2-3	Kagerou Ship	17	115	L	DD	IJN
-2-3	Shiratsuyu Ship	17	114	L	DD	IJN
-2-3	Shiratsuyu	17	432	L	DD	IJN
-2-3	Shigure	17	432	L	DD	IJN
-2-3	Kagerou	17	432	L	DD	IJN
-2-3	Nagara Ship	17	166	L	DD	IJN
-2-3	Fubuki Ship	17	111	L	DD	IJN
-2-3	Kako	17	868	M	CA	IJN
-2-3	Kagerou Ship	17	125	L	DD	IJN
-2-3	Suicide Ship	17	61	L	SS	NULL
-2-3	Furutaka	17	868	M	CA	IJN
-2-3	Kinugasa	17	868	M	CA	IJN
-2-3	Aoba	17	868	M	CA	IJN
-2-3	Suicide Ship	17	61	L	SS	NULL
-2-3	Hiei	17	1380	M	BC	IJN
-2-3	Shouhou	17	911	L	CVL	IJN
-2-3	Shoukaku	17	1307	M	CV	IJN
-2-3	Gold Ship	17	365	L	GS	NULL
-2-4	Kagerou Ship	21	138	L	DD	IJN
-2-4	Shiratsuyu	21	480	L	DD	IJN
-2-4	Shigure	21	480	L	DD	IJN
-2-4	Fubuki Ship	21	122	L	DD	IJN
-2-4	Aoba	21	980	M	CA	IJN
-2-4	Kinugasa	21	980	M	CA	IJN
-2-4	Shouhou	21	1018	L	CVL	IJN
-2-4	Hiei	21	1540	M	BC	IJN
-2-4	Shoukaku	21	3100	M	CV	IJN
-2-4	Kagerou Ship	20	123	L	DD	IJN
-2-4	Shiratsuyu Ship	20	121	L	DD	IJN
-2-4	Shiratsuyu	20	468	L	DD	IJN
-2-4	Shigure	20	468	L	DD	IJN
-2-4	Kagerou	20	468	L	DD	IJN
-2-4	Nagara Ship	20	181	L	CL	IJN
-2-4	Fubuki Ship	20	119	L	DD	IJN
-2-4	Kako	20	952	M	CA	IJN
-2-4	Kagerou Ship	20	134	L	DD	IJN
-2-4	Suicide Ship	20	66	L	SS	NULL
-2-4	Furutaka	20	952	M	CA	IJN
-2-4	Kinugasa	20	952	M	CA	IJN
-2-4	Aoba	20	952	M	CA	IJN
-2-4	Hiei	20	1500	M	BC	IJN
-2-4	Shouhou	20	991	L	CVL	IJN
-2-4	Shoukaku	20	1421	M	CV	IJN
-2-4	Gold Ship	20	368	L	GS	NULL
+WORLD	ENEMY 	LEVEL	HEALTH	ARMOR	ANTIAIR	TYPE	NATION
+1-1	Mahan Ship	2	53	L	8	DD	USS
+1-1	Mahan Ship	2	52	L	8	DD	USS
+1-1	Gridley	2	123	L	22	DD	USS
+1-1	Hornet	2	354	M	59	CV	USS
+1-1	Craven	1	82	L	21	DD	USS
+1-1	Gold Ship	1	200	L	0	GS	NULL
+1-2	Kagerou Ship	4	60	L	9	DD	IJN
+1-2	Fubuki Ship	4	61	L	9	DD	IJN
+1-2	Kagerou	4	183	L	24	DD	IJN
+1-2	Torpedo Boat	4	60	L	0	TB	NULL
+1-2	Nagara Ship	4	76	L	21	CL	IJN
+1-2	Tone	4	664	M	38	CA	IJN
+1-2	Kagerou Ship	3	59	L	9	DD	IJN
+1-2	Torpedo Boat	3	57	L	0	TB	IJN
+1-2	Fubuki Ship 	3	59	L	9	DD	IJN
+1-2	Kagerou	3	175	L	23	DD	IJN
+1-2	Suicide Ship	3	20	L	0	SS	NULL
+1-2	Abukuma	3	217	L	40	CL	IJN
+1-2	Gold Ship	3	212	L	0	GS	NULL
+1-3	Kagerou Ship	6	64	L	11	DD	IJN
+1-3	Fubuki Ship	6	65	L	11	DD	IJN
+1-3	Kagerou	6	199	L	28	DD	IJNI
+1-3	Tone	6	380	M	39	CA	IJN
+1-3	Kirishima	6	782	M	65	BC	IJN
+1-3	Kagerou Ship	5	62	L	10	DD	IJN
+1-3	Fubuki Ship	5	63	L	10	DD	IJN
+1-3	Shiranui	5	191	L	26	DD	IJN
+1-3	Kagerou	5	191	L	26	DD	IJN
+1-3	Nagara Ship	5	79	L	22	CL	IJN
+1-3	Gold Ship	5	225	L	0	GS	NULL
+1-4	Fubuki Ship	10	72	L	13	DD	IJN
+1-4	Kagerou	10	230	L	34	DD	IJN
+1-4	Shiranui	10	230	L	34	DD	IJN
+1-4	Tone	10	428	M	49	CA	IJN
+1-4	Akagi	10	944	M	81	CV	IJN
+1-4	Kaga	10	944	M	81	CV	IJN
+1-4	Kagerou Ship	8	67	L	12	DD	IJN
+1-4	Shiranui	8	214	L	31	DD	IJN
+1-4	Abukuma	8	261	L	52	CL	IJN
+1-4	Kagerou	10	230	L	31	DD	IJN
+1-4	Suicide Ship	8	27	L	0	SS	NULL
+1-4	Nagara Ship	8	87	L	27	CL	IJN
+1-4	Tone	8	404	M	44	CA	IJN
+1-4	Fubuki Ship	8	68	L	12	DD	IJN
+1-4	Chikuma	8	404	M	44	CA	IJN
+1-4	Hiei	8	519	M	52	BC	IJN
+1-4	Hiryuu	8	428	M	52	CV	IJN
+1-4	Souryuu	8	428	M	52	CV	IJN
+1-4	Shoukaku	8	428	M	52	CV	IJN
+1-4	Zuikaku	8	428	M	52	CV	IJN
+1-4	Gold Ship	8	244	M	0	GS	NULL
+2-1	Nagara Ship	12	142	L	32	CL	IJN
+2-1	Fubuki Ship	12	98	L	14	DD	IJN
+2-1	Shiratsuyu	12	372	L	38	DD	IJN
+2-1	Shigure	12	372	L	38	DD	IJN
+2-1	Suicide Ship	12	52	L	0	SS	NULL
+2-1	Kinugasa	12	728	M	45	CA	IJN
+2-1	Kagerou Ship	12	109	L	14	DD	IJN
+2-1	Shouhou	12	776	L	51	CVL	IJN
+2-1	Aoba	12	1220	M	80	CA	IJN
+2-1	Kagerou Ship	11	100	L	14	DD	IJN
+2-1	Shiratsuyu Ship	11	100	L	14	DD	IJN
+2-1	Shiratsuyu	11	360	L	36	DD	IJN
+2-1	Shigure	11	360	L	36	DD	IJN
+2-1	Kagerou	11	360	L	36	DD	IJN
+2-1	Nagara Ship	11	138	L	31	CL	IJN
+2-1	Fubuki Ship	11	96	L	14	DD	IJN
+2-1	Kako	11	700	M	43	CA	IJN
+2-1	Kagerou Ship	11	106	L	14	DD	IJN
+2-1	Suicide Ship	11	50	L	0	SS	NULL
+2-1	Furutaka	11	700	M	43	CA	IJN
+2-1	Shiratsuyu Ship	11	100	L	14	DD	IJN
+2-1	Kinugasa	11	700	M	43	CA	IJN
+2-1	Aoba	11	700	M	43	CA	IJN
+2-1	Suicide Ship	11	50	L	0	SS	NULL
+2-1	Hiei	11	1140	M	59	BC	IJN
+2-1	Fubuki Ship	11	96	L	14	DD	IJN
+2-1	Shouhou	11	749	L	49	CVL	IJN
+2-1	Shoukaku	11	1079	L	59	CV	IJN
+2-1	Gold Ship	11	322	L	0	GS	NULL
+2-2	Suicide Ship	15	57	L	0	SS	NULL
+2-2	Fubuki Ship	15	106	L	16	DD	IJN
+2-2	Kagerou Ship	15	118	L	16	DD	IJN
+2-2	Shiratsuyu	15	408	L	42	DD	IJN
+2-2	Kinugasa	15	812	M	50	CA	IJN
+2-2	Zuikaku	15	1676	M	100	CV	IJN
+2-2	Kako	15	812	M	50	CA	IJN
+2-2	Kagerou Ship	14	107	L	16	DD	IJN
+2-2	Shiratsuyu Ship	14	107	L	16	DD	IJN
+2-2	Shiratsuyu	14	396	L	41	DD	IJN
+2-2	Shigure	14	396	L	41	DD	IJN
+2-2	Kagerouu	14	396	L	41	DD	IJN
+2-2	Nagara Ship	14	152	L	35	CL	IJN
+2-2	Fubuki Ship	14	103	L	16	DD	IJN
+2-2	Kako	14	784	M	48	CA	IJN
+2-2	Kagerou Ship	14	115	L	16	DD	IJN
+2-2	Suicide Ship	14	56	L	0	SS	NULL
+2-2	Furutaka	14	784	M	48	CA	IJN
+2-2	Shiratsuyu Ship	14	107	L	16	DD	IJN
+2-2	Kinugasa	14	784	M	48	CA	IJN
+2-2	Aoba	14	784	M	48	CA	IJN
+2-2	Hiei	14	1260	M	66	BC	IJN
+2-2	Shouhou	14	830	L	55	CVL	IJN
+2-2	Shoukaku	14	1193	M	66	CV	IJN
+2-2	Gold Ship	14	343	L	0	GS	NULL
+2-3	Suicide Ship	18	63	L	0	SS	NULL
+2-3	Nagara Ship	18	171	L	41	CL	IJN
+2-3	Shiratsuyu	18	444	L	47	DD	IJN
+2-3	Shigure	18	444	L	47	DD	IJN
+2-3	Aoba Ship	18	343	M	26	CA	IJN
+2-3	Kagerou	18	444	L	47	DD	IJN
+2-3	Shouhou	18	2170	L	115	CVL	IJN
+2-3	Kako	18	896	M	56	CA	IJN
+2-3	Kagerou Ship	17	115	L	18	DD	IJN
+2-3	Shiratsuyu Ship	17	114	L	18	DD	IJN
+2-3	Shiratsuyu	17	432	L	46	DD	IJN
+2-3	Shigure	17	432	L	46	DD	IJN
+2-3	Kagerou	17	432	L	46	DD	IJN
+2-3	Nagara Ship	17	166	L	40	CL	IJN
+2-3	Fubuki Ship	17	111	L	18	DD	IJN
+2-3	Kako	17	868	M	54	CA	IJN
+2-3	Kagerou Ship	17	125	L	18	DD	IJN
+2-3	Suicide Ship	17	61	L	0	SS	NULL
+2-3	Furutaka	17	868	M	54	CA	IJN
+2-3	Kinugasa	17	868	M	54	CA	IJN
+2-3	Aoba	17	868	M	54	CA	IJN
+2-3	Suicide Ship	17	61	L	0	SS	NULL
+2-3	Hiei	17	1380	M	73	BC	IJN
+2-3	Shouhou	17	911	L	62	CVL	IJN
+2-3	Shoukaku	17	1307	M	73	CV	IJN
+2-3	Gold Ship	17	365	L	0	GS	NULL
+2-4	Kagerou Ship	21	138	L	20	DD	IJN
+2-4	Shiratsuyu	21	480	L	52	DD	IJN
+2-4	Shigure	21	480	L	52	DD	IJN
+2-4	Fubuki Ship	21	122	L	20	DD	IJN
+2-4	Aoba	21	980	M	61	CA	IJN
+2-4	Kinugasa	21	980	M	61	CA	IJN
+2-4	Shouhou	21	1018	L	70	CVL	IJN
+2-4	Hiei	21	1540	M	83	BC	IJN
+2-4	Shoukaku	21	3100	M	125	CV	IJN
+2-4	Kagerou Ship	20	123	L	19	DD	IJN
+2-4	Shiratsuyu Ship	20	121	L	19	DD	IJN
+2-4	Shiratsuyu	20	468	L	51	DD	IJN
+2-4	Shigure	20	468	L	51	DD	IJN
+2-4	Kagerou	20	468	L	51	DD	IJN
+2-4	Nagara Ship	20	181	L	44	CL	IJN
+2-4	Fubuki Ship	20	119	L	19	DD	IJN
+2-4	Kako	20	952	M	59	CA	IJN
+2-4	Kagerou Ship	20	134	L	19	DD	IJN
+2-4	Suicide Ship	20	66	L	0	SS	NULL
+2-4	Furutaka	20	952	M	59	CA	IJN
+2-4	Kinugasa	20	952	M	59	CA	IJN
+2-4	Aoba	20	952	M	59	CA	IJN
+2-4	Hiei	20	1500	M	58	BC	IJN
+2-4	Shouhou	20	991	L	68	CVL	IJN
+2-4	Shoukaku	20	1421	M	80	CV	IJN
+2-4	Gold Ship	20	368	L	0	GS	NULL
+3-1	Suicide Ship	24	84	L	0	SS	NULL
+3-1	Kagerou Ship	24	163	L	22	DD	IJN
+3-1	Nagara Ship	24	264	L	50	CL	IJN
+3-1	Shigure	24	683	L	57	DD	IJN
+3-1	Fubuki Ship	24	163	L	22	DD	IJN
+3-1	Abukuma	24	959	L	96	CL	IJN
+3-1	Tone	24	1274	M	81	CA	IJN
+3-1	Kongou	24	2090	M	91	BC	IJN
+3-1	Kaga	24	3985	M	105	CV	IJN
+3-1	Nagara Ship	23	259	L	48	CL	IJN
+3-1	Shiratsuyu Ship	23	168	L	21	DD	IJN
+3-1	Shiratsuyu	23	668	L	56	DD	IJN
+3-1	Shiranui	23	668	L	56	DD	IJN
+3-1	Kagerou	23	668	L	56	DD	IJN
+3-1	Suicide Ship	23	82	L	0	SS	NULL
+3-1	Fubuki Ship	23	160	L	21	DD	IJN
+3-1	Shigure	23	668	L	56	DD	IJN
+3-1	Isuzu	23	938	L	127	CL	IJN
+3-1	Abukuma	23	938	L	94	CL	IJN
+3-1	Tone	23	1246	M	79	CA	IJN
+3-1	Furutaka	23	1194	M	79	CA	IJN
+3-1	Kagerou Ship	23	160	L	21	DD	IJN
+3-1	Kinugasa	23	1194	M	79	CA	IJN
+3-1	Myoukou Ship	23	734	M	0	CA	NULL
+3-1	Nachi	23	1230	M	79	CA	IJN
+3-1	Mogami	23	1267	M	79	CL	IJN
+3-1	Kongou	23	2040	M	89	BC	IJN
+3-1	Shoukaku	23	1740	M	96	CV	IJN
+3-1	Zuikaku	23	1740	M	96	CV	IJN
+3-1	Gold Ship	23	619	L	0	GS	NULL
+3-2	Suicide Ship	27	91	L	0	SS	NULL
+3-2	Nagara Ship	27	281	L	54	CL	IJN
+3-2	Shigure	27	730	L	62	DD	IJN
+3-2	Shiratsuyu	27	730	L	62	DD	IJN
+3-2	Furutaka	27	1302	M	88	CA	IJN
+3-2	Isuzu	27	1024	L	142	CL	IJN
+3-2	Haruna	27	2240	M	100	BC	IJN
+3-2	Akagi	27	4548	M	120	CV	IJN
+3-2	Nagara Ship	26	276	L	53	CL	IJN
+3-2	Shiratsuyu Ship	26	178	L	23	DD	IJN
+3-2	Shiratsuyu	26	715	L	60	DD	IJN
+3-2	Shiranui	26	715	L	60	DD	IJN
+3-2	Kagerou	26	715	L	60	DD	IJN
+3-2	Suicide Ship	26	89	L	0	SS	NULL
+3-2	Fubuki Ship	26	169	L	23	DD	IJN
+3-2	Shigure	26	715	L	60	DD	IJN
+3-2	Isuzu	26	1002	L	138	CL	IJN
+3-2	Abukuma	26	1002	L	102	CL	IJN
+3-2	Tone	26	1330	M	86	CA	IJN
+3-2	Furutaka	26	1275	M	86	CA	IJN
+3-2	Kagerou Ship	26	169	L	23	DD	IJN
+3-2	Kinugasa	26	1275	M	86	CA	IJN
+3-2	Myoukou Ship	26	785	M	36	CA	IJN
+3-2	Nachi	26	1312	M	86	CA	IJN
+3-2	Mogami	26	1352	M	86	CL	IJN
+3-2	Kongou	26	2190	M	97	BC	IJN
+3-2	Shoukaku	26	1860	M	104	CV	IJN
+3-2	Zuikaku	26	1860	M	104	CV	IJN
+3-2	Gold Ship	26	636	L	0	GS	NULL
+3-3	Suicide Ship	30	97	L	0	SS	NULL
+3-3	Kagerou Ship	30	181	L	26	DD	IJN
+3-3	Shigure	30	777	L	67	DD	IJN
+3-3	Nagara Ship	30	298	L	58	CL	IJN
+3-3	Isuzu	30	1088	L	153	CL	IJN
+3-3	Mogami	30	1466	M	95	CL	IJN
+3-3	Nagato	30	2684	H	108	BB	IJN
+3-3	Souryuu	30	5390	M	135	CV	IJN
+3-3	Nagara Ship	29	292	L	57	CL	IJN
+3-3	Shiratsuyu Ship	29	188	L	25	DD	IJN
+3-3	Shiratsuyu	29	761	L	65	DD	IJN
+3-3	Shiranui	29	761	L	65	DD	IJN
+3-3	Kagerou	29	761	L	65	DD	IJN
+3-3	Suicide Ship	29	95	L	0	SS	NULL
+3-3	Fubuki Ship	29	178	L	25	DD	IJN
+3-3	Shigure	29	761	L	65	DD	IJN
+3-3	Isuzu	29	1067	L	149	CL	IJN
+3-3	Abukuma	29	1067	L	111	CL	IJN
+3-3	Tone	29	1414	M	93	CA	IJN
+3-3	Furutaka	29	1356	M	93	CA	IJN
+3-3	Kagerou Ship	29	178	L	25	DD	IJN
+3-3	Kinugasa	29	1356	M	93	CA	IJN
+3-3	Myoukou Ship	29	836	M	39	CA	IJN
+3-3	Nachi	29	1356	M	93	CA	IJN
+3-3	Mogami	29	1438	M	93	CL	IJN
+3-3	Kongou	29	2340	M	105	BC	IJN
+3-3	Shoukaku	29	1980	M	113	CV	IJN
+3-3	Zuikaku	29	1980	M	113	CV	IJN
+3-3	Gold Ship	29	652	L	0	GS	NULL
+3-4	Suicide Ship	33	103	L	0	SS	NULL
+3-4	Mogami Ship	33	956	M	43	CL	IJN
+3-4	Kagerou Ship	33	191	L	28	DD	IJN
+3-4	Shigure	33	824	L	72	DD	IJN
+3-4	Nagara Ship	33	315	L	63	CL	IJN
+3-4	Abukuma	33	1153	L	123	CL	IJN
+3-4	Isuzu	33	1153	L	164	CL	IJN
+3-4	Mogami	33	1552	M	102	CL	IJN
+3-4	Mutsu	33	2852	H	116	BB	IJN
+3-4	Hiryuu	33	6240	M	150	CV	IJN
+3-4	Nagara Ship	32	309	L	61	CL	IJN
+3-4	Shiratsuyu Ship	32	198	L	27	DD	IJN
+3-4	Shiratsuyu	32	808	L	70	DD	IJN
+3-4	Shiranui	32	808	L	70	DD	IJN
+3-4	Kagerou	32	808	L	70	DD	IJN
+3-4	Suicide Ship	32	101	L	0	SS	NULL
+3-4	Fubuki Ship	32	188	L	27	DD	IJN
+3-4	Shigure	32	808	L	70	DD	IJN
+3-4	Isuzu	32	1131	L	161	CL	IJN
+3-4	Abukuma	32	1131	L	120	CL	IJN
+3-4	Tone	32	1498	M	100	CA	IJN
+3-4	Furutaka	32	1437	M	100	CA	IJN
+3-4	Kagerou Ship	32	188	L	27	DD	IJN
+3-4	Kinugasa	32	1437	M	100	CA	IJN
+3-4	Myoukou Ship	32	887	M	42	CA	IJN
+3-4	Nachi	32	1477	M	100	CA	IJN
+3-4	Mogami	32	1523	M	100	CL	IJN
+3-4	Kongou	32	2490	M	114	BC	IJN
+3-4	Shoukaku	32	2100	M	122	CV	IJN
+3-4	Zuikaku	32	2100	M	122	CV	IJN
+3-4	Gold Ship	32	668	L	0	GS	NULL
+4-1	Suicide Ship	36	123	L	0	SS	NULL
+4-1	Isuzu Ship	36	444	L	67	CL	IJN
+4-1	Nagara Ship	36	444	L	67	CL	IJN
+4-1	Ayanami	36	1373	L	77	DD	IJN
+4-1	Kagerou	36	1487	L	77	DD	IJN
+4-1	Furutaka Ship	36	1125	M	46	CA	IJN
+4-1	Tone	36	2093	M	109	CA	IJN
+4-1	Sendai Ship	36	444	L	67	CL	IJN
+4-1	Ryuujou	36	2615	L	134	CVL	IJN
+4-1	Isuzu	36	1510	L	176	CL	IJN
+4-1	Aoba	36	5460	M	140	CA	IJN
+4-1	Suicide Ship	35	121	L	0	SS	IJN
+4-1	Kagerou Ship	35	278	L	29	DD	IJN
+4-1	Ayanami	35	1351	L	75	DD	IJN
+4-1	Sendai Ship	35	436	L	65	CL	IJN
+4-1	Kagerou	35	1464	L	75	DD	IJN
+4-1	Isuzu	35	1482	L	172	CL	IJN
+4-1	Nowaki	35	1399	L	75	DD	IJN
+4-1	Mutsuki Ship	35	251	L	29	DD	IJN
+4-1	Yugumo Ship	35	268	L	29	DD	IJN
+4-1	Chikuma	35	2054	M	107	CA	IJN
+4-1	Isuzu Ship	35	436	L	65	CL	IJN
+4-1	Tone	35	2054	M	107	CA	IJN
+4-1	Aoba	35	2139	M	107	CA	IJN
+4-1	Kako	35	2139	M	107	CA	IJN
+4-1	Hiei	35	3308	M	122	BC	IJN
+4-1	Aoba Ship	35	1104	M	45	CA	IJN
+4-1	Mogami	35	2194	M	107	CL	IJN
+4-1	Furutaka	35	2139	M	107	CA	IJN
+4-1	Mutsu	35	4014	H	132	BB	IJN
+4-1	Nagara Ship	35	436	L	65	CL	IJN
+4-1	Ryuujou	35	2566	L	131	CVL	IJN
+4-1	Shoukaku	35	3140	M	131	CV	IJN
+4-1	Kirishima	35	3308	M	122	BC	IJN
+4-1	Zuikaku	35	3140	M	131	CV	IJN
+4-1	Gold Ship	35	781	L	0	GS	NULL
+4-2	Suicide Ship	39	130	L	0	SS	IJN
+4-2	Nagara Ship	39	465	L	71	CL	IJN
+4-2	Ayanami	39	1439	L	82	DD	IJN
+4-2	Kagerou	39	1558	L	82	DD 	IJN
+4-2	Sendai Ship	39	465	L	71	CL	IJN
+4-2	Aoba Ship	39	2294	M	49	CA	IJN
+4-2	Isuzu Ship	39	465	L	71	CL	IJN
+4-2	Kagerou Ship	39	297	L	31	DD	IJN
+4-2	Aoba	39	2294	M	116	CA	IJN
+4-2	Mogami	39	2349	M	116	CL	IJN
+4-2	Furutaka	39	6000	M	155	CA	IJN
+4-2	Suicide Ship	38	127	L	0	SS	NULL
+4-2	Kagerou Ship	38	292	L	31	DD	IJN
+4-2	Ayanami	38	1417	L	80	DD	IJN
+4-2	Sendai Ship	38	458	L	70	CL	IJN
+4-2	Kagerou	38	1534	L	80	DD	IJN
+4-2	Isuzu	38	1566	L	183	CL	IJN
+4-2	Nowaki	38	1469	L	80	DD	IJN
+4-2	Mutsuki Ship	38	264	L	31	DD	IJN
+4-2	Yugumo Ship	38	282	L	31	DD	IJN
+4-2	Mutsuki Ship	38	264	L	31	DD	IJN
+4-2	Chikuma	38	2170	M	114	CA	IJN
+4-2	Yugumo Ship	38	282	L	31	DD	IJN
+4-2	Isuzu Ship	38	458	L	70	CL	IJN
+4-2	Tone 	38	2170	M	114	CA	IJN
+4-2	Aoba	38	2255	M	114	CA	IJN
+4-2	Kako 	38	2255	M	114	CA	IJN
+4-2	Sendai Ship	38	458	L	70	CL	IJN
+4-2	Hiei	38	3494	M	130	BC	IJN
+4-2	Aoba Ship	38	1167	M	48	CA	IJN
+4-2	Mogami	38	2310	M	114	CL	IJN
+4-2	Furutaka	38	2255	M	114	CA	IJN
+4-2	Mutsu	38	4227	H	141	BB	IJN
+4-2	Nagara Ship	38	458	L	70	CL	IJN
+4-2	Ryuujou	38	2713	L	140	CVL	IJN
+4-2	Nagara Ship	38	458	L	70	CL	IJN
+4-2	Shoukaku	38	3320	M	139	CV	IJN
+4-2	Isuzu Ship	38	458	L	70	CL	IJN
+4-2	Kirishima	38	3494	M	130	BC	IJN
+4-2	Zuikaku	38	3320	M	139	CV	IJN
+4-2	Gold Ship	38	801	L	0	GS	NULL
+4-3	Suicide Ship	42	137	L	0	SS	NULL
+4-3	Sendai Ship	42	487	L	76	CL	IJN
+4-3	Sendai Ship	42	487	L	76	CL	IJN
+4-3	Nowaki	42	1563	L	87	DD	IJN
+4-3	Kagerou	42	1628	L	87	DD	IJN
+4-3	Isuzu	42	487	L	76	CL	IJN
+4-3	Furutaka	42	2410	M	123	CA	IJN
+4-3	Kirishima	42	3742	M	141	BC	IJN
+4-3	Ryuujou	42	6828	L	170	CVL	IJN
+4-3	Suicide Ship	41	134	L	0	SS	NULL
+4-3	Kagerou Ship	41	307	L	33	DD	IJN
+4-3	Ayanami	41	1485	L	85	DD	IJN
+4-3	Sendai Ship	41	480	L	74	CL	IJN
+4-3	Kagerou	41	1605	L	85	DD	IJN
+4-3	Isuzu	41	1650	L	194	CL	IJN
+4-3	Nowaki	41	1540	L	85	DD	IJN
+4-3	Mutsuki Ship	41	278	L	33	DD	IJN
+4-3	Yugumo Ship	41	296	L	33	DD	IJN
+4-3	Mutsuki Ship	41	278	L	33	DD	IJN
+4-3	Chikuma	41	2287	M	121	CA	IJN
+4-3	Yugumo Ship	41	296	L	33	DD	IJN
+4-3	Isuzu	41	480	L	74	CL	IJN
+4-3	Tone 	41	2287	M	121	CA	IJN
+4-3	Aoba	41	2372	M	121	CA	IJN
+4-3	Kako	41	2372	M	121	CA	IJN
+4-3	Sendai Ship	41	480	L	74	CL	IJN
+4-3	Hiei	41	3500	M	139	BC	IJN
+4-3	Aoba Ship	41	480	M	51	CA	IJN
+4-3	Mogami	41	3680	M	121	CL	IJN
+4-3	Furutaka	41	1230	M	121	CA	IJN
+4-3	Mutsu	41	2427	H	150	BC	IJN
+4-3	Nagara Ship	41	2372	L	74	CL	IJN
+4-3	Ryuujou	41	4440	L	149	CVL	IJN
+4-3	Nagara Ship	41	480	L	74	CL	IJN
+4-3	Shoukaku	41	3500	M	148	CV	IJN
+4-3	Isuzu Ship	41	480	L	74	CL	IJN
+4-3	Kirishima	41	3680	M	139	BC	IJN
+4-3	Zuikaku	41	3500	M	148	CV	IJN
+4-3	Gold Ship	41	822	L	0	GS	NULL
+4-4	Suicide Ship	45	143	L	0	SS	NULL
+4-4	Sendai Ship	45	508	L	80	CL	IJN
+4-4	Nowaki	45	1634	L	92	DD	IJN
+4-4	Kagerou	45	1699	L	92	DD	IJN
+4-4	Takao Ship	45	1412	M	55	CA	IJN
+4-4	Isuzu	45	1762	L	209	CL	IJN
+4-4	Furutaka	45	2526	M	130	CA	IJN
+4-4	Kako	45	2526	M	130	CA	IJN
+4-4	Ryuujou	45	3056	L	161	CVL	IJN
+4-4	Mutsu	45	4724	H	161	BB	IJN
+4-4	Shoukaku	45	11608	M	185	CV	IJN
+4-4	Suicide Ship	44	141	L	0	SS	NULL
+4-4	Kagerou Ship	44	321	L	35	DD	IJN
+4-4	Ayanami	44	1550	L	90	DD	IJN
+4-4	Sendai Ship	44	501	L	78	CL	IJN
+4-4	Kagerou	44	1675	L	90	DD	IJN
+4-4	Isuzu	44	1734	L	205	CL	IJN
+4-4	Nowaki	44	1610	L	90	DD	IJN
+4-4	Mutsuki Ship	44	291	L	35	DD	IJN
+4-4	Yugumo Ship	44	309	L	35	DD	IJN
+4-4	Chikuma	44	2403	M	128	CA	IJN
+4-4	Isuzu Ship	44	501	L	78	CL	IJN
+4-4	Tone	44	2403	M	128	CA	IJN
+4-4	Aoba	44	2488	M	128	CA	IJN
+4-4	Kako	44	2488	M	128	CA	IJN
+4-4	Hiei	44	3866	M	147	BC	IJN
+4-4	Aoba Ship	44	1293	M	54	CA	IJN
+4-4	Mogami	44	2543	M	128	CL	IJN
+4-4	Furutaka	44	2488	M	128	CA	IJN
+4-4	Mutsu	44	4653	H	158	BB	IJN
+4-4	Nagara Ship	44	501	L	78	CL	IJN
+4-4	Shoukaku	44	3680	M	157	CV	IJN
+4-4	Kirishima	44	3866	M	147	BC	IJN
+4-4	Zuikaku	44	3680	M	157	CV	IJN
+4-4	Gold Ship	44	842	L	0	GS	NULL
+5-1	Suicide Ship	48	167	L	0	SS	NULL
+5-1	Fubuki Ship	48	336	L	37	DD	IJN
+5-1	Nagara Ship	48	672	L	84	CL	IJN
+5-1	Shiranui	48	1882	L	96	DD	IJN
+5-1	Kagerou Ship	48	378	L	37	DD	IJN
+5-1	Myoukou	48	2930	M	137	CA	IJN
+5-1	Furutaka Ship	48	1511	M	58	CA	IJN
+5-1	Hiei	48	5115	M	158	BC	IJN
+5-1	Isuzu	48	2158	L	220	CL	IJN
+5-1	Myoukou	48	8546	M	175	CA	IJN
+5-1	Suicide Ship	47	165	L	0	SS	NULL
+5-1	Fubuki Ship	47	361	L	36	DD	IJN
+5-1	Kagerou	47	1858	L	95	DD	IJN
+5-1	Furutaka Ship	47	1488	M	57	CA	IJN
+5-1	Kagerou Ship	47	373	L	36	DD	IJN
+5-1	Isuzu	47	2129	L	217	CL	IJN
+5-1	Nowaki	47	1858	L	95	DD	IJN
+5-1	Yugumo Ship	47	382	L	36	DD	IJN
+5-1	Chikuma	47	2879	M	135	CA	IJN
+5-1	Tone	47	2878	M	135	CA	IJN
+5-1	Sendai Ship	47	663	L	83	CL	IJN
+5-1	Nagara Ship	47	663	L	83	CL	IJN
+5-1	Isuzu Ship	47	663	L	83	CL	IJN
+5-1	Mogami Ship	47	1582	M	57	CL	IJN
+5-1	Aoba	47	2989	M	135	CA	IJN
+5-1	Shiranui	47	1858	L	95	DD	IJN
+5-1	Furutaka	47	2869	M	135	CA	IJN
+5-1	Shoukaku	47	4388	M	165	CV	IJN
+5-1	Kinugasa	47	2809	M	135	CA	IJN
+5-1	Zuikaku	47	4388	M	165	CV	IJN
+5-1	Kongou	47	5040	M	155	BC	IJN
+5-1	Aoba Ship	47	1488	M	57	CA	IJN
+5-1	Tone	47	3058	M	135	CA	IJN
+5-1	Suicide Ship	47	165	L	0	SS	NULL
+5-1	Yukikaze	47	1904	L	95	DD	IJN
+5-1	Haruna	47	5040	M	155	BC	IJN
+5-1	Kagerou	47	1904	L	95	DD	IJN
+5-1	Takao Ship	47	1610	M	57	CA	IJN
+5-1	Aoba	47	2789	M	135	CA	IJN
+5-1	Gold Ship	47	958	L	0	GS	NULL
+5-1	Isuzu	47	2229	L	217	CL	IJN
+5-2	Suicide Ship	51	175	L	0	SS	NULL
+5-2	Sendai Ship	51	700	L	89	CL	IJN
+5-2	Yugumo Ship	51	405	L	39	DD	IJN
+5-2	Nagara Ship	51	700	L	89	CL	IJN
+5-2	Mogami Ship	51	1680	M	61	CL	IJN
+5-2	Kinugasa	51	2955	M	145	CA	IJN
+5-2	Kagerou	51	1955	L	101	DD	IJN
+5-2	Kirishima	51	5340	M	167	BC	IJN
+5-2	Aoba Ship	51	1580	M	61	CA	IJN
+5-2	Shoukaku	51	4660	M	177	CV	IJN
+5-2	Tone	51	10050	M	205	CA	IJN
+5-2	Suicide Ship	50	172	L	0	SS	IJN
+5-2	Fubuki Ship	50	376	L	38	DD	IJN
+5-2	Kagerou	50	1930	L	100	DD	IJN
+5-2	Furutaka Ship	50	1557	M	60	CA	IJN
+5-2	Kagerou Ship	50	389	L	38	DD	IJN
+5-2	Isuzu	50	2216	L	228	CL	IJN
+5-2	Nowaki	50	1930	L	100	DD	IJN
+5-2	Yugumo Ship	50	399	L	38	DD	IJN
+5-2	Chikuma	50	3007	M	142	CA	IJN
+5-2	Tone	50	3007	M	142	CA	IJN
+5-2	Sendai Ship	50	690	L	87	CL	IJN
+5-2	Nagara Ship	50	690	L	87	CL	IJN
+5-2	Isuzu Ship	50	690	L	87	CL	IJN
+5-2	Mogami Ship	50	1655	M	60	CL	IJN
+5-2	Aoba	50	3113	M	142	CA	IJN
+5-2	Shiranui	50	1930	L	100	DD	IJN
+5-2	Furutaka	50	2993	M	142	CA	IJN
+5-2	Shoukaku	50	4592	M	172	CA	IJN
+5-2	Kinugasa	50	2933	M	142	CA	IJN
+5-2	Sendai Ship	50	690	L	87	CL	IJN
+5-2	Zuikaku	50	4592	M	174	CV	IJN
+5-2	Kongou	50	5265	M	164	BC	IJN
+5-2	Aoba Ship	50	1557	M	60	CA	IJN
+5-2	Tone	50	3187	M	142	CA	IJN
+5-2	Suicide Ship	50	172	L	0	SS	NULL
+5-2	Yukikaze	50	1979	L	100	DD	IJN
+5-2	Haruna	50	5265	M	164	BC	IJN
+5-2	Kagerou	50	1979	L	100	DD	IJN
+5-2	Takao Ship	50	1685	M	60	CA	IJN
+5-2	Aoba	50	2913	M	142	CA	IJN
+5-2	Gold Ship	50	982	L	0	GS	IJN
+5-2	Nowaki	50	1930	L	100	DD	IJN
+5-2	Isuzu	50	2316	K	228	CL	IJN
+5-3	Suicide Ship	54	183	L	0	SS	NULL
+5-3	Kagerou Ship	54	411	L	41	DD	IJN
+5-3	Shiranui	54	2027	L	106	DD	IJN
+5-3	Fubuki Ship	54	397	L	41	DD	IJN
+5-3	Yugumo Ship	54	421	L	41	DD	IJN
+5-3	Furutaka	54	3159	M	152	CA	IJN
+5-3	Kongou	54	5564	M	175	BC	IJN
+5-3	Kagerou	54	2027	L	106	DD	IJN
+5-3	Suicide Ship	54	183	L	0	SS	NULL
+5-3	Aoba Ship	54	1649	M	64	CA	IJN
+5-3	Shoukaku	54	12420	M	225	CA	IJN
+5-3	Myoukou	54	3189	M	152	CA	IJN
+5-3	Suicide Ship	53	180	L	0	SS	NULL
+5-3	Fubuki Ship	53	392	L	40	DD	IJN
+5-3	Kagerou	53	2003	L	105	DD	IJN
+5-3	Furutaka Ship	53	1626	M	63	CA	IJN
+5-3	Kagerou Ship	53	405	L	41	DD	IJN
+5-3	Isuzu	53	2302	L	239	CL	IJN
+5-3	Nowaki	53	2003	L	105	DD	IJN
+5-3	Yugumo Ship	53	416	L	40	DD	IJN
+5-3	Chikuma	53	3136	M	149	CA	IJN
+5-3	Tone	53	3136	M	149	CA	IJN
+5-3	Sendai Ship	53	718	L	91	CL	IJN
+5-3	Nagara Ship	53	718	L	91	CL	IJN
+5-3	Isuzu Ship	53	718	L	91	CL	IJN
+5-3	Sendai Ship	53	718	L	91	CL	IJN
+5-3	Mogami Ship	53	1729	M	63	CL	IJN
+5-3	Aoba	53	3238	M	149	CA	IJN
+5-3	Shiranui	53	2003	L	105	DD	IJN
+5-3	Furutaka	53	3118	M	149	CA	IJN
+5-3	Shoukaku	53	4796	M	183	CV	IJN
+5-3	Nagara Ship	53	718	L	91	CL	IJN
+5-3	Kinugasa	53	3058	M	149	CA	IJN
+5-3	Sendai Ship	53	719	L	91	CL	IJN
+5-3	Zuikaku	53	4796	M	183	CV	IJN
+5-3	Kongou	53	5489	M	172	BC	IJN
+5-3	Aoba Ship	53	1626	M	63	CA	IJN
+5-3	Tone	53	3316	M	149	CA	IJN
+5-3	Suicide Ship	53	180	L	0	SS	NULL
+5-3	Yukikaze	53	2055	L	105	DD	IJN
+5-3	Haruna	53	5489	M	172	BC	IJN
+5-3	Mogami Ship	53	1729	M	63	CL	IJN
+5-3	Shiranui	53	2003	L	105	DD	IJN
+5-3	Kagerou	53	2055	L	105	BC	IJN
+5-3	Takao Ship	53	1796	M	63	CA	IJN
+5-3	Aoba	53	3038	M	149	CA	IJN
+5-3	Gold Ship	53	1005	L	0	GS	NULL
+5-3	Nowaki	53	2003	L	105	DD	IJN
+5-3	Isuzu	53	2402	L	239	CL	IJN
+5-4	Suicide Ship	57	190	L	0	SS	NULL
+5-4	Furutaka Ship	57	1718	M	67	CA	IJN
+5-4	Kagerou Ship	57	427	L	43	DD	IJN
+5-4	Aoba	57	3404	M	159	CA	IJN
+5-4	Sendai Ship	57	755	L	97	CL	IJN
+5-4	Yukikaze	57	2155	L	111	DD	IJN
+5-4	Aoba Ship	57	1718	M	67	CA	IJN
+5-4	Nowaki	57	2099	L	111	DD	IJN
+5-4	Fubuki Ship	57	413	L	43	DD	IJN
+5-4	Haruna	57	5788	M	183	BC	IJN
+5-4	Takao Ship	57	1860	M	67	CA	IJN
+5-4	Zuikaku	57	14848	M	245	CV	IJN
+5-4	Hiei	57	5788	M	183	BC	IJN
+5-4	Suicide Ship	56	188	L	0	SS	NULL
+5-4	Fubuki Ship	56	408	L	42	DD	IJN
+5-4	Kagerou	56	2075	L	110	DD	IJN
+5-4	Furutaka Ship	56	1695	M	66	CA	IJN
+5-4	Kagerou Ship	56	422	L	42	DD	IJN
+5-4	Isuzu	56	2389	L	250	CL	IJN
+5-4	Nowaki	56	2075	L	110	DD	IJN
+5-4	Yugumo Ship	56	433	L	42	DD	IJN
+5-4	Chikuma	56	3265	M	156	CA	IJN
+5-4	Tone	56	3265	M	156	CA	IJN
+5-4	Sendai Ship	56	746	L	96	CL	IJN
+5-4	Nagara Ship	56	746	L	96	CL	IJN
+5-4	Isuzu Ship	56	746	L	96	CL	IJN
+5-4	Sendai Ship	56	746	L	96	CL	IJN
+5-4	Mogami Ship	56	1802	M	66	CL	IJN
+5-4	Aoba	56	3362	M	156	CA	IJN
+5-4	Shiranui	56	2075	L	110	DD	IJN
+5-4	Furutaka	56	3242	M	156	CA	IJN
+5-4	Shoukaku	56	5000	M	192	CV	IJN
+5-4	Nagara Ship	56	746	L	96	CL	IJN
+5-4	Kinugasa	56	3182	M	156	CA	IJN
+5-4	Sendai Ship	56	746	L	96	CL	IJN
+5-4	Zuikaku	56	5000	M	192	CV	IJN
+5-4	Kongou	56	5714	M	180	BC	IJN
+5-4	Aoba Ship	56	1695	M	66	CA	IJN
+5-4	Tone	56	3445	M	156	CA	IJN
+5-4	Suicide Ship	56	188	L	0	SS	NULL
+5-4	Yukikaze	56	2130	L	110	DD	IJN
+5-4	Haruna	56	5714	M	180	BC	IJN
+5-4	Mogami Ship	56	1802	M	66	CL	IJN
+5-4	Shiranui	56	2075	L	110	DD	IJN
+5-4	Kagerou	56	2130	L	110	DD	IJN
+5-4	Takao Ship	56	1835	M	66	CA	IJN
+5-4	Aoba	56	3162	M	156	CA	IJN
+5-4	Gold Ship	56	1029	L	0	GS	NULL
+5-4	Nowaki	56	2075	L	110	DD	IJN
+5-4	Isuzu	56	2489	L	250	CL	IJN
+6-1	Suicide Ship	60	210	L	0	SS	NULL
+6-1	Kagerou Ship	60	505	L	45	DD	IJN
+6-1	Hiei	60	7214	M	192	BC	IJN
+6-1	Mogami Ship	60	1839	M	70	CL	IJN
+6-1	Zuikaku	60	5989	M	203	CV	IJN
+6-1	Takao Ship	60	1896	M	70	CA	IJN
+6-1	Suicide Ship	60	210	L	0	SS	NULL
+6-1	Fubuki Ship	60	484	L	45	DD	IJN
+6-1	Yukikaze	60	2764	L	116	DD	IJN
+6-1	Shiratsuyu	60	2764	L	116	DD	IJN
+6-1	Kinugasa	60	16378	M	230	CA	IJN
+6-1	Suicide Ship	59	207	L	0	SS	NULL
+6-1	Fubuki Ship	59	478	L	44	DD	IJN
+6-1	Yukikaze	59	2738	L	115	DD	IJN
+6-1	Sendai Ship	59	893	L	100	CL	IJN
+6-1	Kagerou Ship	59	499	L	44	DD	IJN
+6-1	Takao Ship	59	1872	M	69	CA	IJN
+6-1	Isuzu Ship	59	893	L	100	CL	IJN
+6-1	Akatsuki	59	2621	L	115	DD	IJN
+6-1	Yukikaze	59	2738	L	115	DD	IJN
+6-1	Shigure	59	2738	L	115	DD	IJN
+6-1	Nagara Ship	59	893	L	100	CL	IJN
+6-1	Tone	59	4610	M	163	CA	IJN
+6-1	Shoukaku	59	5918	M	200	CV	IJN
+6-1	Takao Ship	59	1872	M	69	CA	IJN
+6-1	Suicide Ship	59	207	L	0	SS	NULL
+6-1	Furutaka	59	4468	M	163	CA	IJN
+6-1	Zuikaku	59	5918	M	200	CV	IJN
+6-1	Yuudachi	59	2824	L	115	DD	IJN
+6-1	Mogami Ship	59	1816	M	69	CL	IJN
+6-1	Kinugasa	59	4468	M	163	CA	IJN
+6-1	Shiratsuyu	59	2738	L	115	DD	IJN
+6-1	Mogami Ship	59	1816	M	69	CL	IJN
+6-1	Hiei	59	7132	M	189	BC	IJN
+6-1	Takao Ship	59	1872	M	69	CA	IJN
+6-1	Tone	59	4610	M	163	CA	IJN
+6-1	Kirishima	59	7132	M	189	BC	IJN
+6-1	Sendai Ship	59	893	L	100	CL	IJN
+6-1	Shigure	59	2738	L	115	DD	IJN
+6-1	Nagara Ship	59	893	L	100	CL	IJN
+6-1	Gold Ship	59	521	L	0	GS	NULL
+6-1	Shiratsuyu	59	2738	L	115	DD	IJN
+6-1	Yuudachi	59	3024	L	115	DD	IJN
+6-2	Suicide Ship	63	218	L	0	SS	NULL
+6-2	Kagerou Ship	63	524	L	47	DD	IJN
+6-2	Yuudachi	63	2936	L	121	DD	IJN
+6-2	Fubuki Ship	63	502	L	47	DD	IJN
+6-2	Shigure	63	2844	L	121	DD	IJN
+6-2	Takao Ship	63	1968	M	73	CA	IJN
+6-2	Kirishima	63	7458	L	200	BC	IJN
+6-2	Mogami Ship	63	1909	L	73	CL	IJN
+6-2	Shoukaku	63	6202	L	212	CV	IJN
+6-2	Hiei	63	19544	L	255	BC	IJN
+6-2	Takao Ship	63	1968	L	73	CA	IJN
+6-2	Suicide Ship	62	215	M	0	SS	NULL
+6-2	Fubuki Ship	62	496	L	46	DD	IJN
+6-2	Yukikaze	62	2817	L	119	DD	IJN
+6-2	Sendai Ship	62	927	L	104	CL	IJN
+6-2	Kagerou Ship	62	518	L	46	DD	IJN
+6-2	Takao Ship	62	1944	L	72	CA	IJN
+6-2	Isuzu Ship	62	927	L	104	CL	IJN
+6-2	Akatsuki	62	2694	L	119	DD	IJN
+6-2	Yukikaze	62	2817	L	119	DD	IJN
+6-2	Shigure	62	2817	L	119	DD	IJN
+6-2	Nagara Ship	62	927	L	104	CL	IJN
+6-2	Tone	62	4745	M	170	CA	IJN
+6-2	Shoukaku	62	6131	M	209	CV	IJN
+6-2	Takao Ship	62	1944	M	72	CA	IJN
+6-2	Suicide Ship	62	215	L	0	SS	NULL
+6-2	Furutaka	62	4606	L	170	CA	IJN
+6-2	Zuikaku	62	6131	M	209	CV	IJN
+6-2	Yuudachi	62	2908	M	119	DD	IJN
+6-2	Mogami Ship	62	1886	M	72	CL	IJN
+6-2	Kinugasa	62	7377	M	170	CA	IJN
+6-2	Shiratsuyu	62	1944	L	119	DD	IJN
+6-2	Mogami Ship	62	4745	M	72	CL	IJN
+6-2	Hiei	62	7377	M	197	BC	IJN
+6-2	Takao Ship	62	1944	M	72	CA	IJN
+6-2	Tone	62	4745	M	170	CA	IJN
+6-2	Kirishima	62	7377	M	197	BC	IJN
+6-2	Sendai Ship	62	927	L	104	CL	IJN
+6-2	Shigure	62	2817	L	119	DD	IJN
+6-2	Nagara Ship	62	927	L	104	CL	IJN
+6-2	Gold Ship	62	541	L	0	GS	NULL
+6-2	Shiratsuyu	62	2817	L	119	DD	IJN
+6-2	Yuudachi	62	3108	L	119	DD	IJN
+6-3	Suicide Ship	66	225	L	0	SS	NULL
+6-3	Sendai Ship	66	971	L	110	CL	IJN
+6-3	Tone	66	4925	M	180	CA	IJN
+6-3	Sendai Ship	66	971	L	110	CL	IJN
+6-3	Sendai Ship	66	971	L	110	CL	IJN
+6-3	Shiratsuyu	66	2923	L	126	DD	IJN
+6-3	Takao Ship	66	2040	M	76	CA	IJN
+6-3	Zuikaku	66	6415	M	221	CV	IJN
+6-3	Akatsuki	66	2792	L	126	DD	IJN
+6-3	Kirishima	66	22080	M	280	BC	IJN
+6-3	Suicide Ship	65	223	L	0	SS	NULL
+6-3	Fubuki Ship	65	514	L	48	DD	IJN
+6-3	Yukikaze	65	2897	L	124	DD	IJN
+6-3	Sendai Ship	65	960	L	109	CL	IJN
+6-3	Kagerou Ship	65	536	L	48	DD	IJN
+6-3	Takao Ship	65	2016	M	75	CA	IJN
+6-3	Isuzu Ship	65	960	L	109	CL	IJN
+6-3	Akatsuki	65	2768	L	124	DD	IJN
+6-3	Yukikaze	65	2897	L	124	DD	IJN
+6-3	Shigure	65	2897	L	124	DD	IJN
+6-3	Nagara Ship	65	960	L	109	CL	IJN
+6-3	Tone	65	4880	M	177	CA	IJN
+6-3	Shoukaku	65	6344	M	218	CV	IJN
+6-3	Takao Ship	65	2016	M	75	CA	IJN
+6-3	Suicide Ship	65	223	L	0	SS	NULL
+6-3	Furutaka	65	4744	M	177	CA	IJN
+6-3	Zuikaku	65	6344	M	218	CV	IJN
+6-3	Yuudachi	65	2992	L	124	DD	IJN
+6-3	Mogami Ship	65	1956	M	75	CL	IJN
+6-3	Kinugasa	65	4744	M	177	CA	IJN
+6-3	Shiratsuyu	65	2897	L	124	DD	IJN
+6-3	Mogami Ship	65	1956	M	75	CL	IJN
+6-3	Hiei	65	7622	M	205	BC	IJN
+6-3	Takao Ship	65	2016	M	75	CA	IJN
+6-3	Tone	65	4880	M	177	CA	IJN
+6-3	Kirishima	65	7622	M	205	BC	IJN
+6-3	Sendai Ship	65	960	L	109	CL	IJN
+6-3	Shigure	65	2897	L	124	DD	IJN
+6-3	Nagara Ship	65	960	L	109	CL	IJN
+6-3	Gold Ship	65	562	L	0	GS	NULL
+6-3	Shiratsuyu	65	2897	L	124	DD	IJN
+6-3	Yuudachi	65	3192	L	124	DD	IJN
+6-4	Suicide Ship	69	233	L	0	SS	NULL
+6-4	Nagara Ship	69	1004	L	144	CL	IJN
+6-4	Kinugasa	69	4928	M	187	CA	IJN
+6-4	Yukikaze	69	3003	L	131	DD	IJN
+6-4	Kagerou Ship	69	561	L	50	DD	IJN
+6-4	Takao Ship	69	2112	M	79	CA	IJN
+6-4	Shoukaku	69	6628	M	230	CV	IJN
+6-4	Suicide Ship	69	233	L	0	SS	NULL
+6-4	Yuudachi	69	25680	L	252	DD	IJN
+6-4	Suicide Ship	68	230	L	0	SS	NULL
+6-4	Fubuki Ship	68	532	L	50	DD	IJN
+6-4	Yukikaze	68	2976	L	129	DD	IJN
+6-4	Sendai Ship	68	993	L	113	CL	IJN
+6-4	Kagerou Ship	68	555	L	50	DD	IJN
+6-4	Takao Ship	68	2088	M	78	CA	IJN
+6-4	Isuzu Ship	68	993	L	113	CL	IJN
+6-4	Akatsuki	68	2841	L	129	DD	IJN
+6-4	Yukikaze	68	2976	L	129	DD	IJN
+6-4	Shigure	68	2976	L	129	DD	IJN
+6-4	Nagara Ship	68	993	L	113	CL	IJN
+6-4	Tone	68	5015	M	184	CA	IJN
+6-4	Shoukaku	68	6557	M	227	CV	IJN
+6-4	Takao Ship	68	2088	M	78	CA	IJN
+6-4	Suicide Ship	68	230	L	0	SS	NULL
+6-4	Furutaka	68	4882	M	184	CA	IJN
+6-4	Zuikaku	68	6557	M	227	CV	IJN
+6-4	Yuudachi	68	3076	L	129	DD	IJN
+6-4	Mogami Ship	68	2026	M	78	CL	IJN
+6-4	Kinugasa	68	4882	M	184	CA	IJN
+6-4	Shiratsuyu	68	2976	L	129	DD	IJN
+6-4	Mogami Ship	68	2026	M	78	CL	IJN
+6-4	Hiei	68	7867	M	214	BC	IJN
+6-4	Takao Ship	68	2088	M	78	CA	IJN
+6-4	Tone	68	5015	M	184	CA	IJN
+6-4	Kirishima	68	7867	M	214	BC	IJN
+6-4	Sendai Ship	68	993	L	113	CL	IJN
+6-4	Shigure	68	2976	L	129	DD	IJN
+6-4	Nagara Ship	68	993	L	113	CL	IJN
+6-4	Gold Ship	68	582	L	0	GS	NULL
+6-4	Shiratsuyu	68	2976	L	129	DD	IJN
+6-4	Yuudachi	68	3276	L	129	DD	IJN
+7-1	Suicide Ship	72	261	L	0	SS	NULL
+7-1	Torpedo Boat	72	481	L	0	TB	NULL
+7-1	Kagerou Ship	72	856	L	52	DD	IJN
+7-1	Nagara Ship	72	1695	L	131	CL	IJN
+7-1	Yugumo Ship	72	856	L	52	DD	IJN
+7-1	Isuzu Ship	72	1695	L	131	CL	IJN
+7-1	Yukikaze	72	5840	L	180	DD	IJN
+7-1	Nagara Ship	72	1695	L	131	CL	IJN
+7-1	Shiratsuyu	72	4814	L	176	DD	IJN
+7-1	Fubuki Ship	72	856	L	52	DD	IJN
+7-1	Akatsuki	72	5156	L	180	DD	IJN
+7-1	Kagerou	72	4885	L	176	DD	IJN
+7-1	Shiranui	72	25280	L	212	DD	IJN
+7-1	Suicide Ship	72	258	L	0	SS	NULL
+7-1	Kagerou Ship	72	849	L	52	DD	IJN
+7-1	Torpedo Boat	72	478	L	0	TB	NULL
+7-1	Shiranui	72	4780	L	171	DD	IJN
+7-1	Suicide Ship	71	258	L	0	SS	NULL
+7-1	Yugumo Ship	71	49	L	52	DD	IJN
+7-1	Kagerou	71	4850	L	174	DD	IJN
+7-1	Shiratsuyu Ship	71	849	L	52	DD	IJN
+7-1	Fubuki Ship	71	849	L	52	DD	IJN
+7-1	Shiratsuyu	71	4780	L	174	DD	IJN
+7-1	Isuzu Ship	71	1679	L	129	CL	IJN
+7-1	Sendai Ship	71	1679	L	129	CL	IJN
+7-1	Nagara Ship	71	1679	L	129	CL	IJN
+7-1	Yuudachi	71	5520	L	178	DD	IJN
+7-1	Torpedo Boat	71	478	L	0	TB	NULL
+7-1	Kagerou Ship	71	632	L	52	DD	IJN
+7-1	Shigure	71	5050	L	178	DD	IJN
+7-1	Kagerou Ship	71	849	L	52	DD	IJN
+7-1	Nowaki	71	5050	L	174	DD	IJN
+7-1	Abukuma	71	7920	L	307	CL	IJN
+7-1	Ayanami	71	4850	L	178	DD	IJN
+7-1	Shiratsuyu Ship	71	849	L	52	DD	IJN
+7-1	Yukikaze	71	5800	L	178	DD	IJN
+7-1	Akatsuki	71	5120	L	178	DD	IJN
+7-1	Sendai Ship	71	1679	L	129	CL	IJN
+7-1	Isuzu	71	7920	L	360	CL	IJN
+7-1	Gold Ship	71	1276	L	0	GS	NULL
+7-1	Fubuki Ship	71	849	L	52	DD	IJN
+7-2	Suicide Ship	74	266	L	0	SS	NULL
+7-2	Fubuki Ship	74	871	L	53	DD	IJN
+7-2	Torpedo Boat	74	486	L	0	TB	NULL
+7-2	Sendai Ship	74	1726	L	134	CL	IJN
+7-2	Yugumo Ship	74	871	L	53	DD	IJN
+7-2	Yugumo Ship	74	871	L	53	DD	IJN
+7-2	Nagara Ship	74	1726	L	134	CL	IJN
+7-2	Shigure	74	5155	L	184	DD	IJN
+7-2	Isuzu Ship	74	1726	L	134	CL	IJN
+7-2	Akatsuki	74	5228	L	184	DD	IJN
+7-2	Abukuma	74	8088	L	318	CL	IJN
+7-2	Sendai Ship	74	1726	L	134	CL	IJN
+7-2	Kagerou Ship	74	871	L	53	DD	IJN
+7-2	Yuudachi	74	5628	L	184	DD	IJN
+7-2	Kagerou	74	30350	L	217	DD	IJN
+7-2	Suicide Ship	73	263	L	0	SS	NULL
+7-2	Kagerou Ship	73	864	L	53	DD	IJN
+7-2	Torpedo Boat	73	483	L	0	TB	NULL
+7-2	Shiranui	73	4848	L	175	DD	IJN
+7-2	Suicide Ship	73	263	L	0	SS	NULL
+7-2	Yugumo Ship	73	864	L	53	DD	IJN
+7-2	Kagerou	73	4920	L	178	DD	IJN
+7-2	Shiratsuyu	73	864	L	53	DD	IJN
+7-2	Fubuki Ship	73	864	L	53	DD	IJN
+7-2	Shiratsuyu	73	4848	L	178	DD	IJN
+7-2	Isuzu Ship	73	1710	L	133	CL	IJN
+7-2	Sendai Ship	73	1710	L	133	CL	IJN
+7-2	Nagara Ship	73	1710	L	133	CL	IJN
+7-2	Yuudachi	73	5592	L	182	DD	IJN
+7-2	Torpedo Boat	73	483	L	0	TB	NULL
+7-2	Kagerou Ship	73	647	L	53	DD	IJN
+7-2	Shigure	73	5120	L	182	DD	IJN
+7-2	Kagerou Ship	73	864	L	53	DD	IJN
+7-2	Nowaki	73	5120	L	178	DD	IJN
+7-2	Abukuma	73	8032	L	314	CL	IJN
+7-2	Ayanami	73	4920	L	182	DD	IJN
+7-2	Shiratsuyu Ship	73	864	L	53	DD	IJN
+7-2	Yukikaze	73	5880	L	182	DD	IJN
+7-2	Akatsuki	73	5192	L	182	DD	IJN
+7-2	Sendai Ship	73	1710	L	133	CL	IJN
+7-2	Isuzu	73	8032	L	369	CL	IJN
+7-2	Gold Ship	73	1289	L	0	GS	NULL
+7-2	Fubuki Ship	73	864	L	53	DD	IJN
+7-3	Suicide Ship	76	271	L	0	SS	NULL
+7-3	Yugumo Ship	76	885	L	55	DD	IJN
+7-3	Kagerou Ship	76	885	L	55	DD	IJN
+7-3	Abukuma	76	8200	L	325	CL	IJN
+7-3	Nowaki	76	5225	L	185	DD	IJN
+7-3	Sendai Ship	76	1758	L	137	CL	IJN
+7-3	Isuzu Ship	76	1757	L	137	CL	IJN
+7-3	Torpedo Boat	76	491	L	0	TB	NULL
+7-3	Isuzu	76	8200	L	382	CL	IJN
+7-3	Nagara Ship	76	1757	L	137	CL	IJN
+7-3	Shiranui	76	4950	L	182	DD	IJN
+7-3	Shiratsuyu	76	21680	L	223	DD	IJN
+7-3	Shigure	76	21680	L	277	DD	IJN
+7-3	Suicide Ship	75	268	L	0	SS	NULL
+7-3	Kagerou Ship	75	878	L	54	DD	IJN
+7-3	Torpedo Boat	75	488	L	0	TB	NULL
+7-3	Shiranui	75	4916	L	179	DD	IJN
+7-3	Suicide Ship	75	268	L	0	SS	NULL
+7-3	Yugumo Ship	75	878	L	54	DD	IJN
+7-3	Kagerou	75	4990	L	182	DD	IJN
+7-3	Shiratsuyu Ship	75	878	L	54	DD	IJN
+7-3	Fubuki Ship	75	878	L	54	DD	IJN
+7-3	Shiratsuyu	75	4916	L	182	DD	IJN
+7-3	Isuzu Ship	75	1741	L	136	CL	IJN
+7-3	Sendai Ship	75	1741	L	136	CL	IJN
+7-3	Nagara Ship	75	1741	L	136	CL	IJN
+7-3	Yuudachi	75	5664	L	186	DD	IJN
+7-3	Torpedo Boat	75	488	L	0	TB	NULL
+7-3	Kagerou Ship	75	661	L	54	DD	IJN
+7-3	Shigure	75	5190	L	186	DD	IJN
+7-3	Kagerou Ship	75	878	L	54	DD	IJN
+7-3	Nowaki	75	5190	L	182	DD	IJN
+7-3	Abukuma	75	8144	L	322	CL	IJN
+7-3	Ayanami	75	4990	L	186	DD	IJN
+7-3	Shiratsuyu Ship	75	878	L	54	DD	IJN
+7-3	Yukikaze	75	5960	L	186	DD	IJN
+7-3	Akatsuki	75	5264	L	186	DD	IJN
+7-3	Sendai Ship	75	1741	L	136	CL	IJN
+7-3	Isuzu	75	8144	L	378	CL	IJN
+7-3	Gold Ship	75	1303	L	0	GS	NULL
+7-3	Fubuki Ship	75	878	L	54	DD	IJN
+7-4	Suicide Ship	78	276	L	0	SS	NULL
+7-4	Shiratsuyu Ship	78	899	L	56	DD	IJN
+7-4	Fubuki Ship	78	899	L	56	DD	IJN
+7-4	Yugumo Ship	78	899	L	56	DD	IJN
+7-4	Shiratsuyu Ship	78	899	L	56	DD	IJN
+7-4	Ayanami	78	5095	L	193	DD	IJN
+7-4	Isuzu	78	8312	L	391	CL	IJN
+7-4	Isuzu Ship	78	1787	L	140	CL	IJN
+7-4	Yugumo Ship	78	899	L	56	DD	IJN
+7-4	Fubuki Ship	78	899	L	56	DD	IJN
+7-4	Shiranui	78	5018	L	186	DD	IJN
+7-4	Akatsuki	78	5372	L	193	DD	IJN
+7-4	Torpedo Boat	78	496	L	0	TB	NULL
+7-4	Yukikaze	78	38520	L	284	DD	IJN
+7-4	Suicide Ship	77	273	L	0	SS	NULL
+7-4	Kagerou Ship	77	892	L	55	DD	IJN
+7-4	Torpedo Boat	77	493	L	0	TB	NULL
+7-4	Shiranui	77	4984	L	184	DD	IJN
+7-4	Suicide Ship	77	273	L	0	SS	NULL
+7-4	Yugumo Ship	77	892	L	55	DD	IJN
+7-4	Kagerou	77	5060	L	187	DD	IJN
+7-4	Shiratsuyu Ship	77	892	L	55	DD	IJN
+7-4	Fubuki Ship	77	892	L	55	DD	IJN
+7-4	Shiratsuyu	77	4984	L	187	DD	IJN
+7-4	Isuzu Ship	77	1772	L	139	CL	IJN
+7-4	Sendai Ship	77	1772	L	139	CL	IJN
+7-4	Nagara Ship	77	1772	L	139	CL	IJN
+7-4	Yuudachi	77	5736	L	191	DD	IJN
+7-4	Torpedo Boat	77	493	L	0	DD	IJN
+7-4	Kagerou Ship	77	675	L	55	DD	IJN
+7-4	Shigure	77	5260	L	191	DD	IJN
+7-4	Kagerou Ship	77	892	L	55	DD	IJN
+7-4	Nowaki	77	5260	L	187	DD	IJN
+7-4	Abukuma	77	8256	L	329	CL	IJN
+7-4	Ayanami	77	5060	L	191	DD	IJN
+7-4	Shiratsuyu Ship	77	892	L	55	DD	IJN
+7-4	Yukikaze	77	6040	L	191	DD	IJN
+7-4	Akatsuki	77	5336	L	191	DD	IJN
+7-4	Sendai Ship	77	1772	L	139	CL	IJN
+7-4	Isuzu	77	8256	L	387	CL	IJN
+7-4	Gold Ship	77	1316	L	0	GS	NULL
+7-4	Fubuki Ship	77	892	L	55	DD	IJN
+8-1	Suicide Ship	80	301	L	0	SS	NULL
+8-1	Torpedo Boat	80	541	L	0	TB	NULL
+8-1	Nagara Ship	80	1645	L	144	CL	IJN
+8-1	Myoukou Ship	80	4528	M	106	CA	IJN
+8-1	Abukuma	80	5933	L	340	CL	IJN
+8-1	Kuma Ship	80	1566	L	144	CL	IJN
+8-1	Nachi	80	9308	M	262	CA	IJN
+8-1	Takao Ship	80	4965	M	106	CA	IJN
+8-1	Ikazuchi	80	4975	L	183	DD	IJN
+8-1	Inazuma	80	31120	L	230	DD	IJN
+8-1	Kuma Ship	79	1552	L	142	CL	IJN
+8-1	Suicide Ship	79	298	L	0	SS	NULL
+8-1	Suicide Ship	79	298	L	0	SS	NULL
+8-1	Abukuma	79	5906	L	337	CL	IJN
+8-1	Nagara Ship	79	1630	L	142	CL	IJN
+8-1	Torpedo Boat	79	538	L	0	TB	NULL
+8-1	Ikazuchi	79	4950	L	181	DD	IJN
+8-1	Inazuma	79	4950	L	181	DD	IJN
+8-1	Kuma Ship	79	1552	L	142	CL	IJN
+8-1	Takao Ship	79	4930	M	105	CA	IJN
+8-1	Torpedo Boat	79	538	L	0	TB	NULL
+8-1	Myoukou Ship	79	4496	M	105	CA	IJN
+8-1	Nachi	79	9256	M	259	CA	IJN
+8-1	Takao Ship	79	4930	M	105	CA	IJN
+8-1	Gold Ship	79	1450	L	0	GS	NULL
+8-1	Nagara Ship	79	1630	L	142	CL	IJN
+8-1	Maya	79	10792	M	259	CA	IJN
+8-2	Suicide Ship	82	306	L	0	SS	NULL
+8-2	Kuma Ship	82	1594	L	147	CL	IJN
+8-2	Torpedo Boat	82	546	L	0	TB	NULL
+8-2	Nagara Ship	82	1675	L	147	CL	IJN
+8-2	Myoukou Ship	82	4592	M	108	CA	IJN
+8-2	Abukuma	82	5987	L	348	CL	IJN
+8-2	Kuma Ship	82	1594	L	147	CL	IJN
+8-2	Nachi	82	9412	M	268	CA	IJN
+8-2	Inazuma	82	5025	L	187	DD	IJN
+8-2	Takao Ship	82	5035	M	108	CA	IJN
+8-2	Ikazuchi	82	34652	L	235	DD	IJN
+8-2	Kuma Ship	81	1580	L	145	CL	IJN
+8-2	Suicide Ship	81	304	L	0	SS	NULL
+8-2	Suicide Ship	81	304	L	0	SS	NULL
+8-2	Abukuma	81	5960	L	344	CL	IJN
+8-2	Nagara Ship	81	1660	L	145	CL	IJN
+8-2	Torpedo Boat	81	544	L	0	TB	NULL
+8-2	Ikazuchi	81	5000	L	185	DD	IJN
+8-2	Inazuma	81	5000	L	185	DD	IJN
+8-2	Kuma Ship	81	1580	L	145	CL	IJN
+8-2	Takao Ship	81	5000	M	107	CA	IJN
+8-2	Torpedo Boat	81	544	L	0	TB	NULL
+8-2	Myoukou Ship	81	4560	M	107	CA	IJN
+8-2	Nachi	81	9360	M	265	CA	IJN
+8-2	Takao Ship	81	5000	M	107	CA	IJN
+8-2	Gold Ship	81	1464	L	0	GS	NULL
+8-2	Nagara Ship	81	1660	L	145	CL	IJN
+8-2	Maya	81	10920	M	265	CA	IJN
+8-3	Suicide Ship	84	311	L	0	SS	NULL
+8-3	Nagara Ship	84	1705	L	150	CL	IJN
+8-3	Ikazuchi	84	5075	L	191	DD	IJN
+8-3	Inazuma	84	5075	L	191	DD	IJN
+8-3	Kuma Ship	84	1622	L	150	CL	IJN
+8-3	Myoukou Ship	84	4656	M	111	CA	IJN
+8-3	Abukuma	84	6041	L	355	CL	IJN
+8-3	Torpedo Boat	84	551	L	0	TB	NULL
+8-3	Maya	84	11112	M	274	CA	IJN
+8-3	Nachi	84	62820	M	290	CA	IJN
+8-3	Kuma Ship	83	1608	L	148	CL	IJN
+8-3	Suicide Ship	83	309	L	0	SS	NULL
+8-3	Suicide Ship	83	309	L	0	SS	NULL
+8-3	Abukuma	83	6014	L	352	CL	IJN
+8-3	Nagara Ship	83	1690	L	148	CL	IJN
+8-3	Torpedo Boat	83	549	L	0	TB	NULL
+8-3	Ikazuchi	83	5050	L	189	DD	IJN
+8-3	Inazuma	83	5050	L	189	DD	IJN
+8-3	Kuma Ship	83	1608	L	148	CL	IJN
+8-3	Takao Ship	83	5070	M	109	CA	IJN
+8-3	Torpedo Boat	83	549	L	0	TB	NULL
+8-3	Myoukou Ship	83	4624	M	109	CA	IJN
+8-3	Nachi	83	9464	M	271	CA	IJN
+8-3	Takao Ship	83	5070	M	109	CA	IJN
+8-3	Gold Ship	83	1477	L	0	GS	NULL
+8-3	Nagara Ship	83	1690	L	148	CL	IJN
+8-3	Maya	83	11048	M	271	CA	IJN
+8-4	Suicide Ship	86	316	L	0	SS	NULL
+8-4	Nagara Ship	86	1735	L	153	CL	IJN
+8-4	Ikazuchi	86	5125	L	195	DD	IJN
+8-4	Inazuma	86	5125	L	195	DD	IJN
+8-4	Kuma Ship	86	1650	L	153	CL	IJN
+8-4	Takao Ship	86	5175	M	113	CA	IJN
+8-4	Abukuma	86	6095	L	363	CL	IJN
+8-4	Nachi	86	9620	M	279	CA	IJN
+8-4	Torpedo Boat	86	556	L	0	TB	NULL
+8-4	Myoukou Ship	86	4720	M	113	CA	IJN
+8-4	Inazuma	86	12950	L	195	DD	IJN
+8-4	Ikazuchi	86	12950	L	195	DD	IJN
+8-4	Maya	86	62200	M	340	CA	IJN
+8-4	Kuma Ship	85	1636	L	152	CL	IJN
+8-4	Suicide Ship	85	314	L	0	SS	NULL
+8-4	Suicide Ship	85	314	L	0	SS	NULL
+8-4	Abukuma	85	6068	L	359	CL	IJN
+8-4	Nagara Ship	85	1720	L	152	CL	IJN
+8-4	Torpedo Boat	85	554	L	0	TB	NULL
+8-4	Ikazuchi	85	5100	L	193	DD	IJN
+8-4	Inazuma	85	5100	L	193	DD	IJN
+8-4	Kuma Ship	85	1636	L	152	CL	IJN
+8-4	Takao Ship	85	5140	M	112	CA	IJN
+8-4	Torpedo Boat	85	554	L	0	TB	NULL
+8-4	Myoukou Ship	85	4688	M	112	CA	IJN
+8-4	Nachi	85	9568	M	276	CA	IJN
+8-4	Takao Ship	85	5140	M	112	CA	IJN
+8-4	Gold Ship	85	1491	L	0	GS	NULL
+8-4	Nagara Ship	85	1720	L	152	CL	IJN
+8-4	Maya	85	11176	M	276	CA	IJN
+9-1	Suicide Ship	89	444	L	0	SS	NULL
+9-1	Fubuki Ship	89	1289	L	160	DD	IJN
+9-1	Kagerou Ship	89	1336	L	160	DD	IJN
+9-1	Mutsuki Ship	89	1226	L	160	DD	IJN
+9-1	Oyashio	89	6200	L	298	DD	IJN
+9-1	Kagerou Ship	89	1336	L	160	DD	IJN
+9-1	Abukuma	89	8416	L	369	CL	IJN
+9-1	Nachi	89	10776	M	342	CA	IJN
+9-1	Kongou	89	15664	M	433	BC	IJN
+9-1	Tanikaze	89	42640	L	372	DD	IJN
+9-1	Mikazuki	89	39056	L	298	DD	IJN
+9-1	Yukikaze	89	39056	L	298	DD	IJN
+9-1	Mutsuki Ship	88	1278	L	160	DD	IJN
+9-1	Kagerou Ship	88	1327	L	160	DD	IJN
+9-1	Mutsuki Ship	88	1218	L	160	DD	IJN
+9-1	Tanikaze	88	6349	L	296	DD	IJN
+9-1	Abukuma	88	8384	L	366	CL	IJN
+9-1	Kagerou	88	6749	L	296	DD	IJN
+9-1	Shigure	88	6762	L	296	DD	IJN
+9-1	Suicide Ship	88	441	L	0	SS	NULL
+9-1	Suicide Ship	88	441	L	0	SS	NULL
+9-1	Hamakaze	88	6349	L	296	DD	IJN
+9-1	Fubuki Ship	88	1281	L	160	DD	IJN
+9-1	Shiranui	88	6749	L	296	DD	IJN
+9-1	Kagerou Ship	88	1327	L	160	DD	IJN
+9-1	Shiratsuyu	88	6762	L	296	DD	IJN
+9-1	Tone	88	11785	M	360	CA	IJN
+9-1	Mikazuki	88	5888	L	296	DD	IJN
+9-1	Nachi	88	10724	M	340	CA	IJN
+9-1	Isuzu	88	8010	L	600	CL	IJN
+9-1	Nowaki	88	7123	L	296	DD	IJN
+9-1	Maya	88	11411	M	443	CA	IJN
+9-1	Kongou	88	15586	M	429	BC	IJN
+9-1	Shiratsuyu Ship	88	1291	L	160	DD	IJN
+9-1	Haruna	88	15586	M	429	BC	IJN
+9-1	Atago	88	11211	M	423	CA	IJN
+9-1	Nagato	88	16734	H	480	BB	IJN
+9-1	Mutsu	88	16734	H	480	BB	IJN
+9-1	Gold Ship	88	1511	L	0	GS	NULL
+9-1	Fubuki Ship	88	1281	L	160	DD	IJN
+9-1	Myoukou	88	10724	M	340	CA	IJN
+9-1	Oyashio	88	6175	L	296	DD	IJN
+9-1	Shoukaku	88	14803	M	561	CV	IJN
+9-2	Suicide Ship	91	449	L	0	SS	NULL
+9-2	Shiratsuyu Ship	91	1317	L	162	DD	IJN
+9-2	Nowaki	91	7210	L	303	DD	IJN
+9-2	Nagato	91	16980	H	491	BB	IJN
+9-2	Kagerou Ship	91	1353	L	162	DD	IJN
+9-2	Atago	91	11370	M	433	CA	IJN
+9-2	Isuzu	91	8100	L	614	CL	IJN
+9-2	Hamakaze	91	46200	L	378	DD	IJN
+9-2	Tone	91	55000	M	428	CA	IJN
+9-2	Tanikaze	91	52000	L	349	DD	IJN
+9-2	Mutsuki Ship	90	1235	L	161	DD	IJN
+9-2	Kagerou Ship	90	1344	L	161	DD	IJN
+9-2	Mutsuki Ship	90	1235	L	161	DD	IJN
+9-2	Tanikaze	90	6403	L	300	DD	IJN
+9-2	Abukuma	90	8448	L	372	CL	IJN
+9-2	Kagerou	90	6803	L	300	DD	IJN
+9-2	Shigure	90	6814	L	300	DD	IJN
+9-2	Suicide Ship	90	446	L	0	SS	NULL
+9-2	Suicide Ship	90	446	L	0	SS	NULL
+9-2	Hamakaze	90	6403	L	300	DD	IJN
+9-2	Fubuki Ship	90	1298	L	161	DD	IJN
+9-2	Shiranui	90	6803	L	300	DD	IJN
+9-2	Kagerou Ship	90	1344	L	161	DD	IJN
+9-2	Shiratsuyu	90	6814	L	300	DD	IJN
+9-2	Tone	90	11895	M	365	CA	IJN
+9-2	Mikazuki	90	5936	L	300	DD	IJN
+9-2	Nachi	90	10828	M	345	CA	IJN
+9-2	Isuzu	90	8070	L	609	CL	IJN
+9-2	Nowaki	90	7181	L	300	DD	IJN
+9-2	Maya	90	11517	M	449	CA	IJN
+9-2	Kongou	90	15742	M	436	BC	IJN
+9-2	Shiratsuyu Ship	90	1308	L	161	DD	IJN
+9-2	Haruna	90	15742	M	436	BC	IJN
+9-2	Shiratsuyu Ship	90	1308	L	161	DD	IJN
+9-2	Atago	90	11317	M	429	CA	IJN
+9-2	Nagato	90	16868	H	487	BB	IJN
+9-2	Mutsu	90	16868	H	487	BB	IJN
+9-2	Gold Ship	90	1525	L	0	GS	NULL
+9-2	Fubuki Ship	90	1298	L	161	DD	IJN
+9-2	Myoukou	90	10828	M	345	CA	IJN
+9-2	Oyashio	90	6225	L	300	DD	IJN
+9-2	Shoukaku	90	14950	M	569	CV	IJN
+9-3	Suicide Ship	93	454	L	0	SS	NULL
+9-3	Mutsuki Ship	93	1259	L	164	DD	IJN
+9-3	Kagerou Ship	93	1371	L	164	DD	IJN
+9-3	Tanikaze	93	6484	L	307	DD	IJN
+9-3	Hamakaze	93	6484	L	307	DD	IJN
+9-3	Fubuki Ship	93	1323	L	164	DD	IJN
+9-3	Shiratsuyu Ship	93	1334	L	164	DD	IJN
+9-3	Haruna	93	15976	M	446	BC	IJN
+9-3	Oyashio	93	51520	L	434	DD	IJN
+9-3	Tanikaze	93	52600	L	353	DD	IJN
+9-3	Hamakaze	93	52600	L	353	DD	IJN
+9-3	Mutsuki Ship	92	1251	L	163	DD	IJN
+9-3	Kagerou Ship	92	1362	L	163	DD	IJN
+9-3	Mutsuki Ship	92	1251	L	163	DD	IJN
+9-3	Tanikaze	92	6457	L	305	DD	IJN
+9-3	Abukuma	92	8512	L	377	CL	IJN
+9-3	Kagerou	92	6857	L	305	DD	IJN
+9-3	Shigure	92	6866	L	305	DD	IJN
+9-3	Suicide Ship	92	452	L	0	SS	NULL
+9-3	Suicide Ship	92	452	L	0	SS	NULL
+9-3	Hamakaze	92	6457	L	305	DD	IJN
+9-3	Fubuki Ship	92	1315	L	163	DD	IJN
+9-3	Shiranui	92	6857	L	305	DD	IJN
+9-3	Kagerou Ship	92	1362	L	163	DD	IJN
+9-3	Shiratsuyu	92	6866	L	305	DD	IJN
+9-3	Tone	92	12005	M	370	CA	IJN
+9-3	Mikazuki	92	5984	L	305	DD	IJN
+9-3	Nachi	92	10932	M	350	CA	IJN
+9-3	Isuzu	92	8130	L	618	CL	IJN
+9-3	Nowaki	92	7239	L	305	DD	IJN
+9-3	Maya	92	11623	M	456	CA	IJN
+9-3	Kongou	92	15898	M	443	BC	IJN
+9-3	Shiratsuyu Ship	92	1325	L	163	DD	IJN
+9-3	Haruna	92	115898	M	443	BC	IJN
+9-3	Shiratsuyu Ship	92	1325	L	163	DD	IJN
+9-3	Atago	92	11423	M	436	CA	IJN
+9-3	Nagato	92	17062	H	494	BB	IJN
+9-3	Mutsu	92	17062	H	494	BB	IJN
+9-3	Gold Ship	92	1538	L	0	GS	NULL
+9-3	Myoukou	92	10932	M	350	CA	IJN
+9-3	Oyashio	92	6275	L	305	DD	IJN
+9-3	Shoukaku	92	15097	M	578	CV	IJN
+9-4	Suicide Ship	95	459	L	0	SS	NULL
+9-4	Shiratsuyu Ship	95	1351	L	166	DD	IJN
+9-4	Mutsuki Ship	95	1276	L	166	DD	IJN
+9-4	Mikazuki	95	6056	L	311	DD	IJN
+9-4	Oyashio	95	6350	L	311	DD	IJN
+9-4	Shiratsuyu Ship	95	1351	L	166	DD	IJN
+9-4	Tone	95	12170	M	378	CA	IJN
+9-4	Yukikaze	95	7720	L	311	DD	IJN
+9-4	Kongou	95	16132	M	453	BC	IJN
+9-4	Haruna	95	16132	M	453	BC	IJN
+9-4	Niizuki	95	44944	L	713	DD	IJN
+9-4	Tanikaze	95	38560	L	311	DD	IJN
+9-4	Hamakaze	95	38560	L	311	DD	IJN
+9-4	Mutsuki Ship	94	1268	L	165	DD	IJN
+9-4	Kagerou Ship	94	1380	L	165	DD	IJN
+9-4	Mutsuki Ship	94	1268	L	165	DD	IJN
+9-4	Tanikaze	94	6511	L	309	DD	IJN
+9-4	Abukuma	94	8576	L	383	CL	IJN
+9-4	Kagerou	94	6911	L	309	DD	IJN
+9-4	Shigure	94	6918	L	309	DD	IJN
+9-4	Suicide Ship	94	457	L	0	SS	NULL
+9-4	Suicide Ship	94	457	L	0	SS	NULL
+9-4	Hamakaze	94	6511	L	309	DD	IJN
+9-4	Fubuki Ship	94	1332	L	165	DD	IJN
+9-4	Shiranui	94	6911	L	309	DD	IJN
+9-4	Kagerou Ship	94	1380	L	165	DD	IJN
+9-4	Shiratsuyu	94	6981	L	309	DD	IJN
+9-4	Tone	94	12115	M	375	CA	IJN
+9-4	Mikazuki	94	6032	L	309	DD	IJN
+9-4	Nachi	94	11036	M	355	CA	IJN
+9-4	Isuzu	94	8190	L	627	CL	IJN
+9-4	Nowaki	94	7297	L	309	DD	IJN
+9-4	Maya	94	11729	M	462	CA	IJN
+9-4	Kongou	94	16054	M	450	BC	IJN
+9-4	Shiratsuyu Ship	94	1342	L	165	DD	IJN
+9-4	Haruna	94	16054	M	450	BC	IJN
+9-4	Shiratsuyu Ship	94	1342	L	165	DD	IJN
+9-4	Atago	94	11529	M	422	CA	IJN
+9-4	Nagato	94	17726	H	502	BB	IJN
+9-4	Mutsu	94	17726	H	502	BB	IJN
+9-4	Gold Ship	94	1552	L	0	GS	NULL
+9-4	Fubuki Ship	94	1332	L	165	DD	IJN
+9-4	Myoukou	94	11036	M	355	CA	IJN
+9-4	Oyashio	94	6325	L	309	DD	IJN
+9-4	Shoukaku	94	15244	M	587	CV	IJN
+10-1	Suicide Ship	96	602	L	0	SS	NULL
+10-1	Mutsuki Ship	96	1334	L	167	DD	IJN
+10-1	Takao Ship	96	4260	M	189	CA	IJN
+10-1	Suicide Ship	96	1842	L	0	SS	NULL
+10-1	Kagerou Ship	96	1457	L	167	DD	IJN
+10-1	Oyashio	96	6922	L	314	DD	IJN
+10-1	Yugumo Ship	96	1424	L	167	DD	IJN
+10-1	Abukuma	96	9187	L	389	CL	IJN
+10-1	Shiratsuyu	96	7517	L	314	DD	IJN
+10-1	Atago	96	12230	M	449	CA	IJN
+10-1	Nagato	96	18675	L	509	BB	IJN
+10-1	Takao	96	12230	M	449	CA	IJN
+10-1	Yuugure	96	46000	L	280	DD	IJN
+10-1	Matsukaze	95	46000	L	280	DD	IJN
+10-1	Isuzu Ship	95	2290	L	360	CL	IJN
+10-1	Yugumo Ship	95	1415	L	166	DD	IJN
+10-1	Yugumo Ship	95	1415	L	166	DD	IJN
+10-1	Shiratsuyu	95	7491	L	311	DD	IJN
+10-1	Oyashio	95	6897	L	311	DD	IJN
+10-1	Takao Ship	95	4232	M	187	CA	IJN
+10-1	Abukuma	95	9155	L	386	CL	IJN
+10-1	Tone	95	12764	M	378	CA	IJN
+10-1	Tanikaze	95	7085	L	311	DD	IJN
+10-1	Suicide Ship	95	599	L	0	SS	NULL
+10-1	Nagara Ship	95	2176	L	226	CL	IJN
+10-1	Nagara Ship	95	2176	L	226	CL	IJN
+10-1	Shiranui	95	7458	L	311	DD	IJN
+10-1	Mikazuki	95	6603	L	311	DD	IJN
+10-1	Maya	95	12376	M	465	CA	IJN
+10-1	Aoba	95	11482	M	331	CA	IJN
+10-1	Nowaki	95	7873	L	331	DD	IJN
+10-1	Mutsuki Ship	95	1326	L	166	DD	IJN
+10-1	Mogami Ship	95	3924	M	187	CL	IJN
+10-1	Sendai Ship	95	2424	L	226	CL	IJN
+10-1	Takao Ship	95	4232	M	187	CA	IJN
+10-1	Sendai Ship	95	2424	L	226	CL	IJN
+10-1	Kongou	95	17320	M	453	BC	IJN
+10-1	Haruna	95	17320	M	453	BC	IJN
+10-1	Isuzu Ship	95	2290	L	360	CL	IJN
+10-1	Kagerou	95	7485	L	311	DD	IJN
+10-1	Isuzu	95	8767	L	632	CL	IJN
+10-1	Myoukou	95	11682	M	357	CA	IJN
+10-1	Suicide Ship	95	599	L	0	SS	NULL
+10-1	Atago	95	12176	M	445	CA	IJN
+10-1	Shigure	95	7491	L	311	DD	IJN
+10-1	Mutsuki Ship	95	1326	L	166	DD	IJN
+10-1	Nagato	95	18590	H	505	BB	IJN
+10-1	Takao	95	12176	M	445	CA	IJN
+10-1	Mutsu	95	18590	H	505	BB	IJN
+10-1	Gold Ship	95	1599	L	0	GS	NULL
+10-1	Kagerou Ship	95	1449	L	166	DD	IJN
+10-1	Shoukaku	95	16203	M	591	CV	IJN
+10-1	Zuikaku	95	16203	M	591	CV	IJN
+10-2	Suicide Ship	98	607	L	0	SS	NULL
+10-2	Takao Ship	98	4316	M	191	CA	IJN
+10-2	Nagara Ship	98	2218	L	230	CL	IJN
+10-2	Suicide Ship	98	1847	L	0	SS	NULL
+10-2	Nagara Ship	98	2218	L	230	CL	IJN
+10-2	Shiranui	98	7567	L	318	DD	IJN
+10-2	Yugumo Ship	98	1441	L	169	DD	IJN
+10-2	Shoukaku	98	16426	M	604	CV	IJN
+10-2	Aoba	98	11641	M	338	CA	IJN
+10-2	Kagerou Ship	98	1415	L	169	DD	IJN
+10-2	Myoukou	98	11841	M	364	CA	IJN
+10-2	Isuzu Ship	98	2335	L	367	CL	IJN
+10-2	Kongou	98	17560	M	463	BC	IJN
+10-2	Shigure	98	7570	L	318	DD	IJN
+10-2	Nowaki	98	7961	L	318	DD	IJN
+10-2	Nachi	98	11841	M	364	CA	IJN
+10-2	Hamakaze	98	64000	L	340	DD	IJN
+10-2	Atago	98	42000	M	453	CA	IJN
+10-2	Takao	98	42000	M	453	CA	IJN
+10-2	Isuzu Ship	97	2320	L	365	CL	IJN
+10-2	Yugumo Ship	97	1433	L	168	DD	IJN
+10-2	Yugumo Ship	97	1433	L	168	DD	IJN
+10-2	Shiratsuyu	97	7544	L	316	DD	IJN
+10-2	Oyashio	97	6948	L	316	DD	IJN
+10-2	Takao Ship	97	4288	M	190	CA	IJN
+10-2	Abukuma	97	9220	L	391	CL	IJN
+10-2	Tone	97	12876	M	383	CA	IJN
+10-2	Tanikaze	97	7140	L	316	DD	IJN
+10-2	Suicide Ship	97	604	L	0	SS	NULL
+10-2	Nagara Ship	97	2204	L	229	CL	IJN
+10-2	Shiranui	97	7540	L	316	DD	IJN
+10-2	Mikazuki	97	6652	L	316	DD	IJN
+10-2	Maya	97	12484	M	472	CA	IJN
+10-2	Aoba	97	11588	M	336	CA	IJN
+10-2	Nowaki	97	7932	L	316	DD	IJN
+10-2	Mutsuki Ship	97	1342	L	168	DD	IJN
+10-2	Mogami Ship	97	3976	M	190	CL	IJN
+10-2	Sendai Ship	97	2456	L	229	CL	IJN
+10-2	Takao Ship	97	4288	M	190	CA	IJN
+10-2	Sendai Ship	97	2456	L	229	CL	IJN
+10-2	Kongou	97	17480	M	460	BC	IJN
+10-2	Haruna	97	17480	M	460	BC	IJN
+10-2	Isuzu Ship	97	2320	L	365	CL	IJN
+10-2	Kagerou	97	7540	L	316	DD	IJN
+10-2	Isuzu	97	8828	L	641	CL	IJN
+10-2	Myoukou	97	11788	M	362	CA	IJN
+10-2	Suicide Ship	97	604	L	0	SS	NULL
+10-2	Atago	97	12284	M	452	CA	IJN
+10-2	Shigure	97	7544	L	316	DD	IJN
+10-2	Mutsuki Ship	97	1342	L	168	DD	IJN
+10-2	Nagato	97	18760	H	513	BB	IJN
+10-2	Takao	97	12284	M	452	CA	IJN
+10-2	Mutsu	97	18760	H	513	BB	IJN
+10-2	Gold Ship	97	1612	L	0	GS	NULL
+10-2	Kagerou Ship	97	1466	L	168	DD	IJN
+10-2	Shoukaku	97	16352	M	600	CV	IJN
+10-2	Zuikaku	97	16532	M	600	CV	IJN
+10-3	Suicide Ship	100	612	L	0	SS	NULL
+10-3	Mogami Ship	100	4054	M	193	CL	IJN
+10-3	Yugumo Ship	100	1459	L	171	DD	IJN
+10-3	Abukuma	100	9317	L	400	CL	IJN
+10-3	Shiranui	100	7622	L	322	DD	IJN
+10-3	Nachi	100	11947	M	369	CA	IJN
+10-3	Isuzu Ship	100	2365	L	372	CL	IJN
+10-3	Kagerou Ship	100	1493	L	171	DD	IJN
+10-3	Zuikaku	100	16575	M	613	CV	IJN
+10-3	Isuzu	100	8919	L	655	CL	IJN
+10-3	Aoba	100	11747	M	342	CA	IJN
+10-3	Mutsu	100	19015	H	524	BB	IJN
+10-3	Yukikaze	100	70000	L	380	DD	IJN
+10-3	Kongou	100	38720	M	598	BC	IJN
+10-3	Haruna	100	38720	M	598	BC	IJN
+10-3	Isuzu Ship	99	2350	L	370	CL	IJN
+10-3	Yugumo Ship	99	1450	L	170	DD	IJN
+10-3	Yugumo Ship	99	1450	L	170	DD	IJN
+10-3	Shiratsuyu	99	7597	L	320	DD	IJN
+10-3	Oyashio	99	6999	L	320	DD	IJN
+10-3	Takao Ship	99	4344	M	192	CA	IJN
+10-3	Abukuma	99	9285	L	397	CL	IJN
+10-3	Tone	99	12988	M	388	CA	IJN
+10-3	Tanikaze	99	7195	L	320	DD	IJN
+10-3	Suicide Ship	99	609	L	0	SS	NULL
+10-3	Nagara Ship	99	2232	L	232	CL	IJN
+10-3	Nagara Ship	99	2232	L	232	CL	IJN
+10-3	Shiranui	99	7595	L	320	DD	IJN
+10-3	Mikazuki	99	6701	L	320	DD	IJN
+10-3	Maya	99	12592	M	478	CA	IJN
+10-3	Aoba	99	11694	M	340	CA	IJN
+10-3	Nowaki	99	7991	L	320	DD	IJN
+10-3	Mutsuki Ship	99	1359	L	170	DD	IJN
+10-3	Mogami Ship	99	4028	M	192	CL	IJN
+10-3	Sendai Ship	99	2488	L	232	CL	IJN
+10-3	Takao Ship	99	4344	M	192	CA	IJN
+10-3	Sendai Ship	99	2488	L	232	CL	IJN
+10-3	Kongou	99	17640	M	467	BC	IJN
+10-3	Haruna	99	17640	M	467	BC	IJN
+10-3	Isuzu Ship	99	2350	L	370	CL	IJN
+10-3	Kagerou	99	7595	L	320	DD	IJN
+10-3	Isuzu	99	8889	L	650	CL	IJN
+10-3	Myoukou	99	11894	M	367	CA	IJN
+10-3	Suicide Ship	99	609	L	0	SS	NULL
+10-3	Atago	99	12392	M	458	CA	IJN
+10-3	Shigure	99	7597	L	320	DD	IJN
+10-3	Mutsuki Ship	99	1359	L	170	DD	IJN
+10-3	Nagato	99	18930	H	520	BB	IJN
+10-3	Takao	99	12392	M	458	CA	IJN
+10-3	Mutsu	99	18930	H	520	BB	IJN
+10-3	Gold Ship	99	1626	L	0	GS	NULL
+10-3	Kagerou Ship	99	1484	L	170	DD	IJN
+10-3	Shoukaku	99	16501	M	609	CV	IJN
+10-3	Zuikaku	99	16501	M	609	CV	IJN
+10-4	Suicide Ship	102	617	L	0	SS	NULL
+10-4	Takao Ship	102	4428	M	196	CA	IJN
+10-4	Isuzu Ship	102	2395	L	377	CL	IJN
+10-4	Atago	102	12554	M	468	CA	IJN
+10-4	Takao	102	12554	M	468	CA	IJN
+10-4	Mutsuki Ship	102	1384	L	172	DD	IJN
+10-4	Shigure	102	7676	L	327	DD	IJN
+10-4	Haruna	102	17880	M	477	BC	IJN
+10-4	Kongou	102	17880	M	177	BC	IJN
+10-4	Jintsuu	102	82000	L	420	CL	IJN
+10-4	Isuzu Ship	101	2380	L	375	CL	IJN
+10-4	Yugumo Ship	101	1468	L	172	DD	IJN
+10-4	Yugumo Ship	101	1468	L	172	DD	IJN
+10-4	Shiratsuyu	101	7650	L	325	DD	IJN
+10-4	Oyashio	101	7050	L	325	DD	IJN
+10-4	Takao Ship	101	4400	M	195	CA	IJN
+10-4	Abukuma	101	9350	L	403	CL	IJN
+10-4	Tone	101	13100	M	394	CA	IJN
+10-4	Tanikaze	101	7250	L	325	DD	IJN
+10-4	Suicide Ship	101	615	L	0	SS	NULL
+10-4	Nagara Ship	101	2260	L	235	CL	IJN
+10-4	Nagara Ship	101	2260	L	235	CL	IJN
+10-4	Shiranui	101	7650	L	325	DD	IJN
+10-4	Mikazuki	101	6750	L	325	DD	IJN
+10-4	Maya	101	12700	M	485	CA	IJN
+10-4	Aoba	101	11800	M	345	CA	IJN
+10-4	Nowaki	101	8050	L	325	DD	IJN
+10-4	Mutsuki Ship	101	1376	L	172	DD	IJN
+10-4	Mogami Ship	101	4080	M	195	CL	IJN
+10-4	Sendai Ship	101	2520	L	235	CL	IJN
+10-4	Takao Ship	101	4400	M	195	CA	IJN
+10-4	Sendai Ship	101	2520	L	235	CL	IJN
+10-4	Kongou	101	17800	M	474	BC	IJN
+10-4	Haruna	101	17800	M	474	BC	IJN
+10-4	Isuzu Ship	101	2380	L	375	CL	IJN
+10-4	Kagerou	101	7650	L	325	DD	IJN
+10-4	Isuzu	101	8950	L	660	CL	IJN
+10-4	Myoukou	101	12000	M	372	CA	IJN
+10-4	Suicide Ship	101	615	L	0	SS	NULL
+10-4	Atago	101	12500	M	465	CA	IJN
+10-4	Shigure	101	7650	L	325	DD	IJN
+10-4	Mutsuki Ship	101	1376	L	172	DD	IJN
+10-4	Nagato	101	19100	H	528	BB	IJN
+10-4	Takao	101	12500	M	465	CA	IJN
+10-4	Mutsu	101	19100	H	528	BB	IJN
+10-4	Gold Ship	101	1640	L	0	GS	NULL
+10-4	Kagerou Ship	101	1502	L	172	DD	IJN
+10-4	Shoukaku	101	16650	M	618	CV	IJN
+10-4	Zuikaku	101	16650	M	618	CV	IJN
+11-1	Suicide Ship	104	712	L	0	SS	NULL
+11-1	Isuzu Ship	104	2485	L	375	CL	IJN
+11-1	Mutsuki Ship	104	1440	L	172	DD	IJN
+11-1	Suicide Ship	104	2062	L	0	SS	NULL
+11-1	Nagara Ship	104	2362	L	235	CL	IJN
+11-1	Tanikaze	104	7738	L	372	DD	IJN
+11-1	Yugumo Ship	104	1534	L	172	DD	IJN
+11-1	Atago	104	21000	M	493	CA	IJN
+11-1	Shiratsuyu	104	52000	L	390	DD	IJN
+11-1	Shigure	104	52000	L	390	DD	IJN
+11-1	Nagara Ship	103	2348	L	235	CL	IJN
+11-1	Sendai Ship	103	2612	L	235	CL	IJN
+11-1	Yugumo Ship	103	1525	L	172	DD	IJN
+11-1	Isuzu Ship	103	2470	L	375	CL	IJN
+11-1	Mutsuki Ship	103	1432	L	172	DD	IJN
+11-1	Tanikaze	103	7709	L	372	DD	IJN
+11-1	Isuzu Ship	103	2470	L	375	CL	IJN
+11-1	Abukuma	103	10021	L	436	CL	IJN
+11-1	Tone	103	14120	M	423	CA	IJN
+11-1	Aoba	103	12814	M	390	CA	IJN
+11-1	Nowaki	103	8313	L	372	DD	IJN
+11-1	Kagerou Ship	103	1559	L	172	DD	IJN
+11-1	Suicide Ship	103	710	L	0	SS	NULL
+11-1	Oyashio	103	7505	L	372	DD	IJN
+11-1	Mikazuki	103	7203	L	372	DD	IJN
+11-1	Atago	103	21000	M	493	CA	IJN
+11-1	Yuugure	103	7709	L	372	DD	IJN
+11-1	Mutsuki Ship	103	1432	L	172	DD	IJN
+11-1	Takao Ship	103	4576	M	195	CA	IJN
+11-1	Nagara Ship	103	2348	L	235	CL	IJN
+11-1	Isuzu	103	9617	L	662	CL	IJN
+11-1	Yukikaze	103	8509	L	372	DD	IJN
+11-1	Takao	103	21000	M	493	CA	IJN
+11-1	Matsukaze	103	7003	L	372	DD	IJN
+11-1	Maya	103	13716	M	520	CA	IJN
+11-1	Kagerou Ship	103	1559	L	172	DD	IJN
+11-1	Nachi	103	13014	M	406	CA	IJN
+11-1	Yugumo Ship	103	1525	L	172	DD	IJN
+11-1	Nagato	103	20380	H	563	BB	IJN
+11-1	Hamakaze	103	7709	L	372	DD	IJN
+11-1	Sendai Ship	103	2612	L	235	CL	IJN
+11-1	Kongou	103	19070	M	502	BC	IJN
+11-1	Suicide Ship	103	710	L	0	SS	NULL
+11-1	Myoukou	103	19800	M	406	CA	IJN
+11-1	Haruna	103	19070	M	502	BC	IJN
+11-1	Mogami Ship	103	4252	M	195	CL	IJN
+11-1	Suicide Ship	103	2060	L	0	SS	NULL
+11-1	Atago	103	13716	M	493	CA	IJN
+11-1	Mutsu	103	20380	H	563	BB	IJN
+11-1	Gold Ship	103	1693	L	0	GS	NULL
+11-1	Shiranui	103	7709	L	372	DD	IJN
+11-1	Gold Ship	103	1693	L	0	GS	NULL
+11-1	Zuikaku	103	17607	M	658	CV	IJN
+11-1	Minazuki	103	7203	L	372	DD	IJN
+11-1	Shoukaku	103	17607	M	658	CV	IJN
+11-1	Kagerou	103	7709	L	372	DD	IJN
+11-2	Suicide Ship	105	715	L	0	SS	NULL
+11-2	Suicide Ship	105	2065	L	0	SS	NULL
+11-2	Sendai Ship	105	2644	L	235	CL	IJN
+11-2	Mutsuki Ship	105	1449	L	172	DD	IJN
+11-2	Sendai Ship	105	2644	L	235	CL	IJN
+11-2	Hamakaze	105	7768	L	372	DD	IJN
+11-2	Takao	105	21000	M	493	CA	IJN
+11-2	Yugumo Ship	105	1542	L	172	DD	IJN
+11-2	Suicide Ship	105	715	L	0	SS	NULL
+11-2	Myoukou	105	88000	M	440	CA	IJN
+11-2	Nagara Ship	104	2362	L	235	CL	IJN
+11-2	Sendai Ship	104	23628	L	235	CL	IJN
+11-2	Yugumo Ship	104	1534	L	172	DD	IJN
+11-2	Isuzu Ship	104	2485	L	375	CL	IJN
+11-2	Mutsuki Ship	104	1440	L	172	DD	IJN
+11-2	Tanikaze	104	7738	L	372	DD	IJN
+11-2	Isuzu Ship	104	2485	L	375	CL	IJN
+11-2	Abukuma	104	10056	L	436	CL	IJN
+11-2	Tone	104	14180	M	423	CA	IJN
+11-2	Aoba	104	12871	M	390	CA	IJN
+11-2	Nowaki	104	8344	L	372	DD	IJN
+11-2	Kagerou Ship	104	1568	L	172	DD	IJN
+11-2	Suicide Ship	104	712	L	0	SS	NULL
+11-2	Oyashio	104	7532	L	372	DD	IJN
+11-2	Mikazuki	104	7229	L	372	DD	IJN
+11-2	Atago	104	21000	M	493	CA	IJN
+11-2	Yuugure	104	7738	L	372	DD	IJN
+11-2	Mutsuki Ship	104	1440	L	172	DD	IJN
+11-2	Takao Ship	104	4604	M	195	CA	IJN
+11-2	Nagara Ship	104	2362	L	235	CL	IJN
+11-2	Isuzu	104	9650	L	662	CL	IJN
+11-2	Yukikaze	104	8538	L	372	DD	IJN
+11-2	Takao	104	21000	M	493	CA	IJN
+11-2	Matsukaze	104	7029	L	372	DD	IJN
+11-2	Maya	104	13774	M	520	CA	IJN
+11-2	Kagerou Ship	104	1568	L	172	DD	IJN
+11-2	Nachi	104	13071	M	406	CA	IJN
+11-2	Yugumo Ship	104	1534	L	172	DD	IJN
+11-2	Nagato	104	20470	H	563	BB	IJN
+11-2	Hamakaze	104	7738	L	372	DD	IJN
+11-2	Sendai Ship	104	2628	L	235	CL	IJN
+11-2	Kongou	104	19155	M	502	BC	IJN
+11-2	Suicide Ship	104	712	L	0	SS	NULL
+11-2	Myoukou	104	19800	M	406	CA	IJN
+11-2	Haruna	104	19155	M	502	BC	IJN
+11-2	Mogami Ship	104	4278	M	195	CL	IJN
+11-2	Suicide Ship	104	2062	L	0	SS	NULL
+11-2	Atago	104	13774	M	493	CA	IJN
+11-2	Mutsu	104	20470	H	563	BB	IJN
+11-2	Gold Ship	104	1700	L	0	GS	NULL
+11-2	Shiranui	104	7738	L	372	DD	IJN
+11-2	Gold Ship	104	1700	L	0	GS	NULL
+11-2	Zuikaku	104	17685	M	658	CV	IJN
+11-2	Minazuki	104	7229	L	372	DD	IJN
+11-2	Shoukaku	104	1765	M	658	CV	IJN
+11-2	Kagerou	104	7738	L	372	DD	IJN
+11-3	Suicide Ship	106	2067	L	0	SS	NULL
+11-3	Mutsuki Ship	106	1457	L	172	DD	IJN
+11-3	Isuzu Ship	106	2515	L	375	CL	IJN
+11-3	Yukikaze	106	8597	L	372	DD	IJN
+11-3	Oyashio	106	7587	L	372	DD	IJN
+11-3	Isuzu	106	9717	L	662	CL	IJN
+11-3	Uzuki	106	52000	L	360	DD	IJN
+11-3	Agano	106	78000	L	640	CL	IJN
+11-3	Nagara Ship	105	2376	L	235	CL	IJN
+11-3	Sendai Ship	105	2644	L	235	CL	IJN
+11-3	Yugumo Ship	105	1542	L	172	DD	IJN
+11-3	Isuzu Ship	105	2500	L	375	CL	IJN
+11-3	Mutsuki Ship	105	1449	L	172	DD	IJN
+11-3	Tanikaze	105	7768	L	372	DD	IJN
+11-3	Isuzu Ship	105	2500	L	375	CL	IJN
+11-3	Abukuma	105	10092	L	436	CL	IJN
+11-3	Tone	105	14240	M	423	CA	IJN
+11-3	Aoba	105	12928	M	390	CA	IJN
+11-3	Nowaki	105	8376	L	372	DD	IJN
+11-3	Kagerou Ship	105	1577	L	172	DD	IJN
+11-3	Suicide Ship	105	715	L	0	SS	NULL
+11-3	Oyashio	105	7560	L	372	DD	IJN
+11-3	Mikazuki	105	7256	L	372	DD	IJN
+11-3	Atago	105	21000	M	493	CA	IJN
+11-3	Yuugure	105	7768	L	372	DD	IJN
+11-3	Mutsuki Ship	105	1449	L	172	DD	IJN
+11-3	Takao Ship	105	4632	M	195	CA	IJN
+11-3	Nagara Ship	105	2376	L	235	CL	IJN
+11-3	Isuzu	105	9684	L	662	CL	IJN
+11-3	Yukikaze	105	8568	L	372	DD	IJN
+11-3	Takao	105	21000	M	493	CA	IJN
+11-3	Matsukaze	105	7056	L	372	DD	IJN
+11-3	Maya	105	13832	M	520	CA	IJN
+11-3	Kagerou Ship	105	1577	L	172	DD	IJN
+11-3	Nachi	105	13128	M	406	CA	IJN
+11-3	Yugumo Ship	105	1542	L	172	DD	IJN
+11-3	Nagato	105	20560	H	563	BB	IJN
+11-3	Hamakaze	105	7768	L	372	DD	IJN
+11-3	Sendai Ship	105	2644	L	235	CL	IJN
+11-3	Kongou	105	13240	M	502	BC	IJN
+11-3	Suicide Ship	105	715	L	0	SS	NULL
+11-3	Myoukou	105	19800	M	406	CA	IJN
+11-3	Haruna	105	19240	M	502	BC	IJN
+11-3	Mogami Ship	105	4304	M	195	CL	IJN
+11-3	Suicide Ship	105	2065	L	0	SS	NULL
+11-3	Atago	105	13832	M	493	CA	IJN
+11-3	Mutsu	105	20560	H	563	BB	IJN
+11-3	Gold Ship	105	1707	L	0	GS	NULL
+11-3	Shiranui	105	7768	L	372	DD	IJN
+11-3	Gold Ship	105	1707	L	0	GS	NULL
+11-3	Zuikaku	105	17764	M	658	CV	IJN
+11-3	Minazuki	105	7256	L	372	DD	IJN
+11-3	Shoukaku	105	17764	M	658	CV	IJN
+11-3	Kagerou	105	7768	L	372	DD	IJN
+11-4	Suicide Ship	107	2070	L	0	SS	NULL
+11-4	Mutsuki Ship	107	1465	L	172	DD	IJN
+11-4	Isuzu Ship	107	2530	L	375	CL	IJN
+11-4	Oyashio	107	7615	L	372	DD	IJN
+11-4	Nowaki	107	8429	L	372	DD	IJN
+11-4	Isuzu	107	9751	L	662	CL	IJN
+11-4	Sendai Ship	107	2676	L	235	CL	IJN
+11-4	Tone	107	14360	M	423	CA	IJN
+11-4	Sendai	107	102000	L	450	CL	IJN
+11-4	Nagara Ship	106	2390	L	235	CL	IJN
+11-4	Sendai Ship	106	2660	L	235	CL	IJN
+11-4	Yugumo Ship	106	1551	L	172	DD	IJN
+11-4	Isuzu Ship	106	2515	L	375	CL	IJN
+11-4	Mutsuki Ship	106	1457	L	172	DD	IJN
+11-4	Tanikaze	106	7797	L	372	DD	IJN
+11-4	Isuzu Ship	106	2515	L	375	CL	IJN
+11-4	Abukuma	106	10127	L	436	CL	IJN
+11-4	Tone	106	14300	M	423	CA	IJN
+11-4	Aoba	106	12985	M	390	CA	IJN
+11-4	Nowaki	106	8407	L	372	DD	IJN
+11-4	Kagerou Ship	106	1586	L	172	DD	IJN
+11-4	Suicide Ship	106	717	L	0	SS	NULL
+11-4	Oyashio	106	7587	L	372	DD	IJN
+11-4	Mikazuki	106	7282	L	372	DD	IJN
+11-4	Atago	106	21000	M	493	CA	IJN
+11-4	Yuugure	106	7797	L	372	DD	IJN
+11-4	Mutsuki Ship	106	1457	L	172	DD	IJN
+11-4	Takao Ship	106	4660	M	195	CA	IJN
+11-4	Nagara Ship	106	2390	L	235	CL	IJN
+11-4	Isuzu	106	9717	L	662	CL	IJN
+11-4	Yukikaze	106	8597	L	372	DD	IJN
+11-4	Takao	106	21000	M	493	CA	IJN
+11-4	Matsukaze	106	7082	L	372	DD	IJN
+11-4	Maya	106	13890	M	520	CA	IJN
+11-4	Kagerou Ship	106	1586	L	172	DD	IJN
+11-4	Nachi	106	13185	M	406	CA	IJN
+11-4	Yugumo Ship	106	1551	L	172	DD	IJN
+11-4	Nagato	106	20650	H	563	BB	IJN
+11-4	Hamakaze	106	7797	L	372	DD	IJN
+11-4	Sendai Ship	106	2660	L	235	CL	IJN
+11-4	Kongou	106	19325	M	502	BC	IJN
+11-4	Suicide Ship	106	717	L	0	SS	NULL
+11-4	Myoukou	106	19800	M	406	CA	IJN
+11-4	Haruna	106	19325	M	502	BC	IJN
+11-4	Mogami Ship	106	4330	M	195	CL	IJN
+11-4	Suicide Ship	106	2067	L	0	SS	NULL
+11-4	Atago	106	13890	M	493	CA	IJN
+11-4	Mutsu	106	20650	H	563	BB	IJN
+11-4	Gold Ship	106	1714	L	0	GS	NULL
+11-4	Shiranui	106	7797	L	372	DD	IJN
+11-4	Gold Ship	106	1714	L	0	GS	NULL
+11-4	Zuikaku	106	17842	M	658	CV	IJN
+11-4	Minazuki	106	7282	L	372	DD	IJN
+11-4	Shoukaku	106	17842	M	658	CV	IJN
+11-4	Kagerou	106	7797	L	372	DD	IJN
+11-4	Takao	106	13890	M	493	CA	IJN
+12-1	Takao Ship	108	4796	M	180	CA	IJN
+12-1	Sendai Ship	108	2722	L	200	CL	IJN
+12-1	Yugumo Ship	108	1596	L	190	DD	IJN
+12-1	Kagerou Ship	108	1633	L	190	DD	IJN
+12-1	Yuugure	108	7842	L	300	DD	IJN
+12-1	Mutsuki Ship	108	1503	L	190	DD	IJN
+12-1	Isuzu Ship	108	2575	L	300	CL	IJN
+12-1	Atago	108	14938	M	480	CA	IJN
+12-1	Abukuma	108	11477	L	345	CL	IJN
+12-1	Shiranui	108	8342	L	300	DD	IJN
+12-1	Myoukou	108	102000	M	405	CA	IJN
+12-1	Yugumo Ship	107	1590	L	190	DD	IJN
+12-1	Sendai Ship	107	2706	L	200	CL	IJN
+12-1	Isuzu Ship	107	2560	L	300	CL	IJN
+12-1	Kagerou Ship	107	1624	L	190	DD	IJN
+12-1	Tanikaze	107	7815	L	300	DD	IJN
+12-1	Yugumo Ship	107	1590	L	190	DD	IJN
+12-1	Abukuma	107	11445	L	345	CL	IJN
+12-1	Tone	107	14796	M	380	CA	IJN
+12-1	Hamakaze	107	7815	L	300	DD	IJN
+12-1	Nagara Ship	107	2434	L	200	CL	IJN
+12-1	Mutsuki Ship	107	1495	L	190	DD	IJN
+12-1	Isuzu Ship	107	2560	L	300	CL	IJN
+12-1	Matsukaze	107	7097	L	300	DD	IJN
+12-1	Yukikaze	107	8615	L	300	DD	IJN
+12-1	Aoba	107	25000	M	125	CA	IJN
+12-1	Minazuki	107	7297	L	300	DD	IJN
+12-1	Mutsuki Ship	107	1495	L	190	DD	IJN
+12-1	Takao Ship	107	4768	M	180	CA	IJN
+12-1	Oyashio	107	7603	L	300	DD	IJN
+12-1	Isuzu	107	11233	L	585	CL	IJN
+12-1	Mikazuki	107	7297	L	300	DD	IJN
+12-1	Aoba	107	13478	M	300	CA	IJN
+12-1	Yuugure	107	7815	L	300	DD	IJN
+12-1	Shiranui	107	8315	L	300	DD	IJN
+12-1	Nowaki	107	8927	L	300	DD	IJN
+12-1	Maya	107	14384	M	540	CA	IJN
+12-1	Nagara Ship	107	2434	L	200	CL	IJN
+12-1	Nachi	107	13678	M	345	CA	IJN
+12-1	Sendai Ship	107	2706	L	200	CL	IJN
+12-1	Takao	107	28800	M	200	CA	IJN
+12-1	Mogami Ship	107	4436	M	180	CL	IJN
+12-1	Atago	107	14884	M	480	CA	IJN
+12-1	Kongou	107	20080	M	420	BC	IJN
+12-1	Suicide Ship	107	720	L	0	SS	NULL
+12-1	Gold Ship	107	1720	L	0	GS	NULL
+12-1	Takao	107	14884	M	480	CA	IJN
+12-1	Shoukaku	107	18697	M	585	CV	IJN
+12-1	Zuikaku	107	18697	M	585	CV	IJN
+12-1	Haruna	107	20080	M	420	BC	IJN
+12-1	Suicide Ship	107	720	L	0	SS	NULL
+12-2	Kagerou Ship	110	1651	L	190	DD	IJN
+12-2	Yugumo Ship	110	1616	L	190	DD	IJN
+12-2	Yukikaze	110	8697	L	300	DD	IJN
+12-2	Mutsuki Ship	110	1520	L	190	DD	IJN
+12-2	Hamakaze	110	7897	L	300	DD	IJN
+12-2	Takao	110	15046	M	480	CA	IJN
+12-2	Sendai Ship	110	2754	L	200	CL	IJN
+12-2	Isuzu	110	11324	L	585	CL	IJN
+12-2	Abukuma	110	11542	L	345	CL	IJN
+12-2	Tanikaze	110	84000	L	465	DD	IJN
+12-2	Oyashio	110	76000	L	475	DD	IJN
+12-2	Yugumo Ship	109	1607	L	190	DD	IJN
+12-2	Sendai Ship	109	2738	L	200	CL	IJN
+12-2	Isuzu Ship	109	2590	L	300	CL	IJN
+12-2	Kagerou Ship	109	1642	L	190	DD	IJN
+12-2	Tanikaze	109	7870	L	300	DD	IJN
+12-2	Yugumo Ship	109	1607	L	190	DD	IJN
+12-2	Abukuma	109	11510	L	345	CL	IJN
+12-2	Tone	109	14908	M	380	CA	IJN
+12-2	Hamakaze	109	7870	L	300	DD	IJN
+12-2	Nagara Ship	109	2462	L	200	CL	IJN
+12-2	Mutsuki Ship	109	1512	L	190	DD	IJN
+12-2	Isuzu Ship	109	2590	L	300	CL	IJN
+12-2	Matsukaze	109	7146	L	300	DD	IJN
+12-2	Yukikaze	109	8670	L	300	DD	IJN
+12-2	Aoba	109	25000	M	125	CA	IJN
+12-2	Minazuki	109	7346	L	300	DD	IJN
+12-2	Takao Ship	109	1512	M	180	CA	IJN
+12-2	Oyashio	109	4824	L	300	DD	IJN
+12-2	Isuzu	109	11294	L	585	CL	IJN
+12-2	Mikazuki	109	7346	L	300	DD	IJN
+12-2	Aoba	109	13584	M	300	CA	IJN
+12-2	Yuugure	109	7870	L	300	DD	IJN
+12-2	Shiranui	109	8370	L	300	DD	IJN
+12-2	Nowaki	109	8986	L	300	DD	IJN
+12-2	Maya	109	14492	M	540	CA	IJN
+12-2	Nagara Ship	109	2462	L	200	CL	IJN
+12-2	Nachi	109	13784	M	345	CA	IJN
+12-2	Sendai Ship	109	2738	L	200	CL	IJN
+12-2	Takao	109	28800	M	200	CA	IJN
+12-2	Mogami Ship	109	4488	M	180	CL	IJN
+12-2	Atago	109	14992	M	480	CA	IJN
+12-2	Kongou	109	20240	M	420	BC	IJN
+12-2	Suicide Ship	109	725	L	0	SS	NULL
+12-2	Gold Ship	109	1734	L	0	GS	NULL
+12-2	Takao	109	14992	M	480	CA	IJN
+12-2	Shoukaku	109	18846	M	585	CV	IJN
+12-2	Zuikaku	109	18846	M	585	CV	IJN
+12-2	Haruna	109	20240	M	420	BC	IJN
+12-2	Suicide Ship	109	725	L	0	SS	NULL
+12-3	Kagerou Ship	112	1669	L	190	DD	IJN
+12-3	Sendai Ship	112	2786	L	200	DD	IJN
+12-3	Mutsuki Ship	112	1536	L	190	DD	IJN
+12-3	Mutsuki Ship	112	1536	L	190	DD	IJN
+12-3	Yugumo Ship	112	1633	L	190	DD	IJN
+12-3	Atago	112	16154	M	480	CA	IJN
+12-3	Oyashio	112	7730	L	300	DD	IJN
+12-3	Shiranui	112	8452	L	300	DD	IJN
+12-3	Takao	112	15154	M	480	CA	IJN
+12-3	Junyou	112	86000	M	440	CVL	IJN
+12-3	Hiyou	112	84000	M	510	CVL	IJN
+12-3	Yugumo Ship	111	1624	L	190	DD	IJN
+12-3	Sendai Ship	111	2770	L	200	CL	IJN
+12-3	Isuzu Ship	111	2620	L	300	CL	IJN
+12-3	Kagerou Ship	111	1660	L	190	DD	IJN
+12-3	Tanikaze	111	7925	L	300	DD	IJN
+12-3	Yugumo Ship	111	1624	L	190	DD	IJN
+12-3	Abukuma	111	11575	L	345	CL	IJN
+12-3	Tone	111	15020	M	380	CA	IJN
+12-3	Hamakaze	111	7925	L	300	DD	IJN
+12-3	Nagara Ship	111	2490	L	200	CL	IJN
+12-3	Mutsuki Ship	111	1528	L	190	DD	IJN
+12-3	Isuzu Ship	111	2620	L	300	CL	IJN
+12-3	Matsukaze	111	7195	L	300	DD	IJN
+12-3	Yukikaze	111	8725	L	300	DD	IJN
+12-3	Aoba	111	25000	M	125	CA	IJN
+12-3	Minazuki	111	7395	L	300	DD	IJN
+12-3	Mutsuki Ship	111	1528	L	190	DD	IJN
+12-3	Takao Ship	111	4880	M	180	CA	IJN
+12-3	Oyashio	111	7705	L	300	DD	IJN
+12-3	Isuzu	111	11355	L	585	CL	IJN
+12-3	Mikazuki	111	7395	L	300	DD	IJN
+12-3	Aoba	111	13690	M	300	CA	IJN
+12-3	Yuugure	111	7925	L	300	DD	IJN
+12-3	Shiranui	111	8425	L	300	DD	IJN
+12-3	Nowaki	111	9045	L	300	DD	IJN
+12-3	Maya	111	14600	M	540	CA	IJN
+12-3	Nagara Ship	111	2490	L	200	CL	IJN
+12-3	Nachi	111	13890	M	345	CA	IJN
+12-3	Sendai Ship	111	2770	L	200	CL	IJN
+12-3	Takao	111	28800	M	200	CA	IJN
+12-3	Mogami Ship	111	4540	M	180	CL	IJN
+12-3	Atago	111	15100	M	480	CA	IJN
+12-3	Kongou	111	20400	M	420	BC	IJN
+12-3	Suicide Ship	111	730	L	0	SS	NULL
+12-3	Gold Ship	111	1748	L	0	GS	NULL
+12-3	Takao	111	15100	M	480	CA	IJN
+12-3	Shoukaku	111	18995	M	585	CV	IJN
+12-3	Zuikaku	111	18995	M	585	CV	IJN
+12-3	Haruna	111	20400	M	420	BC	IJN
+12-3	Suicide Ship	111	730	L	0	SS	NULL
+12-4	Sendai Ship	114	2718	L	200	CL	IJN
+12-4	Nagara Ship	114	2534	L	200	CL	IJN
+12-4	Isuzu Ship	114	2665	L	300	CL	IJN
+12-4	Nowaki	114	9133	L	300	DD	IJN
+12-4	Oyashio	114	7781	L	300	DD	IJN
+12-4	Yugumo Ship	114	1650	L	190	DD	IJN
+12-4	Isuzu	114	11446	L	585	CL	IJN
+12-4	Abukuma	114	11672	L	345	CL	IJN
+12-4	Haruna	114	20640	M	420	BC	IJN
+12-4	Choukai	114	146000	M	685	CA	IJN
+12-4	Maya	114	64000	M	740	CA	IJN
+12-4	Yugumo Ship	113	1642	L	190	DD	IJN
+12-4	Sendai Ship	113	2802	L	200	CL	IJN
+12-4	Isuzu Ship	113	2650	L	300	CL	IJN
+12-4	Kagerou Ship	113	1677	L	190	DD	IJN
+12-4	Tanikaze	113	7980	L	300	DD	IJN
+12-4	Yugumo Ship	113	1642	L	190	DD	IJN
+12-4	Abukuma	113	11640	L	345	CL	IJN
+12-4	Tone	113	15132	M	380	CA	IJN
+12-4	Hamakaze	113	7980	L	300	DD	IJN
+12-4	Nagara Ship	113	2518	L	200	CL	IJN
+12-4	Mutsuki Ship	113	1646	L	190	DD	IJN
+12-4	Isuzu Ship	113	2650	L	300	CL	IJN
+12-4	Matsukaze	113	7244	L	300	DD	IJN
+12-4	Yukikaze	113	8780	L	300	DD	IJN
+12-4	Aoba	113	25000	M	125	CA	IJN
+12-4	Minazuki	113	7444	L	300	DD	IJN
+12-4	Mutsuki Ship	113	1545	L	190	DD	IJN
+12-4	Takao Ship	113	4936	M	180	CA	IJN
+12-4	Oyashio	113	7756	L	300	DD	IJN
+12-4	Isuzu	113	11416	L	585	CL	IJN
+12-4	Mikazuki	113	7444	L	300	DD	IJN
+12-4	Aoba	113	13796	M	300	CA	IJN
+12-4	Yuugure	113	7980	L	300	DD	IJN
+12-4	Shiranui	113	8480	L	300	DD	IJN
+12-4	Nowaki	113	9104	L	300	DD	IJN
+12-4	Maya	113	14708	M	540	CA	IJN
+12-4	Nagara Ship	113	2518	L	200	CL	IJN
+12-4	Nachi	113	13996	M	345	CA	IJN
+12-4	Sendai Ship	113	2802	L	200	CL	IJN
+12-4	Takao	113	28800	M	200	CA	IJN
+12-4	Mogami Ship	113	4592	M	180	CL	IJN
+12-4	Atago	113	15208	M	480	CA	IJN
+12-4	Kongou	113	20560	M	420	BC	IJN
+12-4	Suicide Ship	113	735	L	0	SS	NULL
+12-4	Gold Ship	113	1761	L	0	GS	NULL
+12-4	Takao	113	15208	M	480	CA	IJN
+12-4	Shoukaku	113	19144	M	585	CV	IJN
+12-4	Zuikaku	113	19144	M	585	CV	IJN
+12-4	Haruna	113	20560	M	420	BC	IJN
+12-4	Suicide Ship	113	735	L	0	SS	NULL
+12-4	Atago	113	28800	M	200	CA	IJN
+13-1	Takao Ship	116	5100	M	195	CA	IJN
+13-1	Anti-Air Ship	116	2490	M	450	NULL	IJN
+13-1	Yugumo Ship	116	1721	L	205	DD	IJN
+13-1	Anti-Air Ship	116	7275	M	450	NULL	IJN
+13-1	Yuugure	116	9010	L	320	DD	IJN
+13-1	Mutsuki Ship	116	1622	L	205	DD	IJN
+13-1	Repair Ship A	116	19710	L	200	AR	NULL
+13-1	Maya	116	17190	M	540	CA	IJN
+13-1	Command Ship	116	31220	H	350	NULL	NULL
+13-1	Isuzu Ship	116	2782	L	320	CL	IJN
+13-1	Agano	116	13990	L	465	CL	IJN
+13-1	Oyashio	116	8695	L	320	DD	IJN
+13-1	Mogami	116	151800	L	385	CL	IJN
+13-1	Yugumo Ship	115	1712	L	205	DD	IJN
+13-1	Anti-Air Ship	115	2484	M	450	NULL	NULL
+13-1	Isuzu Ship	115	2767	L	320	CL	IJN
+13-1	Kagerou Ship	115	1748	L	205	DD	IJN
+13-1	Tanikaze	115	9280	L	320	DD	IJN
+13-1	Nagara Ship	115	2633	L	215	CL	IJN
+13-1	Abukuma	115	13406	L	345	CL	IJN
+13-1	Tone	115	16700	M	380	CA	IJN
+13-1	Urakaze	115	9290	L	320	DD	IJN
+13-1	Mutsuki Ship	115	1614	L	205	DD	IJN
+13-1	Isuzu Ship	115	2767	L	320	CL	IJN
+13-1	Isokaze	115	9290	L	320	DD	IJN
+13-1	Repair Ship A	115	19636	L	200	AR	NULL
+13-1	Yukikaze	115	10632	L	360	DD	IJN
+13-1	Maya	115	17124	M	540	CA	IJN
+13-1	Agano	115	13944	L	465	CL	IJN
+13-1	Sendai Ship	115	2921	L	215	CL	IJN
+13-1	Mutsuki Ship	115	1614	L	205	DD	IJN
+13-1	Anti-Air Ship	115	7250	M	450	NULL	NULL
+13-1	Isuzu	115	13178	L	585	CL	IJN
+13-1	Mikazuki	115	8348	L	320	DD	IJN
+13-1	Minazuki	115	8348	L	320	DD	IJN
+13-1	Nagara Ship	115	2633	L	215	CL	IJN
+13-1	Yuugure	115	8976	L	320	DD	IJN
+13-1	Shiranui	115	9290	L	320	DD	IJN
+13-1	Kagerou	115	9290	L	320	DD	IJN
+13-1	Nachi	115	15860	M	345	CA	IJN
+13-1	Nowaki	115	10004	L	320	DD	IJN
+13-1	Takao	115	17124	M	450	CA	IJN
+13-1	Aoba	115	15536	M	300	CA	IJN
+13-1	Takao Ship	115	5072	M	195	CA	IJN
+13-1	Yugumo Ship	115	1712	L	205	DD	IJN
+13-1	Kongou	115	23144	M	420	BC	IJN
+13-1	Command Ship	115	31092	H	350	NULL	NULL
+13-1	Mutsu	115	25812	H	480	BB	IJN
+13-1	Junyou	115	20548	M	540	CVL	IJN
+13-1	Atago	115	14124	M	450	CA	IJN
+13-1	Hiyou	115	20548	M	540	CVL	IJN
+13-1	Sendai Ship	115	2921	L	215	CL	IJN
+13-1	Suicide Ship	115	290	L	0	SS	NULL
+13-1	Oyashio	115	8662	L	320	DD	IJN
+13-1	Gold Ship	115	1998	L	0	GS	NULL
+13-1	Haruna	115	23144	M	420	BC	IJN
+13-1	Suicide Ship	115	790	L	0	SS	NULL
+13-2	Kagerou Ship	118	1775	L	205	DD	IJN
+13-2	Anti-Air Ship	118	2502	M	450	NULL	NULL
+13-2	Yugumo Ship	118	1738	L	205	DD	IJN
+13-2	Yukikaze	118	10746	L	360	DD	IJN
+13-2	Command Ship	118	31476	H	350	NULL	NULL
+13-2	Urakaze	118	9395	L	320	DD	IJN
+13-2	Repair Ship A	118	19858	L	200	AR	NULL
+13-2	Takao	118	17322	M	450	CA	IJN
+13-2	Anti-Air Ship	118	7325	M	450	NULL	NULL
+13-2	Isuzu	118	13304	L	585	CL	IJN
+13-2	Abukuma	118	13538	L	345	CL	IJN
+13-2	Shoukaku	118	167900	M	420	CV	IJN
+13-2	Yugumo Ship	117	1730	L	205	DD	IJN
+13-2	Anti-Air Ship	117	2498	M	450	NULL	NULL
+13-2	Isuzu Ship	117	2798	L	320	CL	IJN
+13-2	Kagerou Ship	117	1766	L	205	DD	IJN
+13-2	Tanikaze	117	9360	L	320	DD	IJN
+13-2	Nagara Ship	117	2662	L	215	CL	IJN
+13-2	Abukuma	117	13494	L	345	CL	IJN
+13-2	Tone	117	16830	M	380	CA	IJN
+13-2	Urakaze	117	9360	L	320	DD	IJN
+13-2	Mutsuki Ship	117	1631	L	205	DD	IJN
+13-2	Isuzu Ship	117	2798	L	320	CL	IJN
+13-2	Isokaze	117	9360	L	320	DD	IJN
+13-2	Repair Ship A	117	19784	L	200	AR	NULL
+13-2	Yukikaze	117	10708	L	360	DD	IJN
+13-2	Maya	117	17256	M	540	CA	IJN
+13-2	Agano	117	14036	L	465	CL	IJN
+13-2	Sendai Ship	117	2954	L	215	CL	IJN
+13-2	Mutsuki Ship	117	1631	L	205	DD	IJN
+13-2	Anti-Air Ship	117	7300	M	450	NULL	NULL
+13-2	Isuzu	117	13262	L	585	CL	IJN
+13-2	Mikazuki	117	8412	L	320	DD	IJN
+13-2	Minazuki	117	8412	L	320	DD	IJN
+13-2	Nagara Ship	117	2662	L	215	CL	IJN
+13-2	Yuugure	117	9044	L	320	DD	IJN
+13-2	Shiranui	117	9360	L	320	DD	IJN
+13-2	Kagerou	117	9360	L	320	DD	IJN
+13-2	Nachi	117	15990	M	345	CA	IJN
+13-2	Nowaki	117	10076	L	320	DD	IJN
+13-2	Takao	117	17256	M	450	CA	IJN
+13-2	Aoba	117	15664	M	300	CA	IJN
+13-2	Takao Ship	117	5128	M	195	CA	IJN
+13-2	Yugumo Ship	117	1730	L	205	DD	IJN
+13-2	Kongou	117	23336	M	420	BC	IJN
+13-2	Command Ship	117	313148	H	350	NULL	NULL
+13-2	Mutsu	117	26028	H	480	BB	IJN
+13-2	Junyou	117	20712	M	540	CVL	IJN
+13-2	Atago	117	17256	M	450	CA	IJN
+13-2	Hiyou	117	20712	M	540	CVL	IJN
+13-2	Sendai Ship	117	2954	L	215	CL	IJN
+13-2	Suicide Ship	117	795	L	0	SS	NULL
+13-2	Oyashio	117	8728	L	320	DD	IJN
+13-2	Gold Ship	117	2012	L	0	GS	NULL
+13-2	Haruna	117	23336	M	420	BC	IJN
+13-2	Suicide Ship	117	795	L	0	SS	NULL
+13-3	Kagerou Ship	120	1793	L	205	DD	IJN
+13-3	Anti-Air Ship	120	2514	M	450	NULL	NULL
+13-3	Sendai Ship	120	3003	L	215	CL	IJN
+13-3	Mutsuki Ship	120	1656	L	205	DD	IJN
+13-3	Anti-Air Ship	120	7375	M	450	NULL	NULL
+13-3	Aoba	120	15856	M	300	CA	IJN
+13-3	Shiranui	120	9465	L	320	DD	IJN
+13-3	Kagerou	120	9465	L	320	DD	IJN
+13-3	Command Ship	120	31732	H	350	NULL	NULL
+13-3	Takao	120	17456	M	450	CA	IJN
+13-3	Shoukaku	120	149500	M	450	CV	IJN
+13-3	Zuikaku	120	184000	M	450	CV	IJN
+13-3	Repair Ship A	120	20006	L	200	AR	NULL
+13-3	Yugumo Ship	119	1747	L	205	DD	IJN
+13-3	Anti-Air Ship	119	2508	M	450	NULL	NULL
+13-3	Isuzu Ship	119	2828	L	320	CL	IJN
+13-3	Kagerou Ship	119	1784	L	205	DD	IJN
+13-3	Tanikaze	119	9430	L	320	DD	IJN
+13-3	Nagara Ship	119	2691	L	215	CL	IJN
+13-3	Abukuma	119	13582	L	345	CL	IJN
+13-3	Tone	119	16960	M	380	CA	IJN
+13-3	Urakaze	119	9430	L	320	DD	IJN
+13-3	Mutsuki Ship	119	1648	L	320	CL	IJN
+13-3	Isuzu Ship	119	2829	L	320	DD	IJN
+13-3	Isokaze	119	9430	L	200	AR	NULL
+13-3	Repair Ship A	119	19932	L	360	DD	IJN
+13-3	Yukikaze	119	10784	L	540	CA	IJN
+13-3	Maya	119	17388	M	465	CL	IJN
+13-3	Agano	119	14128	L	215	CL	IJN
+13-3	Sendai Ship	119	2987	L	205	DD	IJN
+13-3	Mutsuki Ship	119	1648	L	450	NULL	NULL
+13-3	Anti-Air Ship	119	7350	M	585	CL	IJN
+13-3	Isuzu	119	13346	L	320	DD	IJN
+13-3	Mikazuki	119	8476	L	320	DD	IJN
+13-3	Minazuki	119	8476	L	215	CL	IJN
+13-3	Nagara Ship	119	2691	L	320	DD	IJN
+13-3	Yuugure	119	9112	L	320	DD	IJN
+13-3	Shiranui	119	9460	L	320	DD	IJN
+13-3	Kagerou	119	9460	L	345	CA	IJN
+13-3	Nachi	119	16120	M	320	DD	IJN
+13-3	Nowaki	119	10148	L	450	CA	IJN
+13-3	Takao	119	17388	M	300	CA	IJN
+13-3	Aoba	119	15792	M	195	CA	IJN
+13-3	Takao Ship	119	5184	M	205	DD	IJN
+13-3	Yugumo Ship	119	1747	L	420	BC	IJN
+13-3	Kongou	119	23528	M	350	NULL	NULL
+13-3	Command Ship	119	31604	H	480	BB	IJN
+13-3	Mutsu	119	25244	H	540	CVL	IJN
+13-3	Junyou	119	20876	M	450	CA	IJN
+13-3	Atago	119	17388	M	540	CVL	IJN
+13-3	Hiyou	119	20876	M	215	CL	IJN
+13-3	Sendai Ship	119	2987	L	0	SS	NULL
+13-3	Suicide Ship	119	800	L	320	DD	IJN
+13-3	Oyashio	119	8794	L	0	GS	NULL
+13-3	Gold Ship	119	2026	L	420	BC	IJN
+13-3	Haruna	119	23528	M	0	SS	NULL
+13-3	Suicide Ship	122	800	L	215	CL	IJN
+13-4	Sendai Ship	122	3036	L	450	NULL	NULL
+13-4	Anti-Air Ship	122	2526	M	320	CL	IJN
+13-4	Isuzu Ship	122	2875	L	450	CA	IJN
+13-4	Atago	122	17586	M	320	DD	IJN
+13-4	Tanikaze	122	9636	L	450	NULL	NULL
+13-4	Anti-Air Ship	122	7425	M	585	CL	IJN
+13-4	Isuzu	122	13472	L	350	NULL	NULL
+13-4	Command Ship	122	31988	H	345	CL	IJN
+13-4	Abukuma	122	13717	L	480	BB	IJN
+13-4	Nagato	122	26568	H	580	CV	IJN
+13-4	Taihou	122	230000	H	200	AR	NULL
+13-4	Repair Ship S	121	21554	H	205	DD	IJN
+13-4	Yugumo Ship	121	1765	L	450	NULL	NULL
+13-4	Anti-Air Ship	121	2520	M	320	CL	IJN
+13-4	Isuzu Ship	121	2860	L	205	DD	IJN
+13-4	Kagerou Ship	121	1802	L	320	DD	IJN
+13-4	Tanikaze	121	9500	L	215	CL	IJN
+13-4	Nagara Ship	121	2720	L	345	CL	IJN
+13-4	Abukuma	121	13670	L	380	CA	IJN
+13-4	Tone	121	17090	M	320	DD	IJN
+13-4	Urakaze	121	9500	L	205	DD	IJN
+13-4	Mutsuki Ship	121	1665	L	320	CL	IJN
+13-4	Isuzu Ship	121	2860	L	320	DD	IJN
+13-4	Isokaze	121	9500	L	200	AR	NULL
+13-4	Repair Ship A	121	20080	L	360	DD	IJN
+13-4	Yukikaze	121	10860	L	540	CA	IJN
+13-4	Maya	121	17520	M	465	CL	IJN
+13-4	Agano	121	14420	L	215	CL	IJN
+13-4	Sendai Ship	121	3020	L	205	DD	IJN
+13-4	Mutsuki Ship	121	1665	L	450	NULL	NULL
+13-4	Anti-Air Ship	121	7400	M	585	CL	IJN
+13-4	Isuzu	121	13430	L	320	DD	IJN
+13-4	Mikazuki	121	8540	L	320	DD	IJN
+13-4	Minazuki	121	8540	L	215	CL	IJN
+13-4	Nagara Ship	121	2720	L	320	DD	IJN
+13-4	Yuugure	121	9180	L	320	DD	IJN
+13-4	Shiranui	121	9500	L	320	DD	IJN
+13-4	Kagerou	121	9500	L	345	CA	IJN
+13-4	Nachi	121	16250	M	320	DD	IJN
+13-4	Nowaki	121	10220	L	450	CA	IJN
+13-4	Takao	121	17520	M	300	CA	IJN
+13-4	Aoba	121	15920	M	195	CA	IJN
+13-4	Takao Ship	121	5240	M	205	DD	IJN
+13-4	Yugumo Ship	121	1765	L	420	BC	IJN
+13-4	Kongou	121	23720	M	350	NULL	NULL
+13-4	Command Ship	121	31860	H	480	BB	IJN
+13-4	Mutsu	121	26460	H	540	CVL	IJN
+13-4	Junyou	121	21040	M	450	CA	IJN
+13-4	Atago	121	17520	M	540	CVL	IJN
+13-4	Hiyou	121	21040	M	215	CL	IJN
+13-4	Sendai Ship	121	3020	L	0	SS	NULL
+13-4	Suicide Ship	121	806	L	320	DD	IJN
+13-4	Oyashio	121	8860	L	0	GS	NULL
+13-4	Gold Ship	121	2040	L	420	BC	IJN
+13-4	Haruna	121	23720	M	0	SS	NULL
+13-4	Suicide Ship	121	806	L			
