@@ -116,6 +116,7 @@ public class WepTypes {
 			break;
 		case 5:
 			theWep = "CL/AA";
+			break;
 		default:
 			break;
 		}
@@ -222,6 +223,7 @@ public class WepTypes {
 		switch (wepnum) {
 		case 0:
 			theWep = "BB";
+			break;
 		default:
 			break;
 		}
@@ -233,6 +235,7 @@ public class WepTypes {
 		switch (wepnum) {
 		case 0:
 			theWep = "SEAPLANE";
+			break;
 		default:
 			break;
 		}
