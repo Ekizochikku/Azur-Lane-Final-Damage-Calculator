@@ -223,6 +223,7 @@ public class GUIutil {
 	 */
 	public String checkSlotOneWeps(String shipType, int wepnum) {
 		String slottedWep = "";
+		System.out.println("The ship type is:" + shipType);
 		switch (shipType) {
 		case "CL":
 			slottedWep = wepTypes.lightCruiserOne(wepnum);
@@ -247,6 +248,7 @@ public class GUIutil {
 			break;
 		case "DD":
 			slottedWep = wepTypes.destroyerOfWorlds(wepnum);
+			break;
 		case "SUB":
 			slottedWep = wepTypes.subOneAndTwo(wepnum);
 		default:
@@ -284,6 +286,7 @@ public class GUIutil {
 			break;
 		case "DD":
 			slottedWep = wepTypes.heavyCruiserTwo(wepnum);	
+			break;
 		case "SUB":
 			slottedWep = wepTypes.subOneAndTwo(wepnum);
 		default:
