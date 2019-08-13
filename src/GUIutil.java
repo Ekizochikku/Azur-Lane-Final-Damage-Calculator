@@ -28,6 +28,8 @@ public class GUIutil {
 	/*
 	 * Determines which ship file needs to be opened and read.
 	 * Returns a list that contains all ships of a certain ship type.
+	 * @param shipType 
+	 * @return shipList
 	 */
 	public ArrayList<String> getShipList(String shiptype) throws FileNotFoundException, IOException {
 		String shipFile = checkShipFile(shiptype);
@@ -39,6 +41,8 @@ public class GUIutil {
 	/*
 	 * Determines which weapon file needs to be opened and read.
 	 * Returns a list that contains all weapons of a certain weapon type.
+	 * @param weptype
+	 * @return wepList
 	 */
 	public ArrayList<String> getWeaponList(String weptype) throws FileNotFoundException, IOException {
 		String wepFile = checkWepFile(weptype);
@@ -50,6 +54,8 @@ public class GUIutil {
 	/*
 	 * Check which file needs to be opened for ships.
 	 * Returns a string containing the name of the file.
+	 * @param shiptype
+	 * @return shipFile
 	 */
 	public String checkShipFile(String shiptype) {
 		String shipFile = "";
@@ -97,6 +103,8 @@ public class GUIutil {
 	 * Checks which weapon file to open.
 	 * Returns a string containing the name of the file.
 	 * AA file has nothing, for exceptions
+	 * @param weptype
+	 * @return wepFile
 	 */
 	public String checkWepFile(String weptype) {
 		String wepFile = "";
@@ -136,6 +144,9 @@ public class GUIutil {
 	
 	/*
 	 * Returns a ship's lvl 120 parameters
+	 * @param shiptype
+	 * @param shipname
+	 * @return theParams
 	 */
 	public ArrayList<String> getShipParams(String shiptype, String shipname) throws FileNotFoundException, IOException {
 		ArrayList<String> theParams = new ArrayList<String>();
@@ -160,6 +171,7 @@ public class GUIutil {
 	 * Will cause errors on certain ship types easy to fix but right now i'm lazy
 	 * Can change to make it better by changing the third parameter to the name of the parameter you want but again i'm lazy right now
 	 * @param weaponSlot always either 4 or 5 to get the weaponNum
+	 * @return theParams;
 	 */
 	public String getGetSpecificWeaponParam(String shiptype, String shipname, int weaponSlot) throws FileNotFoundException, IOException {
 		String theParams = "";
@@ -182,6 +194,9 @@ public class GUIutil {
 	}
 	/*
 	 * Returns a weapon's parameters
+	 * @param weptype
+	 * @param wepname
+	 * @return theParams
 	 */
 	public ArrayList<String> getWepParams(String weptype, String wepname) throws FileNotFoundException, IOException {
 		ArrayList<String> theParams = new ArrayList<String>();
@@ -203,6 +218,10 @@ public class GUIutil {
 	
 	/*
 	 * Check a ships weapon slots and see which weapons can be used
+	 * @param shipType
+	 * @param slot
+	 * @param wepnum
+	 * @return theWep
 	 */
 	public String checkWeaponSlot(String shipType, int slot, int wepnum) {
 		String theWep = "";
@@ -221,6 +240,9 @@ public class GUIutil {
 	/*
 	 * Check the ship type before checking the wepnum for first slot weapons
 	 * ADD CARRIERS LATER
+	 * @param shipType
+	 * @param wepnum
+	 * @reutnr slottedWep
 	 */
 	public String checkSlotOneWeps(String shipType, int wepnum) {
 		String slottedWep = "";
@@ -260,6 +282,9 @@ public class GUIutil {
 	
 	/*
 	 * Check the ship type before checking the wepnum for second slot weapons
+	 * @param shipType
+	 * @param wepnum
+	 * @return slottedWep
 	 */
 	public String checkSlotTwoWeps(String shipType, int wepnum) {
 		String slottedWep = "";
@@ -308,6 +333,8 @@ public class GUIutil {
 	
 	/*
 	 * Returns an array list containing the names of ships/weapons
+	 * @param theFile
+	 * @return theList
 	 */
 	public ArrayList<String> getEntityNames(String theFile) throws FileNotFoundException, IOException {
 		ArrayList<String> theList = new ArrayList<String>();
@@ -323,6 +350,7 @@ public class GUIutil {
 	
 	/*
 	 * Returns the name of skills in an array.
+	 * @return theSkills
 	 */
 	public ArrayList<String> getSkillNames() throws FileNotFoundException, IOException {
 		ArrayList<String> theSkills = new ArrayList<String>();
@@ -338,6 +366,7 @@ public class GUIutil {
 	/* Returns whatever field you want from whatever file
 	 * this can also replace the top and definetly the two bottom methods (with a boolean) as they're almost the same 
 	 * to avoid code redundancy but fuck it, this ain't school.
+	 * 
 	 */
 	public ArrayList<String> getSpecificFileAndElement(String theFileName, Integer theElement) throws FileNotFoundException, IOException {
 		ArrayList<String> theSkills = new ArrayList<String>();
@@ -400,7 +429,7 @@ public class GUIutil {
 		Writer overWriteVariables = new FileWriter("PersistentVariables.txt", false);
 		overWriteVariables.write("popUpMSG=false;");
 		overWriteVariables.close();
-		
+		br.close();
 		
 		return willPopUp;
 	}
@@ -422,6 +451,7 @@ public class GUIutil {
 		text.setEditable(false);
 		text.setCaretPosition(0);
 		JScrollPane versionText = new JScrollPane(text);
+		br.close();
 		return versionText;
 	}
 	
@@ -453,6 +483,7 @@ public class GUIutil {
 	
 	/*
 	 * Returns the description of a skill.
+	 * METHOD FOR DELETETION
 	 */
 	public String getSkillDescription(String skillName) throws FileNotFoundException, IOException {
 		String skillDesc = "";
@@ -470,6 +501,7 @@ public class GUIutil {
 	
 	/*
 	 * Returns the ships that use said skill.
+	 * METHOD FOR DELETETION
 	 */
 	public String getSkillUsers(String skillName) throws FileNotFoundException, IOException {
 		String skillDesc = "";
