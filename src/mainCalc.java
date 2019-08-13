@@ -612,9 +612,9 @@ public class mainCalc extends JFrame {
 				currentSkills.add((String) skillList.getSelectedItem());
 				//if statement for the nodes killed and armor break stuff
 				//don't know if working yet as alabama not on the list
-					if(( ((String)skillList.getSelectedItem()).equals("Just Gettin' Fired Up")) 
+					if(( ((String)skillList.getSelectedItem()).equals("Final AP Drive")) 
 							&& currentShipName != null &&
-							(currentShipName.equals("Alabama"))) {
+							(currentShipName.equals("Baltimore"))) {
 						System.out.println("entered correctly!");
 						nodesKilledTextField.setEnabled(true);
 						nodeKilledLabel.setEnabled(true);
