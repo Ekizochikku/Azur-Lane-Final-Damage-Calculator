@@ -435,7 +435,7 @@ public class GUIutil {
 	 */
 	public void addWorldNum(JComboBox<String> theWorldBox) {
 		String theWorld = null;
-		for (int i = 1; i <= 2; i++) {
+		for (int i = 1; i <= 13; i++) {
 			for(int d = 1; d <= 4; d++) {
 				theWorld = (i+"-"+d);
 				theWorldBox.addItem(theWorld);
