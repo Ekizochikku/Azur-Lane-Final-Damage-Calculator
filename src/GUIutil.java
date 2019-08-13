@@ -19,7 +19,8 @@ import javax.swing.JTextArea;
 
 /*
  * @author Brian Khang (Ekizochikku)
- * Methods for the GUI to call. 
+ * Methods for the GUI to call. Can range from methods that decides what file to open to 
+ * obtaining the parameters in the files to store in a list.
  */
 public class GUIutil {
 		
@@ -482,6 +483,25 @@ public class GUIutil {
 		}
 		br.close();
 		return skillDesc;
+	}
+	
+	public String getSkillDescOrUser(String skillName, String choice) throws FileNotFoundException, IOException {
+		String holding = "";
+		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
+		String line = br.readLine();
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split("	");
+			if (fields[0].equals(skillName)) {
+				if (choice.equals("DESC")) {
+					holding = fields[1];
+				} else {
+					holding = fields[2];
+				}
+				
+			}
+		}
+		br.close();
+		return holding;
 	}
 	
 	/*
