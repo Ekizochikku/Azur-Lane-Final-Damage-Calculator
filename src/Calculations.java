@@ -47,7 +47,7 @@ public class Calculations {
 	 * @throws IOException
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom) throws FileNotFoundException, IOException {
+			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom, boolean armorBreak) throws FileNotFoundException, IOException {
 		//If statement to avoid index out of bounds if one of the weapon slots is empty
 		double finalDmg = 0;
 		if (!wepName.isEmpty() && wepName != null) {
@@ -107,7 +107,7 @@ public class Calculations {
 			injRatStat = getInjureRatio();
 			
 			// Damage Ratio
-			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd, ep);
+			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd, ep, armorBreak);
 			
 			// Damage to Nation
 			dmgNatStat = getDamageToNation(ep);
@@ -359,9 +359,9 @@ public class Calculations {
 	/*
 	 * Returns a double of the bonus damage from injure ratio from skills.
 	 */
-	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd, ArrayList<String> ep) throws FileNotFoundException, IOException {
+	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd, ArrayList<String> ep, boolean armorBreak) throws FileNotFoundException, IOException {
 		double ratio = 0;
-		boolean ab = true;
+		boolean ab = armorBreak;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
 			holding = gt.getSkillParameters(skillList.get(i));

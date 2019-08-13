@@ -556,10 +556,10 @@ public class mainCalc extends JFrame {
 						//System.out.println(nodesKilledTextField.getValue());
 						
 						Double finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2);
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak);
 						
 						Double finalMinDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0);
+								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak);
 						
 						System.out.println("The final damage Slot 2 = " + finalMaxDamageSlot2 );
 						String displayDamageSlot2 = Double.toString(finalMaxDamageSlot2);
