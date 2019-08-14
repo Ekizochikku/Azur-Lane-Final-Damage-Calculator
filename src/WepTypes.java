@@ -1,11 +1,7 @@
 /*
  * @author Brian Khang (Ekizochikku)
  * Class to hold cases for what weapons a ship will use in a slot
- * WILL ADD CARRIERS LATER!
- *
- *
- *REMEMBER TO INCLUDE ALL THE CASES BRIAN >:( - Kevin
- */
+*/
 public class WepTypes {
 
 	/*
@@ -347,8 +343,71 @@ public class WepTypes {
 		return "DD";
 	}
 	
-/*
- * CARRIERS METHODS GO HERE
- */
+	/*
+	 * Check what weapons can be used on light/normal aircraft carriers in their first and second slots
+	 * @param wepnum
+	 * @return theWep
+	 */
+	public String carriersOneAndTwo(int wepnum) {
+		String theWep = "";
+		switch (wepnum) {
+		case 0:
+			theWep = "FIGHTERP";
+			break;
+		case 1:
+			theWep = "BOMBERP";
+			break;
+		case 2:
+			theWep = "TORPEDOP";
+			break;
+		case 3:
+			theWep = "SEAPLANE";
+			break;
+		case 4:
+			theWep = "AA";
+			break;
+		case 5:
+			theWep = "CL";
+			break;
+		default:
+			break;
+		}
+		return theWep;
+	}
+	
+	/*
+	 * Check what weapons can be used on light/normal aircraft carriers in their third slot
+	 * @param wepnum
+	 * @return theWep
+	 */
+	public String carriersThree(int wepnum) {
+		String theWep = "";
+		switch (wepnum) {
+		case 0:
+			theWep = "FIGHTERP";
+			break;
+		case 1:
+			theWep = "BOMBERP";
+			break;
+		case 2:
+			theWep = "TORPEDOP";
+			break;
+		case 3:
+			theWep = "SEAPLANE";
+			break;
+		case 4:
+			theWep = "AA";
+			break;
+		case 5:
+			theWep = "CL";
+			break;
+		case 6:
+			theWep = "BOMBERP/CL";
+			break;
+		default:
+			break;
+		}
+		return theWep;
+	}
 	
 }

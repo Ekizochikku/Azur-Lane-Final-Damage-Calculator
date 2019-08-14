@@ -1,0 +1,31 @@
+NAME	AVIATION	BOMBONEDMG	ONETOL	ONETOM	ONETOH	BOMBTWODMG	TWOTOL	TWOTOM	TWOTOH	TORPEDODMG	TORPTOL	TORPTOM	TORPTOH
+Brewster F2A Buffalo T2	5	0	0	0	0	0	0	0	0	0	0	0	0
+Brewster F2A Buffalo T3	12	0	0	0	0	0	0	0	0	0	0	0	0
+Brewster F2A Buffalo (Thach Squadron) T0	45	0	0	0	0	0	0	0	0	0	0	0	0
+Gloster Sea Gladiator T2	5	0	0	0	0	0	0	0	0	0	0	0	0
+Gloster Sea Gladiator T3	12	0	0	0	0	0	0	0	0	0	0	0	0
+Grumman F4F Wildcat T2	12	0	0	0	0	0	0	0	0	0	0	0	0
+Grumman F4F Wildcat T3	25	0	0	0	0	0	0	0	0	0	0	0	0
+Grumman F6F Hellcat T2	25	330	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Grumman F6F Hellcat T3	45	360	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Grumman XF5F Skyrocket T0	25	0	0	0	0	0	0	0	0	0	0	0	0
+Hawker Sea Fury T0	45	360	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Messerschmitt BF-109T T2	12	0	0	0	0	0	0	0	0	0	0	0	0
+Messerschmitt BF-109T T3	25	0	0	0	0	0	0	0	0	0	0	0	0
+Messerschmitt Me-155A T2	25	0	0	0	0	0	0	0	0	0	0	0	0
+Messerschmitt Me-155A T3	45	0	0	0	0	0	0	0	0	0	0	0	0
+Mitsubishi A5M Type 96 T2	5	0	0	0	0	0	0	0	0	0	0	0	0
+Mitsubishi A5M Type 96 T3	12	0	0	0	0	0	0	0	0	0	0	0	0
+Mitsubishi A6M2 Zero T2	12	159	0.8	0.85	1	0	0	0	0	0	0	0	0
+Mitsubishi A6M2 Zero T3	25	173	0.8	0.85	1	0	0	0	0	0	0	0	0
+Mitsubishi A6M5 Zero T2	25	159	0.8	0.85	1	0	0	0	0	0	0	0	0
+Mitsubishi A6M5 Zero T3	45	173	0.8	0.85	1	0	0	0	0	0	0	0	0
+Mitsubishi A7M Reppuu T2	25	330	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Mitsubishi A7M Reppuu T3	45	360	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Supermarine Seafang T2	25	330	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Supermarine Seafang T3	45	360	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Supermarine Seafire T2	12	330	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Supermarine Seafire T3	25	360	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Vought F4U Corsair T2	12	330	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Vought F4U Corsair T3	25	360	0.8	0.9	1.1	0	0	0	0	0	0	0	0
+Vought F4U Corsair (VF-17 Squadron) T0	45	360	0.8	0.9	1.1	0	0	0	0	0	0	0	0

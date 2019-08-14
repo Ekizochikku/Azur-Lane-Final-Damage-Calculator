@@ -127,14 +127,23 @@ public class GUIutil {
 			case "AAGUNS":
 				wepFile = "./Weapons/GunTypeExceptions.csv";
 				break;
-			case "SEAPLANE":
-				wepFile = "./Weapons/GunTypeExceptions.csv";
-				break;
 			case "TORPEDOS":
 				wepFile = "./Weapons/Torpedos.tsv";
 				break;
 			case "SUBTORPEDOS":
 				wepFile = "./Weapons/Submarine Torpedos.tsv";
+				break;
+			case "FIGHTERP":
+				wepFile = "./Weapons/Fighter Planes.tsv";
+				break;
+			case "BOMBERP":
+				wepFile = "./Weapons/Dive Bombers.tsv";
+				break;
+			case "TORPEDOP":
+				wepFile = "./Weapons/Torpedo Bombers.tsv";
+				break;
+			case "SEAPLANE":
+				wepFile = "./Weapons/Seaplanes.tsv";
 				break;
 			default:
 				break;
@@ -229,8 +238,8 @@ public class GUIutil {
 			theWep = checkSlotOneWeps(shipType, wepnum);
 		} else if (slot == 2) {
 			theWep = checkSlotTwoWeps(shipType, wepnum);
-//		} else if (slot == 3) {
-//			theWep = checkSlotThreeWeps(shipType, wepnum);
+		} else if (slot == 3) {
+			theWep = checkSlotThreeWeps(shipType, wepnum);
 		} else {
 			return null;
 		}
@@ -274,6 +283,13 @@ public class GUIutil {
 			break;
 		case "SUB":
 			slottedWep = wepTypes.subOneAndTwo(wepnum);
+			break;
+		case "CVL":
+			slottedWep = wepTypes.carriersOneAndTwo(wepnum);
+			break;
+		case "CV":
+			slottedWep = wepTypes.carriersOneAndTwo(wepnum);
+			break;
 		default:
 			break;
 		}
@@ -315,6 +331,13 @@ public class GUIutil {
 			break;
 		case "SUB":
 			slottedWep = wepTypes.subOneAndTwo(wepnum);
+			break;
+		case "CVL":
+			slottedWep = wepTypes.carriersOneAndTwo(wepnum);
+			break;
+		case "CV":
+			slottedWep = wepTypes.carriersOneAndTwo(wepnum);
+			break;
 		default:
 			break;
 		}
@@ -322,13 +345,27 @@ public class GUIutil {
 		return slottedWep;
 	}
 
-//	/*
-//	 * Check the ship type before checking the wepnum for third slot weapons.
-//	 * USED FOR CARRIERS AND SUBS
-//	 */
-//	public String checkSlotThreeWeps(String shipType, int wepnum) {
-//		
-//	}
+	/*
+	 * Check the ship type before checking the wepnum for third slot weapons.
+	 * USED FOR CARRIERS
+	 * @param shipType
+	 * @param wepNum
+	 * @return slottedWep
+	 */
+	public String checkSlotThreeWeps(String shipType, int wepnum) {
+		String slottedWep = "";
+		switch (shipType) {
+		case "CVL":
+			slottedWep = wepTypes.carriersThree(wepnum);
+			break;
+		case "CV":
+			slottedWep = wepTypes.carriersThree(wepnum);
+			break;
+		default:
+			break;
+		}
+		return slottedWep;
+	}
 	
 	
 	/*
@@ -517,6 +554,12 @@ public class GUIutil {
 		return skillDesc;
 	}
 	
+	/*
+	 * Combines old methods of getting skills description and users
+	 * @param skillName
+	 * @param choice
+	 * @return holding
+	 */
 	public String getSkillDescOrUser(String skillName, String choice) throws FileNotFoundException, IOException {
 		String holding = "";
 		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
