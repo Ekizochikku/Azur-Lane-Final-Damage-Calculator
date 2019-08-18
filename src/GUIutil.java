@@ -646,7 +646,7 @@ public class GUIutil {
 	/*
 	 * Returns the parameters of a enemy
 	 */
-	public ArrayList<String> getEnemyParameters(String enemy, String world) throws FileNotFoundException, IOException{
+	public static ArrayList<String> getEnemyParameters(String enemy, String world) throws FileNotFoundException, IOException{
 		//Adding in print statements to debug
 		//System.out.println("In the enemy parameters method:  "+ enemy + " " + world);
 		ArrayList<String> theParams = new ArrayList<String>();
