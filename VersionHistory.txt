@@ -1,3 +1,5 @@
+8/21/19
+- Added Carriers + associated attributes (bomb drop grid)
 8/2/19
 - Added Nodes Killed and Armor Break 
 7/22/19 
