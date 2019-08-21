@@ -162,6 +162,21 @@ public class mainCalc extends JFrame {
 	private JTextField healthTextField;
 	private JTextField AntiairTextField;
 	private JTextField nationTextField;
+	private JLabel lblBombsDropped1;
+	private JLabel lblBombsDropped2;
+	private JLabel lblTorpedosDropped;
+	private JTextField textFieldP1B1;
+	private JTextField textFieldP1B2;
+	private JTextField textFieldP1T;
+	private JTextField textFieldP2B1;
+	private JTextField textFieldP2B2;
+	private JTextField textFieldP2T;
+	private JTextField textFieldP3B1;
+	private JTextField textFieldP3B2;
+	private JTextField textFieldP3T;
+	private JLabel lblPlane1;
+	private JLabel lblPlane2;
+	private JLabel lblPlane3;
 
 	/**
 	 * Launch the application.
@@ -172,6 +187,8 @@ public class mainCalc extends JFrame {
 				try {
 					mainCalc frame = new mainCalc();
 					frame.setVisible(true);
+					//to prevent elements moving out of p
+					frame.setResizable(false);
 					boolean popUp = GUIutil.readPersistentVariables(0);
 					if(popUp) {
 						JScrollPane versionUpdate = GUIutil.overWritePopUpWithVersionHistory();
@@ -235,7 +252,7 @@ public class mainCalc extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1250, 600);
+		setBounds(100, 100, 1250, 703);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setName("Azur Lane By David Blaine");
@@ -243,7 +260,7 @@ public class mainCalc extends JFrame {
 		//We're going to need to change these labels later into the actual names. 
 		//Currently cruisers only for now to avoid errors
 		guiUtil = new GUIutil();
-		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "SUB"};
+		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "SUB", "CV"};
 		shipTypeCBox = new JComboBox<Object>(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
 		shipTypeCBox.setSelectedIndex(0);
@@ -258,6 +275,11 @@ public class mainCalc extends JFrame {
 				calculateButton.setEnabled(false);
 				try {
 					currentShipType = (String) shipTypeCBox.getSelectedItem();
+					if(currentShipType == "CV") {
+						threeBythreeSwitch(true);
+					} else {
+						threeBythreeSwitch(false);
+					}
 					GUIutil.insertNames(shipName, true, currentShipType);
 					currentShipName = (String) shipName.getSelectedItem();
 					if(currentShipName != "") {
@@ -761,8 +783,20 @@ public class mainCalc extends JFrame {
 		JLabel lblSkillDescription = new JLabel("Skill Description:");
 		JLabel lblSkillUsers = new JLabel("Skill Users:");
 		JLabel lblActiveSkills = new JLabel("Active Skills:");
+		JLabel lblArmor = new JLabel("Armor:");
+		JLabel healthTextFieldLabel = new JLabel("Health:");
+		JLabel lblAntiAir = new JLabel("Anti Air:");
+		JLabel lblEnemyShipType = new JLabel("Type:");
+		JLabel lblNation = new JLabel("Nation:");
 		
-
+		lblBombsDropped1 = new JLabel("Bombs 1 Dropped:");
+		lblBombsDropped2 = new JLabel("Bombs 2 Dropped:");
+		lblTorpedosDropped = new JLabel("Torpedos Dropped:");
+		
+		lblPlane1 = new JLabel("Plane 1");
+		lblPlane2 = new JLabel("Plane 2");
+		lblPlane3 = new JLabel("Plane 3");
+				
 		isArmorBroken = new JCheckBox("Armor Broken");
 		isArmorBroken.setEnabled(false);
 		isArmorBroken.addActionListener(new ActionListener() {
@@ -808,289 +842,360 @@ public class mainCalc extends JFrame {
 		nodeKilledLabel = new JLabel("Nodes Killed:");
 		nodeKilledLabel.setEnabled(false);
 		
-		JLabel lblArmor = new JLabel("Armor:");
-		
-		JLabel healthTextFieldLabel = new JLabel("Health:");
-		
-		JLabel lblAntiAir = new JLabel("Anti Air:");
-		
-		JLabel lblEnemyShipType = new JLabel("Type:");
-		
-		JLabel lblNation = new JLabel("Nation:");
-		
+		//The 3x3 Chart
+		//redundant code that was made by window builder not me 
+		//will put them in a method and all in array to make them nicer later
 		armorTextField = new JTextField();
-		armorTextField.setEditable(false);
 		armorTextField.setBackground(SystemColor.controlHighlight);
+		armorTextField.setEditable(false);
 		armorTextField.setColumns(10);
 		
 		typeTextField = new JTextField();
-		typeTextField.setEditable(false);
 		typeTextField.setColumns(10);
+		typeTextField.setEditable(false);
 		typeTextField.setBackground(SystemColor.controlHighlight);
 		
 		healthTextField = new JTextField();
-		healthTextField.setEditable(false);
 		healthTextField.setColumns(10);
+		healthTextField.setEditable(false);
 		healthTextField.setBackground(SystemColor.controlHighlight);
 		
 		AntiairTextField = new JTextField();
-		AntiairTextField.setEditable(false);
 		AntiairTextField.setColumns(10);
+		AntiairTextField.setEditable(false);
 		AntiairTextField.setBackground(SystemColor.controlHighlight);
 		
 		nationTextField = new JTextField();
-		nationTextField.setEditable(false);
 		nationTextField.setColumns(10);
+		nationTextField.setEditable(false);
 		nationTextField.setBackground(SystemColor.controlHighlight);
+		
+		textFieldP1B1 = new JFormattedTextField(formatter);
+		textFieldP1B1.setColumns(10);
+		
+		textFieldP1B2 = new JFormattedTextField(formatter);
+		textFieldP1B2.setColumns(10);
+		
+		textFieldP1T = new JFormattedTextField(formatter);
+		textFieldP1T.setColumns(10);
+		
+		textFieldP2B1 = new JFormattedTextField(formatter);
+		textFieldP2B1.setColumns(10);
+		
+		textFieldP2B2 = new JFormattedTextField(formatter);
+		textFieldP2B2.setColumns(10);
+		
+		textFieldP2T = new JFormattedTextField(formatter);
+		textFieldP2T.setColumns(10);
+		
+		textFieldP3B1 = new JFormattedTextField(formatter);
+		textFieldP3B1.setColumns(10);
+		
+		textFieldP3B2 = new JFormattedTextField(formatter);
+		textFieldP3B2.setColumns(10);
+		
+		textFieldP3T = new JFormattedTextField(formatter);
+		textFieldP3T.setColumns(10);
+		threeBythreeSwitch(false);
+		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addContainerGap()
+					.addGap(4)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(shipTypeLbl)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGap(4)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(shipTypeLbl)
+										.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+											.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+											.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+										.addComponent(lblGunTypeSlot)
+										.addComponent(lblGunTypeSlot_1))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblGunNameSlot_1)
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_contentPane.createSequentialGroup()
-													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-														.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-															.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-															.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
-														.addComponent(lblGunTypeSlot)
-														.addComponent(lblGunTypeSlot_1))
-													.addPreferredGap(ComponentPlacement.RELATED)
-													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblGunNameSlot_1)
-														.addGroup(gl_contentPane.createSequentialGroup()
-															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-																	.addComponent(shipName, 0, 148, Short.MAX_VALUE)
-																	.addComponent(weaponNamesSlot1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																	.addComponent(weaponSlot2, 0, 148, Short.MAX_VALUE))
-																.addComponent(shipNameLbl)
-																.addComponent(lblGunNameSlot))
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblDangerLevel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-																.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
-																.addComponent(lblChapter)
-																.addGroup(gl_contentPane.createSequentialGroup()
-																	.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
-																	.addGap(9)))))
-													.addPreferredGap(ComponentPlacement.RELATED)
-													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(healthTextFieldLabel)
-														.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-															.addComponent(healthTextField, GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-															.addComponent(lblEnemyName)
-															.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-															.addGroup(gl_contentPane.createSequentialGroup()
-																.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-																		.addComponent(armorTextField, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
-																		.addGroup(gl_contentPane.createSequentialGroup()
-																			.addPreferredGap(ComponentPlacement.RELATED)
-																			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																				.addComponent(lblEnemyShipType)
-																				.addComponent(typeTextField, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))))
-																	.addComponent(lblArmor))
-																.addPreferredGap(ComponentPlacement.UNRELATED)
-																.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																	.addComponent(lblNation)
-																	.addComponent(lblAntiAir)
-																	.addComponent(AntiairTextField, GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
-																	.addComponent(nationTextField, GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))))))
-												.addGroup(gl_contentPane.createSequentialGroup()
-													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addGroup(gl_contentPane.createSequentialGroup()
-															.addComponent(buttonHE)
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(buttonAP)
-															.addGap(18)
-															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																.addComponent(isCritical)
-																.addGroup(gl_contentPane.createSequentialGroup()
-																	.addComponent(evenRadioButton)
-																	.addPreferredGap(ComponentPlacement.RELATED)
-																	.addComponent(oddRadioButton))
-																.addComponent(isArmorBroken)))
-														.addComponent(lblAmmoType)
-														.addGroup(gl_contentPane.createSequentialGroup()
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(nodeKilledLabel)
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)))
-													.addGap(112)
-													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(slot2Pane, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-														.addComponent(slot1Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
-														.addComponent(lblGunTypeSlot_2)
-														.addComponent(lblGunTypeSlot_3))))
-											.addGap(95)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+													.addComponent(shipName, 0, 148, Short.MAX_VALUE)
+													.addComponent(weaponNamesSlot1, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+													.addComponent(weaponSlot2, 0, 148, Short.MAX_VALUE))
+												.addComponent(shipNameLbl)
+												.addComponent(lblGunNameSlot))
+											.addPreferredGap(ComponentPlacement.RELATED)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(descScrollPane, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-												.addComponent(lblSkillDescription)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+												.addComponent(lblDangerLevel, GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+												.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+												.addComponent(lblChapter)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
+													.addGap(9)))))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(healthTextFieldLabel)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+											.addComponent(healthTextField, GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
+											.addComponent(lblEnemyName)
+											.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+														.addComponent(armorTextField, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+														.addComponent(typeTextField, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE))
+													.addComponent(lblArmor)
+													.addComponent(lblEnemyShipType))
+												.addPreferredGap(ComponentPlacement.UNRELATED)
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 													.addGroup(gl_contentPane.createSequentialGroup()
-														.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblActiveSkills)
-																.addComponent(activeSkillScrollPane, GroupLayout.PREFERRED_SIZE, 318, GroupLayout.PREFERRED_SIZE))
-															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-																.addComponent(lblSkillUsers)
-																.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 312, GroupLayout.PREFERRED_SIZE)))
+														.addComponent(nationTextField, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
 														.addPreferredGap(ComponentPlacement.RELATED))
-													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-														.addComponent(lblSkillList)
-														.addGroup(gl_contentPane.createSequentialGroup()
-															.addComponent(skillList, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
-															.addPreferredGap(ComponentPlacement.RELATED)
-															.addComponent(addSkill))))))))
+													.addGroup(gl_contentPane.createSequentialGroup()
+														.addComponent(lblNation)
+														.addPreferredGap(ComponentPlacement.RELATED))
+													.addComponent(lblAntiAir)
+													.addComponent(AntiairTextField, GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))))))
 								.addGroup(gl_contentPane.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblAmmoType)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+													.addComponent(isFirstSalvo)
+													.addComponent(isManual)
+													.addComponent(nodeKilledLabel))
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+													.addGroup(gl_contentPane.createSequentialGroup()
+														.addGap(18)
+														.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+															.addComponent(isArmorBroken, GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+															.addComponent(isCritical)))
+													.addGroup(gl_contentPane.createSequentialGroup()
+														.addGap(18)
+														.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)))
+												.addPreferredGap(ComponentPlacement.RELATED))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(buttonHE)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(buttonAP)
+												.addPreferredGap(ComponentPlacement.UNRELATED)
+												.addComponent(evenRadioButton)
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(oddRadioButton))))
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addGap(163)
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(lblGunTypeSlot_2)
+												.addComponent(slot1Pane, GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+												.addComponent(lblGunTypeSlot_3)
+												.addComponent(slot2Pane, GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE))
+											.addPreferredGap(ComponentPlacement.RELATED))
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addPreferredGap(ComponentPlacement.RELATED)
+											.addComponent(calculateButton)
+											.addGap(76))))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(42)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(lblTorpedosDropped)
+										.addComponent(lblBombsDropped2)
+										.addComponent(lblBombsDropped1))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(textFieldP1T, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+										.addComponent(textFieldP1B2, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+										.addComponent(lblPlane1, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+										.addComponent(textFieldP1B1, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblPlane2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(textFieldP2B1, 0, 0, Short.MAX_VALUE)
+										.addComponent(textFieldP2B2, 0, 0, Short.MAX_VALUE)
+										.addComponent(textFieldP2T, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+									.addGap(18)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(lblPlane3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(textFieldP3B1, 0, 0, Short.MAX_VALUE)
+										.addComponent(textFieldP3B2, 0, 0, Short.MAX_VALUE)
+										.addComponent(textFieldP3T, 0, 0, Short.MAX_VALUE))
+									.addGap(312)))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(143)
 									.addComponent(btnRemoveAll)
 									.addGap(18)
-									.addComponent(removeButton)
-									.addGap(69)))
-							.addGap(314)
-							.addComponent(equipScrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(395)
-							.addComponent(calculateButton))
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-							.addComponent(isManual, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-							.addComponent(isFirstSalvo, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-					.addGap(0))
+									.addComponent(removeButton))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(95)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(descScrollPane, GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+										.addComponent(lblSkillDescription)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+													.addComponent(lblActiveSkills)
+													.addComponent(activeSkillScrollPane, GroupLayout.PREFERRED_SIZE, 318, GroupLayout.PREFERRED_SIZE))
+												.addPreferredGap(ComponentPlacement.RELATED))
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(lblSkillList)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(skillList, GroupLayout.PREFERRED_SIZE, 224, GroupLayout.PREFERRED_SIZE)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(addSkill))))
+										.addComponent(lblSkillUsers)
+										.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 312, GroupLayout.PREFERRED_SIZE))))))
+					.addGap(314)
+					.addComponent(equipScrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(30)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-						.addComponent(shipTypeLbl)
-						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-							.addComponent(lblChapter)
-							.addComponent(lblEnemyName))
-						.addComponent(shipNameLbl)
-						.addComponent(lblSkillList))
-					.addGap(6)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addComponent(addSkill)
-						.addComponent(skillList, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-						.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(30)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+								.addComponent(shipTypeLbl)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+									.addComponent(lblChapter)
+									.addComponent(lblEnemyName))
+								.addComponent(shipNameLbl)
+								.addComponent(lblSkillList))
+							.addGap(6)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(shipTypeCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(shipName, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(addSkill)
+								.addComponent(skillList, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+								.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblGunTypeSlot)
+								.addComponent(lblGunNameSlot)
+								.addComponent(lblSkillDescription)
+								.addComponent(lblDangerLevel)
+								.addComponent(healthTextFieldLabel))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGap(3)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(weaponNamesSlot1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+										.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(healthTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblGunTypeSlot_1)
+										.addComponent(lblGunNameSlot_1)
+										.addComponent(lblAntiAir)
+										.addComponent(lblArmor, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(weaponSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+										.addComponent(AntiairTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(armorTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addPreferredGap(ComponentPlacement.UNRELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(lblEnemyShipType, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblNation))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+										.addComponent(typeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+										.addComponent(nationTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(descScrollPane, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap(222, Short.MAX_VALUE)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblPlane1)
+								.addComponent(lblPlane2)
+								.addComponent(lblPlane3))
+							.addGap(3)))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblGunTypeSlot)
-						.addComponent(lblGunNameSlot)
-						.addComponent(lblSkillDescription)
-						.addComponent(lblDangerLevel)
-						.addComponent(healthTextFieldLabel))
+						.addComponent(textFieldP1B1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(textFieldP2B1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblSkillUsers)
+						.addComponent(lblBombsDropped1)
+						.addComponent(textFieldP3B1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(3)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponNamesSlot1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(healthTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(lblBombsDropped2)
+								.addComponent(textFieldP1B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textFieldP2B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textFieldP3B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(lblTorpedosDropped)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+									.addComponent(textFieldP1T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(textFieldP2T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+									.addComponent(textFieldP3T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+						.addGroup(gl_contentPane.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblGunTypeSlot_1)
-								.addComponent(lblGunNameSlot_1)
-								.addComponent(lblAntiAir)
-								.addComponent(lblArmor, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(AntiairTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(armorTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addPreferredGap(ComponentPlacement.RELATED)
-							.addComponent(descScrollPane, GroupLayout.PREFERRED_SIZE, 61, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
+					.addPreferredGap(ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(18)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(lblSkillUsers)
-								.addComponent(lblNation)))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(18)
-							.addComponent(lblEnemyShipType)))
-					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addComponent(equipScrollPane, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+								.addGap(130))
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGap(22)
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+									.addComponent(lblActiveSkills)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addComponent(lblAmmoType)
+										.addPreferredGap(ComponentPlacement.UNRELATED)))
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addPreferredGap(ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+										.addComponent(activeSkillScrollPane, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
+										.addGap(2)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+											.addComponent(btnRemoveAll)
+											.addComponent(removeButton)))
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+											.addComponent(buttonHE)
+											.addComponent(buttonAP)
+											.addComponent(evenRadioButton)
+											.addComponent(oddRadioButton))
+										.addGap(18)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+											.addComponent(isFirstSalvo)
+											.addComponent(isCritical))
+										.addPreferredGap(ComponentPlacement.UNRELATED)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+											.addComponent(isArmorBroken)
+											.addComponent(isManual))
+										.addGap(18)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+											.addComponent(nodeKilledLabel)
+											.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(6)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(nationTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(typeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(14)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(equipScrollPane, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-									.addGap(130))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-											.addGroup(gl_contentPane.createSequentialGroup()
-												.addGap(22)
-												.addComponent(lblActiveSkills)
-												.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-											.addGroup(gl_contentPane.createSequentialGroup()
-												.addComponent(lblGunTypeSlot_2)
-												.addPreferredGap(ComponentPlacement.UNRELATED)))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(lblAmmoType)
-											.addPreferredGap(ComponentPlacement.RELATED)))
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-										.addComponent(activeSkillScrollPane, GroupLayout.PREFERRED_SIZE, 94, GroupLayout.PREFERRED_SIZE)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-												.addComponent(buttonHE)
-												.addComponent(buttonAP)
-												.addComponent(evenRadioButton)
-												.addComponent(oddRadioButton))
-											.addGap(23)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-												.addComponent(isFirstSalvo)
-												.addComponent(isCritical)))
-										.addComponent(slot1Pane, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-													.addComponent(removeButton)
-													.addComponent(btnRemoveAll))
-												.addGroup(gl_contentPane.createSequentialGroup()
-													.addComponent(lblGunTypeSlot_3)
-													.addPreferredGap(ComponentPlacement.RELATED)
-													.addComponent(slot2Pane, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)))
-											.addPreferredGap(ComponentPlacement.RELATED))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-												.addComponent(isManual)
-												.addComponent(isArmorBroken))
-											.addGap(18)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-												.addComponent(nodeKilledLabel)
-												.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(14)
-							.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
-					.addGap(18)
-					.addComponent(calculateButton)
-					.addGap(120))
+							.addComponent(lblGunTypeSlot_2)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(slot1Pane, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(lblGunTypeSlot_3)
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(slot2Pane, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+							.addGap(18)
+							.addComponent(calculateButton)))
+					.addGap(107))
 		);
 		skillDescriptionBox = new JTextPane();
 		descScrollPane.setViewportView(skillDescriptionBox);
@@ -1110,11 +1215,61 @@ public class mainCalc extends JFrame {
 				updateSkillDescription(1);
 			}
 		});
-		activeSkillScrollPane.setViewportView(activeSkillList);
+		activeSkillScrollPane.setColumnHeaderView(activeSkillList);
 		activeSkillList.setVisibleRowCount(10);
 		contentPane.setLayout(gl_contentPane);
 	}
-	
+	/**
+	 * simple method to sets the 3x3 labels and boxes off or on
+	 * most likely put everything into array so it wont be too long
+	 * @param option
+	 */
+	protected void threeBythreeSwitch(boolean option) {
+		if(option) {
+			lblBombsDropped1.setEnabled(true);
+			lblBombsDropped2.setEnabled(true);
+			lblTorpedosDropped.setEnabled(true);
+			lblPlane1.setEnabled(true);
+			lblPlane2.setEnabled(true);
+			lblPlane3.setEnabled(true);
+			textFieldP3T.setEnabled(true);
+			textFieldP3B2.setEnabled(true);
+			textFieldP3B1.setEnabled(true);
+			textFieldP2T.setEnabled(true);
+			textFieldP2B1.setEnabled(true);
+			textFieldP2B2.setEnabled(true);
+			textFieldP1T.setEnabled(true);
+			textFieldP1B2.setEnabled(true);
+			textFieldP1B1.setEnabled(true);		
+		} else {
+			lblBombsDropped1.setEnabled(false);
+			lblBombsDropped2.setEnabled(false);
+			lblTorpedosDropped.setEnabled(false);
+			lblPlane1.setEnabled(false);
+			lblPlane2.setEnabled(false);
+			lblPlane3.setEnabled(false);
+			textFieldP3T.setEnabled(false);
+			textFieldP3B2.setEnabled(false);
+			textFieldP3B1.setEnabled(false);
+			textFieldP2T.setEnabled(false);
+			textFieldP2B1.setEnabled(false);
+			textFieldP2B2.setEnabled(false);
+			textFieldP1T.setEnabled(false);
+			textFieldP1B2.setEnabled(false);
+			textFieldP1B1.setEnabled(false);	
+			
+			textFieldP3T.setText(null);
+			textFieldP3B2.setText(null);
+			textFieldP3B1.setText(null);
+			textFieldP2T.setText(null);
+			textFieldP2B1.setText(null);
+			textFieldP2B2.setText(null);
+			textFieldP1T.setText(null);
+			textFieldP1B2.setText(null);
+			textFieldP1B1.setText(null);	
+		}
+		
+	}
 	/**
 	 * Method to update the skill description text.
 	 * @author Walter Hanson
