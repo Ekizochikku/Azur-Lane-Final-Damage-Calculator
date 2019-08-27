@@ -754,7 +754,8 @@ public class GUIutil {
 		String weaponType2 = "";
 		//System.out.println("Current word for type list " + compatibleWeapons);
 		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS")) 
-				&& (!(compatibleWeapons.equals("SUBTORPEDOS")))))) {
+				&& (!(compatibleWeapons.equals("SUBTORPEDOS"))&& (!(compatibleWeapons.equals("FIGHTERP"))&& (!(compatibleWeapons.equals("TORPEDOSP"))
+						&& (!(compatibleWeapons.equals("BOMBERP"))&& (!(compatibleWeapons.equals("BOMBERP/CL")))))))))) {
 				
 			for (int i = 0; i <= compatibleWeapons.length() - 1; i++) {
 				if(i < 2) {

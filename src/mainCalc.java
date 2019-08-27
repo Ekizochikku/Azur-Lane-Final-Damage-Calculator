@@ -77,10 +77,10 @@ public class mainCalc extends JFrame {
 	private JComboBox<Object> weaponTypeCBox2;
 	
 	//Allows user to select the weapon for slot 1 on current ship
-	private JComboBox<String> weaponNamesSlot1;
+	private JComboBox<String> weaponNameSlot1;
 	
 	//Allows user to select the weapon for slot 2 on current ship
-	private JComboBox<String> weaponSlot2;
+	private JComboBox<String> weaponNameSlot2;
 	
 	//Allows user to select the current world they are on
 	private JComboBox<String> currentWorldCBox;
@@ -290,16 +290,16 @@ public class mainCalc extends JFrame {
 						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 						
 
-						GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
-						currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
+						GUIutil.insertNames(weaponNameSlot1, false, currentWeaponType);
+						currentWeaponName = (String) weaponNameSlot1.getSelectedItem();
 						
 						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 						
 						
 						
-						GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
-						currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
+						GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
+						currentWeaponNameSlot2 = (String) weaponNameSlot2.getSelectedItem();
 					}
 					//System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -357,11 +357,11 @@ public class mainCalc extends JFrame {
 					try {
 						GUIutil.insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
 						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
-						GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
+						GUIutil.insertNames(weaponNameSlot1, false, currentWeaponType);
 						
 						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
-						GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
+						GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -386,22 +386,22 @@ public class mainCalc extends JFrame {
 				}
 				try {
 					currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
-					GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
-					currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
+					GUIutil.insertNames(weaponNameSlot1, false, currentWeaponType);
+					currentWeaponName = (String) weaponNameSlot1.getSelectedItem();
 //					System.out.println(currentShipName);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		weaponNamesSlot1 = new JComboBox<String>();
-		weaponNamesSlot1.setFont(new Font("Tahoma", Font.BOLD, 10));
+		weaponNameSlot1 = new JComboBox<String>();
+		weaponNameSlot1.setFont(new Font("Tahoma", Font.BOLD, 10));
 		//A second insertNames method for the initial screen
-		GUIutil.insertNames(weaponNamesSlot1, false, currentWeaponType);
-		currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
-		weaponNamesSlot1.addActionListener(new ActionListener() {
+		GUIutil.insertNames(weaponNameSlot1, false, currentWeaponType);
+		currentWeaponName = (String) weaponNameSlot1.getSelectedItem();
+		weaponNameSlot1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				currentWeaponName = (String) weaponNamesSlot1.getSelectedItem();
+				currentWeaponName = (String) weaponNameSlot1.getSelectedItem();
 //				System.out.println(currentShipName);
 				if(!currentShipName.isEmpty()) {
 					calculateButton.setEnabled(true);
@@ -425,22 +425,22 @@ public class mainCalc extends JFrame {
 				}
 				try {
 					currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
-					GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
-					currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
+					GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
+					currentWeaponNameSlot2 = (String) weaponNameSlot2.getSelectedItem();
 //					System.out.println(currentShipName);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 		});
-		weaponSlot2 = new JComboBox<String>();
-		weaponSlot2.setFont(new Font("Tahoma", Font.BOLD, 10));
+		weaponNameSlot2 = new JComboBox<String>();
+		weaponNameSlot2.setFont(new Font("Tahoma", Font.BOLD, 10));
 		//A second insertNames method for the initial screen
-		GUIutil.insertNames(weaponSlot2, false, currentWeaponTypeSlot2);
-		currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
-		weaponSlot2.addActionListener(new ActionListener() {
+		GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
+		currentWeaponNameSlot2 = (String) weaponNameSlot2.getSelectedItem();
+		weaponNameSlot2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				currentWeaponNameSlot2 = (String) weaponSlot2.getSelectedItem();
+				currentWeaponNameSlot2 = (String) weaponNameSlot2.getSelectedItem();
 //				System.out.println(currentShipName);
 				if(!currentShipName.isEmpty()) {
 					calculateButton.setEnabled(true);
@@ -740,8 +740,8 @@ public class mainCalc extends JFrame {
 		});
 		
 		AutoCompletion.enable(shipName);
-		AutoCompletion.enable(weaponNamesSlot1);
-		AutoCompletion.enable(weaponSlot2);
+		AutoCompletion.enable(weaponNameSlot1);
+		AutoCompletion.enable(weaponNameSlot2);
 		
 		evenRadioButton = new JRadioButton("Even");
 		buttonGroup.add(evenRadioButton);
@@ -908,22 +908,22 @@ public class mainCalc extends JFrame {
 		lblNewLabel = new JLabel("Weapon Type Slot 3:");
 		lblNewLabel.setEnabled(false);
 		
-		JComboBox<Object> comboBox = new JComboBox<Object>(new Object[]{});
-		comboBox.setEnabled(false);
+		JComboBox<Object> weaponTypeCBox3 = new JComboBox<Object>(new Object[]{});
+		weaponTypeCBox3.setEnabled(false);
 		
 		JLabel lblWeaponTypeSlot = new JLabel("Weapon Name Slot 3:");
 		lblWeaponTypeSlot.setEnabled(false);
 		
-		JComboBox<String> comboBox_1 = new JComboBox<String>();
-		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		JComboBox<String> weaponNameSlot3 = new JComboBox<String>();
+		weaponNameSlot3.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		
 		lblSlotDamage = new JLabel("Slot 3 Damage Range:");
 		lblSlotDamage.setEnabled(false);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setFont(new Font("Yu Gothic", Font.BOLD, 15));
-		textPane.setEnabled(false);
-		textPane.setEditable(false);
+		JTextPane slot3Pane = new JTextPane();
+		slot3Pane.setFont(new Font("Yu Gothic", Font.BOLD, 15));
+		slot3Pane.setEnabled(false);
+		slot3Pane.setEditable(false);
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -944,7 +944,7 @@ public class mainCalc extends JFrame {
 										.addComponent(lblGunTypeSlot)
 										.addComponent(lblGunTypeSlot_1)
 										.addComponent(lblNewLabel)
-										.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+										.addComponent(weaponTypeCBox3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(lblWeaponTypeSlot, GroupLayout.PREFERRED_SIZE, 151, GroupLayout.PREFERRED_SIZE)
@@ -952,7 +952,7 @@ public class mainCalc extends JFrame {
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 												.addComponent(shipName, 0, 174, Short.MAX_VALUE)
-												.addComponent(weaponNamesSlot1, 0, 174, Short.MAX_VALUE)
+												.addComponent(weaponNameSlot1, 0, 174, Short.MAX_VALUE)
 												.addComponent(shipNameLbl)
 												.addComponent(lblGunNameSlot))
 											.addPreferredGap(ComponentPlacement.RELATED)
@@ -963,8 +963,8 @@ public class mainCalc extends JFrame {
 												.addGroup(gl_contentPane.createSequentialGroup()
 													.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 													.addGap(9))))
-										.addComponent(comboBox_1, 0, 247, Short.MAX_VALUE)
-										.addComponent(weaponSlot2, 0, 247, Short.MAX_VALUE))
+										.addComponent(weaponNameSlot3, 0, 247, Short.MAX_VALUE)
+										.addComponent(weaponNameSlot2, 0, 247, Short.MAX_VALUE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(healthTextFieldLabel)
@@ -1058,7 +1058,7 @@ public class mainCalc extends JFrame {
 											.addComponent(lblSlotDamage, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
 											.addPreferredGap(ComponentPlacement.RELATED))
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(textPane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+											.addComponent(slot3Pane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
 											.addPreferredGap(ComponentPlacement.RELATED)))))
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
@@ -1118,7 +1118,7 @@ public class mainCalc extends JFrame {
 							.addGap(3)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(weaponTypeCBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponNamesSlot1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addComponent(weaponNameSlot1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 								.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(healthTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -1130,7 +1130,7 @@ public class mainCalc extends JFrame {
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(weaponSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addComponent(weaponNameSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 								.addComponent(AntiairTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(armorTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
@@ -1143,8 +1143,8 @@ public class mainCalc extends JFrame {
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(typeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(nationTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(comboBox_1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(weaponTypeCBox3, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addComponent(weaponNameSlot3, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(descScrollPane, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)))
@@ -1223,7 +1223,7 @@ public class mainCalc extends JFrame {
 											.addComponent(lblSlotDamage)))))
 							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(textPane, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
+								.addComponent(slot3Pane, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
 								.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 									.addComponent(btnRemoveAll)
 									.addComponent(removeButton)))
