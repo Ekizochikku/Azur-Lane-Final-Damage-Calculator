@@ -286,7 +286,7 @@ public class mainCalc extends JFrame {
 		//We're going to need to change these labels later into the actual names. 
 		//Currently cruisers only for now to avoid errors
 		guiUtil = new GUIutil();
-		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "SUB", "CV"};
+		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "SUB", "CV", "CVL"};
 		shipTypeCBox = new JComboBox<Object>(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
 		shipTypeCBox.setSelectedIndex(0);
@@ -301,7 +301,7 @@ public class mainCalc extends JFrame {
 				calculateButton.setEnabled(false);
 				try {
 					currentShipType = (String) shipTypeCBox.getSelectedItem();
-					if(currentShipType == "CV") {
+					if(currentShipType == "CV" || currentShipType == "CVL") {
 						threeBythreeSwitch(true);
 					} else {
 						threeBythreeSwitch(false);
@@ -388,7 +388,7 @@ public class mainCalc extends JFrame {
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 						GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
 						
-						if(currentShipType == "CV") {
+						if(currentShipType == "CV" || currentShipType == "CVL") {
 							GUIutil.enableDisableSlot3(lblNewLabel, weaponTypeCBox3, lblWeaponTypeSlot, weaponNameSlot3,
 									lblSlotDamage, slot3Pane, true);
 							GUIutil.insertType(weaponTypeCBox3, 6, currentShipType, currentShipName, 3);
