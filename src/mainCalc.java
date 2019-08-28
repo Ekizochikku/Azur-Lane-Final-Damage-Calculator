@@ -41,6 +41,9 @@ import javax.swing.text.NumberFormatter;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.SystemColor;
@@ -50,6 +53,9 @@ import java.awt.Font;
 public class mainCalc extends JFrame {
 
 	private JPanel contentPane;
+	
+	//array list holding the 3x3 contents
+	private ArrayList<Object> threeByThreeMouse;
 	
 	//the nodes killed textbox
 	private JFormattedTextField nodesKilledTextField;
@@ -76,11 +82,17 @@ public class mainCalc extends JFrame {
 	//Allows user to select the weapon type for slot 2 for current ship
 	private JComboBox<Object> weaponTypeCBox2;
 	
+	//Allows user to select the weapon type for slot 3 for current ship
+	private JComboBox<Object> weaponTypeCBox3;
+	
 	//Allows user to select the weapon for slot 1 on current ship
 	private JComboBox<String> weaponNameSlot1;
 	
 	//Allows user to select the weapon for slot 2 on current ship
 	private JComboBox<String> weaponNameSlot2;
+	
+	//Allows user to select the weapon for slot 2 on current ship
+	private JComboBox<String> weaponNameSlot3;
 	
 	//Allows user to select the current world they are on
 	private JComboBox<String> currentWorldCBox;
@@ -113,6 +125,9 @@ public class mainCalc extends JFrame {
 	//The current selected weapon for slot 2
 	private String currentWeaponNameSlot2 = null;
 	
+	//current selected weapon for slot 2;
+	private String currentWeaponNameSlot3 = null;
+	
 	//Hard coded these in for the initial screen
 	
 	//The current world
@@ -124,6 +139,8 @@ public class mainCalc extends JFrame {
 	//The current selected weapon type
 	private String currentWeaponType = "DDGUNS";
 	
+	//the current selected weapon type
+	private String currentWeaponTypeSlot3;
 	
 	//Allows user to select which enemy from a specific world they are fighting
 	private JComboBox<Object> enemyNameCBox;
@@ -158,6 +175,8 @@ public class mainCalc extends JFrame {
 	private JRadioButton oddRadioButton;
 	private JTextPane slot1Pane;
 	private JTextPane slot2Pane;
+	private JTextPane slot3Pane;
+	
 	private JTextField armorTextField;
 	private JTextField typeTextField;
 	private JTextField healthTextField;
@@ -166,6 +185,10 @@ public class mainCalc extends JFrame {
 	private JLabel lblBombsDropped1;
 	private JLabel lblBombsDropped2;
 	private JLabel lblTorpedosDropped;
+	
+	private JLabel lblWeaponTypeSlot = new JLabel("Weapon Name Slot 3:");
+	
+	
 	private JTextField textFieldP1B1;
 	private JTextField textFieldP1B2;
 	private JTextField textFieldP1T;
@@ -282,18 +305,20 @@ public class mainCalc extends JFrame {
 						threeBythreeSwitch(true);
 					} else {
 						threeBythreeSwitch(false);
+						GUIutil.enableDisableSlot3(lblNewLabel, weaponTypeCBox3, lblWeaponTypeSlot, weaponNameSlot3,
+								lblSlotDamage, slot3Pane, false);
 					}
 					GUIutil.insertNames(shipName, true, currentShipType);
 					currentShipName = (String) shipName.getSelectedItem();
 					if(currentShipName != "") {
-						GUIutil.insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
+						GUIutil.insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, 1);
 						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 						
 
 						GUIutil.insertNames(weaponNameSlot1, false, currentWeaponType);
 						currentWeaponName = (String) weaponNameSlot1.getSelectedItem();
 						
-						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, 2);
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 						
 						
@@ -355,13 +380,26 @@ public class mainCalc extends JFrame {
 				} 
 				if(currentShipName != "") {
 					try {
-						GUIutil.insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, true);
+						GUIutil.insertType(weaponTypeCBox1, 4, currentShipType, currentShipName, 1);
 						currentWeaponType = (String) weaponTypeCBox1.getSelectedItem();
 						GUIutil.insertNames(weaponNameSlot1, false, currentWeaponType);
 						
-						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, false);
+						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, 2);
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 						GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
+						
+						if(currentShipType == "CV") {
+							GUIutil.enableDisableSlot3(lblNewLabel, weaponTypeCBox3, lblWeaponTypeSlot, weaponNameSlot3,
+									lblSlotDamage, slot3Pane, true);
+							GUIutil.insertType(weaponTypeCBox3, 6, currentShipType, currentShipName, 3);
+							currentWeaponTypeSlot3 = (String) weaponTypeCBox3.getSelectedItem();
+							GUIutil.insertNames(weaponNameSlot3, false, currentWeaponTypeSlot3);
+
+						} else {
+							GUIutil.enableDisableSlot3(lblNewLabel, weaponTypeCBox3, lblWeaponTypeSlot, weaponNameSlot3,
+									lblSlotDamage, slot3Pane, false);
+						}						
+						
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -903,27 +941,58 @@ public class mainCalc extends JFrame {
 		
 		textFieldP3T = new JFormattedTextField(formatter);
 		textFieldP3T.setColumns(10);
-		threeBythreeSwitch(false);
 		
 		lblNewLabel = new JLabel("Weapon Type Slot 3:");
 		lblNewLabel.setEnabled(false);
 		
-		JComboBox<Object> weaponTypeCBox3 = new JComboBox<Object>(new Object[]{});
+		weaponTypeCBox3 = new JComboBox<Object>(new Object[]{});
 		weaponTypeCBox3.setEnabled(false);
 		
-		JLabel lblWeaponTypeSlot = new JLabel("Weapon Name Slot 3:");
+
 		lblWeaponTypeSlot.setEnabled(false);
 		
-		JComboBox<String> weaponNameSlot3 = new JComboBox<String>();
-		weaponNameSlot3.setFont(new Font("Tahoma", Font.PLAIN, 10));
+		weaponNameSlot3 = new JComboBox<String>();
+		weaponNameSlot3.setFont(new Font("Tahoma", Font.BOLD, 10));
 		
 		lblSlotDamage = new JLabel("Slot 3 Damage Range:");
 		lblSlotDamage.setEnabled(false);
 		
-		JTextPane slot3Pane = new JTextPane();
+		slot3Pane = new JTextPane();
 		slot3Pane.setFont(new Font("Yu Gothic", Font.BOLD, 15));
 		slot3Pane.setEnabled(false);
 		slot3Pane.setEditable(false);
+		
+		 //adding all elements to the array
+		 threeByThreeMouse = new ArrayList<Object>();
+		 //all elements of the 3x3 thingy
+		 threeByThreeMouse.add(lblBombsDropped1);
+		 threeByThreeMouse.add(lblBombsDropped2);
+		 threeByThreeMouse.add(lblTorpedosDropped);
+		 threeByThreeMouse.add(lblPlane1);
+		 threeByThreeMouse.add(lblPlane2);
+		 threeByThreeMouse.add(lblPlane3);
+		 threeByThreeMouse.add(textFieldP3T);
+		 threeByThreeMouse.add(textFieldP3B2);
+		 threeByThreeMouse.add(textFieldP3B1);
+		 threeByThreeMouse.add(textFieldP2T);
+		 threeByThreeMouse.add(textFieldP2B1);
+		 threeByThreeMouse.add(textFieldP2B2);
+		 threeByThreeMouse.add(textFieldP1B2);
+		 threeByThreeMouse.add(textFieldP1T);
+		 threeByThreeMouse.add(textFieldP1B1);
+		 
+		
+		 threeBythreeSwitch(false);
+		//Mouse listener for the 3x3 to erase the 0 values when clicked
+		MouseListener eraseZero = new MouseAdapter(){
+	           private void MouseClicked(MouseEvent e){
+	              ((JFormattedTextField)e.getSource()).setText("");
+	           }
+	        };
+	    textFieldP1B1.addMouseListener(eraseZero);    
+	    for(int i = 6; i < threeByThreeMouse.size(); i++) {
+			((JFormattedTextField)threeByThreeMouse.get(i)).addMouseListener(eraseZero);
+	    }
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -1259,42 +1328,23 @@ public class mainCalc extends JFrame {
 	 * might change to array later
 	 * @param option
 	 */
-	protected void threeBythreeSwitch(boolean option) {
-		if(option) {
-			lblBombsDropped1.setEnabled(true);
-			lblBombsDropped2.setEnabled(true);
-			lblTorpedosDropped.setEnabled(true);
-			lblPlane1.setEnabled(true);
-			lblPlane2.setEnabled(true);
-			lblPlane3.setEnabled(true);
-			textFieldP3T.setEnabled(true);
-			textFieldP3B2.setEnabled(true);
-			textFieldP3B1.setEnabled(true);
-			textFieldP2T.setEnabled(true);
-			textFieldP2B1.setEnabled(true);
-			textFieldP2B2.setEnabled(true);
-			textFieldP1T.setEnabled(true);
-			textFieldP1B2.setEnabled(true);
-			textFieldP1B1.setEnabled(true);		
+	protected void threeBythreeSwitch(boolean enable ) {
+	
+		if(enable) {
+			for(int i = 0; i < threeByThreeMouse.size(); i++) {
+				((Component) threeByThreeMouse.get(i)).setEnabled(true);
+			}
 		} else {
-			lblBombsDropped1.setEnabled(false);
-			lblBombsDropped2.setEnabled(false);
-			lblTorpedosDropped.setEnabled(false);
-			lblPlane1.setEnabled(false);
-			lblPlane2.setEnabled(false);
-			lblPlane3.setEnabled(false);
-			textFieldP3T.setEnabled(false);
-			textFieldP3B2.setEnabled(false);
-			textFieldP3B1.setEnabled(false);
-			textFieldP2T.setEnabled(false);
-			textFieldP2B1.setEnabled(false);
-			textFieldP2B2.setEnabled(false);
-			textFieldP1T.setEnabled(false);
-			textFieldP1B2.setEnabled(false);
-			textFieldP1B1.setEnabled(false);	
+			for(int i = 0; i < threeByThreeMouse.size(); i++) {
+				((Component)threeByThreeMouse.get(i)).setEnabled(false);
+				if(i >= 6) {
+					((JFormattedTextField)threeByThreeMouse.get(i)).setValue(0);
+
+				}
+			}
 		}
-		
 	}
+	
 	/**
 	 * Method to update the skill description text.
 	 * @author Walter Hanson
