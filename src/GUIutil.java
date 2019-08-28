@@ -13,9 +13,11 @@ import java.util.Set;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JTextPane;
 
 /*
  * @author Brian Khang (Ekizochikku)
@@ -710,7 +712,7 @@ public class GUIutil {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName, boolean firstSlot) throws FileNotFoundException, IOException {
+	public static void insertType(JComboBox<Object> comboBox, int weaponParamNum, String shipType, String shipName, int Slot) throws FileNotFoundException, IOException {
 		ArrayList<String> weaponTypes = null; 
 		String weaponNumString = null; 
 		//String exceptionCheck = "";
@@ -722,22 +724,56 @@ public class GUIutil {
 		
 		//exceptionCheck = theList.checkSlotTwoWeps("BB", 2);
 		//System.out.println("Grabbing for hardcoded Battleships " + exceptionCheck);
-		if(firstSlot) {
+		if(Slot == 1) {
 			System.out.println("Current weapon num for slot 1 is: " + currentWeaponNum);
 			System.out.println("The ship type for slot 1 is: " + shipType);
 			weaponTypes = createWeaponTypeList(theList.checkSlotOneWeps(shipType, currentWeaponNum));
 			
-		} else {
+		} else if(Slot == 2) {
 			System.out.println("Current weapon num for slot 2 is: " + currentWeaponNum);
 			System.out.println("The ship type for slot 2 is: " + shipType);
-		
-			
 			weaponTypes = createWeaponTypeList(theList.checkSlotTwoWeps(shipType, currentWeaponNum));
-			
-
+		} else {
+			System.out.println("Current weapon num for slot 3 is: " + currentWeaponNum);
+			System.out.println("The ship type for slot 3 is: " + shipType);
+			weaponTypes = createWeaponTypeList(theList.checkSlotThreeWeps(shipType, currentWeaponNum));
 		}
+		
 		comboBox.setModel(new DefaultComboBoxModel<Object>(weaponTypes.toArray()));
 	} 
+	
+	/**
+	 * Simple Method to enable the third weapon slot and all associated attributes outside 3x3
+	 * @author Kevin Nguyen
+	 * @param same names just check the window builder for what is what. 
+	 */
+	public static void enableDisableSlot3(JLabel lblNewLabel, JComboBox weaponTypeCBox3, JLabel lblWeaponTypeSlot, JComboBox weaponNameSlot3,
+			JLabel lblSlotDamage, JTextPane slot3Pane ,boolean carrier) {
+		if(carrier) {
+			weaponNameSlot3.removeAllItems();
+			weaponTypeCBox3.setEnabled(true);
+			weaponNameSlot3.setEditable(true);
+			weaponNameSlot3.setEnabled(true);
+			lblWeaponTypeSlot.setEnabled(true);
+			slot3Pane.setEnabled(true);
+			lblNewLabel.setEnabled(true);
+			AutoCompletion.enable(weaponNameSlot3);
+			lblSlotDamage.setEnabled(true);
+		} else {
+			weaponTypeCBox3.setEditable(false);
+			weaponNameSlot3.insertItemAt("", 0);
+			weaponNameSlot3.setEnabled(false);
+			weaponTypeCBox3.removeAllItems();
+			weaponNameSlot3.removeAllItems();
+			lblWeaponTypeSlot.setEnabled(false);
+			slot3Pane.setEnabled(false);
+			lblNewLabel.setEnabled(false);
+			lblSlotDamage.setEnabled(false);
+		}
+		
+	}
+	
+	
 	
 	/**
 	 * Using Brians methods we check what types of weapons can be used in what slot. Whatever string it returns we convert that into
@@ -754,7 +790,8 @@ public class GUIutil {
 		String weaponType2 = "";
 		//System.out.println("Current word for type list " + compatibleWeapons);
 		if((compatibleWeapons.length() > 2) && ((!(compatibleWeapons.equals("SEAPLANE"))) && (!(compatibleWeapons.equals("TORPEDOS")) 
-				&& (!(compatibleWeapons.equals("SUBTORPEDOS")))))) {
+				&& (!(compatibleWeapons.equals("SUBTORPEDOS"))&& (!(compatibleWeapons.equals("FIGHTERP"))&& (!(compatibleWeapons.equals("TORPEDOP"))
+						&& (!(compatibleWeapons.equals("BOMBERP"))&& (!(compatibleWeapons.equals("BOMBERP/CL")))))))))) {
 				
 			for (int i = 0; i <= compatibleWeapons.length() - 1; i++) {
 				if(i < 2) {
