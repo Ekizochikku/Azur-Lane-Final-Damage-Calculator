@@ -286,7 +286,7 @@ public class mainCalc extends JFrame {
 		//We're going to need to change these labels later into the actual names. 
 		//Currently cruisers only for now to avoid errors
 		guiUtil = new GUIutil();
-		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "SUB", "CV"};
+		String[] shipTypeList = {"DD", "CL", "CA", "LC", "BC", "BB", "AB", "MON", "SUB", "CV", "CVL"};
 		shipTypeCBox = new JComboBox<Object>(shipTypeList);
 		shipTypeCBox.setMaximumRowCount(10);
 		shipTypeCBox.setSelectedIndex(0);
@@ -301,7 +301,7 @@ public class mainCalc extends JFrame {
 				calculateButton.setEnabled(false);
 				try {
 					currentShipType = (String) shipTypeCBox.getSelectedItem();
-					if(currentShipType == "CV") {
+					if(currentShipType == "CV" || currentShipType == "CVL") {
 						threeBythreeSwitch(true);
 					} else {
 						threeBythreeSwitch(false);
@@ -388,7 +388,7 @@ public class mainCalc extends JFrame {
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 						GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
 						
-						if(currentShipType == "CV") {
+						if(currentShipType == "CV" || currentShipType == "CVL") {
 							GUIutil.enableDisableSlot3(lblNewLabel, weaponTypeCBox3, lblWeaponTypeSlot, weaponNameSlot3,
 									lblSlotDamage, slot3Pane, true);
 							GUIutil.insertType(weaponTypeCBox3, 6, currentShipType, currentShipName, 3);
@@ -1020,25 +1020,25 @@ public class mainCalc extends JFrame {
 										.addComponent(lblGunNameSlot_1)
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(shipName, 0, 174, Short.MAX_VALUE)
-												.addComponent(weaponNameSlot1, 0, 174, Short.MAX_VALUE)
+												.addComponent(shipName, 0, 175, Short.MAX_VALUE)
+												.addComponent(weaponNameSlot1, 0, 175, Short.MAX_VALUE)
 												.addComponent(shipNameLbl)
 												.addComponent(lblGunNameSlot))
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblDangerLevel, GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+												.addComponent(lblDangerLevel, GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
 												.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 												.addComponent(lblChapter)
 												.addGroup(gl_contentPane.createSequentialGroup()
 													.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 													.addGap(9))))
-										.addComponent(weaponNameSlot3, 0, 247, Short.MAX_VALUE)
-										.addComponent(weaponNameSlot2, 0, 247, Short.MAX_VALUE))
+										.addComponent(weaponNameSlot3, 0, 249, Short.MAX_VALUE)
+										.addComponent(weaponNameSlot2, 0, 249, Short.MAX_VALUE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(healthTextFieldLabel)
 										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-											.addComponent(healthTextField, GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+											.addComponent(healthTextField, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
 											.addComponent(lblEnemyName)
 											.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
 											.addGroup(gl_contentPane.createSequentialGroup()
@@ -1051,13 +1051,13 @@ public class mainCalc extends JFrame {
 												.addPreferredGap(ComponentPlacement.UNRELATED)
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 													.addGroup(gl_contentPane.createSequentialGroup()
-														.addComponent(nationTextField, GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE)
+														.addComponent(nationTextField, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
 														.addPreferredGap(ComponentPlacement.RELATED))
 													.addGroup(gl_contentPane.createSequentialGroup()
 														.addComponent(lblNation)
 														.addPreferredGap(ComponentPlacement.RELATED))
 													.addComponent(lblAntiAir)
-													.addComponent(AntiairTextField, GroupLayout.DEFAULT_SIZE, 73, Short.MAX_VALUE))))))
+													.addComponent(AntiairTextField, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))))))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addGroup(gl_contentPane.createSequentialGroup()
@@ -1072,7 +1072,7 @@ public class mainCalc extends JFrame {
 															.addComponent(nodeKilledLabel))
 														.addGap(18)
 														.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-															.addComponent(isArmorBroken, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+															.addComponent(isArmorBroken, GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
 															.addComponent(isCritical)
 															.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
 														.addPreferredGap(ComponentPlacement.RELATED))
@@ -1103,13 +1103,13 @@ public class mainCalc extends JFrame {
 												.addComponent(textFieldP2B2, 0, 0, Short.MAX_VALUE)
 												.addComponent(textFieldP2B1, 0, 0, Short.MAX_VALUE)
 												.addComponent(lblPlane2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-											.addGap(4)
+											.addPreferredGap(ComponentPlacement.RELATED)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(textFieldP3B1, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-												.addComponent(textFieldP2T, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-												.addComponent(textFieldP3B2, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-												.addComponent(lblPlane3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-											.addGap(90)))
+												.addComponent(lblPlane3, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+												.addComponent(textFieldP3B2, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+												.addComponent(textFieldP3B1, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+												.addComponent(textFieldP2T, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+											.addGap(88)))
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addComponent(lblGunTypeSlot_2)
@@ -1154,7 +1154,7 @@ public class mainCalc extends JFrame {
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(453)
 					.addComponent(calculateButton)
-					.addContainerGap(760, Short.MAX_VALUE))
+					.addContainerGap(764, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -1246,16 +1246,16 @@ public class mainCalc extends JFrame {
 							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textFieldP3B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textFieldP2B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textFieldP1B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblBombsDropped2))
+								.addComponent(lblBombsDropped2)
+								.addComponent(textFieldP3B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(textFieldP1T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textFieldP3T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textFieldP2T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblTorpedosDropped))))
+								.addComponent(lblTorpedosDropped)
+								.addComponent(textFieldP2T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addComponent(lblAmmoType)
