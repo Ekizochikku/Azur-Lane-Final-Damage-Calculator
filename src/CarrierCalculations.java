@@ -3,10 +3,18 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class CarrierCalculations {
+	/*
+	 * Ship Params:
+	 * []
+	 * 
+	 * Plane Params:
+	 * [0-Shipname, 1-Aviation, 2-BombOneDmg, 3-OneToL, 4-OneToM, 5-OneToH, 6-BombTwoDmg, 7-TwoToL, 8-TwoToM, 9-TwoToH, 10-TorpedoDmg,
+	 * 11-TorpToL, 12-TorpToM, 13-TorpToH]
+	 */
 	
 	GUIutil gt;
 	// Array List holding an array list of skills
-	ArrayList<ArrayList<String>> skills;
+	ArrayList<ArrayList<String>> multiSkills;
 	// Array list of ship parameters
 	ArrayList<String> sp;
 	// Array List of weapon Parameters
@@ -17,12 +25,16 @@ public class CarrierCalculations {
 	int bomb1;
 	int bomb2;
 	int torpedos;
+	String shipType;
+	String shipName;
+	String wepType;
+	String wepName;
 	
 	public CarrierCalculations(ArrayList<String> skillList, String shipType, String shipName, String wepType, String wepName, String enemy, String world,
 			int bomb1, int bomb2, int torpedos) throws FileNotFoundException, IOException{
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> skillP = gt.getSkillParameters(skillList.get(i));
-			skills.add(skillP);
+			multiSkills.add(skillP);
 		}
 		sp = gt.getShipParams(shipType, shipName);
 		wp = gt.getWepParams(wepType, wepName);
@@ -30,11 +42,39 @@ public class CarrierCalculations {
 		this.bomb1 = bomb1;
 		this.bomb2 = bomb2;
 		this.torpedos = torpedos;
+		this.shipType = shipType;
+		this.shipName = shipName;
+		this.wepType = wepType;
+		this.wepName = wepName;
 			
 	}
+	public double getFinalTotalDamage(int shipSlot, ArrayList<String> skillList, boolean crit, String world,
+			int dangerLvl, int removeRandom, String ordinance) throws FileNotFoundException, IOException {
+		////////////////////////////////////////////////////////////////////////////////////////////////////
+		//Ordinance will be what is changing.
+		double totalFinalDmg = 0;
+		// Bomb One on plane, if exists
+		if (Integer.parseInt(wp.get(2)) != 0) {
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, ordinance, 1);
+		}
+		// Bomb Two on plane, if exists
+		if (Integer.parseInt(wp.get(6)) != 0) {
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, ordinance, 2);
+		}
+		// Torpedo on plane, if exists
+		if (Integer.parseInt(wp.get(10)) != 0) {
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, ordinance, 3);
+		}
+		return totalFinalDmg;
+		
+	}
 	
-	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom, boolean armorBreak) throws FileNotFoundException, IOException {
+	/*
+	 * armorSlot used to determine which armor slot percentage to use.
+	 */
+	public double getFinalDamage(int shipSlot, ArrayList<String> skillList, boolean crit, String world,
+			int dangerLvl, int removeRandom, String ordinance, int armorSlot) throws FileNotFoundException, IOException {
+		///////////////////////////////////////////////////////////////////////////////////////////////////
 		double finalDmg = 0;
 		if (!wepName.isEmpty() && wepName != null) {
 			double correctedDamageStat = 0;
@@ -50,29 +90,23 @@ public class CarrierCalculations {
 			double dmgRatStat = 0;
 			double dmgNatStat = 0;
 			double dmgTypeStat = 0;
-			double ammoBuffStat = 0;
+			double ammoBuffStat = 1;
 			// Corrected Damage Section
-			correctedDamageStat = getCorrectedDamage(sp, wp, skillList, shipName, shipType, shipSlot, wepType);
+			correctedDamageStat = getCorrectedDamage(sp, wp, skillList, shipName, shipType, shipSlot);
 			
 			// Scaling Weapon Buffs (WeaponTypeMod)
-			if (!(wepType.equals("DD GUNS")) || !(wepType.equals("CL GUNS")) || !(wepType.equals("CA GUNS")) || !(wepType.equals("BB GUNS")) || !(wepType.equals("TORPEDOS"))) {
-				weaponTypeModStat = 1;
-			} else {
-				weaponTypeModStat = getWeaponTypeMod(wepType);
-			}
+			weaponTypeModStat = getWeaponTypeMod(wepType);
 			
 			// Critical Damage
 			if (crit) {
-				criticalDamageStat = getCriticalDamage(shipName, wepType, wepName, skillList, evenOdd);
+				criticalDamageStat = getCriticalDamage(shipName, wepType, wepName, skillList);
 			}
 			
 			// Armor Modifier
-			armorModStat = getArmorModifier(wp, ep, skillList, shipName, wepType, ammoType);
+			armorModStat = getArmorModifier(wp, ep, skillList, shipName, wepType);
 			
 			// Enhancing Damage
-			if (firstSalvo) {
-				enhancingDmgStat = getEnhancingDmg(manual);
-			}
+			// Not needed. Carriers only.
 			
 			// Combo Damage
 			if (shipName.equals("U-47") && skillList.contains("The Bull of Scapa Flow")) {
@@ -86,7 +120,7 @@ public class CarrierCalculations {
 			injRatStat = getInjureRatio();
 			
 			// Damage Ratio
-			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd, ep, armorBreak);
+			dmgRatStat = getDamageRatio(shipName, wepType, skillList, ep);
 			
 			// Damage to Nation
 			dmgNatStat = getDamageToNation(ep);
@@ -95,9 +129,7 @@ public class CarrierCalculations {
 			dmgTypeStat = getDamageToType(shipName, ep, skillList);
 			
 			// Ammo Type Buff
-			if ((ammoType == 0) || (ammoType == 1)) {
-				ammoBuffStat = getBuffToAmmo(ammoType);
-			}
+			// Not needed. Only bombs and torpedos being used.
 			double intermediateDmg = (correctedDamageStat + removeRandom) * weaponTypeModStat * criticalDamageStat * armorModStat * (1 + injRatStat) * (1 + dmgRatStat) * lvlDiffStat * 
 					(1 + dmgNatStat) * (1 + dmgTypeStat) * (1 + ammoBuffStat - 0) * airDmgRedStat * (1 + comboStat);
 			double temp1 = Math.max(1, Math.floor(intermediateDmg));
@@ -106,5 +138,22 @@ public class CarrierCalculations {
 		}
 		
 		return finalDmg;
+	}
+	
+	private double getCorrectedDamage(ArrayList<String> sp, ArrayList<String> wp, ArrayList<String> skillList,
+			String shipName, String shipType, int shipSlot) {
+		double finalDmg = 0;
+		
+		
+		return finalDmg;
+	}
+
+	public double getStackedStats(int theIndex, double startingValue) {
+		double value = startingValue;
+		for (int i = 0; i < multiSkills.size(); i++) {
+			ArrayList<String> sp = multiSkills.get(i);
+			value += Double.parseDouble(sp.get(theIndex));
+		}
+		return value;
 	}
 }
