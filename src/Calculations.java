@@ -220,11 +220,11 @@ public class Calculations {
 	public double getWeaponTypeMod(String wepType) {
 		double buffDamage = 1;
 		if (wepType.equals("TORPEDOS")) {
-			buffDamage += getStackedStats(34, 0) + getStackedStats(37, 0);
+			buffDamage += getStackedStats(35, 0) + getStackedStats(38, 0);
 		} else if (wepType.equals("PLANES")) {
 			System.out.println();
 		} else {
-			buffDamage += getStackedStats(33, 0) + getStackedStats(36, 0);
+			buffDamage += getStackedStats(34, 0) + getStackedStats(37, 0);
 		}
 		return buffDamage;
 	}
@@ -235,9 +235,9 @@ public class Calculations {
 	public double getCriticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList, int evenOdd) {
 		double critBuff = 0;
 		if (wepType.equals("TORPEDOS")) {
-			critBuff = getStackedStats(41, 1.5);
+			critBuff = getStackedStats(42, 1.5);
 		} else {
-			critBuff = getStackedStats(40, 1.5);
+			critBuff = getStackedStats(41, 1.5);
 			if (shipName.equals("Jean Bart") && wepName.equals("Quadruple 380mm (Mle 1935)") && skillList.contains("Last Fire")) {
 				critBuff += 0.50;
 			}
@@ -331,9 +331,9 @@ public class Calculations {
 			enhance = 1;
 		}
 		if (manual) {
-			enhance += getStackedStats(32, 0) + getStackedStats(31, 0);
+			enhance += getStackedStats(33, 0) + getStackedStats(32, 0);
 		} else {
-			enhance += getStackedStats(31, 0);
+			enhance += getStackedStats(32, 0);
 		}
 		return enhance;
 	}
@@ -396,28 +396,28 @@ public class Calculations {
 		} else {
 			switch (nation) {
 			case "HMS":
-				dmgToNat = getStackedStats(11, 0);
-				break;
-			case "USS":
 				dmgToNat = getStackedStats(12, 0);
 				break;
-			case "IJN":
+			case "USS":
 				dmgToNat = getStackedStats(13, 0);
 				break;
-			case "KMS":
+			case "IJN":
 				dmgToNat = getStackedStats(14, 0);
 				break;
-			case "ROC":
+			case "KMS":
 				dmgToNat = getStackedStats(15, 0);
 				break;
-			case "FFNF":
+			case "ROC":
 				dmgToNat = getStackedStats(16, 0);
 				break;
-			case "MNF":
+			case "FFNF":
 				dmgToNat = getStackedStats(17, 0);
 				break;
-			case "SIREN":
+			case "MNF":
 				dmgToNat = getStackedStats(18, 0);
+				break;
+			case "SIREN":
+				dmgToNat = getStackedStats(19, 0);
 				break;
 			default:
 				break;
@@ -434,34 +434,34 @@ public class Calculations {
 		String shipType = ep.get(5);
 			switch (shipType) {
 			case "DD":
-				dmgToType = getStackedStats(19, 0);
-				break;
-			case "CL":
 				dmgToType = getStackedStats(20, 0);
 				break;
-			case "CA":
+			case "CL":
 				dmgToType = getStackedStats(21, 0);
 				break;
-			case "LC":
+			case "CA":
 				dmgToType = getStackedStats(22, 0);
 				break;
-			case "BC":
+			case "LC":
 				dmgToType = getStackedStats(23, 0);
 				break;
-			case "BB":
+			case "BC":
 				dmgToType = getStackedStats(24, 0);
 				break;
-			case "AB":
+			case "BB":
 				dmgToType = getStackedStats(25, 0);
 				break;
-			case "CVL":
+			case "AB":
 				dmgToType = getStackedStats(26, 0);
 				break;
-			case "CV":
+			case "CVL":
 				dmgToType = getStackedStats(27, 0);
 				break;
-			case "SUB":
+			case "CV":
 				dmgToType = getStackedStats(28, 0);
+				break;
+			case "SUB":
+				dmgToType = getStackedStats(29, 0);
 				break;
 			default:
 				break;
@@ -487,9 +487,9 @@ public class Calculations {
 	public double getBuffToAmmo(int ammoType) throws FileNotFoundException, IOException {
 		double bta = 0;
 			if (ammoType == 0) {
-				bta = getStackedStats(29, 0);
-			} else {
 				bta = getStackedStats(30, 0);
+			} else {
+				bta = getStackedStats(31, 0);
 			}
 		return bta;
 	}

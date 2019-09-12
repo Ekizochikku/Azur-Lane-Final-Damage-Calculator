@@ -30,6 +30,10 @@ public class CarrierCalculations {
 	String wepType;
 	String wepName;
 	
+	/*
+	 * Consturctor for carrier calculations.
+	 * Bomb1 is the amount of bombs dropped, same with bomb2 and torpedos.
+	 */
 	public CarrierCalculations(ArrayList<String> skillList, String shipType, String shipName, String wepType, String wepName, String enemy, String world,
 			int bomb1, int bomb2, int torpedos) throws FileNotFoundException, IOException{
 		for (int i = 0; i < skillList.size(); i++) {
@@ -49,21 +53,21 @@ public class CarrierCalculations {
 			
 	}
 	public double getFinalTotalDamage(int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			int dangerLvl, int removeRandom, String ordinance) throws FileNotFoundException, IOException {
+			int dangerLvl, int removeRandom) throws FileNotFoundException, IOException {
 		////////////////////////////////////////////////////////////////////////////////////////////////////
 		//Ordinance will be what is changing.
 		double totalFinalDmg = 0;
 		// Bomb One on plane, if exists
-		if (Integer.parseInt(wp.get(2)) != 0) {
-			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, ordinance, 1);
+		if (Double.parseDouble(wp.get(2)) != 0) {
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "bombOne", 1);
 		}
 		// Bomb Two on plane, if exists
-		if (Integer.parseInt(wp.get(6)) != 0) {
-			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, ordinance, 2);
+		if (Double.parseDouble(wp.get(6)) != 0) {
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "bombTwo", 2);
 		}
 		// Torpedo on plane, if exists
-		if (Integer.parseInt(wp.get(10)) != 0) {
-			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, ordinance, 3);
+		if (Double.parseDouble(wp.get(10)) != 0) {
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "torpedo", 3);
 		}
 		return totalFinalDmg;
 		
@@ -81,7 +85,7 @@ public class CarrierCalculations {
 			double weaponTypeModStat = 0;
 			double criticalDamageStat = 1; // Default at 1
 			double armorModStat = 0;
-			double airDmgRedStat = 1; // 1 for now. Number will change when carriers and plane damage is added in.
+			double airDmgRedStat = 150 / (150 + Integer.parseInt(ep.get(5))); // 1 for now. Number will change when carriers and plane damage is added in.
 			double enhancingDmgStat = 1; // Default at 1
 			double comboStat = 1; // Only ship with combo damage atm is U-47 so if she and her skill is selected, add 0.4.
 			double lvlDiffStat = 0;
@@ -92,7 +96,7 @@ public class CarrierCalculations {
 			double dmgTypeStat = 0;
 			double ammoBuffStat = 1;
 			// Corrected Damage Section
-			correctedDamageStat = getCorrectedDamage(sp, wp, skillList, shipName, shipType, shipSlot);
+			correctedDamageStat = getCorrectedDamage(skillList, shipName, shipType, shipSlot, ordinance);
 			
 			// Scaling Weapon Buffs (WeaponTypeMod)
 			weaponTypeModStat = getWeaponTypeMod(wepType);
@@ -103,7 +107,7 @@ public class CarrierCalculations {
 			}
 			
 			// Armor Modifier
-			armorModStat = getArmorModifier(wp, ep, skillList, shipName, wepType);
+			armorModStat = getArmorModifier(wp, ep, skillList, shipName, wepType, ordinance);
 			
 			// Enhancing Damage
 			// Not needed. Carriers only.
@@ -140,12 +144,204 @@ public class CarrierCalculations {
 		return finalDmg;
 	}
 	
-	private double getCorrectedDamage(ArrayList<String> sp, ArrayList<String> wp, ArrayList<String> skillList,
-			String shipName, String shipType, int shipSlot) {
+	
+	private double getCorrectedDamage(ArrayList<String> skillList,
+			String shipName, String shipType, int shipSlot, String ordinance) {
 		double finalDmg = 0;
+		double wepDmg = 0;
+		double wepCoff = 1;
+		double effSlot = 0;
 		
+		// Some planes can carry multiple bombs
+		switch(ordinance) {
+		case "bombOne":
+			wepDmg = Double.parseDouble(wp.get(2));
+		case "bombTwo":
+			wepDmg = Double.parseDouble(wp.get(6));
+		case "torpedo":
+			wepDmg = Double.parseDouble(wp.get(10));
+		default:
+			break;
+		}
+		// Efficiency slot
+		// Weapon is in slot 1
+		if (shipSlot == 1) {
+			effSlot = Double.parseDouble(sp.get(7));
+		// Weapon is in slot 2
+		} else if (shipSlot == 2) {
+			effSlot = Double.parseDouble(sp.get(8));
+		// Weapon is in slot 3
+		} else {
+			effSlot = Double.parseDouble(sp.get(9));
+		}
+		
+		double statAttacker = Double.parseDouble(sp.get(14)) + Double.parseDouble(wp.get(1));
+		double statBuff = getStackedStats(10, 1);
+		double finalStatAttacker = statAttacker * statBuff * 0.80;
+		finalDmg = wepDmg * wepCoff * effSlot * (1 + (finalStatAttacker/100));
 		
 		return finalDmg;
+	}
+	
+	private double getWeaponTypeMod(String wepType) {
+		double buffDamage = 1;
+		buffDamage += getStackedStats(36, 0) + getStackedStats(39, 0);
+		return buffDamage;
+	}
+	
+	private double getCriticalDamage(String shipName, String wepType, String wepName, ArrayList<String> skillList) {
+		double critBuff = 0;
+		critBuff = getStackedStats(43, 1.5);
+		return critBuff;
+	}
+	
+	private double getArmorModifier(ArrayList<String> wp, ArrayList<String> ep, ArrayList<String> skillList,
+			String shipName, String wepType, String ordinance) {
+		double armorMod = 0;
+		String enemyArmor = ep.get(4);
+		if (ordinance.equals("bombOne")) {
+			if (enemyArmor.equals("L")) {
+				armorMod = Double.parseDouble(wp.get(3));
+			} else if (enemyArmor.equals("M")) {
+				armorMod = Double.parseDouble(wp.get(4));
+			} else {
+				armorMod = Double.parseDouble(wp.get(5));
+			}
+		} else if (ordinance.equals("BombTwo")) {
+			if (enemyArmor.equals("L")) {
+				armorMod = Double.parseDouble(wp.get(7));
+			} else if (enemyArmor.equals("M")) {
+				armorMod = Double.parseDouble(wp.get(8));
+			} else {
+				armorMod = Double.parseDouble(wp.get(9));
+			}
+		} else {
+			if (enemyArmor.equals("L")) {
+				armorMod = Double.parseDouble(wp.get(11));
+			} else if (enemyArmor.equals("M")) {
+				armorMod = Double.parseDouble(wp.get(12));
+			} else {
+				armorMod = Double.parseDouble(wp.get(13));
+			}
+		}
+		
+		return armorMod;
+	}
+	
+	/*
+	 * Returns a double of the bonus damage that will be gained based off the level difference and danger level.
+	 */
+	public double getLevelDifference(ArrayList<String> ep, int dangerLvl) {
+		double lvlDiff = 1 + Math.min(25, Math.max(-25, 120 - Integer.parseInt(ep.get(2) + dangerLvl))) * 0.02;
+		return lvlDiff;
+	}
+	
+	/*
+	 * Returns a double  of the bonus damage from injure ratio from skills.
+	 */
+	
+	public double getInjureRatio() throws FileNotFoundException, IOException {
+		double ratio = 0;
+		ratio = getStackedStats(3, 0);
+		return ratio;
+	}
+	
+	/*
+	 * Returns a double of the bonus damage from injure ratio from skills.
+	 */
+	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList,ArrayList<String> ep) throws FileNotFoundException, IOException {
+		double ratio = 0;
+		for (int i = 0; i < skillList.size(); i++) {
+			ArrayList<String> holding = new ArrayList<String>();
+			if (holding.get(6).equals("7")) {
+				ratio += Double.parseDouble(holding.get(4));
+			}
+		}
+		return ratio;
+	}
+	
+	/*
+	 * Returns damage done to a nation
+	 */
+	public double getDamageToNation(ArrayList<String> ep) {
+		double dmgToNat = 0;
+		String nation = ep.get(6);
+		if (nation.equals("NULL")) {
+			return dmgToNat;
+		} else {
+			switch (nation) {
+			case "HMS":
+				dmgToNat = getStackedStats(12, 0);
+				break;
+			case "USS":
+				dmgToNat = getStackedStats(13, 0);
+				break;
+			case "IJN":
+				dmgToNat = getStackedStats(14, 0);
+				break;
+			case "KMS":
+				dmgToNat = getStackedStats(15, 0);
+				break;
+			case "ROC":
+				dmgToNat = getStackedStats(16, 0);
+				break;
+			case "FFNF":
+				dmgToNat = getStackedStats(17, 0);
+				break;
+			case "MNF":
+				dmgToNat = getStackedStats(18, 0);
+				break;
+			case "SIREN":
+				dmgToNat = getStackedStats(19, 0);
+				break;
+			default:
+				break;
+			}
+		}
+		return dmgToNat;
+	}
+	
+	/*
+	 * Returns a double of bonus damage to a ship type.
+	 */
+	public double getDamageToType(String shipName, ArrayList<String> ep, ArrayList<String> skillList) throws FileNotFoundException, IOException {
+		double dmgToType = 0;
+		String shipType = ep.get(5);
+		switch (shipType) {
+			case "DD":
+				dmgToType = getStackedStats(20, 0);
+				break;
+			case "CL":
+				dmgToType = getStackedStats(21, 0);
+				break;
+			case "CA":
+				dmgToType = getStackedStats(22, 0);
+				break;
+			case "LC":
+				dmgToType = getStackedStats(23, 0);
+				break;
+			case "BC":
+				dmgToType = getStackedStats(24, 0);
+				break;
+			case "BB":
+				dmgToType = getStackedStats(25, 0);
+				break;
+			case "AB":
+				dmgToType = getStackedStats(26, 0);
+				break;
+			case "CVL":
+				dmgToType = getStackedStats(27, 0);
+				break;
+			case "CV":
+				dmgToType = getStackedStats(28, 0);
+				break;
+			case "SUB":
+				dmgToType = getStackedStats(29, 0);
+				break;
+			default:
+				break;
+			}
+		return dmgToType;
 	}
 
 	public double getStackedStats(int theIndex, double startingValue) {
