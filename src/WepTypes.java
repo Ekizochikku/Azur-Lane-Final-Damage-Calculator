@@ -369,6 +369,9 @@ public class WepTypes {
 		case 5:
 			theWep = "CL";
 			break;
+		case 6:
+			theWep = "FIGHTP/BOMBERP";
+			break;
 		default:
 			break;
 		}
@@ -403,6 +406,9 @@ public class WepTypes {
 			break;
 		case 6:
 			theWep = "BOMBERP/CL";
+			break;
+		case 7:
+			theWep = "FIGHTERP/BOMBERP";
 			break;
 		default:
 			break;

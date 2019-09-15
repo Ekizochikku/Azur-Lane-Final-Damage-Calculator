@@ -55,6 +55,7 @@ Light Aircraft Carrier WEP1:
 3 = SEAPLANE
 4 = AA GUNS
 5 = CL GUNS
+6 = FIGHT/BOMBER
 Light Aircraft Carrier WEP2:
 0 = FIGHT PLANE
 1 = BOMBER PLANE
@@ -62,6 +63,7 @@ Light Aircraft Carrier WEP2:
 3 = SEAPLANE
 4 = AA GUNS
 5 = CL GUNS
+6 = FIGHT/BOMBER
 Light Aircraft Carrier WEP3:
 0 = FIGHT PLANE
 1 = BOMBER PLANE
@@ -69,6 +71,7 @@ Light Aircraft Carrier WEP3:
 3 = SEAPLANE
 4 = AA GUNS
 5 = CL GUNS
+6 = FIGHT/BOMBER
 Aircraft Carrier WEP1:
 0 = FIGHT PLANE
 1 = BOMBER PLANE
@@ -76,6 +79,7 @@ Aircraft Carrier WEP1:
 3 = SEAPLANE
 4 = AA GUNS
 5 = CL GUNS
+6 = FIGHT/BOMBER
 Aircraft Carrier WEP2:
 0 = FIGHT PLANE
 1 = BOMBER PLANE
@@ -83,6 +87,7 @@ Aircraft Carrier WEP2:
 3 = SEAPLANE
 4 = AA GUNS
 5 = CL GUNS
+6 = FIGHT/BOMBER
 Aircraft Carrier WEP3:
 0 = FIGHT PLANE
 1 = BOMBER PLANE
@@ -91,5 +96,6 @@ Aircraft Carrier WEP3:
 4 = AA GUNS
 5 = CL GUNS
 6 = BOMER PLANE/CL GUNS
+7 = FIGHT/BOMBER
 
 
