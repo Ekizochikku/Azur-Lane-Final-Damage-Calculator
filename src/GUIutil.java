@@ -648,7 +648,7 @@ public class GUIutil {
 	/*
 	 * Returns the parameters of a enemy
 	 */
-	public ArrayList<String> getEnemyParameters(String enemy, String world) throws FileNotFoundException, IOException{
+	public static ArrayList<String> getEnemyParameters(String enemy, String world) throws FileNotFoundException, IOException{
 		//Adding in print statements to debug
 		//System.out.println("In the enemy parameters method:  "+ enemy + " " + world);
 		ArrayList<String> theParams = new ArrayList<String>();
@@ -750,7 +750,10 @@ public class GUIutil {
 	public static void enableDisableSlot3(JLabel lblNewLabel, JComboBox weaponTypeCBox3, JLabel lblWeaponTypeSlot, JComboBox weaponNameSlot3,
 			JLabel lblSlotDamage, JTextPane slot3Pane ,boolean carrier) {
 		if(carrier) {
-			weaponNameSlot3.removeAllItems();
+			//Just in case removeAllItems crashes the code if the combo box is empty
+			if(weaponNameSlot3.getItemCount() != 1) {
+				weaponNameSlot3.removeAllItems();
+			}
 			weaponTypeCBox3.setEnabled(true);
 			weaponNameSlot3.setEditable(true);
 			weaponNameSlot3.setEnabled(true);
@@ -763,8 +766,10 @@ public class GUIutil {
 			weaponTypeCBox3.setEditable(false);
 			weaponNameSlot3.insertItemAt("", 0);
 			weaponNameSlot3.setEnabled(false);
-			weaponTypeCBox3.removeAllItems();
-			weaponNameSlot3.removeAllItems();
+			System.out.println("The current item count to be removed" + weaponNameSlot3.getItemCount());
+			System.out.println(weaponNameSlot3.getItemAt(0));
+				weaponTypeCBox3.removeAllItems();
+				weaponNameSlot3.removeAllItems();
 			lblWeaponTypeSlot.setEnabled(false);
 			slot3Pane.setEnabled(false);
 			lblNewLabel.setEnabled(false);

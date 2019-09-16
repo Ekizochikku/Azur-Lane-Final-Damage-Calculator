@@ -92,7 +92,7 @@ public class mainCalc extends JFrame {
 	private JComboBox<String> weaponNameSlot2;
 	
 	//Allows user to select the weapon for slot 2 on current ship
-	private JComboBox<String> weaponNameSlot3;
+	private JComboBox<String> weaponNameSlot3 = null;
 	
 	//Allows user to select the current world they are on
 	private JComboBox<String> currentWorldCBox;
@@ -297,7 +297,7 @@ public class mainCalc extends JFrame {
 		//push test
 		shipTypeCBox.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-//				System.out.println("This is a test");
+				System.out.println("This is a test");
 				calculateButton.setEnabled(false);
 				try {
 					currentShipType = (String) shipTypeCBox.getSelectedItem();
@@ -305,9 +305,11 @@ public class mainCalc extends JFrame {
 						threeBythreeSwitch(true);
 					} else {
 						threeBythreeSwitch(false);
+						
 						GUIutil.enableDisableSlot3(lblNewLabel, weaponTypeCBox3, lblWeaponTypeSlot, weaponNameSlot3,
 								lblSlotDamage, slot3Pane, false);
 					}
+					System.out.println("&&&&&&&&Current ship type^^^^^^^^" + currentShipType);
 					GUIutil.insertNames(shipName, true, currentShipType);
 					currentShipName = (String) shipName.getSelectedItem();
 					if(currentShipName != "") {
@@ -321,10 +323,17 @@ public class mainCalc extends JFrame {
 						GUIutil.insertType(weaponTypeCBox2, 5, currentShipType, currentShipName, 2);
 						currentWeaponTypeSlot2 = (String) weaponTypeCBox2.getSelectedItem();
 						
-						
-						
 						GUIutil.insertNames(weaponNameSlot2, false, currentWeaponTypeSlot2);
 						currentWeaponNameSlot2 = (String) weaponNameSlot2.getSelectedItem();
+						
+						if(currentShipType == "CV" || currentShipType == "CVL") { 
+							GUIutil.insertType(weaponTypeCBox3, 6, currentShipType, currentShipName, 3);
+							currentWeaponTypeSlot3 = (String) weaponTypeCBox3.getSelectedItem();
+							
+							GUIutil.insertNames(weaponNameSlot3, false, currentWeaponTypeSlot3);
+							currentWeaponNameSlot3 = (String) weaponNameSlot3.getSelectedItem();
+							
+						}
 					}
 					//System.out.println(currentShipName);
 				} catch (IOException e) {
@@ -458,7 +467,7 @@ public class mainCalc extends JFrame {
 		weaponTypeCBox2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 //				System.out.println("This is a test");
-				if(currentWeaponName.isEmpty()) {
+				if(currentWeaponName.isEmpty() || currentWeaponNameSlot3.isEmpty()) {
 					calculateButton.setEnabled(false);
 				}
 				try {
@@ -479,15 +488,47 @@ public class mainCalc extends JFrame {
 		weaponNameSlot2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponNameSlot2 = (String) weaponNameSlot2.getSelectedItem();
-//				System.out.println(currentShipName);
+				System.out.println("Name action listener running for some reason");
 				if(!currentShipName.isEmpty()) {
 					calculateButton.setEnabled(true);
 				}
 			}
 		});
 		
+		weaponTypeCBox3 = new JComboBox<Object>();
+		weaponTypeCBox3.setEnabled(false);
+		weaponTypeCBox3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+//				System.out.println("This is a test");
+				//Might need to change the if statement for weapons 1&2, (&& ifName3 is empty)
+				if(currentWeaponName.isEmpty() || currentWeaponNameSlot2.isEmpty()) {
+					calculateButton.setEnabled(false);
+				}
+				try {
+					GUIutil.insertNames(weaponNameSlot3, false, currentWeaponTypeSlot3);
+					currentWeaponTypeSlot3 = (String) weaponTypeCBox3.getSelectedItem();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		});
 		
-		
+		weaponNameSlot3 = new JComboBox<String>();
+		weaponNameSlot3.setFont(new Font("Tahoma", Font.BOLD, 10));
+		weaponNameSlot3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				currentWeaponNameSlot3 = (String) weaponNameSlot3.getSelectedItem();
+				//System.out.println("Checking for the shipName"+ currentShipName);
+				/**
+				* Currently a bug here!! cannot check isEmpty for some reason. The name action listener always runs for some reason
+				* Right now commented out but that means the calculate button will not be enabled if slot 3 weapon is selected and nothing else
+				*/
+				//if(!currentShipName.isEmpty() && currentShipName != null) {
+					//calculateButton.setEnabled(true);
+			//}
+			}
+		});
 		
 
 		dangerLevelTBox = new JTextField();
@@ -515,7 +556,7 @@ public class mainCalc extends JFrame {
 					guiUtil.insertEnemyNames(enemyNameCBox, theCurrentWorld);
 					currentDangerLevel = guiUtil.getDangerLevel(theCurrentWorld);
 					theCurrentEnemy = (String) enemyNameCBox.getSelectedItem();
-
+					
 					String theMaxDangerLevel = Integer.toString(currentDangerLevel);
 					dangerLevelTBox.setText(theMaxDangerLevel);
 					
@@ -623,6 +664,13 @@ public class mainCalc extends JFrame {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
 					//Ship slot hard coded in, no idea what that is yet.
 					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
+						if(currentShipType == "CVL" || currentShipType == "CV") {
+							CarrierCalculations plane1 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponType, 
+									currentWeaponName, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP1B1), parseInt(textFieldP1B2), parseInt(textFieldP1T));
+							Double plane1FinalMaxDamage = plane1.getFinalTotalDamage(1, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
+							
+			
+						}
 						Double finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
 								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak);
 						Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
@@ -647,24 +695,53 @@ public class mainCalc extends JFrame {
 					if (!currentWeaponNameSlot2.isEmpty() && currentWeaponNameSlot2 != null) {
 						//System.out.println("Null check not working!");
 						//Nodes killed test case 
-						//System.out.println(nodesKilledTextField.getValue());
-						
-						Double finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak);
-						
-						Double finalMinDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak);
-						
-						System.out.println("The final damage Slot 2 = " + finalMaxDamageSlot2 );
-						String displayDamageSlot2 = Double.toString(finalMaxDamageSlot2);
-						String displayMinDamageSlot2 = Double.toString(finalMinDamageSlot2);
+						//Very weird bug, cannot do != for CVL and CV for some reason
+						if(currentShipType == "CVL" || currentShipType == "CV") {
+							CarrierCalculations plane2 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponTypeSlot2, 
+									currentWeaponNameSlot2, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP2B1), parseInt(textFieldP2B2), parseInt(textFieldP2T)); 
+							Double finalMaxDamageSlot2 = plane2.getFinalTotalDamage(3, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
+							String displayMaxDamageSlot2 = Double.toString(finalMaxDamageSlot2);
+							
+							System.out.println("The amount of bombs dropped from plane 2" + plane2.getBomb1());
+							slot2Pane.setText(displayMaxDamageSlot2);
+						} 	else {
 
-						slot2Pane.setText(displayMinDamageSlot2 + " - " + displayDamageSlot2);
-						
-						
-					}else {
+							Double finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak);
+							
+							Double finalMinDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak);
+							
+							System.out.println("The final damage Slot 2 = " + finalMaxDamageSlot2 );
+							String displayDamageSlot2 = Double.toString(finalMaxDamageSlot2);
+							String displayMinDamageSlot2 = Double.toString(finalMinDamageSlot2);
+	
+							slot2Pane.setText(displayMinDamageSlot2 + " - " + displayDamageSlot2);
+							
+							}
+						} else {
 						//System.out.println("Null check working!");
 						slot2Pane.setText("No Gun Selected for this Slot.");
+						} 
+					
+					//Since Calclculations.java will be overridden slot3 will currently just replace slot1&2 weapon damage for now 
+					//easy way to just have a if statement if cvl is selected but will make	
+					if (!currentWeaponNameSlot3.isEmpty() && currentWeaponNameSlot3 != null) {
+						System.out.println("The weapon name for slot 3: " + currentWeaponNameSlot3);
+
+						//Getting the amount of bombs for each plane. 
+						//Carrier Calculations might want to be changed to accept an array so this part looks better
+
+						CarrierCalculations plane3 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponTypeSlot3, 
+								currentWeaponNameSlot3, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP3B1), parseInt(textFieldP3B2), parseInt(textFieldP3T));
+						
+						Double plane3FinalMaxDamage = plane3.getFinalTotalDamage(3, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
+						System.out.println("The final min damage fro plane3 = " + plane3FinalMaxDamage);
+						String displayMaxDamageSlot3 = Double.toString(plane3FinalMaxDamage);
+						slot3Pane.setText(displayMaxDamageSlot3);
+					} else {
+						//System.out.println("Null check working!");
+						slot3Pane.setText("No Gun Selected for this Slot.");
 					}
 					
 				} catch (IOException e) {
@@ -945,15 +1022,11 @@ public class mainCalc extends JFrame {
 		lblNewLabel = new JLabel("Weapon Type Slot 3:");
 		lblNewLabel.setEnabled(false);
 		
-		weaponTypeCBox3 = new JComboBox<Object>(new Object[]{});
-		weaponTypeCBox3.setEnabled(false);
 		
 
 		lblWeaponTypeSlot.setEnabled(false);
 		
-		weaponNameSlot3 = new JComboBox<String>();
-		weaponNameSlot3.setFont(new Font("Tahoma", Font.BOLD, 10));
-		
+
 		lblSlotDamage = new JLabel("Slot 3 Damage Range:");
 		lblSlotDamage.setEnabled(false);
 		
@@ -975,10 +1048,10 @@ public class mainCalc extends JFrame {
 		 threeByThreeMouse.add(textFieldP3B2);
 		 threeByThreeMouse.add(textFieldP3B1);
 		 threeByThreeMouse.add(textFieldP2T);
-		 threeByThreeMouse.add(textFieldP2B1);
 		 threeByThreeMouse.add(textFieldP2B2);
-		 threeByThreeMouse.add(textFieldP1B2);
+		 threeByThreeMouse.add(textFieldP2B1);
 		 threeByThreeMouse.add(textFieldP1T);
+		 threeByThreeMouse.add(textFieldP1B2);
 		 threeByThreeMouse.add(textFieldP1B1);
 		 
 		
@@ -1343,6 +1416,17 @@ public class mainCalc extends JFrame {
 				}
 			}
 		}
+	}
+	/**
+	 * Method to convert the Jtextfield into a int so it's not too repetitive
+	 * @author Kevin Nguyen
+	 * @param planeOrdinance the bombs or torpedo
+	 */
+	protected int parseInt(JTextField planeOrdinance) {
+		int converted;
+		String textFieldAsAString = planeOrdinance.getText();
+		converted = Integer.parseInt(textFieldAsAString);
+		return converted;
 	}
 	
 	/**

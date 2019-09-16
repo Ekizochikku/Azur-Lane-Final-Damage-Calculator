@@ -12,15 +12,15 @@ public class CarrierCalculations {
 	 * 11-TorpToL, 12-TorpToM, 13-TorpToH]
 	 */
 	
-	GUIutil gt;
+	GUIutil gt = new GUIutil();
 	// Array List holding an array list of skills
-	ArrayList<ArrayList<String>> multiSkills;
+	ArrayList<ArrayList<String>> multiSkills = new ArrayList<ArrayList<String>>();;
 	// Array list of ship parameters
-	ArrayList<String> sp;
+	ArrayList<String> sp = new ArrayList<String>();
 	// Array List of weapon Parameters
-	ArrayList<String> wp;
+	ArrayList<String> wp = new ArrayList<String>();;
 	// Array List of enemy parameters
-	ArrayList<String> ep;
+	ArrayList<String> ep = new ArrayList<String>();;
 	// Amount of ordinance dropped by planes
 	int bomb1;
 	int bomb2;
@@ -34,7 +34,8 @@ public class CarrierCalculations {
 	 * Consturctor for carrier calculations.
 	 * Bomb1 is the amount of bombs dropped, same with bomb2 and torpedos.
 	 */
-	public CarrierCalculations(ArrayList<String> skillList, String shipType, String shipName, String wepType, String wepName, String enemy, String world,
+	public CarrierCalculations(ArrayList<String> skillList, String shipType, String shipName, 
+			String wepType, String wepName, String enemy, String world,
 			int bomb1, int bomb2, int torpedos) throws FileNotFoundException, IOException{
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> skillP = gt.getSkillParameters(skillList.get(i));
@@ -351,5 +352,55 @@ public class CarrierCalculations {
 			value += Double.parseDouble(sp.get(theIndex));
 		}
 		return value;
+	}
+	
+	//Getters and Setters for testing/debugging purposes in the gui
+	public GUIutil getGt() {
+		return gt;
+	}
+	public void setGt(GUIutil gt) {
+		this.gt = gt;
+	}
+	public ArrayList<String> getWp() {
+		return wp;
+	}
+	public void setWp(ArrayList<String> wp) {
+		this.wp = wp;
+	}
+	public ArrayList<String> getEp() {
+		return ep;
+	}
+	public void setEp(ArrayList<String> ep) {
+		this.ep = ep;
+	}
+	public int getBomb1() {
+		return bomb1;
+	}
+	public void setBomb1(int bomb1) {
+		this.bomb1 = bomb1;
+	}
+	public int getBomb2() {
+		return bomb2;
+	}
+	public void setBomb2(int bomb2) {
+		this.bomb2 = bomb2;
+	}
+	public int getTorpedos() {
+		return torpedos;
+	}
+	public void setTorpedos(int torpedos) {
+		this.torpedos = torpedos;
+	}
+	public String getWepType() {
+		return wepType;
+	}
+	public void setWepType(String wepType) {
+		this.wepType = wepType;
+	}
+	public String getWepName() {
+		return wepName;
+	}
+	public void setWepName(String wepName) {
+		this.wepName = wepName;
 	}
 }
