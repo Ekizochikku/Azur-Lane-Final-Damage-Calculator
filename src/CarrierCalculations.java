@@ -12,6 +12,7 @@ public class CarrierCalculations {
 	 * 11-TorpToL, 12-TorpToM, 13-TorpToH]
 	 */
 	
+	// Gui Util Object
 	GUIutil gt;
 	// Array List holding an array list of skills
 	ArrayList<ArrayList<String>> multiSkills;
