@@ -668,25 +668,28 @@ public class mainCalc extends JFrame {
 							CarrierCalculations plane1 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponType, 
 									currentWeaponName, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP1B1), parseInt(textFieldP1B2), parseInt(textFieldP1T));
 							Double plane1FinalMaxDamage = plane1.getFinalTotalDamage(1, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
-							
+							String maxDamageSlot1 = Double.toString(plane1FinalMaxDamage);
+							slot1Pane.setText(maxDamageSlot1);
 			
-						}
-						Double finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak);
-						Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-								,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak);
-						
-						System.out.println("The final max damage = " + finalMaxDamageSlot1 );
-						System.out.println("The final min damage = " + finalMinDamageSlot1 );
+						} else {
 
-						String displayDamageSlot1 = Double.toString(finalMaxDamageSlot1);
-						String displayMinDamageSlot1 = Double.toString(finalMinDamageSlot1);
-						
-						//Nodes killed test case 
-						System.out.println("Current value in the nodes text field: " + 
-						nodesKilledTextField.getValue());
-						
-						slot1Pane.setText(displayMinDamageSlot1 + " - " + displayDamageSlot1);
+							Double finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak);
+							Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak);
+							
+							System.out.println("The final max damage = " + finalMaxDamageSlot1 );
+							System.out.println("The final min damage = " + finalMinDamageSlot1 );
+	
+							String displayDamageSlot1 = Double.toString(finalMaxDamageSlot1);
+							String displayMinDamageSlot1 = Double.toString(finalMinDamageSlot1);
+							
+							//Nodes killed test case 
+							System.out.println("Current value in the nodes text field: " + 
+							nodesKilledTextField.getValue());
+							
+							slot1Pane.setText(displayMinDamageSlot1 + " - " + displayDamageSlot1);
+						}
 					} else {
 						//System.out.println("Null check working!");
 						slot1Pane.setText("No Gun Selected for this Slot.");
@@ -699,7 +702,7 @@ public class mainCalc extends JFrame {
 						if(currentShipType == "CVL" || currentShipType == "CV") {
 							CarrierCalculations plane2 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponTypeSlot2, 
 									currentWeaponNameSlot2, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP2B1), parseInt(textFieldP2B2), parseInt(textFieldP2T)); 
-							Double finalMaxDamageSlot2 = plane2.getFinalTotalDamage(3, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
+							Double finalMaxDamageSlot2 = plane2.getFinalTotalDamage(2, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
 							String displayMaxDamageSlot2 = Double.toString(finalMaxDamageSlot2);
 							
 							System.out.println("The amount of bombs dropped from plane 2" + plane2.getBomb1());
