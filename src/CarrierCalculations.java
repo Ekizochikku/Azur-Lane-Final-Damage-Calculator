@@ -222,7 +222,7 @@ public class CarrierCalculations {
 			} else {
 				armorMod = Double.parseDouble(wp.get(5));
 			}
-		} else if (ordinance.equals("BombTwo")) {
+		} else if (ordinance.equals("bombTwo")) {
 			if (enemyArmor.equals("L")) {
 				armorMod = Double.parseDouble(wp.get(7));
 			} else if (enemyArmor.equals("M")) {
@@ -268,7 +268,7 @@ public class CarrierCalculations {
 		double ratio = 0;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
-			if (holding.get(6).equals("7")) {
+			if (holding.get(6).equals("1")) {
 				ratio += Double.parseDouble(holding.get(4));
 			}
 		}
