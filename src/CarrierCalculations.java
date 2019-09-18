@@ -61,15 +61,15 @@ public class CarrierCalculations {
 		double totalFinalDmg = 0;
 		// Bomb One on plane, if exists
 		if (Double.parseDouble(wp.get(2)) != 0) {
-			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "bombOne", 1);
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "bombOne", 1) * bomb1;
 		}
 		// Bomb Two on plane, if exists
 		if (Double.parseDouble(wp.get(6)) != 0) {
-			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "bombTwo", 2);
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "bombTwo", 2) * bomb2;
 		}
 		// Torpedo on plane, if exists
 		if (Double.parseDouble(wp.get(10)) != 0) {
-			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "torpedo", 3);
+			totalFinalDmg += getFinalDamage(shipSlot, skillList, crit, world, dangerLvl, removeRandom, "torpedo", 3) * torpedos;
 		}
 		return totalFinalDmg;
 		
