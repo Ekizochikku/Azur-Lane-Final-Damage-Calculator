@@ -168,10 +168,13 @@ public class CarrierCalculations {
 		switch(ordinance) {
 		case "bombOne":
 			wepDmg = Double.parseDouble(wp.get(2));
+			break;
 		case "bombTwo":
 			wepDmg = Double.parseDouble(wp.get(6));
+			break;
 		case "torpedo":
 			wepDmg = Double.parseDouble(wp.get(10));
+			break;
 		default:
 			break;
 		}
