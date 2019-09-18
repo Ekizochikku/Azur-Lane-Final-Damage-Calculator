@@ -87,7 +87,8 @@ public class CarrierCalculations {
 			double weaponTypeModStat = 0;
 			double criticalDamageStat = 1; // Default at 1
 			double armorModStat = 0;
-			double airDmgRedStat = 150 / (150 + Integer.parseInt(ep.get(5))); // 1 for now. Number will change when carriers and plane damage is added in.
+			//Can't divide using integers must make everything double!
+			double airDmgRedStat = 150.0 / (150.0 + Double.parseDouble(ep.get(5))); // 1 for now. Number will change when carriers and plane damage is added in.
 			double enhancingDmgStat = 1; // Default at 1
 			double comboStat = 1; // Only ship with combo damage atm is U-47 so if she and her skill is selected, add 0.4.
 			double lvlDiffStat = 0;
@@ -138,8 +139,17 @@ public class CarrierCalculations {
 			// Not needed. Only bombs and torpedos being used.
 			double intermediateDmg = (correctedDamageStat + removeRandom) * weaponTypeModStat * criticalDamageStat * armorModStat * (1 + injRatStat) * (1 + dmgRatStat) * lvlDiffStat * 
 					(1 + dmgNatStat) * (1 + dmgTypeStat) * (1 + ammoBuffStat - 0) * airDmgRedStat * (1 + comboStat);
+			
+			//Debug Print out statements
+			System.out.println("Intermediate Damage:" + intermediateDmg);
+			System.out.println(correctedDamageStat + " " + removeRandom + " " +weaponTypeModStat + " " +criticalDamageStat +" " +
+			armorModStat + " " +(1+ injRatStat) +" " + (1+ dmgRatStat) +" " + lvlDiffStat + " " +
+					(1 + dmgNatStat) +" " + (1+ dmgTypeStat) +" " + (1+ ammoBuffStat) +" " + airDmgRedStat + " " + (1+ comboStat));
+			
+			
 			double temp1 = Math.max(1, Math.floor(intermediateDmg));
 			double temp2 = Math.floor(temp1 * enhancingDmgStat);
+			System.out.println("temp2:" + temp2 + " dmgRedStat:" + dmgRedStat);
 			finalDmg = Math.floor(temp2 * dmgRedStat);
 		}
 		
