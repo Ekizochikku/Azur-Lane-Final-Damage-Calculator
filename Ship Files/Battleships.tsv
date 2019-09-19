@@ -4,6 +4,8 @@ Tirpitz	KMS	Bismarck	BB	0	2	1.3	2	0.9	8401	423	217	208	Lone Queen of the North	M
 Colorado	USS	Colorado	BB	0	0	1.3	2	1	7456	409	0	216	BIG SEVEN	NULL	NULL	NULL	NULL
 Maryland	USS	Colorado	BB	0	0	1.25	2	1	7414	405	0	219	BIG SEVEN	Fighting Mary	NULL	NULL	NULL
 West Virginia	USS	Colorado	BB	0	0	1.3	2	1	7456	409	0	216	BIG SEVEN	NULL	NULL	NULL	NULL
+Conte Di Cavour	RN	Conte Di Cavour	BB	0	0	1.25	1.5	0.7	6831	337	146	175	Fading Memories of Glory	NULL	NULL	NULL	NULL
+Giulio Cesare	RN	Conte Di Cavour	BB	0	0	1.25	1.5	0.7	7030	347	151	186	Sardegnian Coercion	Fading Memories of Glory	NULL	NULL	NULL
 Friedrich der Grosse	KMS	Friedrich der Grosse	BB	0	2	1.6	2.2	1	9886	449	0	241	Symphont of Destruction	Sonata of Chaos	Rhapsody of Darkness	Siren's Nemesis	NULL
 Fusou	IJN	Fusou	BB	0	2	1.3	2	1	6916	390	0	222	Covering Fire	NULL	NULL	NULL	NULL
 Yamashiro	IJN	Fusou	BB	0	2	1.3	2	0.85	7309	390	0	222	Covering Fire	NULL	NULL	NULL	NULL
@@ -16,6 +18,7 @@ Duke of York	HMS	King George V	BB	0	2	1.35	2	1	7967	420	0	225	Concerto of Blood	
 King George V	HMS	King George V	BB	0	2	1.35	2	1	7970	423	0	264	Effective Armament	Glory of the Sun Which Never Sets	NULL	NULL	NULL
 Prince of Wales	HMS	King George V	BB	0	2	1.35	2	1	7967	422	0	230	Royal Alliance	NULL	NULL	NULL	NULL
 Super Gamer Kizuna Ai	KizunaAi	KizunaAI	BB	0	2	1.3	2	1	7648	409	212	199	Super Aiming Adjustments	Coercion Assistance Mode	NULL	NULL	NULL
+Littorio	RN	Littorio	BB	0	2	1.3	2	1	8367	421	0	243	Rosa Bombardamento	Sardegnian Discipline	NULL	NULL	NULL
 Mikasa	IJN	Mikasa	BB	0	2	1.3	1.5	1.5	5372	334	0	172	Reborn Combined Fleet Flagship	T-Cross Formation	NULL	NULL	NULL
 Monarch	HMS	Monarch	BB	0	2	1.45	2.1	1.1	7967	423	0	230	Monarch's Coercion	Agaisnt the Current	Siren's Nemesis	NULL	NULL
 Mutsu	IJN	Nagato	BB	0	2	1.3	2.1	1	7896	409	0	185	BIG SEVEN - SAKURA	NULL	NULL	NULL	NULL

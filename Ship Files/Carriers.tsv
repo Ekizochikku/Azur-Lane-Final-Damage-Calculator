@@ -1,6 +1,6 @@
 SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	WEP3TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	AVIATION	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
 Akagi	IJN	Akagi	CV	0	1	2	1.25	1.25	1.25	6588	0	0	323	409	Preemptive Victory	Ikkousen	NULL	NULL	NULL
-Akagi-Chain	IJN	Akagi	CV	0	1	2	1.25	1.15	1.25	6250	0	0	311	394	Preemptive Strike	Red Protection	NULL	NULL	NULL
+Akagi-Chan	IJN	Akagi	CV	0	1	2	1.25	1.15	1.25	6250	0	0	311	394	Preemptive Strike	Red Protection	NULL	NULL	NULL
 Ark Royal	IJN	Ark Royal	CV	2	2	1	1.4	1.4	0.8	6107	0	0	307	400	Swordsish, Take Off!	Raid Carrier	NULL	NULL	NULL
 Glorious	HMS	Courageous	CV	0	2	2	1.4	1.15	1.15	6313	0	0	292	360	Flee Carrier	Aerial Cover	NULL	NULL	NULL
 Bunker Hill	USS	Essex	CV	0	1	2	1.4	1.3	1.15	6610	0	0	309	425	Task Group	Relentless Persistence	NULL	NULL	NULL
@@ -9,6 +9,7 @@ Shangri-La	USS	Essex	CV	0	1	2	1.4	1.3	1.15	6647	0	0	331	430	Doolittle Raid Plus	
 Graf Zeppelin	KMS	Graf Zeppelin	CV	0	1	1	1.2	1.3	1.3	7488	0	0	319	400	Ironblood Wings	Ironblood Hawk	NULL	NULL	NULL
 Zeppy	KMS	Graf Zeppelin	CV	0	1	7	1.15	1.3	1	6983	174	0	307	376	Eat my Shells!	Ironblood #1 CV!	NULL	NULL	NULL
 Hiryuu(Retofit)	IJN	Hiryuu	CV	0	1	2	1.25	1.15	1.5	5678	0	0	361	426	Final Counterattack	Nikkousen	Deck of Aces	NULL	NULL
+Formidable	HMS	Illustrious	CV	6	2	2	1.2	1.35	1.25	6481	0	0	289	413	Supporting Wings	Don't Move An Inch!	Armoured Hanger	NULL	NULL
 Illustrious	HMS	Illustrious	CV	0	0	2	1.35	1.35	1.1	6561	0	0	296	400	Armored Carrier	NULL	NULL	NULL	NULL
 Victorious	HMS	Illustrious	CV	0	1	2	1.2	1.3	1.3	6262	0	0	289	410	Victorious Song	Raid Carrier	NULL	NULL	NULL
 Kaga	IJN	Kaga	CV	0	1	2	1.1	1.1	1.5	6771	0	0	323	408	Preemptive Victory	Ikkousen	NULL	NULL	NULL

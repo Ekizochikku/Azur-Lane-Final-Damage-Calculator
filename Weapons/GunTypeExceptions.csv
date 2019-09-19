@@ -1,2 +1,2 @@
-WEAPONNAME
-This gun type is not currently supported
+WEAPONNAME,FIREPOWER,ANTIAIR,DAMAGE
+The gun type is not currently supported,0,0,0
