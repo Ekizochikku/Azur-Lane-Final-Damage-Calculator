@@ -187,6 +187,11 @@ public class Calculations {
 			}
 		}
 		
+		// Fading Memories of Glory Exception
+		if (skillList.contains("Fading Memories of Glory") && wepType.equals("TORPEDOS")) {
+			stat = 0;
+		}
+		
 		// Stat increase from skills.
 		double skillStat = 1;
 		if (wepType.equals("TORPEDOS")) {
