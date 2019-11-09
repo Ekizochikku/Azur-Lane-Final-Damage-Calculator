@@ -191,7 +191,7 @@ public class CarrierCalculations {
 		}
 		
 		// Bataan Exception
-		if (shipName.equals("Bataan") && skillList.contains("Roaring Challenger") && wepType.equals("FIGHTERP") && wepName.contains("Grumman F6F Hellcat")) {
+		if (shipName.equals("Bataan") && skillList.contains("Hellcat's Roar") && wepType.equals("FIGHTERP") && wepName.contains("Grumman F6F Hellcat")) {
 			effSlot += .30;
 		}
 		
@@ -203,7 +203,7 @@ public class CarrierCalculations {
 		double statAttacker = Double.parseDouble(sp.get(14)) + Double.parseDouble(wp.get(1));
 		
 		// Zeppy Exception
-		if (shipName.equals("Zeppy") && skillList.contains("Eat my Shells!")) {
+		if (shipName.equals("Zeppy") && skillList.contains("Taste My Wrath!")) {
 			statAttacker += 240;
 		}
 		double statBuff = getStackedStats(10, 1);

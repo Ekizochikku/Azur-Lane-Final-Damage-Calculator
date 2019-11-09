@@ -1,4 +1,4 @@
-SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE(0=dd,1=cl,2=dd/cl)	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
+SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
 Bismarck	KMS	Bismarck	BB	0	2	1.3	1.8	0.9	8792	423	0	208	Wahrheit	Unyielding Power	Ironblood's Will	NULL	NULL
 Tirpitz	KMS	Bismarck	BB	0	2	1.3	2	0.9	8401	423	217	208	Lone Queen of the North	Magnetic Torpedo	NULL	NULL	NULL
 Colorado	USS	Colorado	BB	0	0	1.3	2	1	7456	409	0	216	BIG SEVEN	NULL	NULL	NULL	NULL
@@ -10,6 +10,7 @@ Friedrich der Grosse	KMS	Friedrich der Grosse	BB	0	2	1.6	2.2	1	9886	449	0	241	Sy
 Fusou	IJN	Fusou	BB	0	2	1.3	2	1	6916	390	0	222	Covering Fire	NULL	NULL	NULL	NULL
 Yamashiro	IJN	Fusou	BB	0	2	1.3	2	0.85	7309	390	0	222	Covering Fire	NULL	NULL	NULL	NULL
 Gascogne	MNF	Gascogne	BB	0	2	1.8	2	0.8	7863	430	0	241	Perceptive Suppression Module	Accurate operation Protocols	Siren's Nemesis	NULL	NULL
+Gascogne (Muse)	MNF	Gascogne	BB	0	2	1.7	2	0.7	7851	429	0	237	Coeur Battant	Leader of the Band	NULL	NULL	NULL
 Georgia	USS	Georgia	BB	0	2	1.65	2	1.1	8297	436	0	409	Ironsight Caliber	Heavy Barrel Buster	Siren's Nemesis	NULL	NULL
 Hyuuga	IJN	Ise	BB	0	2	1.35	1.8	0.8	7124	398	0	229	Artillery Command - Main Fleet	Covering Fire	NULL	NULL	NULL
 Ise	IJN	Ise	BB	0	2	1.4	2	0.8	7214	398	0	229	Covering Fire	NULL	NULL	NULL	NULL

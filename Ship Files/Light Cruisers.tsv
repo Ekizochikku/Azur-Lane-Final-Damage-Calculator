@@ -1,64 +1,68 @@
-SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
-Agano	IJN	Agano	CL	1	0	1	1.7	1	3159	148	3535	323	Artillery Command - Destroyer	Carrier Protection	Full Barrage	NULL	NULL
-Arethusa	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324	Reload Order	Full Barrage	NULL	NULL	NULL
-Aurora	HMS	Arethusa	CL	1	0	1.35	1.55	1.3	2918	162	279	333	Silver Phantom	Dawn	Full Barrage	NULL	NULL
-Galatea	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324	Full Firepower	Full Barrage	NULL	NULL	NULL
-Atlanta	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422	Anti-Air Command - Cruiser	Anti-Air Mode	Full Barrage	NULL	NULL
-Juneau	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422	War Martyr	Anti-Air Mode	Full Barrage	NULL	NULL
-Li'l Sandy	USS	Atlanta	CL	2	0	1	1.15	1.65	3226	131	161	434	Sparkling Entrance	Star Spark!	Full Barrage	NULL	NULL
-Sandy(Retrofitt)	USS	Atlanta	CL	2	0	1.15	1.35	1.85	3995	182	168	559	I Am No. 1!	Song of the Stars	Full Barrage	NULL	NULL
-San Juan	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	429	Air Navigation Warning	Full Barrage	NULL	NULL	NULL
-Brooklyn	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Artillery Command - Cruiser	Full Barrage	NULL	NULL	NULL
-Honolulu	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Full Firepower	Full Barrage	NULL	NULL	NULL
-Phoniex	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Crimson Phoenix	Full Barrage	NULL	NULL	NULL
-Curacoa	HMS	Ceres	CL	2	3	1.15	0.8	0.8	2981	134	0	154	Aerial Support	Full Barrage	NULL	NULL	NULL
-Curlew	HMS	Ceres	CL	2	3	1.1	0.8	0.8	2789	128	0	178	Aerial Support	Full Barrage	NULL	NULL	NULL
-Birmingham	USS	Cleveland	CL	1	1	1.6	0.65	1.3	4189	165	0	321	Guardian of War	Awakening of the Knight	Full Barrage	NULL	NULL
-Clevelad	USS	Cleveland	CL	1	1	1.2	0.65	1.2	3601	162	0	323	Heart of a Knight	Untrained Knight	Full Barrage	NULL	NULL
-Cleveland	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	265	0	323	Raid Order	Anti-Air Mode	Full Barrage	NULL	NULL
-Columbia	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	168	0	323	Flagship Protection	Anti-Air Mode	Full Barrage	NULL	NULL
-Denver	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	157	0	321	Full Firepower	Anti-Air Mode	Full Barrage	NULL	NULL
-Montpelier	USS	Cleveland	CL	1	1	1.3	0.75	1.2	4361	170	0	333	Legend of the Solomons	Anti-Air Mode	Full Barrage	NULL	NULL
-Fiji	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3586	159	268	255	Crete's Black Cloud	Full Barrage	NULL	NULL	NULL
-Jamaica	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3636	157	268	329	Friends of Justice	Full Barrage	NULL	NULL	NULL
-Black Prince	HMS	Dido	CL	4	0	1.35	1.3	1.35	3608	142	153	377	Woodstock's Longbow	Smokescreen	Full Barrage	NULL	NULL
-Sirius	HMS	Dido	CL	4	0	1.3	1.3	1.3	3744	151	161	385	The Wolf's Seal	Covering Fire	Full Barrage	NULL	NULL
-Belfast	HMS	Edinburgh	CL	1	0	1.5	1.55	1	3970	179	340	293	Burn Order	Smokescreen - Light Cruiser	Full Barrage	NULL	NULL
-Edinburgh	HMS	Edinburgh	CL	1	0	1.5	1.55	1	4486	157	280	313	Armor-Piercing Expert	Full Barrage	NULL	NULL	NULL
-Little Bel	HMS	Edinburgh	CL	1	0	1.4	1.5	1	3231	159	324	282	The Perfect Chibi Maid	Ladies' Tea Time	Full Barrage	NULL	NULL
-Emile Bertin(Retrofit)	FFNF	Emile Bertin	CL	1	0	1.45	1.55	1.15	3425	191	298	327	Iris' Heart	Destroyer Squadron	Angel of Love	Full Barrage	NULL
-Koln	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333	Full Firepower	Full Barrage	NULL	NULL	NULL
-Konigsberg	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333	Reload Command - Cruiser	Full Barrage	NULL	NULL	NULL
-Karlsruhe(Retrofitt)	KMS	Konigsberg	CL	1	0	1.2	1.7	1.35	3612	172	318	348	Full Firepower	Disturbance Strategy	Full Barrage	NULL	NULL
-Achilles(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295	Full Firepower	Giant Hunter	Full Barrage	NULL	NULL
-Ajax(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295	Full Firepower	Giant Hunter	Full Barrage	NULL	NULL
-Leander(Retrofit)	HMS	Leander	CL	1	0	1.35	1.65	1.3	3486	196	305	321	Artillery Command - Cruiser	Smokescreen	Full Barrage	NULL	NULL
-Leipzig	KMS	Leipzig	CL	1	0	1.25	1.6	1.3	3494	148	270	347	Tactical Command - Cruiser	Full Barrage	NULL	NULL	NULL
-Swiftsure	HMS	Minotaur	CL	1	0	1.55	1.55	1.1	3796	163	364	304	Anti-Air Order	Advanced Fire Control	Full Barrage	NULL	NULL
-Mikuma	IJN	Mogami	CL	1	0	1.1	1.6	1	4015	201	187	186	Carrier Protection	AP Protection	Full Barrage	NULL	NULL
-Mogami	IJN	Mogami	CL	1	0	1.25	1.6	1.05	4015	201	185	186	Full Firepower	AP Protection	Full Barrage	NULL	NULL
-Abukuma(Retrofit)	IJN	Nagara	CL	1	0	1.15	1.75	1.25	3131	160	344	279	Torpedo Command - Destroyer	Chain Torpedo	Full Barrage	NULL	NULL
-Isuzu	IJN	Nagara	CL	2	0	1.05	1.4	1.6	3214	120	220	343	Anti-Air Mode	Full Barrage	NULL	NULL	NULL
-Nagara	IJN	Nagara	CL	1	0	1.1	1.6	1.25	2891	140	279	278	Full Firepower	Full Barrage	NULL	NULL	NULL
-HMS Neptune	HMS	Neptune	CL	1	0	1.5	1.6	1	4637	172	352	363	MKV-class AP Shell	Goddess of the Sea	Siren's Nemesis	Full Barrage	NULL
-Ning Hai(Retrofit)	ROC	Neptunia	CL	1	0	1.45	1.55	1.35	2192	201	234	304	Sisterly Bonds	Sakura Resistance	Warrior Soul	Full Barrage	NULL
-Ping Hai(Retrofit)	ROC	Neptunia	CL	1	0	1.45	1.55	1.35	2160	201	234	272	Sisterly Bonds	Sakura Resistance	Warrior Soul	Full Barrage	NULL
-Concord	USS	Omaha	CL	1	0	1.25	1.5	1.3	3310	146	215	295	Quick Reload	Full Barrage	NULL	NULL	NULL
-Memphis	USS	Omaha	CL	1	0	1.25	1.55	1.25	2921	127	184	259	Quick Reload	Full Barrage	NULL	NULL	NULL
-Omaha	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Quick Reload	Full Barrage	NULL	NULL	NULL
-Richmond	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Artillery Command - Cruiser	Full Barrage	NULL	NULL	NULL
-Raleigh	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Quick Reload	Full Barrage	NULL	NULL	NULL
-Avrora	SN	Pallada	CL	1	0	1.3	1.25	0.8	3372	104	223	160	Cannon Fire That Marked A Change of Era	Full Barrage	NULL	NULL	NULL
-Seattle	USS	Seattle	CL	1	5	1.45	0.65	1.3	5257	178	0	365	No Flying Allowed!	A Bow's String Has 2 Lines!	Siren's Nemesis	Full Barrage	NULL
-Jintsuu(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2855	176	402	300	Splendid 2nd Torpedo Squadron	Unyielding Beast	Full Barrage	NULL	NULL
-Naka	IJN	Sendai	CL	1	0	1.2	1.65	1.15	2540	151	337	286	Torpedo Fleet	Full Barrage	NULL	NULL	NULL
-Sendai(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2780	170	391	276	Torpedo Fleet	Flares	Full Barrage	NULL	NULL
-Sheffield	HMS	Southampton	CL	1	0	1.5	1.5	1.1	3796	156	295	351	Shiny Sheff	Counterattack of the Barents Sea	Full Barrage	NULL	NULL
-Southampton	HMS	Southampton	CL	1	0	1.35	1.3	1.1	3688	151	273	307	Smokescreen	Reload Order	Full Barrage	NULL	NULL
-Helena	USS	St. Louis	CL	1	1	1.35	0.65	1	3604	171	0	316	Radar Sweep	Full Barrage	NULL	NULL	NULL
-Lena	USS	St. Louis	CL	1	1	1.35	0.65	1	3246	167	0	316	Light of Purification	Naive Girl	Full Barrage	NULL	NULL
-St. Louis	USS	St. Louis	CL	1	1	1.35	0.65	1	3604	171	0	316	Lucky Lou	Anti-Air Mode	Full Barrage	NULL	NULL
-Newcastle(Retrofit)	HMS	Town	CL	1	0	1.55	1.25	1.45	3928	175	285	387	Anti-Air Mode	Reload Order	Artillery Command - Vanguard	Full Barrage	NULL
-Rurutie	Utawarerumono	Utawarerumono	CL	1	0	1.1	1.4	0.6	4106	151	248	274	Pulse of Life	Lily Root	NULL	NULL	NULL
-Yat Sen	ROC	Yat Seb	CL	1	2	1.3	1.2	0.8	1884	120	0	347	Bond of the Eastern Radiance	Sakura Resistance	Full Barrage	NULL	NULL
-Yuubari(Retrofit)	IJN	Yuubari	CL	1	0	1.25	1.65	1.25	2342	161	286	332	Experimental Cruiser	Full Firepower	Erratic Inventor	Full Barrage	NULL
+SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR
+Agano	IJN	Agano	CL	1	0	1	1.7	1	3159	148	3535	323
+Arethusa	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324
+Aurora	HMS	Arethusa	CL	1	0	1.35	1.55	1.3	2918	162	279	333
+Galatea	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324
+Atlanta	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422
+Juneau	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422
+Li'l Sandy	USS	Atlanta	CL	2	0	1	1.15	1.65	3226	131	161	434
+Sandy(Retrofitt)	USS	Atlanta	CL	2	0	1.15	1.35	1.85	3995	182	168	559
+San Juan	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	429
+Brooklyn	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307
+Helena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316
+Honolulu	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307
+Lena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3246	167	0	316
+Phoniex	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307
+St. Louis	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316
+Curacoa	HMS	Ceres	CL	2	3	1.15	0.8	0.8	2981	134	0	154
+Curlew	HMS	Ceres	CL	2	3	1.1	0.8	0.8	2789	128	0	178
+Birmingham	USS	Cleveland	CL	1	1	1.6	0.65	1.3	4189	165	0	321
+Clevelad	USS	Cleveland	CL	1	1	1.2	0.65	1.2	3601	162	0	323
+Cleveland	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	265	0	323
+Cleveland (Muse)	USS	Cleveland	CL	1	1	1.3	0.7	1.2	3837	162	0	323
+Columbia	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	168	0	323
+Denver	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	157	0	321
+Montpelier	USS	Cleveland	CL	1	1	1.3	0.75	1.2	4361	170	0	333
+Fiji	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3586	159	268	255
+Jamaica	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3636	157	268	329
+Black Prince	HMS	Dido	CL	4	0	1.35	1.3	1.35	3608	142	153	377
+Sirius	HMS	Dido	CL	4	0	1.3	1.3	1.3	3744	151	161	385
+Emile Bertin(Retrofit)	FFNF	Emile Bertin	CL	1	0	1.45	1.55	1.15	3425	191	298	327
+Koln	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333
+Konigsberg	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333
+Karlsruhe(Retrofitt)	KMS	Konigsberg	CL	1	0	1.2	1.7	1.35	3612	172	318	348
+Achilles(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295
+Ajax(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295
+Leander(Retrofit)	HMS	Leander	CL	1	0	1.35	1.65	1.3	3486	196	305	321
+Leipzig	KMS	Leipzig	CL	1	0	1.25	1.6	1.3	3494	148	270	347
+Swiftsure	HMS	Minotaur	CL	1	0	1.55	1.55	1.1	3796	163	364	304
+Mikuma	IJN	Mogami	CL	1	0	1.1	1.6	1	4015	201	187	186
+Mogami	IJN	Mogami	CL	1	0	1.25	1.6	1.05	4015	201	185	186
+Abukuma(Retrofit)	IJN	Nagara	CL	1	0	1.15	1.75	1.25	3131	160	344	279
+Isuzu	IJN	Nagara	CL	2	0	1.05	1.4	1.6	3214	120	220	343
+Nagara	IJN	Nagara	CL	1	0	1.1	1.6	1.25	2891	140	279	278
+HMS Neptune	HMS	Neptune	CL	1	0	1.5	1.6	1	4637	172	352	363
+HDN Neptune	Neptunia	Neptunia	CL	1	0	1.4	1.5	1	3430	153	289	303
+Purple Heart	Neptunia	Neptunia	CL	1	0	1.45	1.5	1	3695	167	310	313
+Ning Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2192	201	234	304
+Ping Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2160	201	234	272
+Concord	USS	Omaha	CL	1	0	1.25	1.5	1.3	3310	146	215	295
+Memphis	USS	Omaha	CL	1	0	1.25	1.55	1.25	2921	127	184	259
+Omaha	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281
+Richmond	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281
+Raleigh	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281
+Avrora	SN	Pallada	CL	1	0	1.3	1.25	0.8	3372	104	223	160
+Seattle	USS	Seattle	CL	1	5	1.45	0.65	1.3	5257	178	0	365
+Jintsuu(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2855	176	402	300
+Naka	IJN	Sendai	CL	1	0	1.2	1.65	1.15	2540	151	337	286
+Sendai(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2780	170	391	276
+Belfast	HMS	Town	CL	1	0	1.5	1.55	1	3970	179	340	293
+Edinburgh	HMS	Town	CL	1	0	1.5	1.55	1	4486	157	280	313
+Little Bel	HMS	Town	CL	1	0	1.4	1.5	1	3231	159	324	282
+Newcastle(Retrofit)	HMS	Town	CL	1	0	1.55	1.25	1.45	3928	175	285	387
+Sheffield	HMS	Town	CL	1	0	1.5	1.5	1.1	3796	156	295	351
+Sheffield (Muse)	HMS	Town	CL	1	0	1.5	1.5	1.1	3559	153	295	351
+Southampton	HMS	Town	CL	1	0	1.35	1.3	1.1	3688	151	273	307
+Rurutie	Utawarerumono	Utawarerumono	CL	1	0	1.1	1.4	0.6	4106	151	248	274
+Yat Sen	ROC	Yat Sen	CL	1	2	1.3	1.2	0.8	1884	120	0	347
+Yuubari(Retrofit)	IJN	Yuubari	CL	1	0	1.25	1.65	1.25	2342	161	286	332
