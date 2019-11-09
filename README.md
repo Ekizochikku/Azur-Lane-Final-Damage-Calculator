@@ -2,6 +2,8 @@
 This is an application that will calculate the final damage done by a single shot or load of a weapon in the mobiel game Azur Lane. Calculations are calculated through the stats given by the ship, weapons and equipment(later?), and skills.<br>
 
 # Important-Info
+<B> We will implement new game changes when we can. </B>
+
 Calculations are done with preset conditions:
 - Ships are level 120 and stats are represented of that (Same applies to retros/kai)
 - Danger level is reduced to the max of the given world
