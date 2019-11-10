@@ -169,6 +169,8 @@ public class mainCalc extends JFrame {
 	
 	private JButton removeButton;
 	private final ButtonGroup buttonGroup = new ButtonGroup();
+	private final ButtonGroup colorButtonGroup = new ButtonGroup();
+	private JRadioButton[] colorButtons;
 	private JRadioButton buttonHE;
 	private JRadioButton buttonAP;
 	private JRadioButton evenRadioButton;
@@ -203,6 +205,10 @@ public class mainCalc extends JFrame {
 	private JLabel lblPlane3;
 	private JLabel lblNewLabel;
 	private JLabel lblSlotDamage;
+	private JRadioButton purpleRadioButton;
+	private JRadioButton redRadioButton;
+	private JRadioButton blueRadioButton;
+	private JLabel label;
 
 	/**
 	 * Launch the application.
@@ -278,7 +284,7 @@ public class mainCalc extends JFrame {
 		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1250, 703);
+		setBounds(100, 100, 1205, 720);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setName("Azur Lane By David Blaine");
@@ -353,9 +359,17 @@ public class mainCalc extends JFrame {
 				//System.out.println("the current ship name: " + currentShipName);
 				if(currentShipName.equals("Roon")) {
 					//System.out.println("Not entering this check!!!");
-					//The set enabled can be a method to reduce code reduncy if you want but it's only this
+					//Need to be changed so they're in array to reduce redundancy
 					buttonHE.setEnabled(true);
 					buttonAP.setEnabled(true);
+					
+					buttonHE.setToolTipText(null);
+					buttonAP.setToolTipText(null);
+				    for (JRadioButton btn : colorButtons) {
+				         btn.setSelected(false);
+				         btn.setEnabled(false);
+				    }
+					
 					//Test reminder: Friedrich is on BB ship type
 				} else if(currentShipName.equals("Friedrich der Grosse")) {
 					buttonHE.setEnabled(false);
@@ -366,6 +380,25 @@ public class mainCalc extends JFrame {
 					evenOdd = 1;
 					evenRadioButton.setEnabled(true);
 					oddRadioButton.setEnabled(true);
+					oddRadioButton.setToolTipText(null);
+					evenRadioButton.setToolTipText(null);
+				    for (JRadioButton btn : colorButtons) {
+				         btn.setSelected(false);
+				         btn.setEnabled(false);
+				    }
+					
+				
+				//checking for ships that have Muse
+				//currently they're aren't any btw
+				//this is an else if, i'm assuming there are no muse ships that are named Roon, Friedrich, Alabama
+				//will need to be changed if otherwise
+				}else if(currentShipName.indexOf("Muse") != -1) {
+					
+					for (JRadioButton btn : colorButtons) {
+				         btn.setEnabled(true);
+				    }
+					
+					
 				} else if(currentShipName.equals("Alabama") && skillExist) {
 					nodesKilledTextField.setEnabled(true);
 					nodeKilledLabel.setEnabled(true);
@@ -376,7 +409,19 @@ public class mainCalc extends JFrame {
 					buttonHE.setEnabled(false);
 					buttonAP.setEnabled(false);
 					buttonGroup.clearSelection();
-
+					
+					buttonHE.setToolTipText("HE and AP rounds are only selectable with 'Roon' ");
+					buttonAP.setToolTipText("HE and AP rounds are only selectable with 'Roon' ");
+					oddRadioButton.setToolTipText("Even and Odd rounds are only selectable with Friedrich der Grosse");
+					evenRadioButton.setToolTipText("Even and Odd rounds are only selectable when Friedrich der Grosse");
+					
+				    for (JRadioButton btn : colorButtons) {
+				         btn.setSelected(false);
+				         btn.setEnabled(false);
+				    }
+				    //for some reason setSelected above doesnt work so this has to be done
+					colorButtonGroup.clearSelection();
+					
 					evenRadioButton.setEnabled(false);
 					oddRadioButton.setEnabled(false);
 					evenOdd = -1;
@@ -636,9 +681,6 @@ public class mainCalc extends JFrame {
 			}
 		});
 		
-		ButtonGroup group = new ButtonGroup();
-		group.add(buttonHE);
-		group.add(buttonAP);
 		
 		/*Button to determine final calculation
 		* For now does nothing as Subject to change 
@@ -1070,6 +1112,31 @@ public class mainCalc extends JFrame {
 			((JFormattedTextField)threeByThreeMouse.get(i)).addMouseListener(eraseZero);
 	    }
 		
+	    //Button Group for Muse (Notes)
+		colorButtonGroup.add(redRadioButton = new JRadioButton("Red"));
+		colorButtonGroup.add(blueRadioButton = new JRadioButton("Blue"));
+		colorButtonGroup.add(purpleRadioButton = new JRadioButton("Purple"));
+		
+		//Array to enable disable button group (seriously swing needs to let you interact with button groups instead of doing workarounds like this)
+		//now that I know about this might change up code later and add everything into the array
+	    colorButtons = new JRadioButton[] {redRadioButton, blueRadioButton, purpleRadioButton};
+	    for (JRadioButton btn : colorButtons) {
+	         btn.setEnabled(false);
+	         btn.setToolTipText("Color Ammo Types are only applicable to 'Muse' ships");
+	    }
+	    
+		
+		//Music Note label
+		label = new JLabel("\u266A");
+		
+		//Tool Tips
+		label.setToolTipText("Color Ammo Types are only applicable to 'Muse' ships");
+		buttonHE.setToolTipText("HE and AP rounds are only selectable with 'Roon'");
+		buttonAP.setToolTipText("HE and AP rounds are only selectable with 'Roon'");
+		
+		oddRadioButton.setToolTipText("Even and Odd rounds are only selectable with Friedrich der Grosse");
+		evenRadioButton.setToolTipText("Even and Odd rounds are only selectable when Friedrich der Grosse");
+		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
@@ -1096,25 +1163,25 @@ public class mainCalc extends JFrame {
 										.addComponent(lblGunNameSlot_1)
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(shipName, 0, 175, Short.MAX_VALUE)
-												.addComponent(weaponNameSlot1, 0, 175, Short.MAX_VALUE)
+												.addComponent(shipName, 0, 186, Short.MAX_VALUE)
+												.addComponent(weaponNameSlot1, 0, 186, Short.MAX_VALUE)
 												.addComponent(shipNameLbl)
 												.addComponent(lblGunNameSlot))
 											.addPreferredGap(ComponentPlacement.RELATED)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblDangerLevel, GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+												.addComponent(lblDangerLevel, GroupLayout.DEFAULT_SIZE, 82, Short.MAX_VALUE)
 												.addComponent(currentWorldCBox, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
 												.addComponent(lblChapter)
 												.addGroup(gl_contentPane.createSequentialGroup()
 													.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 													.addGap(9))))
-										.addComponent(weaponNameSlot3, 0, 249, Short.MAX_VALUE)
-										.addComponent(weaponNameSlot2, 0, 249, Short.MAX_VALUE))
+										.addComponent(weaponNameSlot3, 0, 274, Short.MAX_VALUE)
+										.addComponent(weaponNameSlot2, 0, 274, Short.MAX_VALUE))
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 										.addComponent(healthTextFieldLabel)
 										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-											.addComponent(healthTextField, GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+											.addComponent(healthTextField, GroupLayout.DEFAULT_SIZE, 175, Short.MAX_VALUE)
 											.addComponent(lblEnemyName)
 											.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
 											.addGroup(gl_contentPane.createSequentialGroup()
@@ -1127,83 +1194,118 @@ public class mainCalc extends JFrame {
 												.addPreferredGap(ComponentPlacement.UNRELATED)
 												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 													.addGroup(gl_contentPane.createSequentialGroup()
-														.addComponent(nationTextField, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+														.addComponent(nationTextField, GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
 														.addPreferredGap(ComponentPlacement.RELATED))
 													.addGroup(gl_contentPane.createSequentialGroup()
 														.addComponent(lblNation)
 														.addPreferredGap(ComponentPlacement.RELATED))
 													.addComponent(lblAntiAir)
-													.addComponent(AntiairTextField, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))))))
+													.addComponent(AntiairTextField, GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE))))))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addPreferredGap(ComponentPlacement.RELATED)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+														.addGroup(gl_contentPane.createSequentialGroup()
+															.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+																.addGroup(gl_contentPane.createSequentialGroup()
+																	.addGap(42)
+																	.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+																		.addComponent(lblBombsDropped1)
+																		.addComponent(lblTorpedosDropped)
+																		.addComponent(lblBombsDropped2))
+																	.addPreferredGap(ComponentPlacement.RELATED)
+																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+																		.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+																			.addComponent(textFieldP1T, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+																			.addComponent(textFieldP1B2, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+																			.addComponent(textFieldP1B1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+																		.addComponent(lblPlane1, GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE))
+																	.addPreferredGap(ComponentPlacement.RELATED)
+																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
+																		.addComponent(lblPlane2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+																		.addComponent(textFieldP3T, 0, 0, Short.MAX_VALUE)
+																		.addComponent(textFieldP2B2, 0, 0, Short.MAX_VALUE)
+																		.addComponent(textFieldP2B1, GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))
+																	.addPreferredGap(ComponentPlacement.RELATED)
+																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+																		.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+																			.addComponent(textFieldP2T, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+																			.addComponent(textFieldP3B2, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+																			.addComponent(textFieldP3B1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE))
+																		.addComponent(lblPlane3, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE))
+																	.addGap(75))
+																.addGroup(gl_contentPane.createSequentialGroup()
+																	.addPreferredGap(ComponentPlacement.RELATED)
+																	.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+																		.addGroup(gl_contentPane.createSequentialGroup()
+																			.addComponent(nodeKilledLabel)
+																			.addGap(13))
+																		.addGroup(gl_contentPane.createSequentialGroup()
+																			.addComponent(isFirstSalvo)
+																			.addPreferredGap(ComponentPlacement.RELATED)))
+																	.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+																		.addGroup(gl_contentPane.createSequentialGroup()
+																			.addGap(18)
+																			.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
+																		.addGroup(gl_contentPane.createSequentialGroup()
+																			.addPreferredGap(ComponentPlacement.RELATED)
+																			.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+																				.addComponent(isCritical)
+																				.addComponent(isArmorBroken, GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))))
+															.addGap(44))
+														.addGroup(gl_contentPane.createSequentialGroup()
+															.addPreferredGap(ComponentPlacement.RELATED)
+															.addComponent(isManual)))
+													.addPreferredGap(ComponentPlacement.RELATED))
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(buttonHE)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(buttonAP)
+													.addGap(18)
+													.addComponent(evenRadioButton)
+													.addPreferredGap(ComponentPlacement.RELATED)
+													.addComponent(oddRadioButton)
+													.addGap(211)))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED)
 												.addComponent(lblAmmoType)
-												.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-													.addGroup(gl_contentPane.createSequentialGroup()
-														.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-															.addComponent(isFirstSalvo)
-															.addComponent(isManual)
-															.addComponent(nodeKilledLabel))
-														.addGap(18)
-														.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-															.addComponent(isArmorBroken, GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-															.addComponent(isCritical)
-															.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE))
-														.addPreferredGap(ComponentPlacement.RELATED))
-													.addGroup(gl_contentPane.createSequentialGroup()
-														.addComponent(buttonHE)
-														.addPreferredGap(ComponentPlacement.RELATED)
-														.addComponent(buttonAP)
-														.addPreferredGap(ComponentPlacement.UNRELATED)
-														.addComponent(evenRadioButton)
-														.addPreferredGap(ComponentPlacement.RELATED)
-														.addComponent(oddRadioButton))))
-											.addGap(163))
+												.addPreferredGap(ComponentPlacement.RELATED)))
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addGap(42)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-												.addComponent(lblTorpedosDropped)
-												.addComponent(lblBombsDropped2)
-												.addComponent(lblBombsDropped1))
 											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(textFieldP1B1, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-												.addComponent(textFieldP1B2, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-												.addComponent(textFieldP1T, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-												.addComponent(lblPlane1, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+											.addComponent(label, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-												.addComponent(textFieldP3T, 0, 0, Short.MAX_VALUE)
-												.addComponent(textFieldP2B2, 0, 0, Short.MAX_VALUE)
-												.addComponent(textFieldP2B1, 0, 0, Short.MAX_VALUE)
-												.addComponent(lblPlane2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+											.addComponent(blueRadioButton)
+											.addPreferredGap(ComponentPlacement.UNRELATED)
+											.addComponent(purpleRadioButton)
 											.addPreferredGap(ComponentPlacement.RELATED)
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(lblPlane3, GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-												.addComponent(textFieldP3B2, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-												.addComponent(textFieldP3B1, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
-												.addComponent(textFieldP2T, GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-											.addGap(88)))
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+											.addComponent(redRadioButton)
+											.addPreferredGap(ComponentPlacement.RELATED)))
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(lblGunTypeSlot_2)
+												.addGap(101))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(lblGunTypeSlot_3)
+												.addPreferredGap(ComponentPlacement.RELATED, 101, Short.MAX_VALUE))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(slot1Pane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+												.addPreferredGap(ComponentPlacement.RELATED))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(slot2Pane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+												.addPreferredGap(ComponentPlacement.RELATED))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(lblSlotDamage, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+												.addPreferredGap(ComponentPlacement.RELATED))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(slot3Pane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+												.addPreferredGap(ComponentPlacement.RELATED)))
 										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(lblGunTypeSlot_2)
-											.addGap(101))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(lblGunTypeSlot_3)
-											.addPreferredGap(ComponentPlacement.RELATED, 101, Short.MAX_VALUE))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(slot1Pane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-											.addPreferredGap(ComponentPlacement.RELATED))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(slot2Pane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-											.addPreferredGap(ComponentPlacement.RELATED))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(lblSlotDamage, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-											.addPreferredGap(ComponentPlacement.RELATED))
-										.addGroup(gl_contentPane.createSequentialGroup()
-											.addComponent(slot3Pane, GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+											.addGap(52)
+											.addComponent(calculateButton)
 											.addPreferredGap(ComponentPlacement.RELATED)))))
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addGroup(gl_contentPane.createSequentialGroup()
@@ -1227,10 +1329,6 @@ public class mainCalc extends JFrame {
 									.addComponent(removeButton)))))
 					.addGap(314)
 					.addComponent(equipScrollPane, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(453)
-					.addComponent(calculateButton)
-					.addContainerGap(764, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -1312,47 +1410,35 @@ public class mainCalc extends JFrame {
 								.addComponent(textFieldP3B1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
 						.addComponent(equipableShips, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addGap(27)
-									.addComponent(lblActiveSkills))
-								.addComponent(slot1Pane, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+							.addGap(27)
+							.addComponent(lblActiveSkills))
+						.addComponent(slot1Pane, GroupLayout.PREFERRED_SIZE, 41, GroupLayout.PREFERRED_SIZE)
 						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(4)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textFieldP2B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textFieldP1B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblBombsDropped2)
+								.addComponent(textFieldP1B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textFieldP2B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textFieldP3B2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addPreferredGap(ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblTorpedosDropped)
 								.addComponent(textFieldP1T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textFieldP3T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblTorpedosDropped)
 								.addComponent(textFieldP2T, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+					.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
 						.addGroup(gl_contentPane.createSequentialGroup()
-							.addComponent(lblAmmoType)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(buttonHE)
-								.addComponent(buttonAP)
-								.addComponent(evenRadioButton)
-								.addComponent(oddRadioButton))
-							.addGap(18)
+								.addComponent(isCritical)
+								.addComponent(isFirstSalvo))
+							.addGap(15)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(isFirstSalvo)
-								.addComponent(isCritical))
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(isArmorBroken)
-								.addComponent(isManual))
-							.addGap(18)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(nodeKilledLabel)
-								.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+								.addComponent(isManual)
+								.addComponent(isArmorBroken))
+							.addPreferredGap(ComponentPlacement.RELATED))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(equipScrollPane, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
@@ -1363,9 +1449,25 @@ public class mainCalc extends JFrame {
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addComponent(lblGunTypeSlot_3)
 											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(slot2Pane, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(ComponentPlacement.UNRELATED)
-											.addComponent(lblSlotDamage)))))
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(lblAmmoType)
+													.addPreferredGap(ComponentPlacement.UNRELATED)
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(buttonHE)
+														.addComponent(buttonAP)
+														.addComponent(oddRadioButton)
+														.addComponent(evenRadioButton))
+													.addPreferredGap(ComponentPlacement.UNRELATED)
+													.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+														.addComponent(redRadioButton)
+														.addComponent(purpleRadioButton)
+														.addComponent(blueRadioButton)
+														.addComponent(label, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)))
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(slot2Pane, GroupLayout.PREFERRED_SIZE, 52, GroupLayout.PREFERRED_SIZE)
+													.addPreferredGap(ComponentPlacement.UNRELATED)
+													.addComponent(lblSlotDamage)))))))
 							.addGap(18)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(slot3Pane, GroupLayout.PREFERRED_SIZE, 46, GroupLayout.PREFERRED_SIZE)
@@ -1374,8 +1476,11 @@ public class mainCalc extends JFrame {
 									.addComponent(removeButton)))
 							.addGap(16)))
 					.addGap(18)
-					.addComponent(calculateButton)
-					.addGap(103))
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(nodeKilledLabel)
+						.addComponent(nodesKilledTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(calculateButton))
+					.addGap(56))
 		);
 		skillDescriptionBox = new JTextPane();
 		descScrollPane.setViewportView(skillDescriptionBox);
