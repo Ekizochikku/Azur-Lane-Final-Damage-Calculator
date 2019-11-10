@@ -153,7 +153,7 @@ public class Calculations {
 				slotEff = Double.parseDouble(sp.get(6)) + 0.12;
 			} else if (shipName.equals("Seattle") && skillList.contains("A Bow's String Has 2 Lines!")) {
 				slotEff = Double.parseDouble(sp.get(6)) + 0.15;
-			} else if (shipName.equals("Le Triomphant") && skillList.contains("Offensive Configuration")) {
+			} else if (shipName.equals("Le Triomphant") && skillList.contains("Sword or Shield")) {
 				slotEff = Double.parseDouble(sp.get(6)) + 0.20;
 			} else if (shipName.equals("Kitakaze") && skillList.contains("Kitakaze Style - Unanimous Slash")) {
 				slotEff = Double.parseDouble(sp.get(6) + 0.15);
@@ -185,6 +185,11 @@ public class Calculations {
 			} else {
 				System.out.println("No Stat Increase.");
 			}
+		}
+		
+		// Fading Memories of Glory Exception
+		if (skillList.contains("Fading Memories of Glory") && wepType.equals("TORPEDOS")) {
+			stat = 0;
 		}
 		
 		// Stat increase from skills.
@@ -238,7 +243,7 @@ public class Calculations {
 			critBuff = getStackedStats(42, 1.5);
 		} else {
 			critBuff = getStackedStats(41, 1.5);
-			if (shipName.equals("Jean Bart") && wepName.equals("Quadruple 380mm (Mle 1935)") && skillList.contains("Last Fire")) {
+			if (shipName.equals("Jean Bart") && wepName.equals("Quadruple 380mm (Mle 1935)") && skillList.contains("Final Shot")) {
 				critBuff += 0.50;
 			}
 			if (shipName.equals("Friedrich der Grosse") && skillList.contains("Sonata of Chaos") && evenOdd == 0) {
@@ -264,12 +269,12 @@ public class Calculations {
 		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze") || !shipName.equals("Baltimore")) {
 			return armorMod;
 		} else {
-			if (shipName.equals("Kawakaze") && skillList.contains("Piercing Torpedo Strike")) {
+			if (shipName.equals("Kawakaze") && skillList.contains("Impartial Destruction")) {
 				if (wepType.equals("TORPEDOS")) {
 					armorMod = 1.15;
 				}
 			}
-			if (shipName.equals("Roon") && skillList.contains("Professional Reloader")) {
+			if (shipName.equals("Roon") && skillList.contains("Expert Loader")) {
 				if (wepType != "TORPEDOS") { // ADD NOT PLANES CHECK HERE LATER
 					if (ammoType == 1) {
 						if (enemyArmor.equals("L")) {
@@ -307,7 +312,7 @@ public class Calculations {
 			if (shipName.equals("Black Heart") && skillList.contains("Tricolor Oder")) {
 				armorMod = 1.00;
 			}
-			if (shipName.equals("Baltimore") && skillList.contains("Final AP Drive")) {
+			if (shipName.equals("Baltimore") && skillList.contains("APsolute Ammunition")) {
 				if (enemyArmor.equals("L")) {
 					armorMod = .85;
 				} else if (enemyArmor.equals("M")) {

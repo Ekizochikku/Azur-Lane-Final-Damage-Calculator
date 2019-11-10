@@ -1,124 +1,128 @@
-SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
-Acasta(Retrofit)	HMS	A	DD	0	0	1.15	1.5	1.1	1535	68	400	169	Death Raid	Smokescreen	Flagship Protection	Full Barrage	NULL
-Amazon	HMS	A	DD	0	0	1.2	1.35	1.05	1370	65	360	154	Prototype Ship	Full Barrage	NULL	NULL	NULL
-Ardent(Retrofit)	HMS	A	DD	0	0	1.2	1.45	1.1	1535	68	400	169	Carrier Protection	Disturbance Shooting	Air Raid Assistance	Full Barrage	NULL
-Akatsuki	IJN	Akatsuki	DD	0	0	0.75	1.5	0.75	1747	60	493	150	DesDiv 6's Elite - Akatsuki	Full Barrage	NULL	NULL	NULL
-Ikazuchi	IJN	Akatsuki	DD	0	0	0.75	1.5	0.75	1747	60	493	150	DesDiv 6's Elite - Ikazuchi	Full Barrage	NULL	NULL	NULL
-Inazuma	IJN	Akatsuki	DD	0	0	0.75	1.5	0.75	1747	60	493	150	DesDiv 6's Elite - Inazuma	Full Barrage	NULL	NULL	NULL
-Harutsuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	74	363	194	Aerial Support	Full Barrage	NULL	NULL	NULL
-Niizuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	76	370	193	Reload Order	Anti-Air Mode	Full Barrage	NULL	NULL
-Yoizuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	74	363	199	Aerial Support	Full Barrage	NULL	NULL	NULL
-An Shan	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	131	228	172	An Shan Lead Ship	Full Barrage	NULL	NULL	NULL
-Chang Chun	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	131	228	172	Alliance and Mutual Assistance	Full Barrage	NULL	NULL	NULL
-Fu Shun	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	128	231	174	Sharp Assult	Full Barrage	NULL	NULL	NULL
-Tai Yuan	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	128	229	174	United Front	Full Barrage	NULL	NULL	NULL
-Arashio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1937	62	509	149	Ramming Prohibited	Full Barrage	NULL	NULL	NULL
-Asashio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1937	62	508	149	The 8th Destroyer Division	Anti-Destroyer Tactics	Full Barrage	NULL	NULL
-Michishio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1964	62	509	150	Battleship Escort	Full Barrage	NULL	NULL	NULL
-Ooshio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1937	62	509	150	Anti-Destroyer Tactics	Full Barrage	NULL	NULL	NULL
-Ayanami(Retrofit)	IJN	Ayanami	DD	0	0	0.85	1.65	0.75	1963	75	569	146	Demon God	Demon Dance	Full Barrage	NULL	NULL
-Beagle	HMS	B	DD	0	0	1.2	1.35	1.05	1349	65	354	150	Emergency Evasion	Full Barrage	NULL	NULL	NULL
-Bulldog	HMS	B	DD	0	0	1.2	1.35	1.05	1349	65	354	150	Emergency Evasion	Full Barrage	NULL	NULL	NULL
-Bailey(Retrofit)	USS	Benson	DD	0	0	1.35	1.35	1.25	2036	102	320	262	Smokescreen	Disturbance Shooting	Full Barrage	NULL	NULL
-Benson	USS	Benson	DD	0	0	1.3	1.3	1.25	1826	84	320	172	Air Raid Assistance	Full Barrage	NULL	NULL	NULL
-Hobby	USS	Benson	DD	0	0	1.3	1.3	1.25	1826	87	320	172	Little Star	Full Barrage	NULL	NULL	NULL
-Kalk	USS	Benson	DD	0	0	1.3	1.3	1.25	1826	87	320	172	Wind's Protection	Full Barrage	NULL	NULL	NULL
-Laffey(Retrofit)	USS	Benson	DD	0	0	1.65	1.25	1.25	2145	161	342	176	Solomon Wargod	Termination Mode	Full Barrage	NULL	NULL
-22	Bilibili	Bilibili	DD	0	0	1.35	1.15	0.95	1427	54	204	149	Bilibili Mascot Girl - 22	Full Barrage	NULL	NULL	NULL
-33	Bilibili	Bilibili	DD	0	0	1.15	1.3	0.95	1375	39	251	149	Bilibili Mascot Girl - 33	Full Barrage	NULL	NULL	NULL
-Trial Bullin MKII	UNIV	Bullin	DD	0	0	1	1	1	232	23	23	23	Remodel Girl MK II	NULL	NULL	NULL	NULL
-Universal Bullin	UNIV	Bullin	DD	0	0	1	1	1	232	23	23	23	Remodel Girl	NULL	NULL	NULL	NULL
-Comet(Retrofit)	HMS	C	DD	0	0	1.2	1.4	1.1	1524	68	385	165	Torpedo Command - Destroyer	Smokescreen	Full Barrage	NULL	NULL
-Crescent(Retrofit)	HMS	C	DD	0	0	1.25	1.35	1.1	1524	108	350	165	Emergency Evasion	Smokescreen	Full Barrage	NULL	NULL
-Cygnet(Retrofit)	HMS	C	DD	0	0	1.25	1.35	1.1	1524	98	350	165	Emergency Evasion	Smokescreen	Full Barrage	NULL	NULL
-Eldridge	USS	Cannon	DD	0	0	1.15	1.3	1.25	1720	81	381	183	Operation Rainbow	Full Barrage	NULL	NULL	NULL
-Echo	HMS	E	DD	0	0	1.2	1.4	1.05	1400	73	360	152	Battleship Escort	Full Barrage	NULL	NULL	NULL
-Fortune(Retrofit)	HMS	F	DD	0	0	1.25	1.35	1.1	1567	107	357	169	Emergency Evasion	Flank Coverage	Full Barrage	NULL	NULL
-Foxhound(Retrofit)	HMS	F	DD	0	0	1.25	1.35	1.1	1538	106	350	165	Reload Command - Destroyer	Flank Coverage	Full Barrage	NULL	NULL
-Aylwin	USS	Farragut	DD	0	0	1.2	1.3	1.3	1679	81	279	182	Carrier Protection	Full Barrage	NULL	NULL	NULL
-Dewey	USS	Farragut	DD	0	0	1.2	1.3	1.3	1647	74	279	185	Comrades From the Far East	Full Barrage	NULL	NULL	NULL
-Aulick	USS	Fletcher	DD	0	0	1.2	1.3	1.3	1998	82	279	171	Quick Reload	Full Barrage	NULL	NULL	NULL
-Bush	USS	Fletcher	DD	0	0	1.2	1.3	1.35	2054	85	282	189	Anti-Air Alert	Full Barrage	NULL	NULL	NULL
-Charles Ausburne	USS	Fletcher	DD	0	0	1.25	1.3	1.3	2112	87	291	178	31-Knot Burke	Full Firepower	Full Barrage	NULL	NULL
-Fletcher	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2077	85	283	172	Sisterly Temperament	Tactical Command - Destroyer	Full Barrage	NULL	NULL
-Foote	USS	Fletcher	DD	0	0	1.2	1.3	1.3	1998	82	279	171	Quick Reload	Full Barrage	NULL	NULL	NULL
-Hazelwood	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2054	85	283	172	Air Raid Assistance	Full Barrage	NULL	NULL	NULL
-Jenkins	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2080	85	283	172	Full Firepower	Full Barrage	NULL	NULL	NULL
-Kimberly	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2054	82	283	182	Anti-Air Alert	Full Barrage	NULL	NULL	NULL
-Mullany	USS	Fletcher	DD	0	0	1.25	1.3	1.3	2115	90	291	172	A Miracle in the Flame	Full Barrage	NULL	NULL	NULL
-Nicholas(Retrofit)	USS	Fletcher	DD	0	0	1.4	1.4	1.3	2280	132	356	233	The Nick	Full Firepower	Battle of Kula Gulf	Full Barrage	NULL
-Radford	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2054	85	283	172	Full Firepower	Full Barrage	NULL	NULL	NULL
-Spence	USS	Fletcher	DD	0	0	1.2	1.3	1.3	1998	82	279	171	Quick Reload	Full Barrage	NULL	NULL	NULL
-Thatcher	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2037	85	283	172	Full Firepower	Full Barrage	NULL	NULL	NULL
-Fubuki	IJN	Fubuki	DD	0	0	0.75	1.6	0.75	1798	62	509	146	Tokugata Lead Ship!	Full Barrage	NULL	NULL	NULL
-Glowworm	HMS	G	DD	0	0	1.3	1.35	1.05	1412	79	370	164	Meteor Headbutt	Emergency Evasion	Full Barrage	NULL	NULL
-Grenville	HMS	G	DD	0	0	1.35	1.3	1.05	1518	85	346	164	Artillery Command - Destroyer	Emergency Evasion	Full Barrage	NULL	NULL
-Craven	USS	Gridley	DD	0	0	1.15	1.35	1.25	1774	72	429	171	Chain Torpedo	Full Barrage	NULL	NULL	NULL
-Gridley	USS	Gridley	DD	0	0	1.15	1.35	1.25	1810	73	438	174	Torpedo Command - Destroyer	Chain Torpedo	Full Barrage	NULL	NULL
-Maury	USS	Gridley	DD	0	0	1.15	1.4	1.25	1809	76	448	178	Aquatic Hurricane	Chain Torpedo	Full Barrage	NULL	NULL
-McCall	USS	Gridley	DD	0	0	1.15	1.35	1.25	1724	72	429	171	Chain Torpedo	Full Barrage	NULL	NULL	NULL
-Hardy	HMS	H	DD	0	0	1.3	1.35	1.05	1518	81	374	157	Ice-free Port's Concerto	The Star of Fjord	Full Barrage	NULL	NULL
-Hunter	HMS	H	DD	0	0	1.25	1.3	1.05	1370	76	356	156	Emergent Preparation	Full Barrage	NULL	NULL	NULL
-Ariake	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145	Chain Torpedo	Full Barrage	NULL	NULL	NULL
-Hatsuharu	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145	Chain Torpedo	Full Barrage	NULL	NULL	NULL
-Hatsushimo	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145	Chain Torpedo	Full Barrage	NULL	NULL	NULL
-Wakaba	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1770	59	478	145	Chain Torpedo	Full Barrage	NULL	NULL	NULL
-Yuugure	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1619	59	478	145	Carrier Protection	Full Barrage	NULL	NULL	NULL
-Javelin(Retrofit)	HMS	J	DD	0	0	1.25	1.45	1.05	1746	90	429	160	Javelin Raid	Attack Mode-EX	Full Barrage	NULL	NULL
-Jersey	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156	Dark Side of Fate	Full Barrage	NULL	NULL	NULL
-Juno	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156	Smokescreen	Full Barrage	NULL	NULL	NULL
-Jupiter	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156	Battleship Escort	Full Barrage	NULL	NULL	NULL
-Hamakaze(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.65	0.75	2143	75	572	150	Rescue Operations	Emergency Evasion	Full Barrage	NULL	NULL
-Isokaze	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2083	65	502	149	Winds of Companion	Full Barrage	NULL	NULL	NULL
-Kagerou(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.55	0.75	2050	75	552	150	Torpedo Command - Vanguard	Chain Torpedo	Disturbance Shooting	Full Barrage	NULL
-Kuroshio	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2083	65	512	150	Full Firepower	Chain Torpedo	Full Barrage	NULL	NULL
-Nowaki	IJN	Kagerou	DD	0	0	0.8	1.55	0.75	2145	65	526	154	Gambler's Ship	Full Barrage	NULL	NULL	NULL
-Oyashio	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	1736	56	466	150	Full Firepower	Chain Torpedo	Full Barrage	NULL	NULL
-Shiranui(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.65	0.75	1908	73	562	145	Chain Torpedo	Carrier Protection	Full Barrage	NULL	NULL
-Tanikaze(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.65	0.75	2143	75	572	154	Miracle Wind	Target Designator - Torpedo	Full Barrage	NULL	NULL
-Urakaze	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2083	63	502	149	Rescue Operations	Full Barrage	NULL	NULL	NULL
-Yukikaze	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2226	68	526	161	Yukikaze of Kure	The Unsunk Lucky Ship	Full Barrage	NULL	NULL
-Hatakaze	IJN	Kamikaze	DD	0	0	0.75	1.4	0.75	1561	60	404	139	Mobile Fleet's Vanguard	Full Barrage	NULL	NULL	NULL
-Kamikaze(Retrofit)	IJN	Kamikaze	DD	0	0	0.75	1.45	0.8	1726	60	414	179	Veteran Destroyer	First Destroyer	Full Barrage	NULL	NULL
-Matsukaze(Retrofit)	IJN	Kamikaze	DD	0	0	0.75	1.45	0.8	1726	59	414	170	Quick Reload	Emergency Evasion	Full Barrage	NULL	NULL
-Kitakaze	IJN	Kitakaze	DD	0	0	1.05	1.35	1.35	2641	86	393	197	Kitakaze Style - Unanimous Slash	Kitakaze Style - Six Lotus Torpedoes	Siren's Nemesis	Full Barrage	NULL
-Kizuna AI	KizunaAI	KizunaAI	DD	0	0	0.75	1.6	1.05	1768	74	473	167	Kizuna Beam	Crisis Prevention!	NULL	NULL	NULL
-Forbin(Retrofit)	FFNF	L'Adroit	DD	0	0	1.2	1.45	0.8	1436	89	439	168	Chevalier's Bouclier	Emergency Evasion	Full Barrage	NULL	NULL
-Le Mars(Retrofit)	MNF	L'Adroit	DD	0	0	1.2	1.45	0.8	1436	89	439	183	Chevalier's Sabre	Emergency Evasion	Full Barrage	NULL	NULL
-Le Malin	MNF	Le Fantasque	DD	0	0	1.5	1.25	1.2	2021	137	273	138	Gassing Breath	Excitatory Poison	Full Barrage	NULL	NULL
-Le Triomphant	FFNF	Le Fantasque	DD	0	0	1.4	1.25	1.4	2021	131	267	167	Shiny Iris	Offensive Configuration	Full Barrage	NULL	NULL
-L'Opiniatre	FFNF	Le Hardi	DD	0	0	1.3	1.35	0.75	1772	103	370	204	A Witch Who Never Admits Defeat	Mobile Fleet's Vanguard	Full Barrage	NULL	NULL
-Le Temeraire	FFNF	Le Hardi	DD	0	0	1.3	1.15	0.75	1571	93	394	172	Berserk Shooter	Evasive Escort	Full Barrage	NULL	NULL
-Matchless	HMS	M	DD	0	0	1.2	1.45	1	1683	76	394	157	Target Designator - Torpedo	Disturbance Shooting	Full Barrage	NULL	NULL
-Musketeer	HMS	M	DD	0	0	1.2	1.45	1	1683	76	400	156	Deviated Shooting Correction	Full Barrage	NULL	NULL	NULL
-Cassin(Retrofit)	USS	Mahan	DD	0	0	1.25	1.35	1.3	1900	101	293	168	Recommissioned	Quick Reload	Full Barrage	NULL	NULL
-Downes(Retrofit)	USS	Mahan	DD	0	0	1.25	1.35	1.3	1900	101	293	168	Recommissioned	Quick Reload	Full Barrage	NULL	NULL
-Fumizuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1516	60	438	128	Quick Reload	Full Barrage	NULL	NULL	NULL
-Kisaragi(Retrofit)	IJN	Mutsuki	DD	0	0	0.75	1.5	0.85	1652	59	462	173	Quick Reload	Chain Torpedo	Full Barrage	NULL	NULL
-Mikazuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1487	59	427	138	Quick Reload	Full Barrage	NULL	NULL	NULL
-Minazuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1487	59	427	138	Quick Reload	Full Barrage	NULL	NULL	NULL
-Mutsuki(Retrofit)	IJN	Mutsuki	DD	0	0	0.75	1.5	0.8	1652	59	462	173	Quick Reload	Torpedo Command - Destroyer	Full Barrage	NULL	NULL
-Nagatsuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1516	60	438	128	Quick Reload	Full Barrage	NULL	NULL	NULL
-Uzuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1487	59	427	138	Quick Reload	Full Barrage	NULL	NULL	NULL
-Blanc	HDN	Neptunia	DD	0	0	0.75	1.5	0.75	1800	70	439	149	Silt Break	NULL	NULL	NULL	NULL
-White Heart	HDN	Neptunia	DD	0	0	0.8	1.5	0.75	1947	74	476	154	Tanzerin Trombe	Getter Ravine	NULL	NULL	NULL
-Kawakaze	IJN	Shiratsuyu	DD	0	0	0.85	1.5	0.85	1830	69	545	161	Lunga Point's Strike	Piercing Torpedo Strike	Full Barrage	NULL	NULL
-Shigure	IJN	Shiratsuyu	DD	0	0	0.75	1.5	0.75	1763	65	524	150	Shigure of Sasebo	Full Barrage	NULL	NULL	NULL
-Shiratsuyu	IJN	Shiratsuyu	DD	0	0	0.75	1.5	0.75	1712	65	509	150	Torpedo Command - Vanguard	Full Barrage	NULL	NULL	NULL
-Yuudachi	IJN	Shiratsuyu	DD	0	0	0.85	1.5	0.85	1828	70	545	157	Nightmare of Solomon	Full Barrage	NULL	NULL	NULL
-Hammann(Retrofit)	USS	Sims	DD	0	0	1.25	1.3	1.35	2025	96	286	262	Flagship Protection	Anti-Air Mode	Full Barrage	NULL	NULL
-Sims(Retrofit)	USS	Sims	DD	0	0	1.25	1.3	1.35	2025	111	286	262	Artillery Command - Destroyer	Smokescreen	Full Barrage	NULL	NULL
-Nekone	Utawarerumono	Utawarerumono	DD	0	0	0.85	1.2	0.65	1941	98	356	210	White Rainbow	Evening Star	NULL	NULL	NULL
-Vampire	HMS	V	DD	0	0	1.15	1.45	1.05	1314	71	376	156	Vampire's Kiss	Full Barrage	NULL	NULL	NULL
-Makinami	IJN	Yuugumo	DD	0	0	0.8	1.55	0.75	2157	70	526	156	Full Firepower	Chain Torpedo	Full Barrage	NULL	NULL
-Z1	KMS	Z1	DD	0	0	1.25	1.4	0.75	2053	65	450	154	Z-Class Pioneer	Full Barrage	NULL	NULL	NULL
-Z2	KMS	Z1	DD	0	0	1.25	1.4	0.75	2053	84	433	154	Armor-Piercing Expert	Morale Boost	Full Barrage	NULL	NULL
-Z18	KMS	Z17	DD	0	0	1.15	1.4	0.75	2033	68	440	149	Armor-Piercing Expert	Full Barrage	NULL	NULL	NULL
-Z19	KMS	Z17	DD	0	0	1.15	1.4	0.75	2033	68	440	149	Armor-Piercing Expert	Full Barrage	NULL	NULL	NULL
-Z20	KMS	Z17	DD	0	0	1.15	1.4	0.75	1993	65	433	145	Armor-Piercing Expert	Full Barrage	NULL	NULL	NULL
-Z21	KMS	Z17	DD	0	0	1.15	1.4	0.75	1993	65	433	145	Armor-Piercing Expert	Full Barrage	NULL	NULL	NULL
-Z23(Retrofit)	KMS	Z23	DD	0	0	1.75	1.2	0.85	2290	170	347	215	Ironblood Pioneer	Destruction Mode	Full Barrage	NULL	NULL
-Z25	KMS	Z23	DD	0	0	1.6	1.2	0.75	2116	120	327	154	Full Firepower	Flagship Protection	Full Barrage	NULL	NULL
-Z35	KMS	Z35	DD	0	0	1.5	1.2	1.25	2092	80	440	182	Overload Firepower	Full Barrage	NULL	NULL	NULL
-Z36	KMS	Z35	DD	0	0	1.45	1.25	1.25	2092	82	437	187	Devil Strike	Full Barrage	NULL	NULL	NULL
-Z46	KMS	Z46	DD	0	0	1.6	1.2	1.4	2595	90	452	255	Iron Wing Annihilation	Armor-Piercing Expert	Full Barrage	NULL	NULL
+SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR
+Acasta(Retrofit)	HMS	A	DD	0	0	1.15	1.5	1.1	1535	68	400	169
+Amazon	HMS	A	DD	0	0	1.2	1.35	1.05	1370	65	360	154
+Ardent(Retrofit)	HMS	A	DD	0	0	1.2	1.45	1.1	1535	68	400	169
+Harutsuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	74	363	194
+Niizuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	76	370	193
+Yoizuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	74	363	199
+An Shan	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	131	228	172
+Chang Chun	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	131	228	172
+Fu Shun	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	128	231	174
+Tai Yuan	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	128	229	174
+Arashio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1937	62	509	149
+Asashio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1937	62	508	149
+Michishio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1964	62	509	150
+Ooshio	IJN	Asashio	DD	0	0	0.75	1.5	0.75	1937	62	509	150
+Beagle	HMS	B	DD	0	0	1.2	1.35	1.05	1349	65	354	150
+Bulldog	HMS	B	DD	0	0	1.2	1.35	1.05	1349	65	354	150
+Bailey(Retrofit)	USS	Benson	DD	0	0	1.35	1.35	1.25	2036	102	320	262
+Benson	USS	Benson	DD	0	0	1.3	1.3	1.25	1826	84	320	172
+Hobby	USS	Benson	DD	0	0	1.3	1.3	1.25	1826	87	320	172
+Kalk	USS	Benson	DD	0	0	1.3	1.3	1.25	1826	87	320	172
+Laffey(Retrofit)	USS	Benson	DD	0	0	1.65	1.25	1.25	2145	161	342	176
+22	Bilibili	Bilibili	DD	0	0	1.35	1.15	0.95	1427	54	204	149
+33	Bilibili	Bilibili	DD	0	0	1.15	1.3	0.95	1375	39	251	149
+Trial Bullin MKII	UNIV	Bullin	DD	0	0	1	1	1	232	23	23	23
+Universal Bullin	UNIV	Bullin	DD	0	0	1	1	1	232	23	23	23
+Comet(Retrofit)	HMS	C	DD	0	0	1.2	1.4	1.1	1524	68	385	165
+Crescent(Retrofit)	HMS	C	DD	0	0	1.25	1.35	1.1	1524	108	350	165
+Cygnet(Retrofit)	HMS	C	DD	0	0	1.25	1.35	1.1	1524	98	350	165
+Eldridge	USS	Cannon	DD	0	0	1.15	1.3	1.25	1720	81	381	183
+Echo	HMS	E	DD	0	0	1.2	1.4	1.05	1400	73	360	152
+Fortune(Retrofit)	HMS	F	DD	0	0	1.25	1.35	1.1	1567	107	357	169
+Foxhound(Retrofit)	HMS	F	DD	0	0	1.25	1.35	1.1	1538	106	350	165
+Aylwin	USS	Farragut	DD	0	0	1.2	1.3	1.3	1679	81	279	182
+Dewey	USS	Farragut	DD	0	0	1.2	1.3	1.3	1647	74	279	185
+Aulick	USS	Fletcher	DD	0	0	1.2	1.3	1.3	1998	82	279	171
+Bache	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2095	76	283	194
+Bush	USS	Fletcher	DD	0	0	1.2	1.3	1.35	2054	85	282	189
+Charles Ausburne	USS	Fletcher	DD	0	0	1.25	1.3	1.3	2112	87	291	178
+Fletcher	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2077	85	283	172
+Foote	USS	Fletcher	DD	0	0	1.2	1.3	1.3	1998	82	279	171
+Hazelwood	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2054	85	283	172
+Jenkins	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2080	85	283	172
+Kimberly	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2054	82	283	182
+Mullany	USS	Fletcher	DD	0	0	1.25	1.3	1.3	2115	90	291	172
+Nicholas(Retrofit)	USS	Fletcher	DD	0	0	1.4	1.4	1.3	2280	132	356	233
+Radford	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2054	85	283	172
+Smalley	USS	Fletcher	DD	0	0	1.2	1.3	1.35	2095	87	283	189
+Spence	USS	Fletcher	DD	0	0	1.2	1.3	1.3	1998	82	279	171
+Thatcher	USS	Fletcher	DD	0	0	1.2	1.3	1.3	2037	85	283	172
+Akatsuki	IJN	Fubuki	DD	0	0	0.75	1.5	0.75	1747	60	493	150
+Ayanami(Retrofit)	IJN	Fubuki	DD	0	0	0.85	1.65	0.75	1963	75	569	146
+Fubuki	IJN	Fubuki	DD	0	0	0.75	1.6	0.75	1798	62	509	146
+Ikazuchi	IJN	Fubuki	DD	0	0	0.75	1.5	0.75	1747	60	493	150
+Inazuma	IJN	Fubuki	DD	0	0	0.75	1.5	0.75	1747	60	493	150
+Glowworm	HMS	G	DD	0	0	1.3	1.35	1.05	1412	79	370	164
+Grenville	HMS	G	DD	0	0	1.35	1.3	1.05	1518	85	346	164
+Craven	USS	Gridley	DD	0	0	1.15	1.35	1.25	1774	72	429	171
+Gridley	USS	Gridley	DD	0	0	1.15	1.35	1.25	1810	73	438	174
+Maury	USS	Gridley	DD	0	0	1.15	1.4	1.25	1809	76	448	178
+McCall	USS	Gridley	DD	0	0	1.15	1.35	1.25	1724	72	429	171
+Hardy	HMS	H	DD	0	0	1.3	1.35	1.05	1518	81	374	157
+Hunter	HMS	H	DD	0	0	1.25	1.3	1.05	1370	76	356	156
+Ariake	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145
+Hatsuharu	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145
+Hatsushimo	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145
+Wakaba	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1770	59	478	145
+Yuugure	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1619	59	478	145
+Javelin(Retrofit)	HMS	J	DD	0	0	1.25	1.45	1.05	1746	90	429	160
+Jersey	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156
+Juno	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156
+Jupiter	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156
+Hamakaze(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.65	0.75	2143	75	572	150
+Isokaze	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2083	65	502	149
+Kagerou(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.55	0.75	2050	75	552	150
+Kuroshio	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2083	65	512	150
+Nowaki	IJN	Kagerou	DD	0	0	0.8	1.55	0.75	2145	65	526	154
+Oyashio	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	1736	56	466	150
+Shiranui(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.65	0.75	1908	73	562	145
+Tanikaze(Retrofit)	IJN	Kagerou	DD	0	0	0.8	1.65	0.75	2143	75	572	154
+Urakaze	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2083	63	502	149
+Yukikaze	IJN	Kagerou	DD	0	0	0.75	1.5	0.75	2226	68	526	161
+Hatakaze	IJN	Kamikaze	DD	0	0	0.75	1.4	0.75	1561	60	404	139
+Kamikaze(Retrofit)	IJN	Kamikaze	DD	0	0	0.75	1.45	0.8	1726	60	414	179
+Matsukaze(Retrofit)	IJN	Kamikaze	DD	0	0	0.75	1.45	0.8	1726	59	414	170
+Kitakaze	IJN	Kitakaze	DD	0	0	1.05	1.35	1.35	2641	86	393	197
+Kizuna AI	KizunaAI	KizunaAI	DD	0	0	0.75	1.6	1.05	1768	74	473	167
+Forbin(Retrofit)	FFNF	L'Adroit	DD	0	0	1.2	1.45	0.8	1436	89	439	168
+Le Mars(Retrofit)	MNF	L'Adroit	DD	0	0	1.2	1.45	0.8	1436	89	439	183
+Le Malin	MNF	Le Fantasque	DD	0	0	1.5	1.25	1.2	2021	137	273	138
+Le Triomphant	FFNF	Le Fantasque	DD	0	0	1.4	1.25	1.4	2021	131	267	167
+L'Opiniatre	FFNF	Le Hardi	DD	0	0	1.3	1.35	0.75	1772	103	370	204
+Le Temeraire	FFNF	Le Hardi	DD	0	0	1.3	1.15	0.75	1571	93	394	172
+Matchless	HMS	M	DD	0	0	1.2	1.45	1	1683	76	394	157
+Musketeer	HMS	M	DD	0	0	1.2	1.45	1	1683	76	400	156
+Cassin(Retrofit)	USS	Mahan	DD	0	0	1.25	1.35	1.3	1900	101	293	168
+Downes(Retrofit)	USS	Mahan	DD	0	0	1.25	1.35	1.3	1900	101	293	168
+Fumizuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1516	60	438	128
+Kisaragi(Retrofit)	IJN	Mutsuki	DD	0	0	0.75	1.5	0.85	1652	59	462	173
+Mikazuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1487	59	427	138
+Minazuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1487	59	427	138
+Mutsuki(Retrofit)	IJN	Mutsuki	DD	0	0	0.75	1.5	0.8	1652	59	462	173
+Nagatsuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1516	60	438	128
+Uzuki	IJN	Mutsuki	DD	0	0	0.75	1.45	0.75	1487	59	427	138
+Blanc	HDN	Neptunia	DD	0	0	0.75	1.5	0.75	1800	70	439	149
+White Heart	HDN	Neptunia	DD	0	0	0.8	1.5	0.75	1947	74	476	154
+Kawakaze	IJN	Shiratsuyu	DD	0	0	0.85	1.5	0.85	1830	69	545	161
+Shigure	IJN	Shiratsuyu	DD	0	0	0.75	1.5	0.75	1763	65	524	150
+Shiratsuyu	IJN	Shiratsuyu	DD	0	0	0.75	1.5	0.75	1712	65	509	150
+Yuudachi	IJN	Shiratsuyu	DD	0	0	0.85	1.5	0.85	1828	70	545	157
+Hammann(Retrofit)	USS	Sims	DD	0	0	1.25	1.3	1.35	2025	96	286	262
+Sims(Retrofit)	USS	Sims	DD	0	0	1.25	1.3	1.35	2025	111	286	262
+Carabiniere	RN	Soldati	DD	0	0	1.6	1.2	0.75	1788	126	267	160
+Z1	KMS	Type 1934	DD	0	0	1.25	1.4	0.75	2053	65	450	154
+Z2	KMS	Type 1934	DD	0	0	1.25	1.4	0.75	2053	84	433	154
+Z18	KMS	Type 1936	DD	0	0	1.15	1.4	0.75	2033	68	440	149
+Z19	KMS	Type 1936	DD	0	0	1.15	1.4	0.75	2033	68	440	149
+Z20	KMS	Type 1936	DD	0	0	1.15	1.4	0.75	1993	65	433	145
+Z21	KMS	Type 1936	DD	0	0	1.15	1.4	0.75	1993	65	433	145
+Z23(Retrofit)	KMS	Type 1936A	DD	0	0	1.75	1.2	0.85	2290	170	347	215
+Z25	KMS	Type 1936A	DD	0	0	1.6	1.2	0.75	2116	120	327	154
+Z35	KMS	Type 1936B	DD	0	0	1.5	1.2	1.25	2092	80	440	182
+Z36	KMS	Type 1936B	DD	0	0	1.45	1.25	1.25	2092	82	437	187
+Z46	KMS	Type 1936C	DD	0	0	1.6	1.2	1.4	2595	90	452	255
+Nekone	Utawarerumono	Utawarerumono	DD	0	0	0.85	1.2	0.65	1941	98	356	210
+Vampire	HMS	V	DD	0	0	1.15	1.45	1.05	1314	71	376	156
+Makinami	IJN	Yuugumo	DD	0	0	0.8	1.55	0.75	2157	70	526	156
+Kiyonami	IJN	Yuugumo	DD	0	0	0.75	1.5	0.75	2055	59	497	138

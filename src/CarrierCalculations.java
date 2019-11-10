@@ -190,8 +190,28 @@ public class CarrierCalculations {
 			effSlot = Double.parseDouble(sp.get(9));
 		}
 		
+		// Bataan Exception
+		if (shipName.equals("Bataan") && skillList.contains("Hellcat's Roar") && wepType.equals("FIGHTERP") && wepName.contains("Grumman F6F Hellcat")) {
+			effSlot += .30;
+		}
+		
+		// Formidable Part 2 Exception
+		if (shipName.equals("Formidable") && skillList.contains("Supporting Wings") && wepName.contains("Fairey Albacore")) {
+			effSlot += .15;
+		}
+		
 		double statAttacker = Double.parseDouble(sp.get(14)) + Double.parseDouble(wp.get(1));
+		
+		// Zeppy Exception
+		if (shipName.equals("Zeppy") && skillList.contains("Taste My Wrath!")) {
+			statAttacker += 240;
+		}
 		double statBuff = getStackedStats(10, 1);
+		
+		// Formidable Part 1 Exception
+		if (shipName.equals("Formidable") && skillList.contains("Supporting Wings")) {
+			statBuff += .30;
+		}
 		double finalStatAttacker = statAttacker * statBuff * 0.80;
 		finalDmg = wepDmg * wepCoff * effSlot * (1 + (finalStatAttacker/100));
 		

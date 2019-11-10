@@ -27,5 +27,5 @@ WEAPONNAME	TORPEDO	ANTIAIR	DAMAGE	COEFFICIENT	ATTRIBUTE	DMGTOL	DMGTOM	DMGTOH
 610mm Triple Torpedo Mount - 3 Star	12	0	130	1	Normal	0.8	1	1.3
 610mm Triple Torpedo Mount - 4 Star	25	0	206	1	Normal	0.8	1	1.3
 610mm Twin Torpedo Mount - 1 Star	0	0	82	1	Normal	0.8	1	1.3
-610mm Twin Torpedo Mount - 2 Star	5	0	94	0	Normal	0.8	1	1.3
+610mm Twin Torpedo Mount - 2 Star	5	0	94	1	Normal	0.8	1	1.3
 610mm Twin Torpedo Mount - 3 Star	12	0	150	1	Normal	0.8	1	1.3

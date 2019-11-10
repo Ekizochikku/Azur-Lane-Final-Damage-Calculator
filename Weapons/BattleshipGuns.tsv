@@ -14,14 +14,17 @@ Triple 283mm (SK C/34) - 4 Star	25	0	88	1.05	Normal	0.7	1	0.9
 Triple 356mm (14"/50 Caliber Gun) - 1 Star	5	0	56	1.05	Normal	0.7	1	0.9
 Triple 356mm (14"/50 Caliber Gun) - 2 Star	5	0	61	1.05	HE	1.4	1.1	0.9
 Triple 356mm (14"/50 Caliber Gun) - 3 Star	12	0	84	1.05	HE	1.4	1.1	0.9
-Triple 381mm Prototype (BL 15" Mk III)	45	NULL	142	1.05	HE	1.4	1.1	0.9
+Triple 381mm Prototype (BL 15" Mk III Prototype)	45	0	142	1.05	HE	1.4	1.1	0.9
+Triple 381mm (Model 1934) - 3 Star	12	0	90	1	Normal	0.7	1	0.9
+Triple 381mm (Model 1934) - 4 Star	25	0	135	1	AP	0.45	1.3	1.1
+Triple 381mm (Model 1934) - 5 Star	45	0	148	1	AP*	0.4	1.35	1.15
 Triple 406mm (16"/45 ccaliber Mark 6) - 2 Star	5	0	74	1.05	Normal	0.7	1	0.9
 Triple 406mm (16"/45 ccaliber Mark 6) - 3 Star	12	0	108	1.05	HE	1.4	1.1	0.9
 Triple 406mm (16"/45 ccaliber Mark 6) - 4 Star	25	0	156	1.05	HE	1.4	1.1	0.9
 Triple 406mm (BL 16" MK I) - 3 Star	12	0	96	1.05	Normal	0.7	1	0.9
 Triple 406mm (BL 16" MK I) - 4 Star	25	0	141	1.05	Normal	0.7	1	0.9
 Triple 406mm (BL 16" MK I) - 5 Star	45	0	154	1.05	Normal	0.7	1	0.9
-Triple 410mm Prototype (10th Year Type)	45	NULL	154	1.05	AP	0.45	1.3	1.1
+Triple 410mm Prototype (10th Year Type)	45	0	154	1.05	AP	0.45	1.3	1.1
 Twin 305mm (Type 41 12-inch)	12	0	74	1.1	Normal	0.7	1	0.9
 Twin 356mm (41st Year Type) - 1 Star	0	0	56	1.1	Normal	0.7	1	0.9
 Twin 356mm (41st Year Type) - 2 Star	5	0	62	1.1	HE	1.4	1.1	0.9
