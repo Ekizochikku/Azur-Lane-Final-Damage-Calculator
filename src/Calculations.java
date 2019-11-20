@@ -83,7 +83,7 @@ public class Calculations {
 			}
 			
 			// Critical Damage
-			if (crit) {
+			if (crit || (shipName.equals("Bismarck") && skillList.contains("Wahrheit"))) {
 				criticalDamageStat = getCriticalDamage(shipName, wepType, wepName, skillList, evenOdd);
 			}
 			
