@@ -30,6 +30,7 @@ public class CarrierCalculations {
 	String shipName;
 	String wepType;
 	String wepName;
+	String noteColor;
 	
 	/*
 	 * Consturctor for carrier calculations.
@@ -37,7 +38,7 @@ public class CarrierCalculations {
 	 */
 	public CarrierCalculations(ArrayList<String> skillList, String shipType, String shipName, 
 			String wepType, String wepName, String enemy, String world,
-			int bomb1, int bomb2, int torpedos) throws FileNotFoundException, IOException{
+			int bomb1, int bomb2, int torpedos, String noteColor) throws FileNotFoundException, IOException{
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> skillP = gt.getSkillParameters(skillList.get(i));
 			multiSkills.add(skillP);
@@ -52,6 +53,7 @@ public class CarrierCalculations {
 		this.shipName = shipName;
 		this.wepType = wepType;
 		this.wepName = wepName;
+		this.noteColor = noteColor;
 			
 	}
 	public double getFinalTotalDamage(int shipSlot, ArrayList<String> skillList, boolean crit, String world,

@@ -47,7 +47,7 @@ public class Calculations {
 	 * @throws IOException
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom, boolean armorBreak) throws FileNotFoundException, IOException {
+			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom, boolean armorBreak, String noteColor) throws FileNotFoundException, IOException {
 		//If statement to avoid index out of bounds if one of the weapon slots is empty
 		double finalDmg = 0;
 		if (!wepName.isEmpty() && wepName != null) {
@@ -88,7 +88,7 @@ public class Calculations {
 			}
 			
 			// Armor Modifier
-			armorModStat = getArmorModifier(wp, ep, skillList, shipName, wepType, ammoType);
+			armorModStat = getArmorModifier(wp, ep, skillList, shipName, wepType, ammoType, noteColor);
 			
 			// Enhancing Damage
 			if (firstSalvo) {
@@ -256,7 +256,7 @@ public class Calculations {
 	/*
 	 * Armor mod. Determine how much to do against a certain armor type.
 	 */
-	public double getArmorModifier(ArrayList<String> wp, ArrayList<String> ep, ArrayList<String> skillList, String shipName, String wepType, int ammoType) {
+	public double getArmorModifier(ArrayList<String> wp, ArrayList<String> ep, ArrayList<String> skillList, String shipName, String wepType, int ammoType, String noteColor) {
 		double armorMod = 0;
 		String enemyArmor = ep.get(4);
 		if (enemyArmor.equals("L")) {
@@ -266,7 +266,8 @@ public class Calculations {
 		} else { // Heavy Armor
 			armorMod = Double.parseDouble(wp.get(8));
 		}
-		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze") || !shipName.equals("Baltimore")) {
+		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze") || !shipName.equals("Baltimore")
+				|| !shipName.equals("Gascogne (Muse)") || !shipName.equals("Admiral Hipper (Muse)") || !shipName.equals("Cleveland (Muse)") || !shipName.equals("Sheffield (Muse)")) {
 			return armorMod;
 		} else {
 			if (shipName.equals("Kawakaze") && skillList.contains("Impartial Destruction")) {
@@ -319,6 +320,51 @@ public class Calculations {
 					armorMod = 1.20;
 				} else {
 					armorMod = .85;
+				}
+			}
+			if (shipName.equals("Sheffield (Muse)") && skillList.contains("Precise Arrow") && noteColor.equals("Blue")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = 1.20;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.20;
+				} else {
+					armorMod = .90;
+				}
+			}
+			if (shipName.equals("Cleveland (Muse)") && skillList.contains("Spiritual Chasing") && noteColor.equals("Purple")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = 1.20;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.20;
+				} else {
+					armorMod = 1.00;
+				}
+			}
+			if (shipName.equals("Gascogne (Muse)") && skillList.contains("Coeur Battant") && noteColor.equals("Red")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = 1.40;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.15;
+				} else {
+					armorMod = 1.15;
+				}
+			}
+			if (shipName.equals("Gascogne (Muse)") && skillList.contains("Coeur Battant") && noteColor.equals("Blue")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = 1.00;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.30;
+				} else {
+					armorMod = 1.30;
+				}
+			}
+			if (shipName.equals("Admiral Hipper (Muse)") && skillList.contains("Passionate Fever") && noteColor.equals("Red")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = 1.10;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.20;
+				} else {
+					armorMod = 1.00;
 				}
 			}
 			return armorMod;
