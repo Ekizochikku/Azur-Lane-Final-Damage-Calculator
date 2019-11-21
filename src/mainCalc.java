@@ -566,7 +566,7 @@ public class mainCalc extends JFrame {
 		weaponNameSlot3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				currentWeaponNameSlot3 = (String) weaponNameSlot3.getSelectedItem();
-				//System.out.println("Checking for the shipName"+ currentShipName);
+				System.out.println("Checking for the shipName"+ currentShipName + " weapon " + currentWeaponNameSlot3);
 				/**
 				* Currently a bug here!! cannot check isEmpty for some reason. The name action listener always runs for some reason
 				* Right now commented out but that means the calculate button will not be enabled if slot 3 weapon is selected and nothing else
@@ -708,8 +708,8 @@ public class mainCalc extends JFrame {
 					//Will add more if statements to check each parameter later to avoid null pointer exceptions especially when slot 1 has a weapon but 2 doesn't
 					//Ship slot hard coded in, no idea what that is yet.
 					
-					//FOR BRIAN!!  add in carrierColorSelected for the calculations for whatever 
-					if (!currentWeaponName.isEmpty() && currentWeaponName != null) {
+					//changed the order for null first before is empty
+					if (currentWeaponName != null && !currentWeaponName.isEmpty()) {
 						if(currentShipType == "CVL" || currentShipType == "CV") {
 							CarrierCalculations plane1 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponType, 
 									currentWeaponName, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP1B1), parseInt(textFieldP1B2), parseInt(textFieldP1T), currentColorSelected);
@@ -741,7 +741,7 @@ public class mainCalc extends JFrame {
 						slot1Pane.setText("No Gun Selected for this Slot.");
 					}
 					System.out.println("The weapon name for slot 2: " + currentWeaponNameSlot2);
-					if (!currentWeaponNameSlot2.isEmpty() && currentWeaponNameSlot2 != null) {
+					if (currentWeaponNameSlot2 != null && !currentWeaponNameSlot2.isEmpty()) {
 						//System.out.println("Null check not working!");
 						//Nodes killed test case 
 						//Very weird bug, cannot do != for CVL and CV for some reason
@@ -775,7 +775,7 @@ public class mainCalc extends JFrame {
 					
 					//Since Calclculations.java will be overridden slot3 will currently just replace slot1&2 weapon damage for now 
 					//easy way to just have a if statement if cvl is selected but will make	
-					if (!currentWeaponNameSlot3.isEmpty() && currentWeaponNameSlot3 != null) {
+					if (currentWeaponNameSlot3 != null && !currentWeaponNameSlot3.isEmpty()) {
 						System.out.println("The weapon name for slot 3: " + currentWeaponNameSlot3);
 
 						//Getting the amount of bombs for each plane. 
@@ -783,7 +783,7 @@ public class mainCalc extends JFrame {
 
 						CarrierCalculations plane3 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponTypeSlot3, 
 								currentWeaponNameSlot3, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP3B1), parseInt(textFieldP3B2), parseInt(textFieldP3T) , currentColorSelected);
-						
+						System.out.println("checking npassing color" + currentColorSelected);
 						Double plane3FinalMaxDamage = plane3.getFinalTotalDamage(3, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
 						System.out.println("The final min damage fro plane3 = " + plane3FinalMaxDamage);
 						String displayMaxDamageSlot3 = Double.toString(plane3FinalMaxDamage);
