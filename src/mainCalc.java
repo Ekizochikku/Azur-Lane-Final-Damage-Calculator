@@ -356,6 +356,45 @@ public class mainCalc extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				calculateButton.setEnabled(false);
 				currentShipName = (String) shipName.getSelectedItem();
+				List attributes = new ArrayList<String>();
+				try {
+					attributes = guiUtil.getShipParams(currentShipType, currentShipName);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				int skillIdx = -1;
+				switch(currentShipType) {
+				case "DD":
+					//No Skills in tsv file. Implement later.
+					break;
+				case "CL":
+					//No Skills in tsv file. Implement later.
+					break;
+				case "AB":
+					skillIdx = 14;
+					break;
+				case "CV":
+					skillIdx = 15;
+					break;
+				case "CVL":
+					skillIdx = 15;
+					break;
+				default:
+					skillIdx = 13;
+					break;
+				}
+				currentSkills.clear();
+				if(skillIdx != -1) {
+					for(int i = skillIdx; i < skillIdx + 5; i++) {
+						String skill = (String) attributes.get(i);
+						System.out.println(skill);
+						if(!skill.equals("NULL")) {
+							currentSkills.add(skill);
+						}
+					}
+				}
+				updateActiveSkills();
 				boolean skillExist = currentSkills.contains("Just Gettin' Fired Up");
 				System.out.println("Skill check " + skillExist + " current ship name " + currentShipName);
 				//System.out.println("the current ship name: " + currentShipName);
