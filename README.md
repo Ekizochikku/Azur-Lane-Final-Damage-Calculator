@@ -7,7 +7,7 @@ This is an application that will calculate the final damage done by a single sho
 <B> Current Updated Data: Swirling Cherry Blossoms </B>
 
 Calculations are done with preset conditions:
-- Ships are level 120 and stats are represented of that. If they have a retrofit that does not change their ship type, the ship will be represented as a level 120 retrofit
+- Ships are level 120 and stats are represented of that. If the ship has a retrofir that changes the ship type, both the pre and post retro level 120 stats will be shown.
 - Danger level is reduced to the max of the given world
 - All skills are at level 10 stats
 - Conditions for the skills are met
