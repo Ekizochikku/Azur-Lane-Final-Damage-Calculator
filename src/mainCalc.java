@@ -365,12 +365,6 @@ public class mainCalc extends JFrame {
 				}
 				int skillIdx = -1;
 				switch(currentShipType) {
-				case "DD":
-					//No Skills in tsv file. Implement later.
-					break;
-				case "CL":
-					//No Skills in tsv file. Implement later.
-					break;
 				case "AB":
 					skillIdx = 14;
 					break;

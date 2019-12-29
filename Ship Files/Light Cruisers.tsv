@@ -1,68 +1,71 @@
-SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR
-Agano	IJN	Agano	CL	1	0	1	1.7	1	3159	148	3535	323
-Arethusa	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324
-Aurora	HMS	Arethusa	CL	1	0	1.35	1.55	1.3	2918	162	279	333
-Galatea	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324
-Atlanta	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422
-Juneau	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422
-Li'l Sandy	USS	Atlanta	CL	2	0	1	1.15	1.65	3226	131	161	434
-Sandy(Retrofitt)	USS	Atlanta	CL	2	0	1.15	1.35	1.85	3995	182	168	559
-San Juan	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	429
-Brooklyn	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307
-Helena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316
-Honolulu	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307
-Lena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3246	167	0	316
-Phoniex	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307
-St. Louis	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316
-Curacoa	HMS	Ceres	CL	2	3	1.15	0.8	0.8	2981	134	0	154
-Curlew	HMS	Ceres	CL	2	3	1.1	0.8	0.8	2789	128	0	178
-Birmingham	USS	Cleveland	CL	1	1	1.6	0.65	1.3	4189	165	0	321
-Clevelad	USS	Cleveland	CL	1	1	1.2	0.65	1.2	3601	162	0	323
-Cleveland	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	265	0	323
-Cleveland (Muse)	USS	Cleveland	CL	1	1	1.3	0.7	1.2	3837	162	0	323
-Columbia	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	168	0	323
-Denver	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	157	0	321
-Montpelier	USS	Cleveland	CL	1	1	1.3	0.75	1.2	4361	170	0	333
-Fiji	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3586	159	268	255
-Jamaica	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3636	157	268	329
-Black Prince	HMS	Dido	CL	4	0	1.35	1.3	1.35	3608	142	153	377
-Sirius	HMS	Dido	CL	4	0	1.3	1.3	1.3	3744	151	161	385
-Emile Bertin(Retrofit)	FFNF	Emile Bertin	CL	1	0	1.45	1.55	1.15	3425	191	298	327
-Koln	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333
-Konigsberg	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333
-Karlsruhe(Retrofitt)	KMS	Konigsberg	CL	1	0	1.2	1.7	1.35	3612	172	318	348
-Achilles(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295
-Ajax(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295
-Leander(Retrofit)	HMS	Leander	CL	1	0	1.35	1.65	1.3	3486	196	305	321
-Leipzig	KMS	Leipzig	CL	1	0	1.25	1.6	1.3	3494	148	270	347
-Swiftsure	HMS	Minotaur	CL	1	0	1.55	1.55	1.1	3796	163	364	304
-Mikuma	IJN	Mogami	CL	1	0	1.1	1.6	1	4015	201	187	186
-Mogami	IJN	Mogami	CL	1	0	1.25	1.6	1.05	4015	201	185	186
-Abukuma(Retrofit)	IJN	Nagara	CL	1	0	1.15	1.75	1.25	3131	160	344	279
-Isuzu	IJN	Nagara	CL	2	0	1.05	1.4	1.6	3214	120	220	343
-Nagara	IJN	Nagara	CL	1	0	1.1	1.6	1.25	2891	140	279	278
-HMS Neptune	HMS	Neptune	CL	1	0	1.5	1.6	1	4637	172	352	363
-HDN Neptune	Neptunia	Neptunia	CL	1	0	1.4	1.5	1	3430	153	289	303
-Purple Heart	Neptunia	Neptunia	CL	1	0	1.45	1.5	1	3695	167	310	313
-Ning Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2192	201	234	304
-Ping Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2160	201	234	272
-Concord	USS	Omaha	CL	1	0	1.25	1.5	1.3	3310	146	215	295
-Memphis	USS	Omaha	CL	1	0	1.25	1.55	1.25	2921	127	184	259
-Omaha	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281
-Richmond	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281
-Raleigh	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281
-Avrora	SN	Pallada	CL	1	0	1.3	1.25	0.8	3372	104	223	160
-Seattle	USS	Seattle	CL	1	5	1.45	0.65	1.3	5257	178	0	365
-Jintsuu(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2855	176	402	300
-Naka	IJN	Sendai	CL	1	0	1.2	1.65	1.15	2540	151	337	286
-Sendai(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2780	170	391	276
-Belfast	HMS	Town	CL	1	0	1.5	1.55	1	3970	179	340	293
-Edinburgh	HMS	Town	CL	1	0	1.5	1.55	1	4486	157	280	313
-Little Bel	HMS	Town	CL	1	0	1.4	1.5	1	3231	159	324	282
-Newcastle(Retrofit)	HMS	Town	CL	1	0	1.55	1.25	1.45	3928	175	285	387
-Sheffield	HMS	Town	CL	1	0	1.5	1.5	1.1	3796	156	295	351
-Sheffield (Muse)	HMS	Town	CL	1	0	1.5	1.5	1.1	3559	153	295	351
-Southampton	HMS	Town	CL	1	0	1.35	1.3	1.1	3688	151	273	307
-Rurutie	Utawarerumono	Utawarerumono	CL	1	0	1.1	1.4	0.6	4106	151	248	274
-Yat Sen	ROC	Yat Sen	CL	1	2	1.3	1.2	0.8	1884	120	0	347
-Yuubari(Retrofit)	IJN	Yuubari	CL	1	0	1.25	1.65	1.25	2342	161	286	332
+SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
+Agano	IJN	Agano	CL	1	0	1	1.7	1	3159	148	3535	323	Artillery Command: Destroyers	Carrier Escort	All Out Assault	NULL	NULL
+Noshiro	IJN	Agano	CL	1	0	1.25	1.75	1.1	3278	175	373	333	Noshiro's Hoarfrost	Skyslayer's Edge	All Out Assault	NULL	NULL
+Arethusa	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324	Reload Order	All Out Assault	NULL	NULL	NULL
+Aurora	HMS	Arethusa	CL	1	0	1.35	1.55	1.3	2918	162	279	333	Silver Phantom	The Light of Dawn	All Out Assault	NULL	NULL
+Galatea	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324	Full Firepower	All Out Assault	NULL	NULL	NULL
+Atlanta	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422	Anti-Air Command: Cruisers	Anti-Air Mode	All Out Assault	NULL	NULL
+Juneau	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422	Martyr	Anti-Air Mode	All Out Assault	NULL	NULL
+Li'l Sandy	USS	Atlanta	CL	2	0	1	1.15	1.65	3226	131	161	434	Starlit Debut	Sparkling Star	All Out Assault	NULL	NULL
+Sandy(Retrofitt)	USS	Atlanta	CL	2	0	1.15	1.35	1.85	3995	182	168	559	I Am No. 1!	Sparkling Battle Star!	All Out Assault	NULL	NULL
+San Juan	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	429	I'll Handle This!	All Out Assault	NULL	NULL	NULL
+Brooklyn	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Artillery Command: Cruisers	All Out Assault	NULL	NULL	NULL
+Helena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316	Radar Scan	All Out Assault	NULL	NULL	NULL
+Honolulu	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Full Firepower	All Out Assault	NULL	NULL	NULL
+Lena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3246	167	0	316	Youthful Light	Girls' Support	All Out Assault	NULL	NULL
+Phoniex	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Red Phoenix	All Out Assault	NULL	NULL	NULL
+St. Louis	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316	Lucky Lou	Anti-Air Mode	All Out Assault	NULL	NULL
+Curacoa	HMS	Ceres	CL	2	3	1.15	0.8	0.8	2981	134	0	154	Aerial Support	Anti-Air Command: Vanguard	All Out Assault	NULL	NULL
+Curlew	HMS	Ceres	CL	2	3	1.1	0.8	0.8	2789	128	0	178	Aerial Support	Air Raid Assistance	All Out Assault	NULL	NULL
+Birmingham	USS	Cleveland	CL	1	1	1.6	0.65	1.3	4189	165	0	321	Tenacious Knight of the Sea	Resolute Knight of the Sea	All Out Assault	NULL	NULL
+Clevelad	USS	Cleveland	CL	1	1	1.2	0.65	1.2	3601	162	0	323	Calibur's Heart	Calibur's Carrier	All Out Assault	NULL	NULL
+Cleveland	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	265	0	323	Assault Order	Anti-Air Mode	All Out Assault	NULL	NULL
+Cleveland (Muse)	USS	Cleveland	CL	1	1	1.3	0.7	1.2	3837	162	0	323	Spiritual Chasing	Star-Falling Passion	All Out Assault	NULL	NULL
+Columbia	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	168	0	323	Flagship Cover	Anti-Air Mode	All Out Assault	NULL	NULL
+Denver	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	157	0	321	Full Firepower	Anti-Air Mode	All Out Assault	NULL	NULL
+Montpelier	USS	Cleveland	CL	1	1	1.3	0.75	1.2	4361	170	0	333	Legend of the Solomons	Anti-Air Mode	All Out Assault	NULL	NULL
+Fiji	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3586	159	268	255	Crete's Black Cloud	All Out Assault	NULL	NULL	NULL
+Jamaica	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3636	157	268	329	Allies of Justice	All Out Assault	NULL	NULL	NULL
+Black Prince	HMS	Dido	CL	4	0	1.35	1.3	1.35	3608	142	153	377	Longbow of Woodstock	Smokescreen	All Out Assault	NULL	NULL
+Sirius	HMS	Dido	CL	4	0	1.3	1.3	1.3	3744	151	161	385	Mark of Sirius	Cover Fire	All Out Assault	NULL	NULL
+Emile Bertin(Retrofit)	FFNF	Emile Bertin	CL	1	0	1.45	1.55	1.15	3425	191	298	327	Heart of Iris	Destroyer Squadron	Messenger of Love	All Out Assault	NULL
+Koln	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333	Full Firepower	Kolibri Assault	All Out Assault	NULL	NULL
+Konigsberg	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333	Reload Command: Cruisers	All Out Assault	NULL	NULL	NULL
+Karlsruhe(Retrofitt)	KMS	Konigsberg	CL	1	0	1.2	1.7	1.35	3612	172	318	348	Full Firepower	Disturbance Strategy	All Out Assault	NULL	NULL
+Achilles(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295	Full Firepower	Giant Hunter	All Out Assault	NULL	NULL
+Ajax(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295	Full Firepower	Giant Hunter	All Out Assault	NULL	NULL
+Leander(Retrofit)	HMS	Leander	CL	1	0	1.35	1.65	1.3	3486	196	305	321	Artillery Command: Cruisers	Smokescreen	All Out Assault	NULL	NULL
+Leipzig	KMS	Leipzig	CL	1	0	1.25	1.6	1.3	3494	148	270	347	Tactical Command: Cruisers	Safety First!	All Out Assault	NULL	NULL
+Swiftsure	HMS	Minotaur	CL	1	0	1.55	1.55	1.1	3796	163	364	304	Anti-Air Order	Advanced Fire Control System	All Out Assault	NULL	NULL
+Mikuma	IJN	Mogami	CL	1	0	1.1	1.6	1	4015	201	187	186	Carrier Escort	AP Protection	All Out Assault	NULL	NULL
+Mogami	IJN	Mogami	CL	1	0	1.25	1.6	1.05	4015	201	185	186	Full Firepower	AP Protection	All Out Assault	NULL	NULL
+Abukuma(Retrofit)	IJN	Nagara	CL	1	0	1.15	1.75	1.25	3131	160	344	279	Torpedo Command: Destroyers	Double Torpedo	All Out Assault	NULL	NULL
+Isuzu	IJN	Nagara	CL	2	0	1.05	1.4	1.6	3214	120	220	343	Anti-Air Mode	All Out Assault	NULL	NULL	NULL
+Kinu(Retrofit)	IJN	Nagara	CL	1	0	1.2	1.8	1.3	3126	158	354	319	Demon Blade	Demon's Wish	NULL	NULL	NULL
+Nagara	IJN	Nagara	CL	1	0	1.1	1.6	1.25	2891	140	279	278	Full Firepower	All Out Assault	NULL	NULL	NULL
+HMS Neptune	HMS	Neptune	CL	1	0	1.5	1.6	1	4637	172	352	363	MKV-Class AP Shells	Goddess of the Sea	Siren Killer	All Out Assault	NULL
+HDN Neptune	Neptunia	Neptunia	CL	1	0	1.4	1.5	1	3430	153	289	303	Protagonist Aura	NULL	NULL	NULL	NULL
+Purple Heart	Neptunia	Neptunia	CL	1	0	1.45	1.5	1	3695	167	310	313	Cross Combination	Victory Slash	Blaze Break	NULL	NULL
+Ning Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2192	201	234	304	Sisterly Bond	For The Dragon Empery	Warrior Soul	All Out Assault	NULL
+Ping Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2160	201	234	272	Sisterly Bond	For The Dragon Empery	Warrior Soul	All Out Assault	NULL
+Concord	USS	Omaha	CL	1	0	1.25	1.5	1.3	3310	146	215	295	Quick Reload	All Out Assault	NULL	NULL	NULL
+Memphis	USS	Omaha	CL	1	0	1.25	1.55	1.25	2921	127	184	259	Quick Reload	All Out Assault	NULL	NULL	NULL
+Omaha	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Quick Reload	All Out Assault	NULL	NULL	NULL
+Raleigh	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Quick Reload	All Out Assault	NULL	NULL	NULL
+Richmond	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Artillery Command: Cruisers	All Out Assault	NULL	NULL	NULL
+Avrora	SN	Pallada	CL	1	0	1.3	1.25	0.8	3372	104	223	160	Revolyutsiya	All Out Assault	NULL	NULL	NULL
+Seattle	USS	Seattle	CL	1	5	1.45	0.65	1.3	5257	178	0	365	No Flying Allowed!	A Bow's String Has 2 Lines!	Siren Killer	All Out Assault	NULL
+Jintsuu(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2855	176	402	300	2nd Torpedo Squadron	The Unyielding Jintsuu	All Out Assault	NULL	NULL
+Naka	IJN	Sendai	CL	1	0	1.2	1.65	1.15	2540	151	337	286	Torpedo Squadron	All Out Assault	NULL	NULL	NULL
+Sendai(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2780	170	391	276	Torpedo Squadron	Flares	All Out Assault	NULL	NULL
+Belfast	HMS	Town	CL	1	0	1.5	1.55	1	3970	179	340	293	Burn Order	Smokescreen: Light Cruisers	All Out Assault	NULL	NULL
+Edinburgh	HMS	Town	CL	1	0	1.5	1.55	1	4486	157	280	313	Piercing Shells	All Out Assault	NULL	NULL	NULL
+Glasgow	HMS	Town	CL	1	0	1.35	1.3	1.1	3688	151	273	344	Full Firepower	Swift Defender	All Out Assault	NULL	NULL
+Little Bel	HMS	Town	CL	1	0	1.4	1.5	1	3231	159	324	282	The Perfect Mini-Maid	Ladies' Tea Time	All Out Assault	NULL	NULL
+Newcastle(Retrofit)	HMS	Town	CL	1	0	1.55	1.25	1.45	3928	175	285	387	Anti-Air Mode	Reload Order	Artillery Command: Vanguard	All Out Assault	NULL
+Sheffield	HMS	Town	CL	1	0	1.5	1.5	1.1	3796	156	295	351	Shiny Sheff	Counterattack of the Barents Sea	All Out Assault	NULL	NULL
+Sheffield (Muse)	HMS	Town	CL	1	0	1.5	1.5	1.1	3559	153	295	351	Precise Arrow	Shine and Dance	All Out Assault	NULL	NULL
+Southampton	HMS	Town	CL	1	0	1.35	1.3	1.1	3688	151	273	307	Smokescreen	Reload Order	All Out Assault	NULL	NULL
+Rurutie	Utawarerumono	Utawarerumono	CL	1	0	1.1	1.4	0.6	4106	151	248	274	Pulse of Life	Lily Root	NULL	NULL	NULL
+Yat Sen	ROC	Yat Sen	CL	1	2	1.3	1.2	0.8	1884	120	0	347	Dragon Empery Bond	For The Dragon Empery	All Out Assault	NULL	NULL
+Yuubari(Retrofit)	IJN	Yuubari	CL	1	0	1.25	1.65	1.25	2342	161	286	332	Prototype Cruiser	Full Firepower	Erratic Inventor	All Out Assault	NULL
