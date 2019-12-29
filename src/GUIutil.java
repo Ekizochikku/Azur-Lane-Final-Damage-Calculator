@@ -369,6 +369,27 @@ public class GUIutil {
 		return slottedWep;
 	}
 	
+	public ArrayList<String> getAuxParams(String auxName) throws FileNotFoundException, IOException {
+		ArrayList<String> auxParams = new ArrayList<String>();
+		BufferedReader br = new BufferedReader(new FileReader("Aux Equipment.tsv"));
+		String line = br.readLine(); //Skip Header Line
+		while ((line = br.readLine()) != null && !line.isEmpty()) {
+			String[] fields = line.split("	");
+			if (fields[0].equals(auxName)) {
+				for (int i = 0; i < fields.length; i++) {
+					auxParams.add(fields[i]);
+				}
+			}
+		}
+		br.close();
+		return auxParams;
+	}
+	
+	public ArrayList<String> getAuxNames() throws FileNotFoundException, IOException {
+		ArrayList<String> auxNames = getEntityNames("Aux Equipment");
+		return auxNames;
+	}
+	
 	
 	/*
 	 * Returns an array list containing the names of ships/weapons
