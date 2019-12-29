@@ -20,7 +20,7 @@ Calculations are done with preset conditions:
 
 <B>Skills Exceptions:</B> Massachusets(2'700 Pounds of Justice), North Caroline(AA Firepower), Azuma(Barrage Gunnery Manual, Thundering Mountain Flame), Taihou(Dice of Destiny), Karlsruhe(Disturbance Strategy), Zeppy(Eat my Shells!), Bataan(Roaring Challenger), Z46(Iron Wing Annihilation), Jean Bart(Last Fire), Roon(Professional Reloader), Friedrich der Grosse(Sonata of Chaos, Rhapsody of Darkness), Seattle(A Bow's String has 2 Lines!), Avrora(Cannon Fire That Marked A Change of Era), I-13(Code: Hikari), Bismarck(Ironblood's Will), Kitakaze(Kitakaze Style - Unanimous Slash), HDN Neptune(Main Character Corrcetion), Le Triomphant(Offensice Configuration), Kawakaze(Piercing Torpedo Strike), Independence(Eagle Strike), Graf Zeppelin(Ironblood Hawk), Auora(Silver Phantom)< Scharnhorst(Sniper), Black Heart(Tricolor Order), L'Opiniatre(A Witch Who Never Admits Defeat), Alabama(Just Gettin' Fired Up), Baltimore(Final AP Drive), U-101(Wolf Pack Formation - U-101)
 
-<B>In Progress Functionality/Items: Aux Equipment, Muse Update </B>
+<B>In Progress Functionality/Items: Aux Equipment, Updating Names, Cleaning Up Stuff</B>
 
 <B>PLEASE MESSAGE ISSUES (MISPELLING, MISSING GEAR, SHIPS, SKILLS, ETC.) AND SUGGESTIONS (MAY OR MAY NOT TAKE THEM) USING DISCORD TO: Ekizochikku#3751 or Scription#0640</B>
 
