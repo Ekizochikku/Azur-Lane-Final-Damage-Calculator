@@ -369,7 +369,7 @@ public class GUIutil {
 		return slottedWep;
 	}
 	
-	public ArrayList<String> getAuxParams(String auxName) throws FileNotFoundException, IOException {
+	public static ArrayList<String> getAuxParams(String auxName) throws FileNotFoundException, IOException {
 		ArrayList<String> auxParams = new ArrayList<String>();
 		BufferedReader br = new BufferedReader(new FileReader("Aux Equipment.tsv"));
 		String line = br.readLine(); //Skip Header Line
@@ -385,8 +385,8 @@ public class GUIutil {
 		return auxParams;
 	}
 	
-	public ArrayList<String> getAuxNames() throws FileNotFoundException, IOException {
-		ArrayList<String> auxNames = getEntityNames("Aux Equipment");
+	public static ArrayList<String> getAuxNames() throws FileNotFoundException, IOException {
+		ArrayList<String> auxNames = getEntityNames("Aux Equipment.tsv");
 		return auxNames;
 	}
 	
@@ -396,7 +396,7 @@ public class GUIutil {
 	 * @param theFile
 	 * @return theList
 	 */
-	public ArrayList<String> getEntityNames(String theFile) throws FileNotFoundException, IOException {
+	public static ArrayList<String> getEntityNames(String theFile) throws FileNotFoundException, IOException {
 		ArrayList<String> theList = new ArrayList<String>();
 		BufferedReader br = new BufferedReader(new FileReader(theFile));
 		String line = br.readLine(); //Skip the Header Line
