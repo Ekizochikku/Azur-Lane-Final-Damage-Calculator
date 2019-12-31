@@ -127,6 +127,9 @@ public class mainCalc extends JFrame {
 	//the array list that holds the auxiliary parameters
 	private ArrayList auxParameters;
 	
+	//the array list that holds the auxiliary2 parameters
+	private ArrayList auxParameters2;
+	
 	//The current selected color for the notes radio buttons
 	private String currentColorSelected = null;
 	
@@ -137,7 +140,10 @@ public class mainCalc extends JFrame {
 	private String currentWeaponNameSlot3 = null;
 	
 	//current auxiliary name
-	private String currentAux = null; 
+	private String currentAux = "100/150 Aviation Gasoline"; 
+	//current auxiliary2 name
+	private String currentAux2 = "100/150 Aviation Gasoline"; 
+		
 	
 	//Hard coded these in for the initial screen
 	
@@ -229,6 +235,8 @@ public class mainCalc extends JFrame {
 	private JLabel auxAALbl;
 	private JLabel lblAuxTorpedo;
 	private JLabel lblAuxAviation;
+	private JLabel lblAuxiliary;
+	private JComboBox<Object> auxBox2;
 
 	/**
 	 * Launch the application.
@@ -611,7 +619,7 @@ public class mainCalc extends JFrame {
 				}
 			}
 		});
-		JLabel lblAuxilary = new JLabel("Auxiliary:");
+		JLabel lblAuxilary = new JLabel("Auxiliary 1:");
 		
 		
 
@@ -693,11 +701,47 @@ public class mainCalc extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				textFieldAuxHealth.setText((String) auxParameters.get(1));
-				textFieldAuxFirepower.setText((String) auxParameters.get(2));
-				txtFieldAuxTorpedo.setText((String) auxParameters.get(3));
-				textFieldAuxAA.setText((String) auxParameters.get(4));
-				textFieldAuxAviation.setText((String) auxParameters.get(5));
+				if(auxParameters2 == null || auxParameters2.isEmpty()) {
+					textFieldAuxHealth.setText("1: " + (String) auxParameters.get(1));
+					textFieldAuxFirepower.setText("1: " + (String) auxParameters.get(2));
+					txtFieldAuxTorpedo.setText("1: " + (String) auxParameters.get(3));
+					textFieldAuxAA.setText("1: " + (String) auxParameters.get(4));
+					textFieldAuxAviation.setText("1: " +(String) auxParameters.get(5));
+				} else {
+					textFieldAuxHealth.setText("1: " + (String) auxParameters.get(1) + "   2: " + (String) auxParameters2.get(1));
+					textFieldAuxFirepower.setText("1: " + (String) auxParameters.get(2) + "   2: " + (String) auxParameters2.get(1));
+					txtFieldAuxTorpedo.setText("1: " + (String) auxParameters.get(3)+ "   2: " + (String) auxParameters2.get(1));
+					textFieldAuxAA.setText("1: " + (String) auxParameters.get(4)+ "   2: " + (String) auxParameters2.get(1));
+					textFieldAuxAviation.setText("1: " + (String) auxParameters.get(5)+ "   2: " + (String) auxParameters2.get(1));
+				}
+			}
+		});
+		auxBox2 = new JComboBox<Object>();
+		auxBox2.setModel(new DefaultComboBoxModel<Object>(theAux.toArray()));
+		auxBox2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				currentAux2 = (String) auxBox2.getSelectedItem();
+				try {
+					auxParameters2 = new ArrayList<String>();
+					auxParameters2 = GUIutil.getAuxParams(currentAux2);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				if(auxParameters == null || auxParameters.isEmpty()) {
+					textFieldAuxHealth.setText("2: " + (String) auxParameters2.get(1));
+					textFieldAuxFirepower.setText("2: " + (String) auxParameters2.get(2));
+					txtFieldAuxTorpedo.setText("2: " + (String) auxParameters2.get(3));
+					textFieldAuxAA.setText("2: " + (String) auxParameters2.get(4));
+					textFieldAuxAviation.setText("2: " +(String) auxParameters2.get(5));
+				} else {
+					textFieldAuxHealth.setText("1: " + (String) auxParameters.get(1) + "   2: " + (String) auxParameters2.get(1));
+					textFieldAuxFirepower.setText("1: " + (String) auxParameters.get(2) + "   2: " + (String) auxParameters2.get(1));
+					txtFieldAuxTorpedo.setText("1: " + (String) auxParameters.get(3)+ "   2: " + (String) auxParameters2.get(1));
+					textFieldAuxAA.setText("1: " + (String) auxParameters.get(4)+ "   2: " + (String) auxParameters2.get(1));
+					textFieldAuxAviation.setText("1: " + (String) auxParameters.get(5)+ "   2: " + (String) auxParameters2.get(1));
+				}
+				
 			}
 		});
 		
@@ -1263,6 +1307,10 @@ public class mainCalc extends JFrame {
 		
 		lblAuxAviation = new JLabel("Aviation:");
 		
+		lblAuxiliary = new JLabel("Auxiliary 2:");
+		
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -1303,7 +1351,7 @@ public class mainCalc extends JFrame {
 													.addComponent(textFieldP2T, GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
 													.addComponent(textFieldP3B1, 0, 0, Short.MAX_VALUE))
 												.addComponent(lblPlane3))
-											.addPreferredGap(ComponentPlacement.RELATED, 142, Short.MAX_VALUE))
+											.addPreferredGap(ComponentPlacement.RELATED, 143, Short.MAX_VALUE))
 										.addGroup(gl_contentPane.createSequentialGroup()
 											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 												.addGroup(gl_contentPane.createSequentialGroup()
@@ -1320,7 +1368,7 @@ public class mainCalc extends JFrame {
 													.addPreferredGap(ComponentPlacement.RELATED)
 													.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 														.addComponent(isCritical)
-														.addComponent(isArmorBroken, GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE))))))
+														.addComponent(isArmorBroken, GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))))))
 									.addGap(24))
 								.addComponent(isManual)
 								.addGroup(gl_contentPane.createSequentialGroup()
@@ -1345,12 +1393,12 @@ public class mainCalc extends JFrame {
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGap(6)
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblGunTypeSlot_2)
-										.addComponent(slot1Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+										.addComponent(slot1Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
 										.addComponent(lblGunTypeSlot_3)
-										.addComponent(slot2Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-										.addComponent(lblSlotDamage, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
-										.addComponent(slot3Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)))
+										.addComponent(slot2Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+										.addComponent(lblSlotDamage, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+										.addComponent(slot3Pane, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 264, Short.MAX_VALUE)
+										.addComponent(lblGunTypeSlot_2)))
 								.addGroup(gl_contentPane.createSequentialGroup()
 									.addPreferredGap(ComponentPlacement.RELATED)
 									.addComponent(calculateButton)
@@ -1412,24 +1460,31 @@ public class mainCalc extends JFrame {
 							.addGap(23)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 								.addComponent(auxHealthLbl)
+								.addComponent(textFieldAuxHealth, GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
 								.addComponent(lblAuxilary)
-								.addComponent(textFieldAuxHealth, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
-								.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+								.addGroup(gl_contentPane.createSequentialGroup()
 									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-										.addComponent(lblAuxTorpedo)
-										.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
-												.addComponent(txtFieldAuxTorpedo, Alignment.LEADING)
-												.addComponent(lblAuxFirepower, Alignment.LEADING)
-												.addComponent(textFieldAuxFirepower, Alignment.LEADING))
-											.addPreferredGap(ComponentPlacement.RELATED)))
-									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
-										.addComponent(textFieldAuxAA, GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-										.addComponent(auxAALbl, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
-										.addComponent(lblAuxAviation)
-										.addComponent(textFieldAuxAviation, 0, 0, Short.MAX_VALUE))
-									.addGap(3))
-								.addComponent(auxCBox, 0, 193, Short.MAX_VALUE))))
+										.addComponent(lblAuxFirepower)
+										.addComponent(lblAuxTorpedo, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+										.addComponent(txtFieldAuxTorpedo, GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)
+										.addGroup(gl_contentPane.createSequentialGroup()
+											.addComponent(textFieldAuxFirepower, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+											.addPreferredGap(ComponentPlacement.UNRELATED)))
+									.addGap(10)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+										.addComponent(auxAALbl)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.RELATED)
+												.addComponent(lblAuxAviation, GroupLayout.PREFERRED_SIZE, 56, GroupLayout.PREFERRED_SIZE)
+												.addGap(17))
+											.addComponent(textFieldAuxAA, Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)
+											.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+												.addPreferredGap(ComponentPlacement.UNRELATED)
+												.addComponent(textFieldAuxAviation, GroupLayout.PREFERRED_SIZE, 88, GroupLayout.PREFERRED_SIZE)))))
+								.addComponent(lblAuxiliary, GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+								.addComponent(auxCBox, 0, 191, Short.MAX_VALUE)
+								.addComponent(auxBox2, GroupLayout.PREFERRED_SIZE, 191, GroupLayout.PREFERRED_SIZE))))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -1476,14 +1531,14 @@ public class mainCalc extends JFrame {
 						.addComponent(enemyNameCBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(auxCBox, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 							.addComponent(lblGunTypeSlot)
 							.addComponent(lblGunNameSlot)
 							.addComponent(lblSkillDescription)
 							.addComponent(lblDangerLevel)
 							.addComponent(healthTextFieldLabel))
-						.addComponent(auxHealthLbl))
+						.addComponent(lblAuxiliary))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
 						.addGroup(gl_contentPane.createSequentialGroup()
@@ -1498,46 +1553,52 @@ public class mainCalc extends JFrame {
 								.addComponent(weaponNameSlot1, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 								.addComponent(dangerLevelTBox, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(healthTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textFieldAuxHealth, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(auxBox2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblGunTypeSlot_1)
 								.addComponent(lblGunNameSlot_1)
 								.addComponent(lblAntiAir)
 								.addComponent(lblArmor, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblAuxFirepower)
-								.addComponent(auxAALbl))
+								.addComponent(auxHealthLbl))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(weaponTypeCBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(AntiairTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(armorTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(weaponNameSlot2, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textFieldAuxFirepower, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(textFieldAuxAA, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+								.addComponent(textFieldAuxHealth, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblEnemyShipType, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
 								.addComponent(lblNation)
 								.addComponent(lblNewLabel)
 								.addComponent(lblWeaponTypeSlot)
-								.addComponent(lblAuxTorpedo)
-								.addComponent(lblAuxAviation))
+								.addComponent(lblAuxFirepower)
+								.addComponent(auxAALbl))
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(typeTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(nationTextField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(weaponTypeCBox3, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
 								.addComponent(weaponNameSlot3, GroupLayout.PREFERRED_SIZE, 20, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textFieldAuxFirepower, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+								.addComponent(textFieldAuxAA, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblAuxTorpedo)
+								.addComponent(lblAuxAviation))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(txtFieldAuxTorpedo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 								.addComponent(textFieldAuxAviation, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(89))
-						.addComponent(lblGunTypeSlot_2))
+							.addPreferredGap(ComponentPlacement.RELATED, 32, Short.MAX_VALUE)))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 						.addComponent(lblPlane2)
 						.addComponent(lblPlane1, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
-						.addComponent(lblPlane3))
+						.addComponent(lblPlane3)
+						.addComponent(lblGunTypeSlot_2))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createSequentialGroup()
