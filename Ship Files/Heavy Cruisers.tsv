@@ -1,50 +1,51 @@
 SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
-Admiral Hipper	KMS	Admiral Hipper	CA	0	0	1.3	1.6	1	4970	251	190	189	Defensive Shield	Focused Defense	All Out Assault	NULL	NULL
+Nakiri Ayame	Hololive	Holo (Temp)	CA	0	1	1.1	0.55	1.05	4168	234	0	197	Oni Goddess Nakiri	Demon Cutter Asura-Rakshasa	NULL	NULL	NULL
+Admiral Hipper	KMS	Admiral Hipper	CA	0	0	1.3	1.6	1	4970	251	190	189	Guarding Shield	Vice Defense	All Out Assault	NULL	NULL
 Admiral Hipper (Muse)	KMS	Admiral Hipper	CA	0	0	1.3	1.6	1	4844	251	185	189	Passionate Fever	Nerve Calming Shield	All Out Assault	NULL	NULL
 Prinz Eugen	KMS	Admiral Hipper	CA	0	0	1.25	1.6	1.2	6252	226	153	205	Unbreakable Shield	All Out Assault	NULL	NULL	NULL
 Aoba	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	All Out Assault	NULL	NULL	NULL
 Kinugasa	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	All Out Assault	NULL	NULL	NULL
-Baltimore	USS	Baltimore	CA	0	1	1.3	0.75	1.35	4412	270	0	251	Full AP Drive	All-Rounder	All Out Assault	NULL	NULL
+Baltimore	USS	Baltimore	CA	0	1	1.3	0.75	1.35	4412	270	0	251	APsolute Ammunition	Adpative Tactics	All Out Assault	NULL	NULL
 Dorsetshire	HMS	County	CA	0	0	1.25	1.5	1.2	4755	182	245	249	Journey's End	All Out Assault	NULL	NULL	NULL
-Kent	HMS	County	CA	0	0	1.45	1.6	1	3508	218	215	208	Raid Order	All Out Assault	NULL	NULL	NULL
-London	HMS	County	CA	0	0	1.45	1.6	1	3561	223	223	212	Artillery Command - Vanguard	All Out Assault	NULL	NULL	NULL
-Norfolk	HMS	County	CA	0	0	1.25	1.6	1.2	4621	178	141	241	Frontal Armor	All Out Assault	NULL	NULL	NULL
-Shropshire	HMS	County	CA	0	0	1.45	1.6	1	3461	218	215	208	Chain Cannon	All Out Assault	NULL	NULL	NULL
-Suffolk(Retrofit)	HMS	County	CA	0	0	1.6	1.65	1	3754	273	245	208	Chain Cannon	Full Firepower	All Out Assault	NULL	NULL
-Sussex	HMS	County	CA	0	0	1.45	1.6	1	3461	203	215	255	Chain Cannon	All Out Assault	NULL	NULL	NULL
+Kent	HMS	County	CA	0	0	1.45	1.6	1	3508	218	215	208	Assault Order	All Out Assault	NULL	NULL	NULL
+London	HMS	County	CA	0	0	1.45	1.6	1	3561	223	223	212	Artillery Command: Vanguard	All Out Assault	NULL	NULL	NULL
+Norfolk	HMS	County	CA	0	0	1.25	1.6	1.2	4621	178	141	241	Forward Armor	All Out Assault	NULL	NULL	NULL
+Shropshire	HMS	County	CA	0	0	1.45	1.6	1	3461	218	215	208	Double Gun	All Out Assault	NULL	NULL	NULL
+Suffolk(Retrofit)	HMS	County	CA	0	0	1.6	1.65	1	3754	273	245	208	Double Gun	Full Firepower	All Out Assault	NULL	NULL
+Sussex	HMS	County	CA	0	0	1.45	1.6	1	3461	203	215	255	Double Gun	All Out Assault	NULL	NULL	NULL
 Admiral Graf Spee	KMS	Deutschland	CA	0	0	1.4	1.3	1	4631	298	216	154	Pocket Battleship	All Out Assault	NULL	NULL	NULL
 Deutchland	KMS	Deutschland	CA	0	0	1.4	1.3	1	4018	301	220	154	Pocket Battleship	All Out Assault	NULL	NULL	NULL
-Furutaka(Retrofitt)	IJN	Furutaka	CA	0	0	1.3	1.8	1.05	3719	245	235	176	Full Firepower	Chain Torpedo	All Out Assault	NULL	NULL
-Kako	IJN	Furutaka	CA	0	0	1.3	1.8	1.05	3719	245	235	176	Full Firepower	Chiain Torpedo	All Out Assault	NULL	NULL
-Ibuki	IJN	Ibuki	CA	0	0	1.4	1.85	1.1	4793	270	289	194	Body and Soul	Flash of Lighting	Siren's Nemesis	All Out Assault	NULL
+Furutaka(Retrofitt)	IJN	Furutaka	CA	0	0	1.3	1.8	1.05	3719	245	235	176	Full Firepower	Double Torpedo	All Out Assault	NULL	NULL
+Kako	IJN	Furutaka	CA	0	0	1.3	1.8	1.05	3719	245	235	176	Full Firepower	Double Torpedo	All Out Assault	NULL	NULL
+Ibuki	IJN	Ibuki	CA	0	0	1.4	1.85	1.1	4793	270	289	194	Body and Soul	Flash of Lighting	Siren Killer	All Out Assault	NULL
 Elegant Kizuna Ai	KizunaAi	KizunaAI	CA	0	1	1.1	0.55	1.25	5020	255	0	225	Connected	Everything is In Order		NULL	NULL
 Suzuya	IJN	Mogami	CA	2	0	1.35	1.45	1.1	4176	237	212	209	Destoryer of Darkness	AP Protection	All Out Assault	NULL	NULL
 Mogami(Retrofitt)	IJN	Mogami	CA	0	0	1.25	1.6	1.05	4623	264	202	233	Full Firepower	AP Protection	Suppression Fire	All Out Assault	NULL
 Ashigara	IJN	Myoukou	CA	0	0	1.3	1.65	1	4162	234	223	171	Flashing Blade of Surabaya	All Out Assault	NULL	NULL	NULL
 Myoukou	IJN	Myoukou	CA	0	0	1.3	1.65	1	5520	196	150	193	Draw Fire	All Out Assault	NULL	NULL	NULL
 Nachi	IJN	Myoukou	CA	0	0	1.3	1.65	1	5220	196	150	193	Draw Fire	All Out Assault	NULL	NULL	NULL
-Black Heart	HDN	Neptunia	CA	0	0	1.3	1.65	1.1	4062	251	218	193	Tricolor Order	Lace Dance	NULL	NULL	NULL
+Black Heart	HDN	Neptunia	CA	0	0	1.3	1.65	1.1	4062	251	218	193	Tricolor Order	Lacy Dance	NULL	NULL	NULL
 Noire	HDN	Neptunia	CA	0	0	1.25	1.65	1.1	3828	237	199	178	Medistation S	NULL	NULL	NULL	NULL
-Astoria	USS	New Orleans	CA	0	1	1.15	0.6	1.3	3881	218	0	226	Nasty Asty	Protective Armour	All Out Assault	NULL	NULL
-Minneapolis	USS	New Orleans	CA	0	1	1.25	0.7	1.25	4152	258	0	248	Bull of the Lake Capital	Dullahan	All Out Assault	NULL	NULL
+Astoria	USS	New Orleans	CA	0	1	1.15	0.6	1.3	3881	218	0	226	Nasty Asty	Protective Armor	All Out Assault	NULL	NULL
+Minneapolis	USS	New Orleans	CA	0	1	1.25	0.7	1.25	4152	258	0	248	Thrill of the Hunt	Dullahan	All Out Assault	NULL	NULL
 Quincy	USS	New Orleans	CA	0	1	1.15	0.6	1.3	4015	218	0	230	Full Firepower	Protective Armour	All Out Assault	NULL	NULL
 Vincennes	USS	New Orleans	CA	0	1	1.15	0.6	1.3	4015	218	0	230	Full Firepower	Protective Armour	All Out Assault	NULL	NULL
-Chicago	USS	Northampton	CA	0	1	1.2	0.55	1.05	3393	240	0	204	Focused Strike	All Out Assault	NULL	NULL	NULL
-Houston	USS	Northampton	CA	0	1	1.2	0.55	1.05	3445	246	0	210	Galloping Ghost of Java Coast	All Out Assault	NULL	NULL	NULL
-Northampton	USS	Northampton	CA	0	1	1.2	0.55	1.05	3346	240	0	204	Artillery Command - Cruiser	All Out Assault	NULL	NULL	NULL
+Chicago	USS	Northampton	CA	0	1	1.2	0.55	1.05	3393	240	0	204	Focused Assault	All Out Assault	NULL	NULL	NULL
+Houston	USS	Northampton	CA	0	1	1.2	0.55	1.05	3445	246	0	210	Ghost of Java Coast	All Out Assault	NULL	NULL	NULL
+Northampton	USS	Northampton	CA	0	1	1.2	0.55	1.05	3346	240	0	204	Artillery Command: Cruisers	All Out Assault	NULL	NULL	NULL
 Pensacola	USS	Pensacola	CA	0	1	1.2	0.45	1.05	3290	232	0	198	Reload Order	All Out Assault	NULL	NULL	NULL
 Salt Lake City	USS	Pensacola	CA	0	1	1.2	0.45	1.05	3290	232	0	198	Full Firepower	All Out Assault	NULL	NULL	NULL
-Indianapolis	USS	Portland	CA	0	1	1.1	0.6	1.3	4734	210	0	252	Pandora's Box	Focused Defense	All Out Assault	NULL	NULL
-Portland(Retrofit)	USS	Portland	CA	0	1	1.15	0.65	1.35	5355	234	0	260	My Sister's Really Great	Defense Order	All Out Assault	NULL	NULL
-Roon	KMS	Roon	CA	0	0	1.3	1.1	1.1	5920	283	215	233	Professional Reloader	All Rounded Armor	Siren's Nemesis	All Out Assault	NULL
-Saint Louis	FFNF	Saint Louis	CA	0	0	1.3	1.2	1.25	5363	279	226	248	Enforced HE Ammo	Engine Boost	Siren's Nemesis	All Out Assault	NULL
-Atago	IJN	Takao	CA	0	0	1.35	1.7	1	4295	270	245	178	Arsonist	Chain Torpedo	All Out Assault	NULL	NULL
-Choukai	IJN	Takao	CA	0	0	1.25	1.3	1.1	4295	261	221	178	Leyte Gulf's Blitz	Focused Strike	All Out Assault	NULL	NULL
-Maya	IJN	Takao	CA	0	0	1.25	1.7	1.2	4295	270	245	189	10,000 Nights: Trayastrimsa	All Out Assault	NULL	NULL	NULL
-Takao	IJN	Takao	CA	0	0	1.25	1.75	1	4295	270	245	178	Focused Strike	Chain Torpedo	All Out Assault	NULL	NULL
+Indianapolis	USS	Portland	CA	0	1	1.1	0.6	1.3	4734	210	0	252	Pandora's Box	Vice Defense	All Out Assault	NULL	NULL
+Portland(Retrofit)	USS	Portland	CA	0	1	1.15	0.65	1.35	5355	234	0	260	Best Sister	Defense Order	All Out Assault	NULL	NULL
+Roon	KMS	Roon	CA	0	0	1.3	1.1	1.1	5920	283	215	233	Expert Loader	Well-Rounded Armor	Siren Killer	All Out Assault	NULL
+Saint Louis	FFNF	Saint Louis	CA	0	0	1.3	1.2	1.25	5363	279	226	248	Augmented HE Ammo	Engine Boost	Siren Killer	All Out Assault	NULL
+Atago	IJN	Takao	CA	0	0	1.35	1.7	1	4295	270	245	178	Arsonist	Double Torpedo	All Out Assault	NULL	NULL
+Choukai	IJN	Takao	CA	0	0	1.25	1.3	1.1	4295	261	221	178	Leyte Gulf's Blitz	Focused Assault	All Out Assault	NULL	NULL
+Maya	IJN	Takao	CA	0	0	1.25	1.7	1.2	4295	270	245	189	Myriad Nights: Trayastrimsa	All Out Assault	NULL	NULL	NULL
+Takao	IJN	Takao	CA	0	0	1.25	1.75	1	4295	270	245	178	Focused Assault	Chain Torpedo	All Out Assault	NULL	NULL
 Trento	RN	Trento	CA	0	0	1.3	1.65	1	3554	232	184	186	Full Firepower	All Out Assault	NULL	NULL	NULL
 Kuon	Utawarerumono	Utawarerumono	CA	0	0	1.1	1.05	0.75	4138	237	198	175	Four Gods Convert	Ten Sisters	NULL	NULL	NULL
-Wichita	USS	Wichita	CA	0	1	1.3	0.55	1.05	3709	267	0	222	Artillery Command - Cruiser	Chain Cannon	All Out Assault	NULL	NULL
+Wichita	USS	Wichita	CA	0	1	1.3	0.55	1.05	3709	267	0	222	Artillery Command: Cruisers	Double Gun	All Out Assault	NULL	NULL
 Exeter(Retrofit)	HMS	York	CA	0	0	1.45	1.65	1.15	3945	266	193	258	Full Firepower	Defense Order	Giant Hunter	All Out Assault	NULL
-York(Retrofit)	HMS	York	CA	0	0	1.55	1.65	1.05	3916	286	193	258	Armageddon Cannon	Terror Field	All Out Assault	NULL	NULL
+York(Retrofit)	HMS	York	CA	0	0	1.55	1.65	1.05	3916	286	193	258	Armageddon Cannon	Darkness Field	All Out Assault	NULL	NULL
 Zara	RN	Zara	CA	0	1	1.2	0.55	100	4941	252	0	229	Terni Shields	Semi-Armor Piercing High-Explosive	All Out Assault	NULL	NULL
