@@ -3,7 +3,7 @@
   <dontWrapJar>false</dontWrapJar>
   <headerType>gui</headerType>
   <jar>C:\Users\Walter\Documents\GitHub\Azur-Lane-Final-Damage-Calculator\AzurLane.jar</jar>
-  <outfile>C:\Users\Walter\Documents\GitHub\Azur-Lane-Final-Damage-Calculator\AzurLane.exe</outfile>
+  <outfile>C:\Users\Walter\Documents\GitHub\Azur-Lane-Final-Damage-Calculator\Azur Lane Calculator.exe</outfile>
   <errTitle></errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
