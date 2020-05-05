@@ -7,7 +7,7 @@ This is an application that will calculate the final damage done by a single sho
 
 <B> We will implement new game changes when we can. </B>
 
-<B> Current Updated Data: Royal Maids 2nd Season-ISH </B>
+<B> Current Updated Data: Crimson Echoes Rerun 04/23/2020 </B>
 
 Calculations are done with preset conditions:
 - Ships are level 120 and stats are represented of that. If the ship has a retrofir that changes the ship type, both the pre and post retro level 120 stats will be shown.
@@ -25,7 +25,7 @@ Calculations are done with preset conditions:
 
 <B>In Progress Functionality/Items: Aux Equipment, Updating Names, Cleaning Up Stuff</B>
 
-<B>PLEASE MESSAGE ISSUES (MISPELLING, MISSING GEAR, SHIPS, SKILLS, ETC.) AND SUGGESTIONS (MAY OR MAY NOT TAKE THEM) USING DISCORD TO: Ekizochikku#3751 or Scription#0640</B>
+<B>PLEASE MESSAGE ISSUES (MISPELLING, MISSING GEAR, SHIPS, SKILLS, ETC.) AND SUGGESTIONS (MAY OR MAY NOT TAKE THEM) USING DISCORD TO: Ekizochikku#3751 or Scription#0640. We are humans and make mistakes too.</B>
 
 Thank You to those who helped with this:
 
