@@ -28,7 +28,7 @@ Large Cruisers WEP2:
 0 = DD GUNS
 1 = CL GUNS
 2 = AA GUNS
-Battlecruisers WEP1:
+Battle cruisers WEP1:
 0 = BB GUNS
 Battlecruisers WEP2:
 0 = DD GUNS
