@@ -7,8 +7,10 @@ Galatea	HMS	Arethusa	CL	1	0	1.3	1.55	1.3	2830	156	270	324	Full Firepower	All Out
 Atlanta	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422	Anti-Air Command: Cruisers	Anti-Air Mode	All Out Assault	NULL	NULL
 Juneau	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	422	Martyr	Anti-Air Mode	All Out Assault	NULL	NULL
 Li'l Sandy	USS	Atlanta	CL	2	0	1	1.15	1.65	3226	131	161	434	Starlit Debut	Sparkling Star	All Out Assault	NULL	NULL
+Reno	USS	Atlanta	CL	4	0	1.25	1.35	1.7	3755	148	196	479	Vigilant Supporter	Reno Reactor	Reno Barrage	NULL	NULL
 Sandy(Retrofitt)	USS	Atlanta	CL	2	0	1.15	1.35	1.85	3995	182	168	559	I Am No. 1!	Sparkling Battle Star!	All Out Assault	NULL	NULL
 San Juan	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	429	I'll Handle This!	All Out Assault	NULL	NULL	NULL
+Pamiat Merkuria	SN	Bogatyr	CL	2	0	1.2	1.2	0.8	3061	83	142	146	Mercurial Memories	All Out Assault	NULL	NULL	NULL
 Brooklyn	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Artillery Command: Cruisers	All Out Assault	NULL	NULL	NULL
 Helena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316	Radar Scan	All Out Assault	NULL	NULL	NULL
 Honolulu	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Full Firepower	All Out Assault	NULL	NULL	NULL
@@ -17,6 +19,8 @@ Phoniex	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Red Phoenix	All Out Assau
 St. Louis	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316	Lucky Lou	Anti-Air Mode	All Out Assault	NULL	NULL
 Curacoa	HMS	Ceres	CL	2	3	1.15	0.8	0.8	2981	134	0	154	Aerial Support	Anti-Air Command: Vanguard	All Out Assault	NULL	NULL
 Curlew	HMS	Ceres	CL	2	3	1.1	0.8	0.8	2789	128	0	178	Aerial Support	Air Raid Assistance	All Out Assault	NULL	NULL
+Chapayev	SN	Chapayev	CL	2	1	1.3	0.75	1.2	4352	172	0	334	Vavalier of the Ether	Cavalier's Acumen	All Out Assault	NULL	NULL
+Biloxi	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4308	151	0	323	Air-Surface Switch	Protective Blaze	All Out Assault	NULL	NULL
 Birmingham	USS	Cleveland	CL	1	1	1.6	0.65	1.3	4189	165	0	321	Tenacious Knight of the Sea	Resolute Knight of the Sea	All Out Assault	NULL	NULL
 Clevelad	USS	Cleveland	CL	1	1	1.2	0.65	1.2	3601	162	0	323	Calibur's Heart	Calibur's Carrier	All Out Assault	NULL	NULL
 Cleveland	USS	Cleveland	CL	1	1	1.3	0.7	1.2	4307	265	0	323	Assault Order	Anti-Air Mode	All Out Assault	NULL	NULL
@@ -27,6 +31,7 @@ Montpelier	USS	Cleveland	CL	1	1	1.3	0.75	1.2	4361	170	0	333	Legend of the Solomo
 Fiji	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3586	159	268	255	Crete's Black Cloud	All Out Assault	NULL	NULL	NULL
 Jamaica	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3636	157	268	329	Allies of Justice	All Out Assault	NULL	NULL	NULL
 Black Prince	HMS	Dido	CL	4	0	1.35	1.3	1.35	3608	142	153	377	Longbow of Woodstock	Smokescreen	All Out Assault	NULL	NULL
+Dido	HMS	Dido	CL	4	0	1.4	1.3	1.35	3745	158	178	388	Dido's Aria	For the Queen	All Out Assault	NULL	NULL
 Sirius	HMS	Dido	CL	4	0	1.3	1.3	1.3	3744	151	161	385	Mark of Sirius	Cover Fire	All Out Assault	NULL	NULL
 Emile Bertin(Retrofit)	FFNF	Emile Bertin	CL	1	0	1.45	1.55	1.15	3425	191	298	327	Heart of Iris	Destroyer Squadron	Messenger of Love	All Out Assault	NULL
 Koln	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333	Full Firepower	Kolibri Assault	All Out Assault	NULL	NULL
@@ -49,6 +54,7 @@ Purple Heart	Neptunia	Neptunia	CL	1	0	1.45	1.5	1	3695	167	310	313	Cross Combinat
 Ning Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2192	201	234	304	Sisterly Bond	For The Dragon Empery	Warrior Soul	All Out Assault	NULL
 Ping Hai(Retrofit)	ROC	Ning Hai	CL	1	0	1.45	1.55	1.35	2160	201	234	272	Sisterly Bond	For The Dragon Empery	Warrior Soul	All Out Assault	NULL
 Concord	USS	Omaha	CL	1	0	1.25	1.5	1.3	3310	146	215	295	Quick Reload	All Out Assault	NULL	NULL	NULL
+Marblehead	USS	Omaha	CL	1	0	1.25	1.5	1.3	3301	135	245	289	Quick Reload	All Out Assault	NULL	NULL	NULL
 Memphis	USS	Omaha	CL	1	0	1.25	1.55	1.25	2921	127	184	259	Quick Reload	All Out Assault	NULL	NULL	NULL
 Omaha	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Quick Reload	All Out Assault	NULL	NULL	NULL
 Raleigh	USS	Omaha	CL	1	0	1.2	1.55	1.3	3237	142	207	281	Quick Reload	All Out Assault	NULL	NULL	NULL
@@ -61,6 +67,7 @@ Sendai(Retrofit)	IJN	Sendai	CL	1	0	1.25	1.8	1.15	2780	170	391	276	Torpedo Squadr
 Belfast	HMS	Town	CL	1	0	1.5	1.55	1	3970	179	340	293	Burn Order	Smokescreen: Light Cruisers	All Out Assault	NULL	NULL
 Edinburgh	HMS	Town	CL	1	0	1.5	1.55	1	4486	157	280	313	Piercing Shells	All Out Assault	NULL	NULL	NULL
 Glasgow	HMS	Town	CL	1	0	1.35	1.3	1.1	3688	151	273	344	Full Firepower	Swift Defender	All Out Assault	NULL	NULL
+Gloucester	HMS	Town	CL	1	0	1.5	1.5	1.1	3789	156	281	317	Ammunition Command	The Fighting G	All Out Assault	NULL	NULL
 Little Bel	HMS	Town	CL	1	0	1.4	1.5	1	3231	159	324	282	The Perfect Mini-Maid	Ladies' Tea Time	All Out Assault	NULL	NULL
 Newcastle(Retrofit)	HMS	Town	CL	1	0	1.55	1.25	1.45	3928	175	285	387	Anti-Air Mode	Reload Order	Artillery Command: Vanguard	All Out Assault	NULL
 Sheffield	HMS	Town	CL	1	0	1.5	1.5	1.1	3796	156	295	351	Shiny Sheff	Counterattack of the Barents Sea	All Out Assault	NULL	NULL

@@ -836,7 +836,7 @@ public class mainCalc extends JFrame {
 					if (currentWeaponName != null && !currentWeaponName.isEmpty()) {
 						if(currentShipType == "CVL" || currentShipType == "CV") {
 							CarrierCalculations plane1 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponType, 
-									currentWeaponName, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP1B1), parseInt(textFieldP1B2), parseInt(textFieldP1T), currentColorSelected);
+									currentWeaponName, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP1B1), parseInt(textFieldP1B2), parseInt(textFieldP1T), currentColorSelected, auxParameters, auxParameters2);
 							Double plane1FinalMaxDamage = plane1.getFinalTotalDamage(1, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
 							String maxDamageSlot1 = Double.toString(plane1FinalMaxDamage);
 							slot1Pane.setText(maxDamageSlot1);
@@ -844,9 +844,9 @@ public class mainCalc extends JFrame {
 						} else {
 
 							Double finalMaxDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak, currentColorSelected);
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak, currentColorSelected, auxParameters, auxParameters2);
 							Double finalMinDamageSlot1 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponType, currentWeaponName, 1
-									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak, currentColorSelected);
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak, currentColorSelected, auxParameters, auxParameters2);
 							
 							System.out.println("The final max damage = " + finalMaxDamageSlot1 );
 							System.out.println("The final min damage = " + finalMinDamageSlot1 );
@@ -871,7 +871,7 @@ public class mainCalc extends JFrame {
 						//Very weird bug, cannot do != for CVL and CV for some reason
 						if(currentShipType == "CVL" || currentShipType == "CV") {
 							CarrierCalculations plane2 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponTypeSlot2, 
-									currentWeaponNameSlot2, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP2B1), parseInt(textFieldP2B2), parseInt(textFieldP2T), currentColorSelected); 
+									currentWeaponNameSlot2, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP2B1), parseInt(textFieldP2B2), parseInt(textFieldP2T), currentColorSelected, auxParameters, auxParameters2); 
 							Double finalMaxDamageSlot2 = plane2.getFinalTotalDamage(2, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
 							String displayMaxDamageSlot2 = Double.toString(finalMaxDamageSlot2);
 							
@@ -880,10 +880,10 @@ public class mainCalc extends JFrame {
 						} 	else {
 
 							Double finalMaxDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
-									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak, currentColorSelected);
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 2, armorBreak, currentColorSelected, auxParameters, auxParameters2);
 							
 							Double finalMinDamageSlot2 = finalDamage.getFinalDamage(currentShipType, currentShipName, currentWeaponTypeSlot2, currentWeaponNameSlot2, 2
-									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak, currentColorSelected);
+									,currentSkills, critical, theCurrentWorld, theCurrentEnemy, currentDMGType, manual, firstSalvo, currentDangerLevel, evenOdd, 0, armorBreak, currentColorSelected, auxParameters, auxParameters2);
 							
 							System.out.println("The final damage Slot 2 = " + finalMaxDamageSlot2 );
 							String displayDamageSlot2 = Double.toString(finalMaxDamageSlot2);
@@ -906,7 +906,7 @@ public class mainCalc extends JFrame {
 						//Carrier Calculations might want to be changed to accept an array so this part looks better
 
 						CarrierCalculations plane3 = new CarrierCalculations(currentSkills, currentShipType, currentShipName, currentWeaponTypeSlot3, 
-								currentWeaponNameSlot3, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP3B1), parseInt(textFieldP3B2), parseInt(textFieldP3T) , currentColorSelected);
+								currentWeaponNameSlot3, theCurrentEnemy, theCurrentWorld, parseInt(textFieldP3B1), parseInt(textFieldP3B2), parseInt(textFieldP3T) , currentColorSelected, auxParameters, auxParameters2);
 						System.out.println("checking npassing color" + currentColorSelected);
 						Double plane3FinalMaxDamage = plane3.getFinalTotalDamage(3, currentSkills, critical, theCurrentWorld, currentDangerLevel, 2);
 						System.out.println("The final min damage fro plane3 = " + plane3FinalMaxDamage);

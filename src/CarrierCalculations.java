@@ -19,9 +19,14 @@ public class CarrierCalculations {
 	// Array list of ship parameters
 	ArrayList<String> sp = new ArrayList<String>();
 	// Array List of weapon Parameters
-	ArrayList<String> wp = new ArrayList<String>();;
+	ArrayList<String> wp = new ArrayList<String>();
 	// Array List of enemy parameters
-	ArrayList<String> ep = new ArrayList<String>();;
+	ArrayList<String> ep = new ArrayList<String>();
+	// Array List of aux slot 1
+	ArrayList<String> aux1;
+	//Array List of aux slot 2
+	ArrayList<String> aux2;
+	
 	// Amount of ordinance dropped by planes
 	int bomb1;
 	int bomb2;
@@ -33,12 +38,12 @@ public class CarrierCalculations {
 	String noteColor;
 	
 	/*
-	 * Consturctor for carrier calculations.
+	 * Constructor for carrier calculations.
 	 * Bomb1 is the amount of bombs dropped, same with bomb2 and torpedos.
 	 */
 	public CarrierCalculations(ArrayList<String> skillList, String shipType, String shipName, 
 			String wepType, String wepName, String enemy, String world,
-			int bomb1, int bomb2, int torpedos, String noteColor) throws FileNotFoundException, IOException{
+			int bomb1, int bomb2, int torpedos, String noteColor, ArrayList<String> aux1, ArrayList<String> aux2) throws FileNotFoundException, IOException{
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> skillP = gt.getSkillParameters(skillList.get(i));
 			multiSkills.add(skillP);
@@ -46,6 +51,8 @@ public class CarrierCalculations {
 		sp = gt.getShipParams(shipType, shipName);
 		wp = gt.getWepParams(wepType, wepName);
 		ep = gt.getEnemyParameters(enemy, world);
+		this.aux1 = aux1;
+		this.aux2 = aux2;
 		this.bomb1 = bomb1;
 		this.bomb2 = bomb2;
 		this.torpedos = torpedos;
@@ -104,7 +111,7 @@ public class CarrierCalculations {
 			correctedDamageStat = getCorrectedDamage(skillList, shipName, shipType, shipSlot, ordinance);
 			
 			// Scaling Weapon Buffs (WeaponTypeMod)
-			weaponTypeModStat = getWeaponTypeMod(wepType);
+			weaponTypeModStat = getWeaponTypeMod(wepType, skillList);
 			
 			// Critical Damage
 			if (crit) {
@@ -166,6 +173,9 @@ public class CarrierCalculations {
 		double wepCoff = 1;
 		double effSlot = 0;
 		
+		//Exceptions for weapon coefficient/efficiency
+		//
+		
 		// Some planes can carry multiple bombs
 		switch(ordinance) {
 		case "bombOne":
@@ -194,15 +204,19 @@ public class CarrierCalculations {
 		
 		// Bataan Exception
 		if (shipName.equals("Bataan") && skillList.contains("Hellcat's Roar") && wepType.equals("FIGHTERP") && wepName.contains("Grumman F6F Hellcat")) {
-			effSlot += .30;
+			wepCoff += .30;
 		}
+		
+		// Supporting Wings (Yellow) Exception for part 2. Need second slot if implementing
 		
 		// Formidable Part 2 Exception
 		if (shipName.equals("Formidable") && skillList.contains("Supporting Wings") && wepName.contains("Fairey Albacore")) {
-			effSlot += .15;
+			wepCoff += .15;
 		}
 		
+		// Stats from the ship, weapon, and aux gear.
 		double statAttacker = Double.parseDouble(sp.get(14)) + Double.parseDouble(wp.get(1));
+		statAttacker += Double.parseDouble(aux1.get(5)) + Double.parseDouble(aux2.get(5));
 		
 		// Zeppy Exception
 		if (shipName.equals("Zeppy") && skillList.contains("Taste My Wrath!")) {
@@ -220,9 +234,16 @@ public class CarrierCalculations {
 		return finalDmg;
 	}
 	
-	private double getWeaponTypeMod(String wepType) {
+	private double getWeaponTypeMod(String wepType, ArrayList<String> skillList) {
 		double buffDamage = 1;
 		buffDamage += getStackedStats(36, 0) + getStackedStats(39, 0);
+		
+		//Intrepid Armor Break Exception.
+		if (skillList.contains("Soaring Silver Wings")) {
+			if (ep.get(5).equals("BB") || ep.get(5).equals("BC") || ep.get(5).equals("AB")) {
+				buffDamage += 0.08;
+			}
+		}
 		return buffDamage;
 	}
 	

@@ -414,7 +414,7 @@ public class GUIutil {
 	 */
 	public ArrayList<String> getSkillNames() throws FileNotFoundException, IOException {
 		ArrayList<String> theSkills = new ArrayList<String>();
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
+		BufferedReader br = new BufferedReader(new FileReader("./Skill Files/Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split("	");
@@ -547,7 +547,7 @@ public class GUIutil {
 	 */
 	public String getSkillDescription(String skillName) throws FileNotFoundException, IOException {
 		String skillDesc = "";
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
+		BufferedReader br = new BufferedReader(new FileReader("./Skill Files/Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split("	");
@@ -565,7 +565,7 @@ public class GUIutil {
 	 */
 	public String getSkillUsers(String skillName) throws FileNotFoundException, IOException {
 		String skillDesc = "";
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
+		BufferedReader br = new BufferedReader(new FileReader("./Skill Files/Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split("	");
@@ -585,7 +585,7 @@ public class GUIutil {
 	 */
 	public String getSkillDescOrUser(String skillName, String choice) throws FileNotFoundException, IOException {
 		String holding = "";
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
+		BufferedReader br = new BufferedReader(new FileReader("./Skill Files/Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split("	");
@@ -607,7 +607,7 @@ public class GUIutil {
 	 */
 	public ArrayList<String> getSkillParameters(String skillName) throws FileNotFoundException, IOException {
 		ArrayList<String> theList = new ArrayList<String>();
-		BufferedReader br = new BufferedReader(new FileReader("Skill Stats.tsv"));
+		BufferedReader br = new BufferedReader(new FileReader("./Skill Files/Skill Stats.tsv"));
 		String line = br.readLine();
 		while ((line = br.readLine()) != null && !line.isEmpty()) {
 			String[] fields = line.split("	");

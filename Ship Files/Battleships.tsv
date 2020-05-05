@@ -9,6 +9,7 @@ Giulio Cesare	RN	Conte Di Cavour	BB	0	0	1.25	1.5	0.7	7030	347	151	186	Sardegnian
 Friedrich der Grosse	KMS	Friedrich der Grosse	BB	0	2	1.6	2.2	1	9886	449	0	241	Symphont of Destruction	Sonata of Chaos	Rhapsody of Darkness	Siren Killer	NULL
 Fusou	IJN	Fusou	BB	0	2	1.3	2	1	6916	390	0	222	Cover Fire	NULL	NULL	NULL	NULL
 Yamashiro	IJN	Fusou	BB	0	2	1.3	2	0.85	7309	390	0	222	Cover Fire	NULL	NULL	NULL	NULL
+Gangut	SN	Gangut	BB	0	2	1.1	2	1	6491	324	0	174	Long Live the Revolution!	Icebreaker	NULL	NULL	NULL
 Gascogne	MNF	Gascogne	BB	0	2	1.8	2	0.8	7863	430	0	241	Perceptive Suppression Module	Accurate operation Protocols	Siren Killer	NULL	NULL
 Gascogne (Muse)	MNF	Gascogne	BB	0	2	1.7	2	0.7	7851	429	0	237	Coeur Battant	Leader of the Band	NULL	NULL	NULL
 Georgia	USS	Georgia	BB	0	2	1.65	2	1.1	8297	436	0	409	Ironsight Caliber	Heavy Barrel Buster	Siren Killer	NULL	NULL
@@ -39,6 +40,8 @@ Jean Bart	MNF	Richelieu	BB	0	2	1.6	2	0.7	8036	419	0	241	Pirate's Soul	Final Shot
 Alabama	USS	South Dakota	BB	0	0	1.3	2	1	7783	407	0	400	Lucky A	Just Gettin' Fired Up	NULL	NULL	NULL
 Massachusetts	USS	South Dakota	BB	0	0	1.3	2	1	7783	414	0	400	Big Mamie	2,700 Pounds of Justive	NULL	NULL	NULL
 South Dakota	USS	South Dakota	BB	0	0	1.3	2	1	8031	414	0	400	The Strongest Shield	Focused Assault	NULL	NULL	NULL
+Sovetskaya	SN	Sovetsky Soyuz	BB	0	2	1.35	2	1	8324	428	0	248	Lod Obstrel	Warcry of Unity	NULL	NULL	NULL
 California	USS	Tennessee	BB	0	0	1.3	2	1	7385	391	0	211	Focused Strike	NULL	NULL	NULL	NULL
 Tennessee	USS	Tennessee	BB	0	0	1.3	2	1	7385	391	0	211	Coercion	NULL	NULL	NULL	NULL
 Kaga(Battleship)	IJN	Tosa	BB	0	2	1.35	2	0.9	8303	423	217	187	Fight to Win!	Conquer to Loot!	NULL	NULL	NULL
+Tosa	IJN	Tosa	BB	0	2	1.35	2	0.9	8056	423	217	199	Accomplish Any Feat!	Crush Any Contender!	NULL	NULL	NULL

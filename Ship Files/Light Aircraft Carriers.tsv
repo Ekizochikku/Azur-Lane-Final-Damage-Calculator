@@ -2,6 +2,7 @@ SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	WEP3TYPE	SLOT1EFF	SLOT2EFF	SLO
 Murasaki Shion	Hololive	Holo (Temp)	CVL	0	1	4	1.3	1.25	1	5178	0	0	255	311	The Wave of a Pleasant Dream	MP Burst - Explosion	NULL	NULL	NULL
 Bogue(Retrofit)	USS	Bogue	CVL	0	1	4	1.3	1.45	0.85	3589	0	0	254	304	Quick Takeoff	Anti-Air Command: Main Fleet	NULL	NULL	NULL
 Chaser	HMS	Bogue	CVL	0	2	4	1.3	1.45	0.8	4707	0	0	257	299	Quick Takeoff	Protector of the North Passage	NULL	NULL	NULL
+Casablanca	USS	Casablanca	CVL	0	2	4	1.35	1.35	1	4707	0	0	258	286	Quick Takeoff	Supporting Wings	NULL	NULL	NULL
 Centaur	HMS	Centaur	CVL	0	0	2	1.25	1.2	1.4	6626	0	0	268	421	Swordfishes, Attack!	Airspace Dominance	NULL	NULL	NULL
 Hermes(Retrofit)	HMS	Hermes	CVL	2	2	4	1.4	1.4	0.85	4367	0	0	297	300	Assault Carrier	Destiny Draw!	NULL	NULL	NULL
 Hiyou	IJN	Hiyou	CVL	0	1	2	1	1.1	1.2	5207	0	0	247	279	Eagle's Defiance	NULL	NULL	NULL	NULL

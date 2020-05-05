@@ -21,6 +21,11 @@ import java.util.ArrayList;
  * 32-Manual Enhance, 33-Injure by Cannon, 34-Injure by Torpedo, 35-Injure by Air,36-Damage by Cannon, 37-Damage by Torpedo, 38-Damage by Air, 39-Combo Damage,
  * 40-Cannon Critical Damage, 41-Torpedo Critical Damage, 42-Air Critical Damage, 43-Salvo Bonus]
  */
+
+
+/*
+ * SHIP THAT USE SALVO BONUS NEEDS CLARITY. FOR NOW ADDED THE BONUS SALVO DAMAGE TO THE DMG RATIO SINCE IT COUNTS AS THEIR GUN BEING FIRED LIKE A DD OR CL, UNLESS STATED OTHERWISE IN THE SKILLS.
+ */
 public class Calculations {
 	
 	GUIutil gt = new GUIutil();
@@ -47,7 +52,7 @@ public class Calculations {
 	 * @throws IOException
 	 */
 	public double getFinalDamage(String shipType, String shipName, String wepType, String wepName, int shipSlot, ArrayList<String> skillList, boolean crit, String world,
-			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom, boolean armorBreak, String noteColor) throws FileNotFoundException, IOException {
+			String enemy, int ammoType, boolean manual, boolean firstSalvo, int dangerLvl, int evenOdd, int removeRandom, boolean armorBreak, String noteColor, ArrayList<String> aux1, ArrayList<String> aux2) throws FileNotFoundException, IOException {
 		//If statement to avoid index out of bounds if one of the weapon slots is empty
 		double finalDmg = 0;
 		if (!wepName.isEmpty() && wepName != null) {
@@ -68,18 +73,19 @@ public class Calculations {
 			ArrayList<String> sp = gt.getShipParams(shipType, shipName);
 			ArrayList<String> wp = gt.getWepParams(wepType, wepName);
 			ArrayList<String> ep = gt.getEnemyParameters(enemy, world);
+			
 			for (int i = 0; i < skillList.size(); i++) {
 				ArrayList<String> skillP = gt.getSkillParameters(skillList.get(i));
 				multiSkills.add(skillP);
 			}
 			// Corrected Damage Section
-			correctedDamageStat = getCorrectedDamage(sp, wp, skillList, shipName, shipType, shipSlot, wepType);
+			correctedDamageStat = getCorrectedDamage(sp, wp, skillList, shipName, shipType, shipSlot, wepType, wepName, aux1, aux2);
 			
 			// Scaling Weapon Buffs (WeaponTypeMod)
 			if (!(wepType.equals("DD GUNS")) || !(wepType.equals("CL GUNS")) || !(wepType.equals("CA GUNS")) || !(wepType.equals("BB GUNS")) || !(wepType.equals("TORPEDOS"))) {
 				weaponTypeModStat = 1;
 			} else {
-				weaponTypeModStat = getWeaponTypeMod(wepType);
+				weaponTypeModStat = getWeaponTypeMod(wepType, shipName, armorBreak, skillList, ep);
 			}
 			
 			// Critical Damage
@@ -92,7 +98,7 @@ public class Calculations {
 			
 			// Enhancing Damage
 			if (firstSalvo) {
-				enhancingDmgStat = getEnhancingDmg(manual);
+				enhancingDmgStat = getEnhancingDmg(manual, shipName, skillList, firstSalvo);
 			}
 			
 			// Combo Damage
@@ -107,7 +113,7 @@ public class Calculations {
 			injRatStat = getInjureRatio();
 			
 			// Damage Ratio
-			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd, ep, armorBreak);
+			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd, ep, armorBreak, firstSalvo);
 			
 			// Damage to Nation
 			dmgNatStat = getDamageToNation(ep);
@@ -140,7 +146,7 @@ public class Calculations {
 		return value;
 	}
 	
-	public double getCorrectedDamage(ArrayList<String> sp, ArrayList<String> wp, ArrayList<String> skillList, String shipName, String shipType, int shipSlot, String wepType) {
+	public double getCorrectedDamage(ArrayList<String> sp, ArrayList<String> wp, ArrayList<String> skillList, String shipName, String shipType, int shipSlot, String wepType, String wepName, ArrayList<String> aux1, ArrayList<String> aux2) {
 		double finalDmg = 0;
 		double wepDmg = Double.parseDouble(wp.get(3)); // Weapon damage
 		double wepCoff = Double.parseDouble(wp.get(4)); // Weapon coefficient
@@ -157,25 +163,41 @@ public class Calculations {
 				slotEff = Double.parseDouble(sp.get(6)) + 0.20;
 			} else if (shipName.equals("Kitakaze") && skillList.contains("Kitakaze Style - Unanimous Slash")) {
 				slotEff = Double.parseDouble(sp.get(6) + 0.15);
-			}else {
+			} else {
 				slotEff = Double.parseDouble(sp.get(6)); // Normal 
 			}
+			// Tashkent Exception for multiple ships; Trajectory Marking
+			if (skillList.contains("Trajectory Marking")) {
+				slotEff += 0.1;
+			}
+			
+			// Gangut Exception
+			if (shipName.equals("Gangut") && skillList.contains("Long Live the Revolution!") && wepName.equals("Triple 305mm (Pattern 1907)")) {
+				slotEff += 0.80;
+			}
+			
+			// Reno Exception
+			if (shipName.equals("Reno") && skillList.contains("Reno Barrage")) {
+				slotEff += 0.10;
+			}
+			
+			
 		} else if (shipSlot == 2) {
 			slotEff = Double.parseDouble(sp.get(7));
 		} else {
 			slotEff = Double.parseDouble(sp.get(8)); // FOR CARRIERS AND PLANES LATER.
 		}
 		
-		// Get the related stats from the ship and weapon parameters.
+		// Get the related stats from the ship and weapon parameters and aux gear.
 		double stat = 0;
 		if (wepType.equals("TORPEDOS")) {
-			stat = Double.parseDouble(sp.get(11)) + Double.parseDouble(wp.get(1));
+			stat = Double.parseDouble(sp.get(11)) + Double.parseDouble(wp.get(1)) + Double.parseDouble(aux1.get(3)) + Double.parseDouble(aux2.get(3));
 		} else if (wepType.equals("PLANES")) {
 			stat = 0; // PLACEHOLDER FOR AIRCRAFT
 		} else {
-			stat = Double.parseDouble(sp.get(10)) + Double.parseDouble(wp.get(1));
+			stat = Double.parseDouble(sp.get(10)) + Double.parseDouble(wp.get(1)) + Double.parseDouble(aux1.get(2)) + Double.parseDouble(aux2.get(2));
 		}
-		
+			
 		// L'Opiniatre Exception
 		if (shipName.equals("L'Opiniatre")) {
 			if (skillList.contains("A Witch Who Never Admits Defeat") && wepType.equals("TORPEDOS")) {
@@ -201,10 +223,34 @@ public class Calculations {
 		} else {
 			skillStat = getStackedStats(8, 1);
 		}
-		if (shipName.equals("North Carolina") && skillList.contains("AA Firepower")) {
+		
+		// Exceptions
+		// North Carolina
+		if (shipName.equals("North Carolina") && skillList.contains("AA Firepower") && wepType.equals("CANNON")) {
 			skillStat += Double.parseDouble(sp.get(10)) * 0.30;
-		} else if (shipName.equals("Z46") && skillList.contains("Iron Wing Annihilation")) {
+			
+		// Z46	
+		} else if (shipName.equals("Z46") && skillList.contains("Iron Wing Annihilation") && wepType.equals("CANNON")) {
 			skillStat += Double.parseDouble(sp.get(10)) * 0.15;
+			
+		// Sirius
+		// Does not need to specify because weapons will always be a cannon or a torpedo.
+		} else if (shipName.equals("Sirius") && skillList.contains("Mark of Sirius")) {
+			skillStat += 0.21;
+			
+		// Biloxi
+		} else if (shipName.equals("Biloxi") && skillList.contains("Air-Surface Switch") && wepType.equals("CANNON")) {
+			if (wepName.equals("Twin 127mm (5\"/38 Mk 38")) {
+				skillStat -= .05;
+			} else if (!wepName.equals("Twin 127mm (5\"/38 Mk 38")) {
+				skillStat += .15;
+			} else {
+				System.out.println("Not firepower being calculated");
+			}
+			
+		// Dido and Queen Elizabeth ; For the Queen. Ignore weapon type specification since BB/BC use cannons
+		} else if (shipName.equals("Queen Elizabeth") && skillList.contains("For the Queen")) {
+			skillStat += 0.07;
 		} else {
 			System.out.println("No Exceptions for skill stats");
 		}
@@ -222,7 +268,7 @@ public class Calculations {
 	/*
 	 * WeaponTypeMod using the Injure by x and Damage by x.
 	 */
-	public double getWeaponTypeMod(String wepType) {
+	public double getWeaponTypeMod(String wepType, String shipName, boolean armorBreak, ArrayList<String> skillList, ArrayList<String> ep) {
 		double buffDamage = 1;
 		if (wepType.equals("TORPEDOS")) {
 			buffDamage += getStackedStats(35, 0) + getStackedStats(38, 0);
@@ -231,6 +277,16 @@ public class Calculations {
 		} else {
 			buffDamage += getStackedStats(34, 0) + getStackedStats(37, 0);
 		}
+		
+		// Exceptions
+		if (shipName.equals("Nakiri Ayame") && skillList.contains("Demon Cutter Asura-Rakshasa")) {
+			buffDamage += 0.08;
+		} else if (shipName.equals("Baltimore") && skillList.contains("APsolute Ammunition") && ep.get(4).equals("H")) {
+			buffDamage += 0.08;
+		} else {
+			System.out.println("No Armor Breaks");
+		}
+		
 		return buffDamage;
 	}
 	
@@ -372,9 +428,9 @@ public class Calculations {
 	}
 	
 	/*
-	 * Return enhancing
+	 * Return enhancing damage for BBs/BCs and their salvo.
 	 */
-	public double getEnhancingDmg(boolean manual) {
+	public double getEnhancingDmg(boolean manual, String shipName, ArrayList<String> skillList, boolean firstSalvo) {
 		double enhance = 0;
 		if (manual) {
 			enhance = 1.2;
@@ -385,6 +441,15 @@ public class Calculations {
 			enhance += getStackedStats(33, 0) + getStackedStats(32, 0);
 		} else {
 			enhance += getStackedStats(32, 0);
+		}
+		
+		// Exceptions
+		if (shipName.equals("Massachusetts") && skillList.contains("2,700 Pounds of Justice")) {
+			enhance += 0.30;
+		} else if (shipName.equals("Little Renown") && skillList.contains("Knight's Shooting Training")) {
+			enhance += 0.20;
+		} else if (shipName.equals("Duke of York") && skillList.contains("Trepidation of Destruction") && firstSalvo) {
+			enhance += 0.50;
 		}
 		return enhance;
 	}
@@ -408,11 +473,10 @@ public class Calculations {
 	}
 	
 	/*
-	 * Returns a double of the bonus damage from injure ratio from skills.
+	 * Returns a double of the bonus damage from damage ratio from skills.
 	 */
-	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd, ArrayList<String> ep, boolean armorBreak) throws FileNotFoundException, IOException {
+	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd, ArrayList<String> ep, boolean armorBreak, boolean firstSalvo) throws FileNotFoundException, IOException {
 		double ratio = 0;
-		boolean ab = armorBreak;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
 			holding = gt.getSkillParameters(skillList.get(i));
@@ -421,18 +485,17 @@ public class Calculations {
 			} else if (!wepType.equals("TORPEDOS") && holding.get(5).equals("1")) {
 				if (shipName.equals("Friedrich der Grosse") && skillList.get(i).equals("Sonata of Chaos") && evenOdd == 1) {
 					ratio += 0.2;
-				} else if (shipName.equals("Baltimore") && skillList.contains("Final AP Drive")) {
-					if (ab && ep.get(4).equals("M")) {
-						ratio += .08;
-					}
+				} else if (shipName.equals("Minato Aqua") && skillList.contains("Failen Angel")) {
+					//1.5 of the 2% is 1
+					ratio += .01;
 				} else {
 					ratio += Double.parseDouble(holding.get(4));
 				}
 			} else {
 				ratio += 0; //holder
 			}
-			// ADD AIR AND PLANES HERE LATER
 		}
+		
 		return ratio;
 	}
 	
