@@ -5,6 +5,7 @@ Ardent(Retrofit)	HMS	A	DD	0	0	1.2	1.45	1.1	1535	68	400	169	Carrier Escort	Interf
 Hanazuki	IJN	Akizuki	DD	0	0	1.05	1.35	1.35	2445	76	370	199	Aerial Support	All Out Assault	NULL	NULL	NULL
 Harutsuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	74	363	194	Aerial Support	All Out Assault	NULL	NULL	NULL
 Niizuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	76	370	193	Reload Order	Anti-Air Mode	All Out Assault	NULL	NULL
+Suzutsuki	IJN	Akizuki	DD	0	0	1.1	1.35	1.45	2538	81	384	205	Suzutsuki, Breaking Through!	Suzutsuki, Causing Confusion!	All Out Assault	NULL	NULL
 Yoizuki	IJN	Akizuki	DD	0	0	1	1.35	1.35	2445	74	363	199	Aerial Support	All Out Assault	NULL	NULL	NULL
 Cooper	USS	Allen M. Summer	DD	0	0	1.25	1.35	1.3	2190	126	360	200	Black Cat Cyclone	All Out Assault	NULL	NULL	NULL
 An Shan	ROC	Anshan	DD	0	0	1.55	1	1.05	2277	131	228	172	An Shan Name Ship	All Out Assault	NULL	NULL	NULL
@@ -69,13 +70,14 @@ Maury	USS	Gridley	DD	0	0	1.15	1.4	1.25	1809	76	448	178	Aquatic Vortex	Double Tor
 McCall	USS	Gridley	DD	0	0	1.15	1.35	1.25	1724	72	429	171	Double Torpedo	All Out Assault	NULL	NULL	NULL
 Hardy	HMS	H	DD	0	0	1.3	1.35	1.05	1518	81	374	157	Ice-Free Port's Concerto	The Star of Fjord	All Out Assault	NULL	NULL
 Hunter	HMS	H	DD	0	0	1.25	1.3	1.05	1370	76	356	156	Emergent Preperation	All Out Assault	NULL	NULL	NULL
-Ariake	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145	Double Torpedo	All Out Assault	NULL	NULL	NULL
+Ariake(Retrofit)	IJN	Hatsuharu	DD	0	0	0.75	1.55	0.8	1938	59	518	174	Double Torpedo	Air Raid Assistance	All Out Assault	NULL	NULL
 Hatsuharu(Retrofit)	IJN	Hatsuharu	DD	0	0	0.75	1.55	0.8	1938	59	518	175	Double Torpedo	Torpedo Command: Destroyers	All Out Assault	NULL	NULL
 Hatsushimo	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1773	59	478	145	Double Torpedo	All Out Assault	NULL	NULL	NULL
 Wakaba	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1770	59	478	145	Double Torpedo	All Out Assault	NULL	NULL	NULL
 Yuugure	IJN	Hatsuharu	DD	0	0	0.75	1.5	0.75	1619	59	478	145	Carrier Escort	Air Raid Assistance	All Out Assault	NULL	NULL
 Natsuiro Matsuri	Hololive	Hololive	DD	0	0	0.75	1.25	1.05	1763	70	468	165	The Summer Flower We Watch	The Third Day of Flirting	NULL	NULL	NULL
 Shirakami Fubuki	Hololive	Hololive	DD	0	0	0.85	1.5	0.8	1830	76	484	178	Mach 2.42 Blossom	Two-Faced Fox	NULL	NULL	NULL
+Icarus	HMS	I	DD	0	0	1.2	1.45	1	1669	79	376	157	All Out Assault, Open Fire!	Torpedo Mode? ...Sure!	All Out Assault I	NULL	NULL
 Javelin(Retrofit)	HMS	J	DD	0	0	1.25	1.45	1.05	1746	90	429	160	Javelin Raid	Assault Mode 	All Out Assault	NULL	NULL
 Jersey	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156	Dark Side of Fate	All Out Assault	NULL	NULL	NULL
 Juno	HMS	J	DD	0	0	1.2	1.4	1.05	1536	76	364	156	Smokescreen	All Out Assault	NULL	NULL	NULL
@@ -123,6 +125,7 @@ Hammann(Retrofit)	USS	Sims	DD	0	0	1.25	1.3	1.35	2025	96	286	262	Flagship Cover	A
 Sims(Retrofit)	USS	Sims	DD	0	0	1.25	1.3	1.35	2025	111	286	262	Artillery Command: Destroyers	Smokescreen	All Out Assault	NULL	NULL
 Carabiniere	RN	Soldati	DD	0	0	1.6	1.2	0.75	1788	126	267	160	Ricarica!	Fuoco di Copertura!	All Out Assault	NULL	NULL
 Tashkent	SN	Tashkent	DD	0	0	1.65	1.25	1.05	2649	180	279	176	The Blue Cruiser	Trajectory Marking	All Out Assault	NULL	NULL
+Eskimo	HMS	Tribal	DD	0	0	1	1.35	1	1657	87	350	156	Eskimo, attack!	All Out Assault	NULL	NULL	NULL
 Z1	KMS	Type 1934	DD	0	0	1.25	1.4	0.75	2053	65	450	154	Z Vanguard	Destruction Mode - Prototype	All Out Assault	NULL	NULL
 Z2	KMS	Type 1934	DD	0	0	1.25	1.4	0.75	2053	84	433	154	Piercing Shells	Morale Boost	All Out Assault	NULL	NULL
 Z18	KMS	Type 1936	DD	0	0	1.15	1.4	0.75	2033	68	440	149	Piercing Shells	All Out Assault	NULL	NULL	NULL
@@ -136,6 +139,8 @@ Z36	KMS	Type 1936B	DD	0	0	1.45	1.25	1.25	2092	82	437	187	Devilish Strike	All Out
 Z46	KMS	Type 1936C	DD	0	0	1.6	1.2	1.4	2595	90	452	255	Iron Wing Annihilation	Piercing Shells	All Out Assault	NULL	NULL
 Nekone	Utawarerumono	Utawarerumono	DD	0	0	0.85	1.2	0.65	1941	98	356	210	White Rainbow	Evening Star	NULL	NULL	NULL
 Vampire	HMS	V	DD	0	0	1.15	1.45	1.05	1314	71	376	156	Vampire's Kiss	All Out Assault	NULL	NULL	NULL
+Tartu	MNF	Vauquelin	DD	0	0	1.4	1.4	0.75	1868	120	273	141	Arbiter of Z	All Out Assault	NULL	NULL	NULL
+Vauquelin	MNF	Vauquelin	DD	0	0	1.4	1.4	0.75	1868	113	279	143	Sonnez la Charge!	All Out Assault	NULL	NULL	NULL
 Makinami	IJN	Yuugumo	DD	0	0	0.8	1.55	0.75	2157	70	526	156	Full Firepower	Lightning Strikes Twice	All Out Assault	NULL	NULL
 Kiyonami	IJN	Yuugumo	DD	0	0	0.75	1.5	0.75	2055	59	497	138	Full Firepower	Double Torpedo	All Out Assault	NULL	NULL
 Naganami	IJN	Yuugumo	DD	0	0	0.8	1.55	0.75	2157	65	530	156	Lightning Strikes Twice	Legacy of Lunga Point	All Out Assault	NULL	NULL

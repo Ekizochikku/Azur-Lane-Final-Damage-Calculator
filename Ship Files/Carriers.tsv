@@ -5,7 +5,9 @@ Akagi	IJN	Akagi	CV	0	1	2	1.25	1.25	1.25	6588	0	0	323	409	Preemptive Strike	Fire 
 Akagi (Muse)	IJN	Akagi	CV	0	1	2	1.25	1.25	1.25	6541	0	0	323	408	Dualism	Overtune	NULL	NULL	NULL
 Akagi-Chan	IJN	Akagi	CV	0	1	2	1.25	1.15	1.25	6250	0	0	311	394	Take the Initiative!	Crimson God's Protection	NULL	NULL	NULL
 Ark Royal	IJN	Ark Royal	CV	2	2	1	1.4	1.4	0.8	6107	0	0	307	400	Swordsish, Strike!	Assault Carrier	NULL	NULL	NULL
+Bearn	FFNF	Bearn	CV	0	2	6	1.35	1.4	0.55	6261	174	255	307	307	Sacrament: Holy Bombarment	Sacrament: Sacred Second Wing	NULL	NULL	NULL
 Glorious	HMS	Courageous	CV	0	2	2	1.4	1.15	1.15	6313	0	0	292	360	Fleet Carrier	Air Cover	NULL	NULL	NULL
+Eagle	HMS	Eagle	CV	0	2	6	1.35	1.4	0.55	6193	215	0	307	370	Royal Arts: Knight's Arsenal	Royal Arts: Swordbearing Eagle	NULL	NULL	NULL
 Bunker Hill	USS	Essex	CV	0	1	2	1.4	1.3	1.15	6610	0	0	309	425	Task Group	Relentless Persistence	NULL	NULL	NULL
 Essex	USS	Essex	CV	0	1	2	1.4	1.3	1.2	6647	0	0	331	433	Valorous Avengers	Covering Formation	Absolute Evasion	NULL	NULL
 Intrepid	USS	Essex	CV	0	1	2	1.4	1.3	1.2	6634	0	0	331	430	Soaring Silver Wings	Formation Shift	The Fearless Fighting	NULL	NULL
@@ -28,6 +30,7 @@ Souryuu(Retrofit)	IJN	Souryuu	CV	0	1	2	1.25	1.5	1.15	5456	0	0	363	425	Fleet Carr
 Taihou	IJN	Taihou	CV	0	1	2	1.2	1.3	1.4	7310	0	0	319	399	Predestined Launch	Heavily Armored	NULL	NULL	NULL
 Fumiruiru	Utawarerumono	Utawarerumono	CV	0	2	2	1.05	1.05	1.05	5126	0	0	266	337	Hundred Honey	Honey Moon	NULL	NULL	NULL
 Wasp	USS	Wasp	CV	0	1	2	1.25	1.25	1.25	4894	0	0	272	330	Double String	NULL	NULL	NULL	NULL
+Shinano	IJN	Yamato	CV	6	1	2	1.25	1.3	1.35	8616	0	0	317	437	Hope's Tempest	Dreamwaker's Bow	Protector of the New Moon	NULL	NULL
 Enterprise	USS	Yorktown	CV	0	1	2	1.25	1.25	1.25	6193	0	0	329	429	Lucky E	NULL	NULL	NULL	NULL
 Hornet	USS	Yorktown	CV	0	1	2	1.25	1.25	1.25	5823	0	0	307	407	Doolittle Strike	Assault Carrier	NULL	NULL	NULL
 Yorktown	USS	Yorktown	CV	0	1	2	1.25	1.25	1.25	5797	0	0	317	395	Vengeance	Fleet Carrier	NULL	NULL	NULL

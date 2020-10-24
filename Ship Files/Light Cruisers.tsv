@@ -12,7 +12,7 @@ Sandy(Retrofitt)	USS	Atlanta	CL	2	0	1.15	1.35	1.85	3995	182	168	559	I Am No. 1!	
 San Juan	USS	Atlanta	CL	2	0	1.05	1.35	1.6	3517	129	157	429	I'll Handle This!	All Out Assault	NULL	NULL	NULL
 Pamiat Merkuria	SN	Bogatyr	CL	2	0	1.2	1.2	0.8	3061	83	142	146	Mercurial Memories	All Out Assault	NULL	NULL	NULL
 Brooklyn	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Artillery Command: Cruisers	All Out Assault	NULL	NULL	NULL
-Helena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3604	171	0	316	Radar Scan	All Out Assault	NULL	NULL	NULL
+Helena(Retrofit)	USS	Brooklyn	CL	1	1	1.4	0.65	1.15	3844	181	0	406	Radar Scan Plus	The Wonder of Kula Gulf	NULL	NULL	NULL
 Honolulu	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Full Firepower	All Out Assault	NULL	NULL	NULL
 Lena	USS	Brooklyn	CL	1	1	1.35	0.65	1	3246	167	0	316	Youthful Light	Girls' Support	All Out Assault	NULL	NULL
 Phoniex	USS	Brooklyn	CL	1	1	1.35	0.65	1	3470	164	0	307	Red Phoenix	All Out Assault	NULL	NULL	NULL
@@ -32,15 +32,19 @@ Fiji	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3586	159	268	255	Crete's Black Cloud	A
 Jamaica	HMS	Crown Colony	CL	1	0	1.4	1.55	1.1	3636	157	268	329	Allies of Justice	All Out Assault	NULL	NULL	NULL
 Black Prince	HMS	Dido	CL	4	0	1.35	1.3	1.35	3608	142	153	377	Longbow of Woodstock	Smokescreen	All Out Assault	NULL	NULL
 Dido	HMS	Dido	CL	4	0	1.4	1.3	1.35	3745	158	178	388	Dido's Aria	For the Queen	All Out Assault	NULL	NULL
+Hermione	HMS	Dido	CL	4	0	1.3	1.3	1.3	3744	159	173	381	Bombarda Geminio	Supporting Role	All Out Assault	NULL	NULL
 Sirius	HMS	Dido	CL	4	0	1.3	1.3	1.3	3744	151	161	385	Mark of Sirius	Cover Fire	All Out Assault	NULL	NULL
 Emile Bertin(Retrofit)	FFNF	Emile Bertin	CL	1	0	1.45	1.55	1.15	3425	191	298	327	Heart of Iris	Destroyer Squadron	Messenger of Love	All Out Assault	NULL
+Jeanne d'Arc	FFNF	Jeanne d'Arc	CL	1	0	1.35	1.45	1	3223	152	254	276	La Pucelle	Holy Prayer	All Out Assault	NULL	NULL
 Koln	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333	Full Firepower	Kolibri Assault	All Out Assault	NULL	NULL
 Konigsberg	KMS	Konigsberg	CL	1	0	1.2	1.55	1.3	3372	152	279	333	Reload Command: Cruisers	All Out Assault	NULL	NULL	NULL
+La Galissonniere	MNF	La Galissonniere	CL	1	0	1.35	1.5	1	3484	171	279	309	Critical Component Protection	Shells of Judgement	All Out Assault	NULL	NULL
 Karlsruhe(Retrofitt)	KMS	Konigsberg	CL	1	0	1.2	1.7	1.35	3612	172	318	348	Full Firepower	Disturbance Strategy	All Out Assault	NULL	NULL
 Achilles(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295	Full Firepower	Giant Hunter	All Out Assault	NULL	NULL
 Ajax(Retrofit)	HMS	Leander	CL	1	0	1.6	1.6	1	3214	213	359	295	Full Firepower	Giant Hunter	All Out Assault	NULL	NULL
 Leander(Retrofit)	HMS	Leander	CL	1	0	1.35	1.65	1.3	3486	196	305	321	Artillery Command: Cruisers	Smokescreen	All Out Assault	NULL	NULL
 Leipzig	KMS	Leipzig	CL	1	0	1.25	1.6	1.3	3494	148	270	347	Tactical Command: Cruisers	Safety First!	All Out Assault	NULL	NULL
+Mainz	KMS	Mainz	CL	1	0	1.3	1.1	1.1	5262	168	193	354	Retaliatory Shield	Ausgewogen	Siren Killer	All Out Assault	NULL
 Swiftsure	HMS	Minotaur	CL	1	0	1.55	1.55	1.1	3796	163	364	304	Anti-Air Order	Advanced Fire Control System	All Out Assault	NULL	NULL
 Mikuma	IJN	Mogami	CL	1	0	1.1	1.6	1	4015	201	187	186	Carrier Escort	AP Protection	All Out Assault	NULL	NULL
 Mogami	IJN	Mogami	CL	1	0	1.25	1.6	1.05	4015	201	185	186	Full Firepower	AP Protection	All Out Assault	NULL	NULL

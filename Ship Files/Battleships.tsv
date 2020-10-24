@@ -1,6 +1,7 @@
 SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
 Bismarck	KMS	Bismarck	BB	0	2	1.3	1.8	0.9	8792	423	0	208	Wahrheit	Unwavering Strength	Will of the Iron Blood	NULL	NULL
 Tirpitz	KMS	Bismarck	BB	0	2	1.3	2	0.9	8401	423	217	208	Lone Queen of the North	Magnetic Torpedoes	NULL	NULL	NULL
+Champagne	FFNF	Champagne	BB	0	2	1.8	2	0.8	6896	454	0	241	Augmenting Mechanism: Setzer Principle	Substitue Mechanism: Holy Thurible	Siren Killer	NULL	NULL
 Colorado	USS	Colorado	BB	0	0	1.3	2	1	7456	409	0	216	Big Seven	NULL	NULL	NULL	NULL
 Maryland	USS	Colorado	BB	0	0	1.25	2	1	7414	405	0	219	Big Seven	Fighting Mary	NULL	NULL	NULL
 West Virginia	USS	Colorado	BB	0	0	1.3	2	1	7456	409	0	216	Big Seven	NULL	NULL	NULL	NULL
@@ -10,14 +11,15 @@ Friedrich der Grosse	KMS	Friedrich der Grosse	BB	0	2	1.6	2.2	1	9886	449	0	241	Sy
 Fusou	IJN	Fusou	BB	0	2	1.3	2	1	6916	390	0	222	Cover Fire	NULL	NULL	NULL	NULL
 Yamashiro	IJN	Fusou	BB	0	2	1.3	2	0.85	7309	390	0	222	Cover Fire	NULL	NULL	NULL	NULL
 Gangut	SN	Gangut	BB	0	2	1.1	2	1	6491	324	0	174	Long Live the Revolution!	Icebreaker	NULL	NULL	NULL
-Gascogne	MNF	Gascogne	BB	0	2	1.8	2	0.8	7863	430	0	241	Perceptive Suppression Module	Accurate operation Protocols	Siren Killer	NULL	NULL
 Gascogne (Muse)	MNF	Gascogne	BB	0	2	1.7	2	0.7	7851	429	0	237	Coeur Battant	Leader of the Band	NULL	NULL	NULL
 Georgia	USS	Georgia	BB	0	2	1.65	2	1.1	8297	436	0	409	Ironsight Caliber	Heavy Barrel Buster	Siren Killer	NULL	NULL
 Hyuuga	IJN	Ise	BB	0	2	1.35	1.8	0.8	7124	398	0	229	Artillery Command: Main Fleet	Cover Fire	NULL	NULL	NULL
 Ise	IJN	Ise	BB	0	2	1.4	2	0.8	7214	398	0	229	Cover Fire	NULL	NULL	NULL	NULL
 Izumo	IJN	Izumo	BB	0	2	1.4	2.1	0.8	8607	428	0	437	A Legend's Inheritance	Specialized Armor	Siren Killer	NULL	NULL
+Kii	IJN	Kii	BB	0	2	1.35	2	1	7945	421	283	367	Kii Fleet Strategy	Stalwart Advance	NULL	NULL	NULL
 Suruga	IJN	Kii	BB	0	2	1.35	2	1	8229	421	213	215	Unleashed Tactics	Unyielding Shield	NULL	NULL	NULL
 Duke of York	HMS	King George V	BB	0	2	1.35	2	1	7967	420	0	225	Concerto of Blood	Trepidation of Destruction	NULL	NULL	NULL
+Howe	HMS	King George V	BB	0	2	1.4	2	1	7967	418	0	258	Synchronized Strike	Covenant of the Immortal Knights	NULL	NULL	NULL
 King George V	HMS	King George V	BB	0	2	1.35	2	1	7970	423	0	264	Armament Optimization	The Glory of the Never-Setting Sun	NULL	NULL	NULL
 Prince of Wales	HMS	King George V	BB	0	2	1.35	2	1	7967	422	0	230	Royal Alliance	NULL	NULL	NULL	NULL
 Super Gamer Kizuna Ai	KizunaAi	KizunaAI	BB	0	2	1.3	2	1	7648	409	212	199	Super Aiming Adjustments	Coercion Assistance Mode	NULL	NULL	NULL
@@ -35,8 +37,11 @@ Washington	USS	North Carolina	BB	0	0	1.3	2	1	8080	421	0	400	Courageous Shelling	
 Arizona	USS	Pennsylvania	BB	0	0	1.3	2	1	7137	399	0	219	Eagle's Tears	NULL	NULL	NULL	NULL
 Pennsylvania	USS	Pennsylvania	BB	0	0	1.3	2	1	7194	390	0	212	Sister Penn	NULL	NULL	NULL	NULL
 Queen Elizabeth	HMS	Queen Elizabeth	BB	0	2	1.3	2	1	7512	403	0	212	Queen's Orders	NULL	NULL	NULL	NULL
+Valiant	HMS	Queen Elizabeth	BB	0	2	1.3	2	1	7467	407	0	212	Leading the Way	Forward!	NULL	NULL	NULL
 Warspite(Retrofit)	HMS	Queen Elizabeth	BB	0	2	1.4	2	1.15	8023	446	0	290	Divine Marksman	Divine Marksman Plus	The Royal Legend	NULL	NULL
+Gascogne	MNF	Richelieu	BB	0	2	1.8	2	0.8	7863	430	0	241	Perceptive Suppression Module	Accurate operation Protocols	Siren Killer	NULL	NULL
 Jean Bart	MNF	Richelieu	BB	0	2	1.6	2	0.7	8036	419	0	241	Pirate's Soul	Final Shot	NULL	NULL	NULL
+Richelieu	MNF	Richelieu	BB	0	2	1.6	200	1	8428	447	0	293	The Iri's Flagbearer	The Iris's Holy Flame	The Iris's Vindication	NULL	NULL
 Alabama	USS	South Dakota	BB	0	0	1.3	2	1	7783	407	0	400	Lucky A	Just Gettin' Fired Up	NULL	NULL	NULL
 Massachusetts	USS	South Dakota	BB	0	0	1.3	2	1	7783	414	0	400	Big Mamie	2,700 Pounds of Justive	NULL	NULL	NULL
 South Dakota	USS	South Dakota	BB	0	0	1.3	2	1	8031	414	0	400	The Strongest Shield	Focused Assault	NULL	NULL	NULL

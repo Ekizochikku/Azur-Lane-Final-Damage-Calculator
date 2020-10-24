@@ -1,12 +1,13 @@
 SHIPNAME	FACTION	CLASS	SHIPTYPE	WEP1TYPE	WEP2TYPE	SLOT1EFF	SLOT2EFF	SLOT3EFF	HEALTH	FIREPOWER	TORPEDO	ANTIAIR	SKILL1	SKILL2	SKILL3	SKILL4	SKILL5
-Nakiri Ayame	Hololive	Holo (Temp)	CA	0	1	1.1	0.55	1.05	4168	234	0	197	Oni Goddess Nakiri	Demon Cutter Asura-Rakshasa	NULL	NULL	NULL
 Admiral Hipper	KMS	Admiral Hipper	CA	0	0	1.3	1.6	1	4970	251	190	189	Guarding Shield	Vice Defense	All Out Assault	NULL	NULL
 Admiral Hipper (Muse)	KMS	Admiral Hipper	CA	0	0	1.3	1.6	1	4844	251	185	189	Passionate Fever	Nerve Calming Shield	All Out Assault	NULL	NULL
 Prinz Eugen	KMS	Admiral Hipper	CA	0	0	1.25	1.6	1.2	6252	226	153	205	Unbreakable Shield	All Out Assault	NULL	NULL	NULL
+Algerie	MNF	Algerie	CA	0	1	1.25	1.75	1	5021	279	223	224	Bellowing Gusts of Fire	Divine Aegis	All Out Assault	NULL	NULL
 Aoba	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	All Out Assault	NULL	NULL	NULL
 Kinugasa	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	All Out Assault	NULL	NULL	NULL
 Baltimore	USS	Baltimore	CA	0	1	1.3	0.75	1.35	4412	270	0	251	APsolute Ammunition	Adpative Tactics	All Out Assault	NULL	NULL
 Bremerton	USS	Baltimore	CA	0	1	1.25	0.7	1.4	4828	267	0	266	Blazing Burst Wings	One for the Team	All Out Assault	NULL	NULL
+Cheshire	HMS	Cheshire	CA	0	0	1.3	1.55	1.65	5141	282	208	409	Grin and Fire!	Bounce Right Back	Siren Killer	All Out Assault	NULL
 Dorsetshire	HMS	County	CA	0	0	1.25	1.5	1.2	4755	182	245	249	Journey's End	All Out Assault	NULL	NULL	NULL
 Kent	HMS	County	CA	0	0	1.45	1.6	1	3508	218	215	208	Assault Order	All Out Assault	NULL	NULL	NULL
 London	HMS	County	CA	0	0	1.45	1.6	1	3561	223	223	212	Artillery Command: Vanguard	All Out Assault	NULL	NULL	NULL
@@ -16,8 +17,10 @@ Suffolk(Retrofit)	HMS	County	CA	0	0	1.6	1.65	1	3754	273	245	208	Double Gun	Full 
 Sussex	HMS	County	CA	0	0	1.45	1.6	1	3461	203	215	255	Double Gun	All Out Assault	NULL	NULL	NULL
 Admiral Graf Spee	KMS	Deutschland	CA	0	0	1.4	1.3	1	4631	298	216	154	Pocket Battleship	All Out Assault	NULL	NULL	NULL
 Deutchland	KMS	Deutschland	CA	0	0	1.4	1.3	1	4018	301	220	154	Pocket Battleship	All Out Assault	NULL	NULL	NULL
+Drake	HMS	Drake	CA	0	0	1.3	1.2	1.25	5668	289	245	289	The Fearless Privateer	Flintlock Burst	Siren Killer	All Out Assault	NULL
 Furutaka(Retrofitt)	IJN	Furutaka	CA	0	0	1.3	1.8	1.05	3719	245	235	176	Full Firepower	Double Torpedo	All Out Assault	NULL	NULL
 Kako	IJN	Furutaka	CA	0	0	1.3	1.8	1.05	3719	245	235	176	Full Firepower	Double Torpedo	All Out Assault	NULL	NULL
+Nakiri Ayame	Hololive	Hololive	CA	0	1	1.1	0.55	1.05	4168	234	0	197	Oni Goddess Nakiri	Demon Cutter Asura-Rakshasa	NULL	NULL	NULL
 Ibuki	IJN	Ibuki	CA	0	0	1.4	1.85	1.1	4793	270	289	194	Body and Soul	Flash of Lighting	Siren Killer	All Out Assault	NULL
 Elegant Kizuna Ai	KizunaAi	KizunaAI	CA	0	1	1.1	0.55	1.25	5020	255	0	225	Connected	Everything is In Order		NULL	NULL
 Suzuya	IJN	Mogami	CA	2	0	1.35	1.45	1.1	4176	237	212	209	Destoryer of Darkness	AP Protection	All Out Assault	NULL	NULL
