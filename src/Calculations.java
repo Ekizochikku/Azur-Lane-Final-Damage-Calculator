@@ -89,7 +89,7 @@ public class Calculations {
 			}
 			
 			// Critical Damage
-			if (crit || (shipName.equals("Bismarck") && skillList.contains("Wahrheit"))) {
+			if (crit || (shipName.equals("Bismarck") && skillList.contains("Wahrheit")) || (shipName.equals("Richelieu") && skillList.contains("The Iris's Vindication") && manual)) {
 				criticalDamageStat = getCriticalDamage(shipName, wepType, wepName, skillList, evenOdd);
 			}
 			
@@ -113,7 +113,7 @@ public class Calculations {
 			injRatStat = getInjureRatio();
 			
 			// Damage Ratio
-			dmgRatStat = getDamageRatio(shipName, wepType, skillList, evenOdd, ep, armorBreak, firstSalvo);
+			dmgRatStat = getDamageRatio(shipName, shipType, wp, wepType, skillList, evenOdd, ep, armorBreak, firstSalvo);
 			
 			// Damage to Nation
 			dmgNatStat = getDamageToNation(ep);
@@ -209,6 +209,7 @@ public class Calculations {
 			}
 		}
 		
+		
 		// Fading Memories of Glory Exception
 		if (skillList.contains("Fading Memories of Glory") && wepType.equals("TORPEDOS")) {
 			stat = 0;
@@ -218,6 +219,9 @@ public class Calculations {
 		double skillStat = 1;
 		if (wepType.equals("TORPEDOS")) {
 			skillStat = getStackedStats(9, 1);
+			if (shipType.equals("DD") || shipType.equals("CL") || shipType.equals("CA") || shipType.equals("LC") && skillList.contains("Stalwart Advance")) {
+				skillStat += .1;
+			}
 		} else if (wepType.equals("PLANES")) {
 			System.out.println(""); // PLACEHOLDER FOR AIRCRAFT
 		} else {
@@ -225,6 +229,7 @@ public class Calculations {
 		}
 		
 		// Exceptions
+		
 		// North Carolina
 		if (shipName.equals("North Carolina") && skillList.contains("AA Firepower") && wepType.equals("CANNON")) {
 			skillStat += Double.parseDouble(sp.get(10)) * 0.30;
@@ -251,6 +256,17 @@ public class Calculations {
 		// Dido and Queen Elizabeth ; For the Queen. Ignore weapon type specification since BB/BC use cannons
 		} else if (shipName.equals("Queen Elizabeth") && skillList.contains("For the Queen")) {
 			skillStat += 0.07;
+			
+		// Champagne Exception
+		} else if(shipName.equals("Champagne") && shipSlot == 1 && (wp.get(6).equals("AP") || wp.get(6).equals("AP+") || wp.get(6).equals("AP++"))) {
+			for (int i = 0; i < multiSkills.size(); i++) {
+				ArrayList<String> temp = multiSkills.get(i);
+				if (temp.get(1).equals("Substitute Mechanism: Holy Thurible")) {
+					multiSkills.remove(i);
+					temp.set(10, "0");
+					multiSkills.add(temp);
+				}
+			}
 		} else {
 			System.out.println("No Exceptions for skill stats");
 		}
@@ -279,9 +295,7 @@ public class Calculations {
 		}
 		
 		// Exceptions
-		if (shipName.equals("Nakiri Ayame") && skillList.contains("Demon Cutter Asura-Rakshasa")) {
-			buffDamage += 0.08;
-		} else if (shipName.equals("Baltimore") && skillList.contains("APsolute Ammunition") && ep.get(4).equals("H")) {
+		if (shipName.equals("Baltimore") && skillList.contains("APsolute Ammunition") && ep.get(4).equals("H")) {
 			buffDamage += 0.08;
 		} else {
 			System.out.println("No Armor Breaks");
@@ -323,9 +337,37 @@ public class Calculations {
 			armorMod = Double.parseDouble(wp.get(8));
 		}
 		if (!shipName.equals("Kawakaze") || !shipName.equals("Roon") || !shipName.equals("Massachusetts") || !shipName.equals("Kitikaze") || !shipName.equals("Baltimore")
-				|| !shipName.equals("Gascogne (Muse)") || !shipName.equals("Admiral Hipper (Muse)") || !shipName.equals("Cleveland (Muse)") || !shipName.equals("Sheffield (Muse)")) {
+				|| !shipName.equals("Gascogne (Muse)") || !shipName.equals("Admiral Hipper (Muse)") || !shipName.equals("Cleveland (Muse)") || !shipName.equals("Sheffield (Muse)") 
+				|| !shipName.equals("Champagne") || !shipName.equals("Drake") || !shipName.equals("Baltimore (Muse)")) {
 			return armorMod;
 		} else {
+			
+			if (shipName.equals("Baltimore (Muse)") && skillList.contains("Armor-Piercing Hypercharge")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = 1.00;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.10;
+				} else {
+					armorMod = 1.20;
+				}
+			}
+			
+			if (shipName.equals("Champage") && skillList.contains("Substitute Mechanism: Holy Thurible") && (!wp.get(5).equals("AP") || !wp.get(5).equals("AP+") || !wp.get(5).equals("AP++"))) {
+				if (enemyArmor.equals("H")) {
+					armorMod += .15;
+				}
+			}
+			
+			if (shipName.equals("Drake") && skillList.contains("The Fearless Privateer") && wp.get(5).equals("HE") || wp.get(5).equals("HE+") || wp.get(5).equals("HE++") || wp.get(5).equals("Normal")) {
+				if (enemyArmor.equals("L")) {
+					armorMod = 1.25;
+				} else if (enemyArmor.equals("M")) {
+					armorMod = 1.25;
+				} else {
+					armorMod = 1.05;
+				}
+			}
+			
 			if (shipName.equals("Kawakaze") && skillList.contains("Impartial Destruction")) {
 				if (wepType.equals("TORPEDOS")) {
 					armorMod = 1.15;
@@ -475,7 +517,7 @@ public class Calculations {
 	/*
 	 * Returns a double of the bonus damage from damage ratio from skills.
 	 */
-	public double getDamageRatio(String shipName, String wepType, ArrayList<String> skillList, int evenOdd, ArrayList<String> ep, boolean armorBreak, boolean firstSalvo) throws FileNotFoundException, IOException {
+	public double getDamageRatio(String shipName, String shipType, ArrayList<String> wp, String wepType, ArrayList<String> skillList, int evenOdd, ArrayList<String> ep, boolean armorBreak, boolean firstSalvo) throws FileNotFoundException, IOException {
 		double ratio = 0;
 		for (int i = 0; i < skillList.size(); i++) {
 			ArrayList<String> holding = new ArrayList<String>();
@@ -488,7 +530,13 @@ public class Calculations {
 				} else if (shipName.equals("Minato Aqua") && skillList.contains("Failen Angel")) {
 					//1.5 of the 2% is 1
 					ratio += .01;
-				} else {
+				} else if(shipName.equals("Richelieu") && skillList.contains("The Iris's Vindication") && (wp.get(5).equals("HE") || wp.get(5).equals("HE+") || wp.get(5).equals("HE++"))) {
+					ratio += .12;
+				} else if (skillList.contains("Auspice of the Stars")) {
+					if (shipType.equals("DD") || shipType.equals("CL") || shipType.equals("CA") || shipType.equals("LC")) {
+						ratio += .15;
+					}
+				}	else {
 					ratio += Double.parseDouble(holding.get(4));
 				}
 			} else {

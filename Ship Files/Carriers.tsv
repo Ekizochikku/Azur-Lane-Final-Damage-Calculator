@@ -17,6 +17,7 @@ Zeppy	KMS	Graf Zeppelin	CV	0	1	7	1.15	1.3	1	6983	174	0	307	376	Taste My Wrath!	I
 Hiryuu(Retofit)	IJN	Hiryuu	CV	0	1	2	1.25	1.15	1.5	5678	0	0	361	426	Final Counter	Second Carrier Division	Flowers of Fate	NULL	NULL
 Formidable	HMS	Illustrious	CV	6	2	2	1.2	1.35	1.25	6481	0	0	289	413	Supporting Wings	Don't Move An Inch!	Armoured Hanger	NULL	NULL
 Illustrious	HMS	Illustrious	CV	0	0	2	1.35	1.35	1.1	6561	0	0	296	400	Armored Carrier	NULL	NULL	NULL	NULL
+Illustrious (Muse)	HMS	Illustrious	CV	0	0	2	1.25	1.25	1.35	6513	0	0	293	407	Auspice of the Stars	Blue Spirit	NULL	NULL	NULL
 Victorious	HMS	Illustrious	CV	0	1	2	1.2	1.3	1.3	6262	0	0	289	410	Victorious Song	Assault Carrier	NULL	NULL	NULL
 Kaga	IJN	Kaga	CV	0	1	2	1.1	1.1	1.5	6771	0	0	323	408	Preemptive Strike	Fire Carrier Division	NULL	NULL	NULL
 Anniversary Kizuna Ai	KizunaAi	KizunaAI	CV	0	1	2	1.1	1.35	1.35	6626	0	0	323	410	Future Base	Melty World	NULL	NULL	NULL
@@ -28,6 +29,7 @@ Shoukaku	IJN	Shoukaku	CV	0	1	2	1.1	1.1	1.5	6729	0	0	349	412	Fifth Carrier Divisi
 Zuikaku	IJN	Shoukaku	CV	0	1	2	1.3	1.25	1.25	7193	0	0	323	414	Fifth Carrier Division	Crane's Endeavor	NULL	NULL	NULL
 Souryuu(Retrofit)	IJN	Souryuu	CV	0	1	2	1.25	1.5	1.15	5456	0	0	363	425	Fleet Carrier	Second Carrier Division	Flowers of Fate	NULL	NULL
 Taihou	IJN	Taihou	CV	0	1	2	1.2	1.3	1.4	7310	0	0	319	399	Predestined Launch	Heavily Armored	NULL	NULL	NULL
+Taihou (Muse)	IJN	Taihou	CV	0	1	2	1.2	1.3	1.4	7195	0	0	309	400	Scarlet Waltz	Soaring Opening	NULL	NULL	NULL
 Fumiruiru	Utawarerumono	Utawarerumono	CV	0	2	2	1.05	1.05	1.05	5126	0	0	266	337	Hundred Honey	Honey Moon	NULL	NULL	NULL
 Wasp	USS	Wasp	CV	0	1	2	1.25	1.25	1.25	4894	0	0	272	330	Double String	NULL	NULL	NULL	NULL
 Shinano	IJN	Yamato	CV	6	1	2	1.25	1.3	1.35	8616	0	0	317	437	Hope's Tempest	Dreamwaker's Bow	Protector of the New Moon	NULL	NULL

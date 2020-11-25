@@ -6,6 +6,7 @@ Algerie	MNF	Algerie	CA	0	1	1.25	1.75	1	5021	279	223	224	Bellowing Gusts of Fire	
 Aoba	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	All Out Assault	NULL	NULL	NULL
 Kinugasa	IJN	Aoba	CA	0	0	1.3	1.65	1	3527	215	190	167	Full Firepower	All Out Assault	NULL	NULL	NULL
 Baltimore	USS	Baltimore	CA	0	1	1.3	0.75	1.35	4412	270	0	251	APsolute Ammunition	Adpative Tactics	All Out Assault	NULL	NULL
+Baltimore (Muse)	USS	Baltimore	CA	0	1	1.25	0.55	1.35	4646	261	0	251	Armor-Piercing Hypercharge	Blazing Choreography	All Out Assault II	NULL	NULL
 Bremerton	USS	Baltimore	CA	0	1	1.25	0.7	1.4	4828	267	0	266	Blazing Burst Wings	One for the Team	All Out Assault	NULL	NULL
 Cheshire	HMS	Cheshire	CA	0	0	1.3	1.55	1.65	5141	282	208	409	Grin and Fire!	Bounce Right Back	Siren Killer	All Out Assault	NULL
 Dorsetshire	HMS	County	CA	0	0	1.25	1.5	1.2	4755	182	245	249	Journey's End	All Out Assault	NULL	NULL	NULL
@@ -42,6 +43,7 @@ Salt Lake City	USS	Pensacola	CA	0	1	1.2	0.45	1.05	3290	232	0	198	Full Firepower	
 Indianapolis	USS	Portland	CA	0	1	1.1	0.6	1.3	4734	210	0	252	Pandora's Box	Vice Defense	All Out Assault	NULL	NULL
 Portland(Retrofit)	USS	Portland	CA	0	1	1.15	0.65	1.35	5355	234	0	260	Best Sister	Defense Order	All Out Assault	NULL	NULL
 Roon	KMS	Roon	CA	0	0	1.3	1.1	1.1	5920	283	215	233	Expert Loader	Well-Rounded Armor	Siren Killer	All Out Assault	NULL
+Roon (Muse)	KMS	Roon	CA	0	0	1.3	1.1	1.1	6055	283	215	233	Encore Flare	Bilateral Accompaniment	All Out Assault II	NULL	NULL
 Saint Louis	FFNF	Saint Louis	CA	0	0	1.3	1.2	1.25	5363	279	226	248	Augmented HE Ammo	Engine Boost	Siren Killer	All Out Assault	NULL
 Atago	IJN	Takao	CA	0	0	1.35	1.7	1	4295	270	245	178	Arsonist	Double Torpedo	All Out Assault	NULL	NULL
 Choukai	IJN	Takao	CA	0	0	1.25	1.3	1.1	4295	261	221	178	Leyte Gulf's Blitz	Focused Assault	All Out Assault	NULL	NULL

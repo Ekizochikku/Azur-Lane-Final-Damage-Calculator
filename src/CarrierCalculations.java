@@ -133,7 +133,7 @@ public class CarrierCalculations {
 			lvlDiffStat = getLevelDifference(ep, dangerLvl);
 			
 			// Injure Ratio
-			injRatStat = getInjureRatio();
+			injRatStat = getInjureRatio(skillList);
 			
 			// Damage Ratio
 			dmgRatStat = getDamageRatio(shipName, wepType, skillList, ep);
@@ -202,10 +202,22 @@ public class CarrierCalculations {
 			effSlot = Double.parseDouble(sp.get(9));
 		}
 		
+		// Bearn Exception
+		if (shipName.equals("Bearn") && skillList.contains("Sacrament: Holy Bombardment") && shipSlot == 3 && wepType.equals("CL")) {
+			effSlot += .45;
+		}
+		
+		// Eagle Exception
+		if (shipName.equals("Eagle") && skillList.contains("Royal Arts: Knight's Arsenal") && shipSlot == 3 && wepType.equals("CL")) {
+			effSlot += .45;
+		}
+		
 		// Bataan Exception
 		if (shipName.equals("Bataan") && skillList.contains("Hellcat's Roar") && wepType.equals("FIGHTERP") && wepName.contains("Grumman F6F Hellcat")) {
 			wepCoff += .30;
 		}
+		
+		
 		
 		// Supporting Wings (Yellow) Exception for part 2. Need second slot if implementing
 		
@@ -227,6 +239,11 @@ public class CarrierCalculations {
 		// Formidable Part 1 Exception
 		if (shipName.equals("Formidable") && skillList.contains("Supporting Wings")) {
 			statBuff += .30;
+		}
+		
+		// Shimano Carrier Buff
+		if (skillList.contains("Protector of the New Moon")) {
+			statBuff += .15;
 		}
 		double finalStatAttacker = statAttacker * statBuff * 0.80;
 		finalDmg = wepDmg * wepCoff * effSlot * (1 + (finalStatAttacker/100));
@@ -298,9 +315,12 @@ public class CarrierCalculations {
 	 * Returns a double  of the bonus damage from injure ratio from skills.
 	 */
 	
-	public double getInjureRatio() throws FileNotFoundException, IOException {
+	public double getInjureRatio(ArrayList<String> skillList) throws FileNotFoundException, IOException {
 		double ratio = 0;
 		ratio = getStackedStats(3, 0);
+		if (skillList.contains("Beckoning of Ice")) {
+			ratio += .05;
+		}
 		return ratio;
 	}
 	
@@ -314,6 +334,10 @@ public class CarrierCalculations {
 			if (holding.get(6).equals("1")) {
 				ratio += Double.parseDouble(holding.get(4));
 			}
+		}
+		
+		if (!shipType.equals("SUB") && skillList.contains("Auspice of the Stars")) {
+			ratio += .1;
 		}
 		return ratio;
 	}
