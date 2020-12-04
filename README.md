@@ -2,14 +2,13 @@
 This is an application that will calculate the final damage done by a single shot or load of a weapon in the mobile game Azur Lane. Calculations are calculated through the stats given by the ship, weapons and equipment(later?), and skills.
 
 # Important-Info
+<B>*****I'm still alive. I'm still updating when I can.*****</B>
 
 <B> Currently messing with overhauling somethings, so will try to get this updated to that.</B>
 
 <B> We will implement new game changes when we can. </B>
 
-<B> Current Updated Data (Ish): Piercing Through the Saipan Blue 10/12/2020 </B>
-
-<B> Updating the weapons and code sometime later </B>
+<B> Current Updated Data (Ish): Vacation Lane (11/26/2020)(Collab ships not in yet) </B>
 
 Calculations are done with preset conditions:
 - Ships are level 120 and stats are represented of that. If the ship has a retrofir that changes the ship type, both the pre and post retro level 120 stats will be shown.
