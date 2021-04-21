@@ -1,3 +1,11 @@
+PLEASE GO TO THIS UPDATED ONE. THIS ONE IS NO LONGER UPDATED BY US.
+https://github.com/Ekizochikku/Cleaner-AZFDC
+
+
+
+
+
+
 # Azur-Lane-Final-Damage-Calculator
 This is an application that will calculate the final damage done by a single shot or load of a weapon in the mobile game Azur Lane. Calculations are calculated through the stats given by the ship, weapons and equipment(later?), and skills.
 
